@@ -13,6 +13,10 @@
 \end{de}
 
 \begin{de}
+  De optelling van twee punten is niet gedefini\"eerd, maar \emph{de optelling van een punt en een vector} is gedefini\"eerd door ze beide als re\"ele $n$-tallen te beschouwen en coordinaatsgewijs op te tellen.
+\end{de}
+
+\begin{de}
   Een $n$-dimensionale \emph{affiene ruimte} $\mathbb{A}^{n}$ bestaat uit $n$-dimensionale punten.
   \[ \mathbb{A}^{n} = \left\{\{ (p_{1}, p_{2}, \ldots, p_{n}) \ |\ p_{i} \in \mathbb{R} \right\} \]
 \end{de}
@@ -49,12 +53,12 @@
 \end{de}
 
 \begin{de}
-  Zij $v_{p}$ en $w_{p}$ twee raakvectoren in de rakende ruimte $T_{p}\mathbb{A}^{n}$ van hetzelfde punt $p$, dan defini\"eren we de som $v_{p}+w_{p}$ als volgt.
+  Zij $v_{p}$ en $w_{p}$ twee raakvectoren in de rakende ruimte $T_{p}\mathbb{A}^{n}$ van hetzelfde punt $p$, dan defini\"eren we \emph{de som} $v_{p}+w_{p}$ als volgt.
   \[ v_{p}+w_{p} = (v+w)_{p}\]
 \end{de}
 
 \begin{de}
-  Zij $v_{p}$ een raakvector aan een punt $p$ van de affiene ruimte $\mathbb{A}^{n}$ en $\lambda \in \mathbb{R}$ een re\"eel getal, dan defini\"eren we het scalair product $\lambda v_{p}$ als volgt. 
+  Zij $v_{p}$ een raakvector aan een punt $p$ van de affiene ruimte $\mathbb{A}^{n}$ en $\lambda \in \mathbb{R}$ een re\"eel getal, dan defini\"eren we \emph{het scalair product} $\lambda v_{p}$ als volgt. 
   \[ \lambda v_{p} = (\lambda v)_{p}\]
 \end{de}
 
@@ -106,5 +110,58 @@
     \[ \psi_{pq} = \phi_{p}^{-1} \circ\phi_{p}\]
   \end{proof}
 \end{st}
+
+\section{Affiene deelruimten}
+\label{sec:affiene-deelruimten}
+
+\begin{de}
+  \label{de:affiene-deelruimte}
+  Zij $p$ een punt in de affiene ruimte $\mathbb{A}^{n}$ in $V$ een $k$-dimensionale deelruimte van $\mathbb{R}^{n}$ met $0 \le k \le n$.
+  We noemen $p + V$ de \emph{affiene deelruimte} van $\mathbb{A}^{n}$ met richting $V$ en aangrijpingspunt $p$.
+  \[ p + V = \left\{ p + v \in \mathbb{A}^{n}\ |\ v \in V \right\} \]
+\end{de}
+
+\begin{de}
+  Affiene ruimten met \'e\'en dimensie noemen we \emph{affiene rechten}.
+\end{de}
+
+\begin{de}
+  Affiene ruimten met twee dimensies noemen we \emph{affiene vlakken}.
+\end{de}
+
+\begin{de}
+  Wanneer we spreken over $n$-dimensionale affiene ruimten noemen we $n-1$-dimensionale affiene ruimten \emph{affiene hypervlakken}.
+\end{de}
+
+\begin{lem}
+  Zij $p$ en $q$ twee punten uit de affiene ruimte $\mathbb{A}^{n}$ en $V$ een lineaire deelruimte van $\mathbb{R}^{n}$. De volgende uitspraken zijn equivalent:
+  \begin{enumerate}
+  \item $q \in p+V$.
+  \item $\overrightarrow{pq} \in V$
+  \item $p + V = q + V$
+  \end{enumerate}
+  \begin{proof}
+    Bewijs door circulaire implicaties.
+    \begin{itemize}
+    \item (1) $\Rightarrow$ (2)\\
+      Als $q \in p+V$ geldt, dan bestaat er een $v \in V$ zodat $q = p + v$ geldt.\footnote{Zie de definitie van affiene deelruimten. (Definitie \ref{de:affiene-deelruimte})}.
+      $\overrightarrow{pq} = q - p$ is danprecies $v$, en we toonden net dat $v \in V$ geldt.
+    \item (2) $\Rightarrow$ (3)\\
+      Om de gelijkheid van deze twee verzamelingen aan te tonen bewijzen we de twee inclusies:
+      \begin{itemize}
+      \item $\forall x \in p + V:\ x \in q + V$\\
+        Kies een willekeurige $x\in p + V$. Er bestaat nu een $v \in V$ zodat $x = p + v$ geldt.\footnote{Zie de definitie van affiene deelruimten. (Definitie \ref{de:affiene-deelruimte})}.
+        \[ p + v = p + v + q - q = q - \overrightarrow{pq} + v\]
+        Omdat $\overrightarrow{pq} \in V$ geldt, geldt ook $- \overrightarrow{pq} + v \in V$\footnote{De optelling is intern in een vectorruimte.}.
+        Noem nu $- \overrightarrow{pq} + v = w$, dan bestaat er dus een $w \in V$ zodat $x = q + w$ en zit $x$ bijgevolg ook in $q + V$.
+      \item $\forall x \in q + V:\ x \in p + V$\\
+        Hernoem $p$ naar $q$ en omgekeerd en kijk naar het vorige puntje.
+      \end{itemize}
+    \item (3) $\Rightarrow$ (1)\\
+      $q$ zit steeds in $q + V$ (tel bij $q$ de nulvector op).
+      Omdat $p + V$ en $q + V$ gelijk zijn zit $q$ dus ook in $p + V$.
+    \end{itemize}
+  \end{proof}
+\end{lem}
 
 \end{document}
