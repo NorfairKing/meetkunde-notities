@@ -65,6 +65,7 @@
 \begin{st}
   Elke rakende ruimte in een punt $p$ aan $\mathbb{A}^{n}$ vormt een vectorruimte over $\mathbb{R}$.
   \TODO{bewijs zie p 6 voor opgave.}
+
   \begin{proof} We bewijzen de axioma's van een vectorruimte
     \begin{itemize}
     \item associativiteit van de optelling
@@ -84,6 +85,7 @@
   Voor elk willekeurig punt $p$ van de affiene ruimte $\mathbb{A}^{n}$ is de afbeelding van de raakvector op de vector een isomorfisme van de rakende ruimte in dat punt en de re\"ele vectorruimte $\mathbb{R}^{n}$.
   $phi_{p}$ is dus een isomorphisme.
   \[ \phi_{p}: T_{p}\mathbb{A}^{n} \rightarrow \mathbb{R}^{n}: v_{p} \mapsto v \]
+
   \begin{proof}
     Een isomorphisme is een bijectieve lineaire afbeelding.
     \begin{itemize}
@@ -105,6 +107,7 @@
   Voor elke twee willekeurige punten $p$ en $q$ van de affine ruimte $\mathbb{A}^{n}$ zijn de rakende ruimten isomorf.
   $\psi$ is dus een isomorphisme.
   \[ \psi_{pq}: T_{p}\mathbb{A}^{n} \rightarrow T_{q}\mathbb{A}^{n}: v_{p} \mapsto v_{q}\]
+
   \begin{proof}
     $\psi_{pq}$ is een samenstelling van isomorphismen\footnote{Zie het isomorphisme $\phi_{p}$ (stelling \ref{st:phi-isomorphisme})}, en bijgevolg ook een isomorphisme.
     \[ \psi_{pq} = \phi_{p}^{-1} \circ\phi_{p}\]
@@ -134,12 +137,14 @@
 \end{de}
 
 \begin{lem}
+\label{lem:equivalenties-affiene-deelruimte}
   Zij $p$ en $q$ twee punten uit de affiene ruimte $\mathbb{A}^{n}$ en $V$ een lineaire deelruimte van $\mathbb{R}^{n}$. De volgende uitspraken zijn equivalent:
   \begin{enumerate}
   \item $q \in p+V$.
   \item $\overrightarrow{pq} \in V$
   \item $p + V = q + V$
   \end{enumerate}
+
   \begin{proof}
     Bewijs door circulaire implicaties.
     \begin{itemize}
@@ -163,5 +168,31 @@
     \end{itemize}
   \end{proof}
 \end{lem}
+
+\begin{st}
+  Twee affiene deelruimten $p + V$ en $q + W$ zijn gelijk als en slechts als de deelrruimten $V$ en $W$ gelijk zijn, en het verschil tussen $p$ en $q$ als vector in $V = W$ zit.
+  \[ p + V = q + W \Leftrightarrow V = W \wedge \overrightarrow{pq} \in V\]
+
+  \begin{proof}
+    Bewijs van een equivalentie.
+    Kies willekeurige deelruimten $V$ en $W$ van $\mathbb{R}^{n}$ en punten $p$ en $q$ uit de affiene ruimte $\mathbb{A}^{n}$.
+    \begin{itemize}
+    \item $\Rightarrow$\\
+      Als $p + V = q + W$ geldt, dan zit $q$ in $p + V$ en geldt $\overrightarrow{pq} \in V$.\footnote{Zie lemma \ref{lem:equivalenties-affiene-deelruimte}.}
+      We bewijzen nu beide inclusies om aan te tonen dat $V$ en $W$ gelijk zijn.
+      \begin{itemize}
+      \item $\forall x \in V:\ x \in W$\\
+      Kies een willekeurige $v \in V$.
+      $p + v \in p + V$ geldt en $p + V = q + W$, dus er bestaat een $w \in W$ zodat $q + w = p + v$ geldt.
+      \[ w = (p-q) + v \]
+      Vermits $\overrightarrow{pq} \in V$ geldt, zit $w$ in $V$.\footnote{De optelling is intern in een vectorruimte.}.
+      \item $\forall x \in W:\ x \in V$\\
+        Hernoem $V$ naar $W$ en omgekeerd en kijk naar het vorige puntje
+      \end{itemize}
+    \item $\Leftarrow$\\
+      Dit is al bewezen in deel 3 van het vorige lemma.\footnote{Zie lemma \ref{lem:equivalenties-affiene-deelruimte}.}
+    \end{itemize}
+  \end{proof}
+\end{st}
 
 \end{document}
