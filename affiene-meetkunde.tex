@@ -8,8 +8,103 @@
 \label{sec:affiene-ruimte}
 
 \begin{de}
+  Een $n$-dimensionaal punt is een veeltal met $n$ co\"ordinaten.
+  \[ p = (p_{1}, p_{2}, \ldots, p_{n}) \]
 \end{de}
 
+\begin{de}
+  Een $n$-dimensionale \emph{affiene ruimte} $\mathbb{A}^{n}$ bestaat uit $n$-dimensionale punten.
+  \[ \mathbb{A}^{n} = \left\{\{ (p_{1}, p_{2}, \ldots, p_{n}) \ |\ p_{i} \in \mathbb{R} \right\} \]
+\end{de}
 
+\begin{de}
+  $\mathbb{A}^{2}$ noemen we \emph{het affiene vlak}.
+\end{de}
+
+\begin{de}
+  Zij $p \in \mathbb{A}^{n}$ een punt van de $n$-dimensionale affiene ruimte $\mathbb{A}^{n}$ en zij $v \in \mathbb{R}^{n}$ een $n$-dimensionale re\"ele vector.
+  Een koppel $(p,v)$ noemen we een \emph{raakevector} met aangrijpingspunt $p$ en vectordeel $v$.
+  \[ v_{p} = (p,v) \]
+\end{de}
+
+\begin{de}
+  Twee raakvectoren $v_{p} = (p,v)$ en $w_{q} = (q,w)$ zijn gelijk als elk zowel hun aangrijpingspunten en vectordelen gelijk zijn.
+  \[ v_{p} = w_{q} \Leftrightarrow p = q \wedge v = w \]
+\end{de}
+
+\begin{de}
+  De \emph{rakende ruimte} $T_{p}\mathbb{A}^{n}$ \emph{in een punt} $p$ \emph{aan een affiene ruimte} $\mathbb{A}^{n}$ is de verzameling van raakvectoren met $p$ als aangrijpingspunt in $\mathbb{A}^{n}$.
+  \[ \left\{\{v_{p} = (p,v)\ |\ v \in \mathbb{R}^{n} \right\} \]
+\end{de}
+
+\begin{de}
+  De verzameling van alle raakvectoren $v_{p}$ aan punten $p$ in een affiene ruimte $\mathbb{A}^{n}$ noemen we de \emph{rakende bundel} m$T\mathbb{A}^{n}$ van die affiene ruimte $\mathbb{A}^{n}$.
+  \[
+  \begin{array}{rl}
+  T\mathbb{A}^{n} &= \left\{v_{p}\ |\ p \in \mathbb{A}^{n}, v \in \mathbb{R}^{n} \right\}\\
+                 &= \left\{(p,v)\ |\ p \in\mathbb{A}^{n}, v \in \mathbb{R}^{n} \right\}\\
+                 &= \mathbb{A}^{n} \times \mathbb{R}^{n}
+  \end{array}
+  \]
+\end{de}
+
+\begin{de}
+  Zij $v_{p}$ en $w_{p}$ twee raakvectoren in de rakende ruimte $T_{p}\mathbb{A}^{n}$ van hetzelfde punt $p$, dan defini\"eren we de som $v_{p}+w_{p}$ als volgt.
+  \[ v_{p}+w_{p} = (v+w)_{p}\]
+\end{de}
+
+\begin{de}
+  Zij $v_{p}$ een raakvector aan een punt $p$ van de affiene ruimte $\mathbb{A}^{n}$ en $\lambda \in \mathbb{R}$ een re\"eel getal, dan defini\"eren we het scalair product $\lambda v_{p}$ als volgt. 
+  \[ \lambda v_{p} = (\lambda v)_{p}\]
+\end{de}
+
+\begin{st}
+  Elke rakende ruimte in een punt $p$ aan $\mathbb{A}^{n}$ vormt een vectorruimte over $\mathbb{R}$.
+  \TODO{bewijs zie p 6 voor opgave.}
+  \begin{proof} We bewijzen de axioma's van een vectorruimte
+    \begin{itemize}
+    \item associativiteit van de optelling
+    \item neutraal element voor de optelling
+    \item symmetrisch element voor de optelling
+    \item commutativiteit van de optelling
+    \item distributiviteit van het scalair product ten opzichte van de optelling
+    \item distributiviteit van de optelling ten opzichte van het scalair product
+    \item gemengde associativiteit
+    \item neutraal element van het scalair product
+    \end{itemize}
+  \end{proof}
+\end{st}
+
+\begin{st}
+  \label{st:phi-isomorphisme}
+  Voor elk willekeurig punt $p$ van de affiene ruimte $\mathbb{A}^{n}$ is de afbeelding van de raakvector op de vector een isomorfisme van de rakende ruimte in dat punt en de re\"ele vectorruimte $\mathbb{R}^{n}$.
+  $phi_{p}$ is dus een isomorphisme.
+  \[ \phi_{p}: T_{p}\mathbb{A}^{n} \rightarrow \mathbb{R}^{n}: v_{p} \mapsto v \]
+  \begin{proof}
+    Een isomorphisme is een bijectieve lineaire afbeelding.
+    \begin{itemize}
+    \item $\phi_{p}$ is een bijectie.
+      \begin{itemize}
+      \item $\phi_{p}$ is een injectie.
+      \[ \forall v_{p},w_{p} \in T_{p}\mathbb{A}^{n}: \phi_{p}(v_{p}) = \phi_{p}(w_{p}) \Rightarrow v_{p} = w_{p}\]
+      \item $\phi_{p}$ is een surjectie.
+      \[ \forall v \in \mathbb{R}^{n},\ \exists v_{p} \in T_{p}\mathbb{A}^{n}: \phi_{p}(v_{p}) = v \]
+      \end{itemize}
+    \item $\phi_{p}$ bewaart de lineariteit:
+    \[ \phi_{p}(v_{p}+w_{p}) = \phi_{p}((v+w)_{p}) = v + w = \phi_{p}(v_{p}) + \phi_{p}(w_{p}) \] 
+    \[ \phi_{p}(\lambda v_{p}) = \phi_{p}(\lambda v)_{p}) = \lambda v = \lambda\phi_{p}(v_{p})\]
+    \end{itemize}
+  \end{proof}
+\end{st}
+
+\begin{st}
+  Voor elke twee willekeurige punten $p$ en $q$ van de affine ruimte $\mathbb{A}^{n}$ zijn de rakende ruimten isomorf.
+  $\psi$ is dus een isomorphisme.
+  \[ \psi_{pq}: T_{p}\mathbb{A}^{n} \rightarrow T_{q}\mathbb{A}^{n}: v_{p} \mapsto v_{q}\]
+  \begin{proof}
+    $\psi_{pq}$ is een samenstelling van isomorphismen\footnote{Zie het isomorphisme $\phi_{p}$ (stelling \ref{st:phi-isomorphisme})}, en bijgevolg ook een isomorphisme.
+    \[ \psi_{pq} = \phi_{p}^{-1} \circ\phi_{p}\]
+  \end{proof}
+\end{st}
 
 \end{document}
