@@ -13,6 +13,10 @@
 \end{de}
 
 \begin{de}
+  De optelling van twee punten is niet gedefini\"eerd, maar \emph{de optelling van een punt en een vector} is gedefini\"eerd door ze beide als re\"ele $n$-tallen te beschouwen en coordinaatsgewijs op te tellen.
+\end{de}
+
+\begin{de}
   Een $n$-dimensionale \emph{affiene ruimte} $\mathbb{A}^{n}$ bestaat uit $n$-dimensionale punten.
   \[ \mathbb{A}^{n} = \left\{\{ (p_{1}, p_{2}, \ldots, p_{n}) \ |\ p_{i} \in \mathbb{R} \right\} \]
 \end{de}
@@ -35,6 +39,7 @@
 \begin{de}
   De \emph{rakende ruimte} $T_{p}\mathbb{A}^{n}$ \emph{in een punt} $p$ \emph{aan een affiene ruimte} $\mathbb{A}^{n}$ is de verzameling van raakvectoren met $p$ als aangrijpingspunt in $\mathbb{A}^{n}$.
   \[ \left\{\{v_{p} = (p,v)\ |\ v \in \mathbb{R}^{n} \right\} \]
+  Het symbool $T$ in de notatie van de rakende ruimte staat voor 'tangent'.
 \end{de}
 
 \begin{de}
@@ -49,18 +54,21 @@
 \end{de}
 
 \begin{de}
-  Zij $v_{p}$ en $w_{p}$ twee raakvectoren in de rakende ruimte $T_{p}\mathbb{A}^{n}$ van hetzelfde punt $p$, dan defini\"eren we de som $v_{p}+w_{p}$ als volgt.
-  \[ v_{p}+w_{p} = (v+w)_{p}\]
+  Zij $v_{p}$ en $w_{p}$ twee raakvectoren in de rakende ruimte $T_{p}\mathbb{A}^{n}$ van hetzelfde punt $p$, dan defini\"eren we \emph{de som} $v_{p}+w_{p}$ als volgt.
+  \[ v_{p} \boldsymbol{ + } w_{p} = (v + w)_{p}\]
+  Merk op dat de $\boldsymbol{ + }$ verschilt van de $+$. $\boldsymbol{ + }$ is de optelling voor raakvertoren en $+$ is de optelling voor vrije vectoren. Verder zullen we deze beide als $+$ schrijven.
+  De som van twee raakvectoren met een verschillend aangrijpingspunt is niet gedefinieerd.
 \end{de}
 
 \begin{de}
-  Zij $v_{p}$ een raakvector aan een punt $p$ van de affiene ruimte $\mathbb{A}^{n}$ en $\lambda \in \mathbb{R}$ een re\"eel getal, dan defini\"eren we het scalair product $\lambda v_{p}$ als volgt. 
+  Zij $v_{p}$ een raakvector aan een punt $p$ van de affiene ruimte $\mathbb{A}^{n}$ en $\lambda \in \mathbb{R}$ een re\"eel getal, dan definieren we \emph{het scalair product} $\lambda v_{p}$ als volgt. 
   \[ \lambda v_{p} = (\lambda v)_{p}\]
 \end{de}
 
 \begin{st}
   Elke rakende ruimte in een punt $p$ aan $\mathbb{A}^{n}$ vormt een vectorruimte over $\mathbb{R}$.
   \TODO{bewijs zie p 6 voor opgave.}
+
   \begin{proof} We bewijzen de axioma's van een vectorruimte
     \begin{itemize}
     \item associativiteit van de optelling
@@ -80,6 +88,7 @@
   Voor elk willekeurig punt $p$ van de affiene ruimte $\mathbb{A}^{n}$ is de afbeelding van de raakvector op de vector een isomorfisme van de rakende ruimte in dat punt en de re\"ele vectorruimte $\mathbb{R}^{n}$.
   $phi_{p}$ is dus een isomorphisme.
   \[ \phi_{p}: T_{p}\mathbb{A}^{n} \rightarrow \mathbb{R}^{n}: v_{p} \mapsto v \]
+
   \begin{proof}
     Een isomorphisme is een bijectieve lineaire afbeelding.
     \begin{itemize}
@@ -101,10 +110,255 @@
   Voor elke twee willekeurige punten $p$ en $q$ van de affine ruimte $\mathbb{A}^{n}$ zijn de rakende ruimten isomorf.
   $\psi$ is dus een isomorphisme.
   \[ \psi_{pq}: T_{p}\mathbb{A}^{n} \rightarrow T_{q}\mathbb{A}^{n}: v_{p} \mapsto v_{q}\]
+
   \begin{proof}
     $\psi_{pq}$ is een samenstelling van isomorphismen\footnote{Zie het isomorphisme $\phi_{p}$ (stelling \ref{st:phi-isomorphisme})}, en bijgevolg ook een isomorphisme.
     \[ \psi_{pq} = \phi_{p}^{-1} \circ\phi_{p}\]
   \end{proof}
+\end{st}
+
+\section{Affiene deelruimten}
+\label{sec:affiene-deelruimten}
+
+\begin{de}
+  \label{de:affiene-deelruimte}
+  Zij $p$ een punt in de affiene ruimte $\mathbb{A}^{n}$ in $V$ een $k$-dimensionale deelruimte van $\mathbb{R}^{n}$ met $0 \le k \le n$.
+  We noemen $p + V$ de \emph{affiene deelruimte} van $\mathbb{A}^{n}$ met \emph{richting} $V$ en \emph{aangrijpingspunt} $p$.
+  \[ p + V = \left\{ p + v \in \mathbb{A}^{n}\ |\ v \in V \right\} \]
+\end{de}
+
+\begin{de}
+  Affiene ruimten met \'e\'en dimensie noemen we \emph{affiene rechten}.
+\end{de}
+
+\begin{de}
+  Affiene ruimten met twee dimensies noemen we \emph{affiene vlakken}.
+\end{de}
+
+\begin{de}
+  Wanneer we spreken over $n$-dimensionale affiene ruimten noemen we $n-1$-dimensionale affiene ruimten \emph{affiene hypervlakken}.
+\end{de}
+
+\begin{lem}
+\label{lem:equivalenties-affiene-deelruimte}
+  Zij $p$ en $q$ twee punten uit de affiene ruimte $\mathbb{A}^{n}$ en $V$ een lineaire deelruimte van $\mathbb{R}^{n}$. De volgende uitspraken zijn equivalent:
+  \begin{enumerate}
+  \item $q \in p+V$.
+  \item $\overrightarrow{pq} \in V$
+  \item $p + V = q + V$ (Het aangrijpingspunt van een affiene deelruimte is niet uniek.)
+  \end{enumerate}
+
+  \begin{proof}
+    Bewijs door circulaire implicaties.
+    \begin{itemize}
+    \item (1) $\Rightarrow$ (2)\\
+      Als $q \in p+V$ geldt, dan bestaat er een $v \in V$ zodat $q = p + v$ geldt.\footnote{Zie de definitie van affiene deelruimten. (Definitie \ref{de:affiene-deelruimte})}.
+      $\overrightarrow{pq} = q - p$ is danprecies $v$, en we toonden net dat $v \in V$ geldt.
+    \item (2) $\Rightarrow$ (3)\\
+      Om de gelijkheid van deze twee verzamelingen aan te tonen bewijzen we de twee inclusies:
+      \begin{itemize}
+      \item $\forall x \in p + V:\ x \in q + V$\\
+        Kies een willekeurige $x\in p + V$. Er bestaat nu een $v \in V$ zodat $x = p + v$ geldt.\footnote{Zie de definitie van affiene deelruimten. (Definitie \ref{de:affiene-deelruimte})}.
+        \[ p + v = p + v + q - q = q - \overrightarrow{pq} + v\]
+        Omdat $\overrightarrow{pq} \in V$ geldt, geldt ook $- \overrightarrow{pq} + v \in V$\footnote{De optelling is intern in een vectorruimte.}.
+        Noem nu $- \overrightarrow{pq} + v = w$, dan bestaat er dus een $w \in V$ zodat $x = q + w$ en zit $x$ bijgevolg ook in $q + V$.
+      \item $\forall x \in q + V:\ x \in p + V$\\
+        Hernoem $p$ naar $q$ en omgekeerd en kijk naar het vorige puntje.
+      \end{itemize}
+    \item (3) $\Rightarrow$ (1)\\
+      $q$ zit steeds in $q + V$ (tel bij $q$ de nulvector op).
+      Omdat $p + V$ en $q + V$ gelijk zijn zit $q$ dus ook in $p + V$.
+    \end{itemize}
+  \end{proof}
+\end{lem}
+
+\begin{st}
+  Twee affiene deelruimten $p + V$ en $q + W$ zijn gelijk als en slechts als de deelrruimten $V$ en $W$ gelijk zijn, en het verschil tussen $p$ en $q$ als vector in $V = W$ zit.
+  \[ p + V = q + W \Leftrightarrow V = W \wedge \overrightarrow{pq} \in V\]
+
+  \begin{proof}
+    Bewijs van een equivalentie.
+    Kies willekeurige deelruimten $V$ en $W$ van $\mathbb{R}^{n}$ en punten $p$ en $q$ uit de affiene ruimte $\mathbb{A}^{n}$.
+    \begin{itemize}
+    \item $\Rightarrow$\\
+      Als $p + V = q + W$ geldt, dan zit $q$ in $p + V$ en geldt $\overrightarrow{pq} \in V$.\footnote{Zie lemma \ref{lem:equivalenties-affiene-deelruimte}.}
+      We bewijzen nu beide inclusies om aan te tonen dat $V$ en $W$ gelijk zijn.
+      \begin{itemize}
+      \item $\forall x \in V:\ x \in W$\\
+      Kies een willekeurige $v \in V$.
+      $p + v \in p + V$ geldt en $p + V = q + W$, dus er bestaat een $w \in W$ zodat $q + w = p + v$ geldt.
+      \[ w = (p-q) + v \]
+      Vermits $\overrightarrow{pq} \in V$ geldt, zit $w$ in $V$.\footnote{De optelling is intern in een vectorruimte.}.
+      \item $\forall x \in W:\ x \in V$\\
+        Hernoem $V$ naar $W$ en omgekeerd en kijk naar het vorige puntje
+      \end{itemize}
+    \item $\Leftarrow$\\
+      Dit is al bewezen in deel 3 van het vorige lemma.\footnote{Zie lemma \ref{lem:equivalenties-affiene-deelruimte}.}
+    \end{itemize}
+  \end{proof}
+\end{st}
+
+\begin{de}
+  Twee affiene deelruimten $S = p + V$ en $T = q + W$ van $\mathbb{A}^{n}$ zijn \emph{parrallel} als hun richtingen $V$ en $W$ gelijk zijn.
+  \[ V = W \Leftrightarrow S \parallel T \]
+\end{de}
+
+\begin{de}
+\label{de:zwak-parallel}
+  Twee affiene deelruimten $S = p + V$ en $T = q + W$ van $\mathbb{A}^{n}$ zijn \emph{zwak parrallel} als de richting van de ene deelruimte een deel is van de richting van de andere.
+  \[ V \subseteq W \Leftrightarrow S \vartriangleleft T \]
+\end{de}
+
+\begin{de}
+  Als twee affiene deelruimten $S$ en $T$ van $\mathbb{A}^{n}$ niet parallel, noch zwak parallel zijn, dan zijn ze \emph{snijdend} als ze niet disjunct zijn.
+  \[ S \cap T \neq \emptyset \]
+\end{de}
+
+\begin{de}
+  Als twee affiene deelruimten $S$ en $T$ van $\mathbb{A}^{n}$ niet parallel, noch zwak parallel zijn, dan zijn ze \emph{kruisend} als ze disjunct zijn.
+  \[ S \cap T = \emptyset \]
+\end{de}
+
+\begin{st}
+  Zij $S$ en $T$ parallelle affiene deelruimten van $\mathbb{A}^{n}$, dan zijn ze ofwel gelijk, ofwel disjunct.
+  \[ S \parallel T \Rightarrow S=T \wedge S \cap T = \emptyset \]
+
+  \begin{proof}
+    Kies twee willekeurige parallelle affiene deelruimten $S = p + V$ en $T = q + W$ van $\mathbb{A}^{n}$.
+    Stel dat de doorsnede $S \cap T$ niet leeg is, dan bestaat er een punt $r$ in zowel $S$ als in $T$.
+    Er bestaat dan ook vrije vectoren $v$ en $w$ zodat $p + v = r = q + w$.\footnote{Zie de definitie van affiene deelruimten. (Definitie \ref{de:affiene-deelruimte})}.
+    $r$ is dus een element van $p + V$ en bijgevolg zijn $S$ en $T$ gelijk.\footnote{Zie lemma \ref{lem:equivalenties-affiene-deelruimte}.}
+  \end{proof}
+\end{st}
+
+\begin{st}
+  Zij $S$ en $T$ zwak parallelle affiene deelruimten van $\mathbb{A}^{n}$ ($S \vartriangleleft  T$), dan is $S$ ofwel een deel van $T$, ofwel is de doorsnede van $S$ en $T$ leeg.
+
+  \begin{proof}
+    Kies twee willekeurige zwak parallelle affiene deelruimten $S = p + V$ en $T = q + W$ van $\mathbb{A}^{n}$ ($S \vartriangleleft  T$)
+    Stel dat de doorsnede $S \cap T$ niet leeg is, dan bestaat er een punt $r$ in zowel $S$ als in $T$.
+    Er geldt nu zowel $S = r + V$ als $T = r + W$.
+    Omdat $S$ zwak parallel is met $T$ geldt $V \subseteq W$\footnote{Zie de definitie van `zwak parallel' (Definitie \ref{de:zwak-parallel}).} en bijgevolg nu ook $S \subseteq T$
+  \end{proof}
+\end{st}
+
+\begin{st}
+  Zij $S$ een affiene deelruimte van $\mathbb{A}^{n}$.
+  Als $q \in \mathbb{A}^{n}$ geldt, dan bestaat er een unieke deelruimte $T$ van $\mathbb{A}^{n}$ door $q$, parallel met $S$.
+
+  \begin{proof}
+    Kies een willekeurige affiene deelruimte $S = p + V$ van $\mathbb{A}^{n}$.
+    \begin{itemize}
+    \item Er bestaat een deelruimte $T$ die aan bovenstaande beschrijving voldoet: $T = q + V$
+    \item Deze deelruimte is uniek omdat de richting van deze deelruimte gelijk moet zijn aan $V$ opdat ze parallel zou zijn met $S$ en het aangrijpingspunt gelijk moet zijn aan $q$ opdat ze door $q$ zou gaan.
+    \end{itemize}
+  \end{proof}
+\end{st}
+
+\begin{st}
+\label{st:affiene-doorsnede-ruimte}
+  Zij $S = p + V$ en $T = q + W$ twee affiene deelruimten van $\mathbb{A}^{n}$.
+  De doorsnede $U = S \cup T$ van $S$ en $T$ is ofwel leeg, ofwel ook een affiene deelruimte van $\mathbb{A}^{n}$ met richting $V \cap W$.
+
+  \begin{proof}
+    Zij $S = p + V$ en $T = q + W$ twee willekeurige affiene deelruimten van $\mathbb{A}^{n}$.
+    Zij $U = S \cup T$ de doorsnede van $S$ en $T$.
+    Stel dat de doorsnede $U$ niet leeg is, dan bestaat er een punt $r \in U$. Nu geldt zowel $S = r + V$ als $T = r + W$. Kies nu nog een punt $x \in U$ in de doorsnede van $S$ en $T$.
+    \[
+    \begin{array}{cll}
+      x \in U &\Leftrightarrow \exists v \in V, \exists w \in W:& x = r + v \wedge x = r + w\\
+              &\Leftrightarrow \exists v \in V, \exists w \in W:& x = r + v \wedge v = w\\
+              &\Leftrightarrow \exists v \in V \cap W:& x = r + v\\
+    \end{array}
+    \]
+  \end{proof}
+\end{st}
+
+
+\begin{st}
+  Zij $S = p + V$ en $T = q + W$ twee affiene deelruimten van $\mathbb{A}^{n}$.
+  \[ S \cap T \neq \emptyset \Leftrightarrow \overrightarrow{pq} \in V + W \]
+
+  \begin{proof}
+    Kies $S = p + V$ en $T = q + W$ twee willekeurige affiene deelruimten van een affiene ruimte $\mathbb{A}^{n}$.
+    \[
+    \begin{array}{cll}
+      S \cap T \neq \emptyset &\Leftrightarrow \exists v \in V, \exists w \in W:& p + v = q + w\\
+                              &\Leftrightarrow \exists v \in V, \exists w \in W:& p - q = w - v\\
+                              &\Leftrightarrow q - p \in V + W\\
+    \end{array}
+    \]
+  \end{proof}
+\end{st}
+
+\begin{gev}
+  Zij $S = p + V$ en $T = q + W$ twee affiene deelruimten van $\mathbb{A}^{n}$ zodat $V + W = \mathbb{R}^{n}$ geldt, dan is hun doorsnede niet leeg.
+
+  Met andere woorden: Twee niet-evenwijdige affiene deelruimtes snijden zeker wanneer de som van hun dimensies $n$ is.
+\end{gev}
+
+\begin{de}
+\label{de:som-van-affiene-deelruimten}
+  Zij $S = p + V$ en $T = p + W$ twee affiene deelruimten van $\mathbb{A}^{n}$ door een gemeenschappelijk punt $p$, dan definieren we de \emph{som van twee affiene deelruimten} als volgt:
+  \[ S + T = p + (V + W) \]
+  Merk op dat er in deze gelijkheid drie verschillende optellingen gebruikt worden die met hetzelfde symbool genoteerd worden. De eerste `$+$' is de som van twee affiene deelruimten, de tweede is de som van een punt met een vectorruimte en de derde is de som van twee vectorruimten.
+\end{de}
+
+\begin{st}
+  De \emph{dimensiestelling}.\footnote{\'E\'en van de favoriete vragen om te bewijzen bij lineaire alfebra.}\\
+  Zij $S = p + V$ en $T = p + W$ twee affiene deelruimten van $\mathbb{A}^{n}$ door een gemeenschappelijk punt $p$, dan geldt het volgende over de dimensies ervan:
+  \[ dim S + dim T = dim(S \cap T) + dim (S + T) \]
+
+  \begin{proof}
+    Kies $S = p + V$ en $T = p + W$ twee willekeurige affiene deelruimten van een affiene ruimte $\mathbb{A}^{n}$ door een gemeenschappelijk punt $p$.
+    Blik terug op de dimensiestelling uit de lineaire algebra:
+    \[ dim V + dim W = dim(V \cap W) + dim (V + W) \]
+    Omdat $S$ en $T$ tenminste \'e\'en punt gemeenschappelijk hebben geldt $S \cap T = p + (V \cap W)$.\footnote{Zie stelling \ref{st:affiene-doorsnede-ruimte}.} Bovendien geldt $S + T = p + (V + W)$.\footnote{Zie de definitie van de som van twee deelruimten (Definitie \ref{de:som-van-affiene-deelruimten}).} 
+    \[
+    \begin{array}{rll}
+       dim(S \cap T) + dim (S + T) &= dim(p + (V \cap W)) + dim(p + (V + W)) &\\
+                    &= dim(V \cap W) + dim (V + W)&\\
+                    &= dim V + dim W&\\
+                    &= dim(p + V) + dim(p + W) &= dim S + dim T\\
+    \end{array}
+    \]
+
+  \end{proof}
+\end{st}
+
+\begin{st}
+  Door twee punten $p$ en $q$ van een affiene ruimte $\mathbb{A}^{n}$ gaat een unieke rechte.
+
+  \begin{proof}
+    Er gaat een rechte door $p$ en $q$ met $p$ als aangrijpingspunt en de vectorruimte met $\overleftarrow{pq}$ als basis als richting.
+    Deze rechte is bovendien uniek.
+\clarify{ waarom is deze rechte uniek? Intu\"itief is het duidelijk, maar hoe tonen we het aan? }
+  \end{proof}
+\end{st}
+
+\begin{st}
+  Zij $S$ en $T$ affiene deelruimten van $\mathbb{A}^{n}$.
+  Er bestaat er een deelruimte $T'$ van $T$ zodat $S$ parallel is met $T'$ als en slechts als $S$ zwak parallel is met $T$.
+
+  \begin{proof}
+    Kies twee willekeurige affiene deelruimten $S = p + V$ en $T = q + W$ van $\mathbb{A}^{n}$.
+    \begin{itemize}
+    \item $\Rightarrow$\\
+      Als er een deelruimte $T'$ bestaat van $T$ zodat $S$ parallel is met $T'$, dan heeft $T'$ als aangrijpingspunt $q$ en richting $V$.
+      Omdat $T'$ een deelruimte is van $T$, is $V$ een deelruimte van $W$.
+      Dat betekent precies dat $S$ zwak parallel is met $T$.
+      \[ S \vartriangleleft T \]
+    \item $\Leftarrow$\\
+      Als $S$ zwak parallel is met $T$, geldt per definite dat $V$ een deelruimte is van $W$.
+      Beschouw nu de affiene ruimte $T'$ met aangrijpingspunt $q$ en richting $V$.
+      Deze affiene deelruimte is een affiene deelruimte van $T$ en $S$ is parallel met $T'$.
+    \end{itemize}
+  \end{proof}
+\end{st}
+
+\begin{st}
+  Er bestaan drie niet-colineaire punten in een affien vlak.
+\TODO{bewijs}
 \end{st}
 
 \end{document}
