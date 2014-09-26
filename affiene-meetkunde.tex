@@ -326,5 +326,39 @@
   \end{proof}
 \end{st}
 
+\begin{st}
+  Door twee punten $p$ en $q$ van een affiene ruimte $\mathbb{A}^{n}$ gaat een unieke rechte.
+
+  \begin{proof}
+    Er gaat een rechte door $p$ en $q$ met $p$ als aangrijpingspunt en de vectorruimte met $\overleftarrow{pq}$ als basis als richting.
+    Deze rechte is bovendien uniek.
+\clarify{ waarom is deze rechte uniek? Intu\"itief is het duidelijk, maar hoe tonen we het aan? }
+  \end{proof}
+\end{st}
+
+\begin{st}
+  Zij $S$ en $T$ affiene deelruimten van $\mathbb{A}^{n}$.
+  Er bestaat er een deelruimte $T'$ van $T$ zodat $S$ parallel is met $T'$ als en slechts als $S$ zwak parallel is met $T$.
+
+  \begin{proof}
+    Kies twee willekeurige affiene deelruimten $S = p + V$ en $T = q + W$ van $\mathbb{A}^{n}$.
+    \begin{itemize}
+    \item $\Rightarrow$\\
+      Als er een deelruimte $T'$ bestaat van $T$ zodat $S$ parallel is met $T'$, dan heeft $T'$ als aangrijpingspunt $q$ en richting $V$.
+      Omdat $T'$ een deelruimte is van $T$, is $V$ een deelruimte van $W$.
+      Dat betekent precies dat $S$ zwak parallel is met $T$.
+      \[ S \vartriangleleft T \]
+    \item $\Leftarrow$\\
+      Als $S$ zwak parallel is met $T$, geldt per definite dat $V$ een deelruimte is van $W$.
+      Beschouw nu de affiene ruimte $T'$ met aangrijpingspunt $q$ en richting $V$.
+      Deze affiene deelruimte is een affiene deelruimte van $T$ en $S$ is parallel met $T'$.
+    \end{itemize}
+  \end{proof}
+\end{st}
+
+\begin{st}
+  Er bestaan drie niet-colineaire punten in een affien vlak.
+\TODO{bewijs}
+\end{st}
 
 \end{document}
