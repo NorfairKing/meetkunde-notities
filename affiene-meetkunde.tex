@@ -66,20 +66,11 @@
 \end{de}
 
 \begin{st}
-  Elke rakende ruimte in een punt $p$ aan $\mathbb{A}^{n}$ vormt een vectorruimte over $\mathbb{R}$.
-  \TODO{bewijs zie p 6 voor opgave.}
-
-  \begin{proof} We bewijzen de axioma's van een vectorruimte
-    \begin{itemize}
-    \item associativiteit van de optelling
-    \item neutraal element voor de optelling
-    \item symmetrisch element voor de optelling
-    \item commutativiteit van de optelling
-    \item distributiviteit van het scalair product ten opzichte van de optelling
-    \item distributiviteit van de optelling ten opzichte van het scalair product
-    \item gemengde associativiteit
-    \item neutraal element van het scalair product
-    \end{itemize}
+  \label{st:rakende-ruimte-is-vectorruimte}
+  Elke rakende ruimte $T_{p}\mathbb{A}^{n}$ in een punt $p$ aan $\mathbb{A}^{n}$ vormt een re\"ele vectorruimte.
+  \begin{proof}
+    We bewijzen de axioma's van een vectorruimte niet opnieuw.
+    Ze gelden in $\mathbb{R}^{n}$, dus ze gelden in $T_{p}\mathbb{A}^{n}$.
   \end{proof}
 \end{st}
 
@@ -194,6 +185,26 @@
       \end{itemize}
     \item $\Leftarrow$\\
       Dit is al bewezen in deel 3 van het vorige lemma.\footnote{Zie lemma \ref{lem:equivalenties-affiene-deelruimte}.}
+    \end{itemize}
+  \end{proof}
+\end{st}
+
+\begin{st}
+  \label{st:affiene-deelruimten-niet-lege-doorsnede-gelijk}
+  Twee affiene deelruimten $p + V$ en $q + W$ van $\mathbb{R}^{n}$ zijn gelijk als en slechts als de deelrruimten $V$ en $W$ gelijk zijn, en hun doorsnede niet leeg is.
+  \[ p+V = q+W \Leftrightarrow V = W \wedge p+V \cap q+W \neq \emptyset \]
+  
+  \begin{proof}
+    \begin{itemize}
+    \item $\Rightarrow$\\
+      Twee gelijke deelruimten zijn uiteraard gelijk. Hun doorsnede is dan ook niet leeg, want die is gelijk aan de volledige deelruimte.
+    \item $\Leftarrow$\\
+      Stel dat de doorsnede van $p + V$ en $q + W$ niet leeg is, dan bestaat er een punt $a$ in $p + V \cap q + W$.
+      \[ \exists a \in p + V \cap q + W \]
+      Dat betekent dat er twee vectoren $v \in V$ en $w \in W$ bestaan zodat het volgende geldt:
+      \[ a = p + v \text{ en} a = q + W \]
+      \[ p+v = q+w \Leftrightarrow q-p = v-w\]
+      Nu geldt dat $p + V$ en $q + W$ gelijk zijn.\footnote{Zie lemma \ref{lem:equivalenties-affiene-deelruimte}.}
     \end{itemize}
   \end{proof}
 \end{st}
