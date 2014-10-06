@@ -1,0 +1,111 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+
+\chapter{Oefenzittingen}
+\label{cha:oefenzittingen}
+
+\section{Oefinzitting 1}
+\label{sec:oz1}
+
+\subsection*{Oefening 1}
+$T_{p}\mathbb{A}^{n}$ is inderdaad een vectorruimte.\footnote{Zie stelling \ref{st:rakende-ruimte-is-vectorruimte}.}
+$\phi$ is inderdaad een isomorfisme van re\"ele vectorruimten.\footnote{Zie stelling \ref{st:phi-isomorphisme}.}
+
+\subsection*{Oefening 2}
+
+\begin{itemize}
+\item Nee, $V$ en $W$ zijn ongelijk want $(1,2)$ is lineair onafhankelijk van $(0,-2)$.
+\item $q + V$.
+\item $p + W$
+\end{itemize}
+
+\subsection*{Oefening 3}
+\begin{enumerate}
+\item $p+V$ en $q+W$
+  \[
+  \begin{vmatrix}
+    1 & 1 & 1\\
+    0 & 2 & 4\\
+    1 & 3 & 5
+  \end{vmatrix}
+  = 0
+  \Rightarrow W \subsetneq V 
+  \]
+  $q+W$ is dus zwak parallel met $p+V$.
+  \[ p+W \triangleleft q+V \]
+\item $p+V$ en $q+R$
+  \[
+  \begin{vmatrix}
+    2 & 9 & 1\\
+    2 & 2 & 4\\
+    4 & 2 & 5
+  \end{vmatrix}
+  = 0
+  \Rightarrow W \subsetneq R 
+  \]
+  $p+W$ is dus zwak parallel met $q+R$.
+  \[ p+W \triangleleft q+R \]
+  
+\item $q+W$ en $q+R$
+  \[
+  \begin{vmatrix}
+    1 & 0 & 1\\
+    1 & 2 & 3\\
+    2 & 2 & 4
+  \end{vmatrix}
+  = 0
+  \text{ en }
+  \begin{vmatrix}
+    1 & 0 & 1\\
+    1 & 2 & 3\\
+    0 & 2 & 2
+  \end{vmatrix}
+  = 0
+  \Rightarrow V = R
+  \]
+  $q+W$ en $q+R$ zijn dus parallel.
+  \[ q+W \parallel q+R \]
+\end{enumerate}
+
+\TODO{oefening 4}
+
+\subsection*{Oefening 5}
+\[ S + T = p + (V + W) = p + <\{(1,0,0),(0,1,0)\}>\]
+
+\subsection*{Oefening 6}
+Zie stelling \ref{st:affiene-deelruimten-niet-lege-doorsnede-gelijk}
+
+\subsection*{Oefening 7}
+We maken een gevalsonderscheid.
+\begin{itemize}
+\item $(s,t)$ met $s$ of $t$ groter of gelijk aan $n$ kan geen oplossing zijn want dan zou $S$ of $T$ geen deelruimte zijn van $\mathbb{A}^{n}$.
+\item $(n-1,n-1)$ kan wel:
+  Kies een $n-1$ dimensionale affiene deelruimte $S = p + V$ van $\mathbb{A}^{n}$.
+  Er zit nu minstens \'e\'en punt $q\in \mathbb{A}^{n}$ niet in $S$.
+  Beschouw nu de $n-1$ dimensionale affiene deelruimte $T = q + V$.
+  $S$ en $T$ zijn parallel en niet gelijk, dus disjunct.\footnote{Zie stelling \ref{st:parallelle-deelruimten-gelijk-of-disjunct}.}
+\item $(s,t)$ met $s,t < n-1$ kan ook.
+  Beschouw immers een $s$ en $t$ dimensionale deelruimnten van $S$ en $T$ uit het bovenstaande puntje.
+  Deze deelruimten zijn nog steeds disjunct.
+\end{itemize}
+Antwoord:
+\[ \{(s,t)\in \mathbb{N}\times\mathbb{N}\ |\ s,t<n\}\]
+
+\subsection*{Oefening 8}
+$S$ en $T$ zijn kruisend.
+\begin{enumerate}
+\item Stel $S = s+V$ en $T = t+W$.
+  Beschouw nu $R_{1} = s + (V+W)$
+  $R_{1}$ is nu zwak parallel met $T$ want $W \subsetneq (V+W)$.
+  $R_{1}$ is bovendien uniek, want stel dat er twee verschillende vlakken $R_{1}$ en $R_{1}'$ zijn die $S$ bevatten en zwak parallel zijn met $T$, dan is $W$ een deelverzameling van zowel de richting van $R_{1}$ als de richting van $R_{1}'$. Bovendien zou $s$ een element zijn van zowel $R_{1}$ als $R_{1}'$, en zouden bijgevolg $R_{1}$ en $R_{1}'$ gelijk zijn.\footnote{Zie stelling \ref{st:zwak-parallelle-deelruimten-deel-of-disjunct}.}
+\item Volledig analoog.
+\item $R_{1} = s + (V+W)$ en $R_{1} = t + (V+W)$, hebben dezelfde richting en dimensie, en zijn bijgevolg parallel.
+\end{enumerate}
+
+\TODO{oefening 9}
+ 
+\subsection*{Oefening 10}
+Tegenvoorbeeld:
+Kies $S = <e_{1},e_{2}>$ en $T = <e_{3},e_{4}>$ deelruimten van $\mathbb{A}^{4}$.
+
+\end{document}
