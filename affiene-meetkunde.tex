@@ -199,6 +199,7 @@
 \end{st}
 
 \begin{de}
+\label{de:parallel}
   Twee affiene deelruimten $S = p + V$ en $T = q + W$ van $\mathbb{A}^{n}$ zijn \emph{parrallel} als hun richtingen $V$ en $W$ gelijk zijn.
   \[ V = W \Leftrightarrow S \parallel T \]
 \end{de}
@@ -360,5 +361,184 @@
   Er bestaan drie niet-colineaire punten in een affien vlak.
 \TODO{bewijs}
 \end{st}
+
+\section{Parametervergelijkingen}
+\label{sec:parametervergelijkingen}
+\begin{de}
+  Zij $p+V \subseteq \mathbb{A}^{n}$ een affiene deelruimte en $\{v_{1},\dotsc,v_{k}\}$ een basis van $V$.
+  Een willekeurig punt $x\in \mathbb{A}^{n}$ behoort tot $p+V$ als en slechts als er $\lambda_{1},\dotsc,\lambda_{k} \in \mathbb{B}$ bestaan zodat het volgende geldt:\footnote{Zie lemma \ref{lem:equivalenties-affiene-deelruimte}}
+  \[
+  x = p + \lambda_1v_1 + \dotsb + \lambda_{k}v_{k}  
+  \]
+  We noemen deze vergelijking de \emph{parametervergelijkingen} van $p+V$.
+  \[
+  p+V \leftrightarrow
+  \left\{
+  \begin{array}{rcl}
+  x_{1} &=& p_{1} + \lambda_{1}v_{11} + \dotsb + \lambda_{k}v_{k1}\\
+  \vdots && \vdots\\
+  x_{n} &=& p_{n} + \lambda_{1}v_{1n} + \dotsb + \lambda_{k}v_{kn}
+  \end{array}
+  \right.
+  \]
+\end{de}
+
+\begin{de}
+  Zij $p+V \subseteq \mathbb{A}^{n}$ een affiene deelruimte en $\{v_{1},\dotsc,v_{k}\}$ een basis van $V$.
+  We kunnen nu de oplossingen van de parametervergelijkingen $\tilde{q} = (\lambda_{1},\dotsc,\lambda_{k})$ beschouwen as een een punt van een $k$-dimensionale affiene ruimte.
+  We noemen deze ruimte de coordinaatruimte van $p+V$.
+  \clarify{ Naam is zelf verzonnen. }
+\end{de}
+
+\begin{st}
+  Elke affiene deelruimte $p+V \subseteq \mathbb{A}^{n}$ is de oplossingsruimte van een lineair stelsel.
+  
+  \begin{proof}
+    Zijn $p\in\mathbb{A}^{n}$, $p+V\subseteq \mathbb{A}^{n}$ een affiene deelruimte door $p$ en $\{v_{1},\dotsc,v_{k}\}$ een basis van $V$.
+    De parametervergelijkingen van $p+V$ zijn nu gegeven door de volgende gelijkheid:
+    \[
+    x = p + \lambda_1v_1 + \dotsb + \lambda_{k}v_{k}  
+    \]
+    Dit komt neer op volgend stelsel:
+    \[
+      p+V \leftrightarrow
+      \left\{
+      \begin{array}{rcl}
+      x_{1} -p_{1} &=& \lambda_{1}v_{11} + \dotsb + \lambda_{k}v_{k1}\\
+      \vdots && \vdots\\
+      x_{n} -p_{n} &=& \lambda_{1}v_{1n} + \dotsb + \lambda_{k}v_{kn}
+      \end{array}
+      \right.
+    \] 
+    Dit is een niet-homogeen lineair stelsel in de onbekenden $\lambda_{1},\dotsc,\lambda_{k}$.
+    Het punt $x$ behoort tot $p+V$ als en slechts als er getallen $\lambda_{1},\dotsc,\lambda_{k}$ bestaan zodat het stelsel geldt, of meer specifiek, als het stelsel oplosbaar is.
+    De matrix van het stelsel ziet er als volgt uit:
+    \[
+    \begin{pmatrix}
+    v_{11} & \hdots & v_{k1}\\
+    \vdots & \ddots & \vdots\\
+    v_{1n} & \hdots & v_{kn}\\
+    \end{pmatrix}
+    \] 
+    De uitgebreide matrix ziet er dan als volgt uit.
+    \[
+    \left(
+    \begin{array}{ccc|c}
+    v_{11} & \hdots & v_{k1} & x_{1} - p_{1}\\
+    \vdots & \ddots & \vdots & \vdots\\
+    v_{1n} & \hdots & v_{kn} & x_{n} - p_{n}\\
+    \end{array}
+    \right)
+    \]
+    Het stelsel heeft nu oplossingen als en slechts als de rang van de matrix dezelfde is als de rang van de uitgebreide matrix.
+    De matrix heeft rang $k$, want de kolommen (een basis) zijn onderling lineair onafhankelijk.
+    Merk op dat de uitgebreide matrix $((k+1)\times n)$ als dimensies heeft, met $k \le n$.
+    Opdat de rang van de uitgebreide matrix $k$ zou zijn, moet de determinant van elke $((k+1) \times (k+1))$-deelmatrix nul zijn. (anders had de uitgebreide matrix immers rang $k+1$.)
+    Er zijn nu $n-k$ voorwaarden opdat alle $((k+1) \times (k+1))$-deelmatrices determinant nul hebben:
+    \[
+    \text{ voor }
+    j = 1,\dotsc,n-k:\ 
+    x \in p+V \Leftrightarrow
+    \begin{vmatrix}
+    x_{1}-p_{1} & \hdots & x_{k}-p_{k} & x_{k+j}-p_{k+j}\\
+    v_{11}      & \hdots & v_{1k}      & v_{1 k+j}\\
+    \vdots      & \ddots & \vdots      & \vdots\\
+    v_{k1}      & \hdots & v_{kk}      & v_{k k+j}\\
+    \end{vmatrix}
+    = 0
+    \]
+    \clarify{ waarom? }
+    We kunnen deze determinanten allemaal ontwikkelen naar de eerste rij.
+    We krijgen dan de $n-k$ \emph{carthesische vergelijkingen} van $p+V$.
+    \[
+    p+V \leftrightarrow 
+	\left\{    
+    \begin{array}{cccccccccc}
+    a_{1,1}(x_{1}-p_{1}) &+& \dotsb &+& a_{1,k}(x_{k}-p_{k}) &+& a_{1,k+1}(x_{k+1}-p_{k+1}) &=& 0\\
+    a_{2,1}(x_{1}-p_{1}) &+& \dotsb &+& a_{2,k}(x_{k}-p_{k}) &+& a_{2,k+2}(x_{k+2}-p_{k+2}) &=& 0\\
+    \vdots && \vdots && \vdots && \vdots && \vdots\\
+    a_{n+k,1}(x_{1}-p_{1}) &+& \dotsb &+& a_{n-k,k}(x_{k}-p_{k}) &+& a_{n-k,n}(x_{n}-p_{n}) &=& 0
+    \end{array}
+    \right.     
+    \]
+    Deze vergelijkingen zijn bovendien lineair onafhankelijk.
+    \clarify{ waarom? }
+	Tenslotte kennen we dan ook een stelsel voor $V$.     
+    \[
+    V \leftrightarrow 
+	\left\{    
+    \begin{array}{cccccccccc}
+    a_{1,1}x_{1} &+& \dotsb &+& a_{1,k}x_{k} &+& a_{1,k+1}x_{k+1} &=& 0\\
+    a_{2,1}x_{1} &+& \dotsb &+& a_{2,k}x_{k} &+& a_{2,k+2}x_{k+2} &=& 0\\
+    \vdots && \vdots && \vdots && \vdots && \vdots\\
+    a_{n+k,1}x_{1} &+& \dotsb &+& a_{n-k,k}x_{k} &+& a_{n-k,n}x_{n} &=& 0
+    \end{array}
+    \right.     
+    \]
+    Elke $k$-dimensionale affiene deelruimte is dus de oplossingsverzameling van een lineair stelsel van $n-k$ lineaire vergelijkingen.
+  \end{proof}
+\end{st}
+
+\section{Affiene hypervlakken}
+\label{sec:affiene-hypervlakken}
+\begin{st}
+  We hebben slechts \'e\'en vergelijking nodig op een hypervlak te beschrijven.
+  
+  \begin{proof}
+    Inderdaad, er is maar \'e\'en $((k+1)\times(k+1))$-dimensionale deelmatrix van de uitgebreide matrix die $p+V$ bepaalt:
+    \[
+    H \leftrightarrow
+    \begin{vmatrix}
+    x_{1}-p_{1}   & x_{2}-p_{2}  & \hdots & x_{n}-p_{n}\\
+    v_{1,1}       & v_{1,2}      & \hdots & v_{1,n}\\
+    \vdots        & \vdots       & \ddots & \vdots\\
+    v_{n-1,1}     & v_{n-1,2}    & \hdots & v_{n-1,n} 
+    \end{vmatrix}
+    = 0
+    \]
+    De vergelijking van $H$ is dan van de volgende vorm:
+    \[
+    a_{1}(x_{1}-p_{1}) + a_{2}(x_{2}-p_{2}) + \dotsb + a_{n}(x_{n}-p_{n}) = 0
+    \]
+    Het $n$-tal $(a_{1},\dotsc,a_{n})$ is bovendien uniek bepaald, op de evenredigheidsfactor na, en wordt het \emph{richtingsgetal} van $H$ genoemd.
+    \clarify{ waarom? }
+    \clarify{ wat is de evenredigheidsfactor? }
+  \end{proof}
+\end{st}
+
+\begin{st}
+  Twee hypervlakken zijn parallel als en slechts als hun richtingsgetallen evenredig zijn.
+  \begin{proof}
+  Zij $H$ een hypervlak met de volgende vergelijking:
+  \[
+    a_{1}(x_{1}-p_{1}) + a_{2}(x_{2}-p_{2}) + \dotsb + a_{n}(x_{n}-p_{n}) = 0
+  \]
+  De richting van het hypervlak is de oplossingsverzameling van de volgende vergelijking:
+  \[
+    a_{1}x_{1} + a_{2}x_{2} + \dotsb + a_{n}x_{n} = 0
+  \]
+  Parallelle hypervlakken hebben dezelfde richting\footnote{Zie definitie \ref{de:parallel}.}, dus hun richtingsgetallen moeten evenredig zijn.
+  \end{proof}
+\end{st}
+
+\section{Vergelijkingen van affiene deelruimten en hun onderlinge stand}
+\label{sec:vergelijkingen-van-affiene-deelruimten}
+
+\section{Rechten in $\mathbb{A}^{n}$}
+\begin{de}
+  Zijn $p$ een punt van $\mathbb{A}^{n}$, en $v\in \mathbb{R}^{n}$ een niet-nulvector, dan is $L$ de rechte door $p$ in de richting van $<v>$.
+  \[
+  L = p + <v>
+  \]
+  Deze rechte heeft de volgende vergelijking als parametervergelijking.
+  \[
+  L \leftrightarrow x = p + \lambda v
+  \]
+  In co\"ordinaten:
+  \[
+  L \leftrightarrow \forall i: x_{i} = p_{i} + \lambda v_{i}
+  \]
+\end{de}
+
 
 \end{document}
