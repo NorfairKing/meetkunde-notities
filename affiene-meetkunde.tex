@@ -304,6 +304,7 @@
 \end{st}
 
 \begin{gev}
+  \label{gev:deelruimten-niet-leeg-dimensie-n}
   Zij $S = p + V$ en $T = q + W$ twee affiene deelruimten van $\mathbb{A}^{n}$ zodat $V + W = \mathbb{R}^{n}$ geldt, dan is hun doorsnede niet leeg.
 
   Met andere woorden: Twee niet-evenwijdige affiene deelruimtes snijden zeker wanneer de som van hun dimensies $n$ is.
@@ -317,7 +318,8 @@
 \end{de}
 
 \begin{st}
-  De \emph{dimensiestelling}.\footnote{\'E\'en van de favoriete vragen om te bewijzen bij lineaire alfebra.}\\
+  \label{st:dimensiestelling}
+  De \emph{dimensiestelling}.\footnote{\'E\'en van de favoriete vragen om te bewijzen bij lineaire algebra.}\\
   Zij $S = p + V$ en $T = p + W$ twee affiene deelruimten van $\mathbb{A}^{n}$ door een gemeenschappelijk punt $p$, dan geldt het volgende over de dimensies ervan:
   \[ dim S + dim T = dim(S \cap T) + dim (S + T) \]
 
@@ -339,16 +341,6 @@
 \end{st}
 
 \begin{st}
-  Door twee punten $p$ en $q$ van een affiene ruimte $\mathbb{A}^{n}$ gaat een unieke rechte.
-
-  \begin{proof}
-    Er gaat een rechte door $p$ en $q$ met $p$ als aangrijpingspunt en de vectorruimte met $\overleftarrow{pq}$ als basis als richting.
-    Deze rechte is bovendien uniek.
-\clarify{ waarom is deze rechte uniek? Intu\"itief is het duidelijk, maar hoe tonen we het aan? }
-  \end{proof}
-\end{st}
-
-\begin{st}
   Zij $S$ en $T$ affiene deelruimten van $\mathbb{A}^{n}$.
   Er bestaat er een deelruimte $T'$ van $T$ zodat $S$ parallel is met $T'$ als en slechts als $S$ zwak parallel is met $T$.
 
@@ -366,11 +358,6 @@
       Deze affiene deelruimte is een affiene deelruimte van $T$ en $S$ is parallel met $T'$.
     \end{itemize}
   \end{proof}
-\end{st}
-
-\begin{st}
-  Er bestaan drie niet-colineaire punten in een affien vlak.
-\TODO{bewijs}
 \end{st}
 
 \section{Parametervergelijkingen}
@@ -493,6 +480,7 @@
 \section{Affiene hypervlakken}
 \label{sec:affiene-hypervlakken}
 \begin{st}
+  \label{st:vergelijking-affien-hypervlak}
   We hebben slechts \'e\'en vergelijking nodig op een hypervlak te beschrijven.
   
   \begin{proof}
@@ -518,6 +506,7 @@
 \end{st}
 
 \begin{st}
+  \label{st:parallelle-hypervlakken-gelijke-richtingsgetallen}
   Twee hypervlakken zijn parallel als en slechts als hun richtingsgetallen evenredig zijn.
   \begin{proof}
   Zij $H$ een hypervlak met de volgende vergelijking:
@@ -537,7 +526,8 @@
 
 \section{Rechten in $\mathbb{A}^{n}$}
 \begin{de}
-  Zijn $p$ een punt van $\mathbb{A}^{n}$, en $v\in \mathbb{R}^{n}$ een niet-nulvector, dan is $L$ de rechte door $p$ in de richting van $<v>$.
+  \label{de:rechte}
+  Zijn $p$ een punt van $\mathbb{A}^{n}$, en $v\in \mathbb{R}^{n}$ een niet-nulvector, dan is $L$ de \emph{rechte} door $p$ in de richting van $<v>$.
   \[
   L = p + <v>
   \]
@@ -549,7 +539,144 @@
   \[
   L \leftrightarrow \forall i: x_{i} = p_{i} + \lambda v_{i}
   \]
+  Stel nu dat $v_{1}$ niet nul is, dan geldt $\lambda = \frac{x_{1}-p_{1}}{v_{1}}$ en zijn dit dus de carthesische vergelijkingen van $L$:
+  \[
+  v_{1}(x_{i}-p_{i}) = v_{i}(x_{1}-p_{1})
+  \]
 \end{de}
+
+\begin{st}
+  De rechte $L=pq$ door twee punten $p$ en $q$ is precies $p + <\vec{pq}>$.
+  De carthesische vergelijkingen van $pq$ zijn dan de volgenden:
+  \[
+  (q_{1}-p_{1})(x_{i}-p_{i}) = (q_{j}-p_{j})(x_{1}-p_{1})
+  \]
+\question{Wat doen die $j$s hier?}
+
+\TODO{bewijs}
+\end{st}
+
+
+\begin{st}
+  \label{st:unieke-rechte-door-twee-punten}
+  Door twee punten $p$ en $q$ van een affiene ruimte $\mathbb{A}^{n}$ gaat een unieke rechte.
+
+  \begin{proof}
+    Er gaat een rechte door $p$ en $q$ met $p$ als aangrijpingspunt en de vectorruimte met $\overleftarrow{pq}$ als basis als richting.
+    Deze rechte is bovendien uniek.
+\clarify{ waarom is deze rechte uniek? Intu\"itief is het duidelijk, maar hoe tonen we het aan? }
+  \end{proof}
+\end{st}
+
+\begin{de}
+  De \emph{barycentrische co\"ordinaten} van een punt $x$ ten opzichte van twee punten $p$ en $q$ zijn de $\lambda_{1}$ en $\lambda_{2}$ die aan volgende gelijkheid voldoen.
+  \[ x = \lambda_{1}p + \lambda_{2}q \]
+\end{de}
+
+\begin{de}
+  Het \emph{barycentrum} of het midden van twee punten is het punt met als barycentrische co\"ordinaten $(\frac{1}{2},\frac{1}{2})$.
+\end{de}
+
+\begin{st}
+  Zij $L$ de rechte bepaald door twee punten $p$ en $q$ in $\mathbb{A}^{n}$.
+  Voor elke punt $x$ van de rechte $L$ geldt dat $x$ kan geschreven worden als een affiene combinatie is van $p$ en $q$.
+  \[ x \in L \Leftrightarrow \exists \lambda_{1},\lambda_{2} \in \mathbb{R}: x = \lambda_{1}p + \lambda_{2}q \text{ met } \lambda_{1} + \lambda_{2} = 1 \]
+  
+  \begin{proof}
+    \begin{itemize}
+    \item $\Rightarrow$\\
+      Als $x$ op de rechte $L$ ligt, dan bestaat er een $\lambda$ zodat het volgende geldt:\footnote{Zie definitie \ref{de:rechte}.}
+      \[ x = p + \lambda(p - q) = (1 - \lambda)p + \lambda q \]
+      Kies nu $\lambda_{1} = 1-\lambda$ en $\lambda_{2} = \lambda$.
+      \[ \lambda_{1} + \lambda_{2} = (1-\lambda) + \lambda = 1 \]
+    \item $\Leftarrow$\\
+      Als $x = \lambda_{1}p + \lambda_{2}q$ geldt met $\lambda_{1} + \lambda_{2} = 1$, kunnen we $\lambda_{1}$ in functie van $\lambda_{2}$ schrijven.
+      \[ x = (1-\lambda_{2})p + \lambda_{2}q = p + \lambda(q-p)\]
+      Dit komt overeen met de parametervergelijking van $L$, dus $x$ ligt op $L$.
+    \end{itemize}
+  \end{proof}
+\end{st}
+
+\begin{de}
+  Drie unten $p$, $q$ en $r$ van $\mathbb{A}^{n}$ zijn colineair als ze op dezelfde rechte liggen.
+\end{de}
+
+\begin{st}
+  Er bestaan drie niet-colineaire punten $p$, $q$ en $r$ in een affien vlak $\mathcal{V}$.
+
+\TODO{bewijs}
+\end{st}
+
+\begin{de}
+  De \emph{deelverhouding} van drie colineaire punten $p$, $q$ en $r$ is een getal genoteerd als $(p,q,r)$ dat voldoet aan volgende gelijkheid.
+  \[ \vec{pr} = (p,q,r)\vec{pq} \]
+  We gebruiken ook wel de volgende notatie:
+  \[ (p,q,r) = \frac{\vec{pr}}{\vec{pq}} = \frac{r-p}{q-p} = \frac{p-r}{p-q} \]
+  Dit zogenaamde ``delen door vectoren'' is enkel gedefinieerd voor colineaire punten.
+\end{de}
+
+
+\begin{st}
+  \label{st:stelling-van-thales}
+  \emph{Stelling van Thales}\\
+  Zij $H_{1}$, $H_{2}$ en $H_{3}$ drie parallelle hypervlakken van $\mathbb{A}_{n}$
+  \[
+  \begin{array}{rl}
+    H_{1} = p_{1} + V\\
+    H_{2} = p_{2} + V\\
+    H_{3} = p_{3} + V\\
+  \end{array}
+  \]
+  Zij $L$ een rechte, niet zwak parallel met $H_{1}$.
+  \[ L = p + W \text{ met } W \not\subsetneq V \]
+  Zij $d_{i}$ de doorsnede van $p$ met $H_{i}$.
+  De deelverhouding $(d_1,d_2,d_3)$ hangt niet af van $L$, enkel van de $H_{i}$.
+ 
+  \begin{proof}
+    De doorsneden van $L$ met de $H_{i}$ zijn niet leeg.\footnote{Zie gevolg \ref{gev:deelruimten-niet-leeg-dimensie-n}.}
+    \[ \L \cap H_{i} \neq \emptyset \]
+    Uit de dimensiestelling\footnote{Zie stelling \ref{st:dimensiestelling}.} volgt dat de doorsneden $L\cap H_{i}$ punten zijn, dus het is zinvol om van $d_{i}$ te spreken.
+    \[
+    \begin{array}{cccccccc}
+    dim L &+& dim H_{i} &=& dim(L \cap H_{i}) &+& dim(L + H_{i})\\
+    2     &+& (n-1)    &=& dim(L \cap H_{i}) &+& n\\
+          & & 1        &=& dim(L \cap H_{i})
+    \end{array}
+    \] 
+    We beschouwen nu twee willekeurige rechten $L$ en $L'$ en bewijzen dat $(d_1,d_2,d_3)$ gelijk is aan $(d_1',d_2',d_3')$.
+    \[ d_{i}' = L' \cap H_{i} \]
+    De $H_{i}$ zijn parallel dus hun richtingsgetallen zijn gelijk.\footnote{Zie stelling \ref{st:parallelle-hypervlakken-gelijke-richtingsgetallen}.}
+    De $H_{i}$ hebben dus de volgende carthesische vergelijkingen.\footnote{Zie stelling \ref{st:vergelijking-affien-hypervlak}.}
+    \[ H_{i} \leftrightarrow \sum_{j=1}^{n}a_{j}(x_{j}-(d_{i})_{j}) = 0 \]
+    De punten $d_{i}'$ zitten respectievelijk in $H_{i}$, dus die voldoen ook aan bovenstaande vergelijkingen voor $x$.
+    \[ \sum_{j=1}^{n}a_{j}((d_{i}')_{j}-(d_{i})_{j}) = 0 \]
+    \[ \Rightarrow \sum_{j=1}^{n}a_{j}(d_{i}')_{j} = \sum_{j=1}^{n}a_{j}(d_{i})_{j}\]
+    Noem nu de deelverhoudingen $(d_1,d_2,d_3)$ en $(d_1',d_2',d_3')$ respectievelijk $\lambda$ en $\lambda'$, dan gelden volgende gelijkheden.;
+    \[ \lambda = \frac{d_{3}-d_{1}}{d_{2}-d_{1}} \text{ en } \lambda' = \frac{d_{3}'-d_{1}'}{d_{2}'-d_{1}'} \]
+    \[ \Rightarrow d_{3}-d_{1} = \lambda {d_{2}-d_{1}} \text{ en } d_{3}'-d_{1}' = \lambda' d_{2}'-d_{1}' \]
+    We gebruiken dit nu om $\lambda_{1} = \lambda_{2}$ te bewijzen.
+    \[
+    \begin{array}{rl}
+      0 &= 0 - 0\\
+        &= \sum_{j=1}^{n}a_{j}((d_{3}')_{j}-(d_{3})_{j}) - \sum_{j=1}^{n}a_{j}((d_{1}')_{j}-(d_{1})_{j}) \\
+        &= \sum_{j=1}^{n}a_{j}(((d_{3}')_{j}-(d_{3})_{j}) - ((d_{1}')_{j}-(d_{1})_{j})) \\
+        &= \sum_{j=1}^{n}a_{j}((d_{3}' - d_{1}')_{j} - (d_{3} -d_{1})_{j}) \\
+        &= \sum_{j=1}^{n}a_{j}(\lambda'(d_{2}' - d_{1}')_{j} - \lambda(d_{2} -d_{1})_{j}) \\
+        &= \lambda'\sum_{j=1}^{n}a_{j}(d_{2}' - d_{1}')_{j} - \lambda\sum_{j=1}^{n}a_{j}(d_{2} -d_{1})_{j} \\
+        &= \lambda'\sum_{j=1}^{n}a_{j}(d_{2} - d_{1})_{j} - \lambda\sum_{j=1}^{n}a_{j}(d_{2} -d_{1})_{j} \\
+        &= (\lambda' -\lambda)\sum_{j=1}^{n}a_{j}(d_{2} -d_{1})_{j} \\
+    \end{array}
+    \]
+    $L$ is niet zwak parallel met $H_{i}$ en snijdt ($L \cap H_{i} \neq \emptyset$) ligt $d_{2}$ niet in $H_{1}$.
+    Bijgevolg geldt de volgende gelijkheid.
+    \[ \sum_{j=1}^{n}a_{j}(d_{2} -d_{1})_{j} \neq 0 \]
+    $\lambda$ moet dus gelijk zijn aan $\lambda'$.
+  \end{proof}
+\end{st}
+
+\section{Barycentrische co\"ordinaten}
+\label{sec:baryc-coordinaten}
+
 
 
 \end{document}
