@@ -1,0 +1,213 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+
+\chapter{Affiene Transformaties}
+\label{cha:affiene-transformaties}
+
+\begin{de}
+  Een afbeelding $F$ noemen we een \emph{affiene transformatie} als er een reguliere $n\times n$ matrix $A$ en een punt $b$ bestaat zodat we $F$ als volgt definieren:
+  \[ F:\ \mathbb{A}^{n} \rightarrow \mathbb{A}^{n}: p \mapsto F(p) = Ap + b \text{ met } det(A) \neq 0 \]
+  $A$ noemen we het lineair deel van $F$ en $b$ het translatiedeel.
+\end{de}
+
+\begin{de}
+  Zij $F$ een affiene transformatie met $A=\mathbb{I}^{n}$, dan noemen we $F$ een translatie in de richting van $b$.
+  \[ F:\ \mathbb{A}^{n} \rightarrow \mathbb{A}^{n}: p \mapsto F(p) = p + b \]
+\end{de}
+
+\begin{de}
+  Zij $F$ een affiene transformatie als volgt, dan noemen we $F$ een \emph{homothetie} met centrum $p_{0}$ en factor $r$.
+  \[ F:\ \mathbb{A}^{n} \rightarrow \mathbb{A}^{n}: p \mapsto F(p) = p_{0} + r(\overrightarrow{p_{0}p}) = rp + (1-r)p_{0} \]
+\end{de}
+
+\begin{st}
+  Een affiene transformatie $F:\ \mathbb{A}^{n} \rightarrow \mathbb{A}^{n}: p \mapsto F(p) = Ap + b$ kan steeds ontbonden worden in een translatie $t_{b}$ en een lineaire transformatie $A$.
+  \[ F = t_{b} \circ A \]
+  De ontbinding is bovendien uniek.
+
+  \begin{proof}
+    Stel dat deze ontbinding niet uniek was, dan bestonden er $t_{b},A,t_{d},C$ zodat $F = t_{b}\circ A = t_{d} \circ C$ geldt.
+    $t_{b}$ en $t_{d}$ zijn dan beide gelijk want $F(0) = b = d$ geldt.
+    Er moet dan ook voor alle $p\in \mathbb{A}^{n}$ gelden dat $Ap+b$ gelijk is aan $Cp+b$, dus $A$ moet gelijk zijn aan $C$.
+  \end{proof}
+\end{st}
+
+\begin{st}
+  Elke affiene transformatie is een bijectie.
+
+  \begin{proof}
+    Elke translatie is bijectief en heeft als inverse $(t_{b})^{-1} = t_{-b}$.
+    \clarify{waarom?}
+    Elke affiene transformatie is de samenstelling van inverteerbare lineaire transformatie en een translatie:
+    \[ F = t_{b} \circ A \]
+    Zowel $t_{b}$ als $A$ zijn inverteerbaar, dus $F$ is ook inverteerbaar.
+  \end{proof}
+\end{st}
+
+\begin{de}
+  Zij $F = t_{b} \circ A$ een affiene transformatie en $p\in \mathbb{A}^{n}$ een punt, dan definieren we de \emph{afgeleide afbeelding} $(F_{*})_{p}$ in het punt $p$ als de volgende lineaire afbeelding:
+  \[ (F_{*})_{p}:\ T_{p}\mathbb{A}^{n} \rightarrow T_{F(p)}\mathbb{A}^{n}:\ v_{p} \mapsto (F_{*})_{p}(v_{p}) = (Av)_{F(p)} \]
+  We definieren ook de afgeleide afbeelding $F_{*}v$ op vrije vectoren:
+  \[ F_{*}:\ V\rightarrow V:\ v\mapsto F_{*}(v) = Av \]
+\end{de}
+
+\begin{st}
+  Zij $F = t_{b} \circ A$ een affiene transformatie en $p,q \in \mathbb{A}^{n}$ twee punten, dan geldt het volgende:
+  \[ \overrightarrow{F(p)F(q)} = F_{*}(\overrightarrow{pq}) \]
+
+  \begin{proof}
+    \[
+    \begin{array}{rll}
+      \overrightarrow{F(p)F(q)} &= F(q) - F(p) &\\
+                                &= (Aq+b) - (Ap+b) &\\
+                                &= Aq - Ap &\\
+                                &= A(q-p) &= F_{*}(\overrightarrow{pq})
+    \end{array}
+    \]
+  \end{proof}
+\end{st}
+
+\begin{st}
+  \label{st:samenstelling-affiene-transformatie-intern}
+  De samenstelling $F\circ G$ van twee affiene transformaties $F$ en $G$ is opnieuw een affiene transformatie.
+  Bovendien geldt $(F\circ G)_{*} = F_{*} \circ G_{*}$.
+
+  \begin{proof}
+    Zij $F = t_{b} \circ A$ en $G = t_{d} \circ C$ twee affiene transformaties.
+    \[ (F\circ G)(p) = F(Cp + d) = A(Cp + d) + b = ACp + Ad + b \]
+    $F\circ G$ is dus een affiene transformatie met lineair deel $AC$ en translatiedeel $Ad + b$.
+    Tenslotte geldt dan ook het volgende:
+    \[ (F\circ G)_{*} = AC = F_{*} \circ G_{*} \]
+  \end{proof}
+\end{st}
+
+\begin{st}
+  \label{st:samenstelling-affiene-transformatie-inverse}
+  De inverse $F^{-1}$ van een affiene transformatie $F$ is opnieuw een affiene transformatie.
+  Bovendien geldt $(F^{-1})_{*} = (F_{*})^{-1}$.
+
+  \begin{proof}
+    Zij $F = t_{b} \circ A$ een affiene transformatie.
+    Zij $H$ de affiene transformatie met lineair deel $A^{-1}$ en translatiedeel $-A^{-1}b$.
+    $H$ is nu de inverse van $F$.
+    Kies namelijk een willekeurig punt $p\in \mathbb{A}^{n}$, dan geldt het volgende:
+    \[
+    \begin{array}{rll}
+      (F \circ H)(p) &= F(A^{-1}p - A^{-1}b) &\\
+                     &= (A^{-1}p - A^{-1}b)A + b &\\
+                     &= A^{-1}pA - A^{-1}bA + b &\\
+                     &= A^{-1}Ap - A^{-1}Ab + b &\\
+                     &= p - b + b &= p
+    \end{array}
+    \]
+    Bovendien geldt ook het volgende:
+    \[ (F^{-1})_{*} = H_{*} = A^{-1} \]
+  \end{proof}
+\end{st} 
+
+\begin{st}
+  De verzameling $A(n,\mathbb{R}),\circ$ is een groep.
+
+  \begin{proof}
+    We bewijzen elke eigenschap van een groep.
+    \begin{itemize}
+    \item De bewerking $\circ$ is intern.
+      Inderdaad, zie \ref{st:samenstelling-affiene-transformatie-intern}.
+    \item De bewerking is associatief.
+      Inderdaad, de samenstelling van affiene transformaties is associatief.
+      \clarify{ waarom ? }
+    \item Er bestaat een neutraal element.
+      Beschouw de affiene transformatie $F = \mathbb{I}^{n} + \vec{0}$.
+      Nu geldt voor elke affiene transformatie $G$ het volgende:
+      \[ F \circ G = G = G \circ F \]
+    \item Er bestaat voor elk element een invers element.
+      Inderdaad, zie \ref{st:samenstelling-affiene-transformatie-inverse}.
+    \end{itemize}
+  \end{proof}
+\end{st}
+
+\begin{de}
+  De groep $A(n,\mathbb{R}),\circ$ noemen we de \emph{affiene groep} in dimensie $n$.
+\end{de}
+
+\begin{st}
+  \label{st:raakende-ruimtes-transformatie}
+  Zij $p$ en $q$ twee punten van $\mathbb{A}^{n}$ en zijn $\{v_{1},\dotsc,v_{n}\}$ een basis van $T_{p}\mathbb{A}^{n}$ en $\{w_{1},\dotsc,w_{n}\}$ een basis van $T_{q}\mathbb{A}^{n}$, dan bestaat er een unieke affiene transformatie $F$ van $\mathbb{A}^{n}$ zodat het volgende geldt:
+  \begin{itemize}
+  \item $F(p) = q$
+  \item $F_{*}v_{i} = w_{i}$ voor $i \in \{ 1,\dotsc,n \}$
+  \end{itemize}
+
+  \begin{proof}
+    We bewijzen eerst de uniciteit en vervolgens het bestaan.
+    \begin{itemize}
+    \item Als er zo een unieke transformatie bestaat, is deze uniek.\\
+      Stel dat er een transformatie $F = t_{b} \circ A$ bestaat die aan de voorwaarden voldoet.
+      Nu is $Fv_{i}$ gelijk aan $Av_{i}$.
+      Omdat elke lineaire transformatie uniek bepaal is door het beeld van een basis, is $A$ uniek bepaald.
+      Vervolgens moet er een $b$ bestaan zodat de volgende gelijkheid geldt:
+      \[ q = F(p) = Ap + b \]
+      Die $b$ is dan gelijk aan $q-Ap$.
+      Omdat $A$ uniek is is $b$ ook uniek.
+    \item
+      Het bestaan is nu eveneen aangetoond. 
+      Kies namelijk $A$ de unieke lineaire transformatie zodat $Av_{i} = w_{i}$ geldt.
+      Met andere woorden zodat de basis $V$ afgebeeldt wordt op $W$.
+      Kies vervolgens $b$ zodat $b=q-Ap$ geldt, dan voldoet $F$ aan de voorwaarden.
+      Nog explicieter construeren we $A$ als volgt:
+      Zet de vectoren $v_{i}$ in de kolommen van een matrix $V$.
+      Doe hetzelfde met de vectoren $w_{i}$ en de matrix $W$.
+      Nu ziet $A$ er als volgt uit:
+      \[ A = WV^{-1} \]
+    \end{itemize}
+  \end{proof}
+\end{st}
+
+\begin{gev}
+  Zij $p$ en $q$ twee punten van $\mathbb{A}^{n}$ en zij $V = \{v_{1},\dotsc,v_{k}\}$ lineair onafhankelijke vectoren in $T_{p}\mathbb{A}^{n}$ en $W = \{w_{1},\dotsc,w_{k}\}$ lineair onafhankelijke vectoren in $T_{q}\mathbb{A}^{n}$ die aan de volgende voorwaarden voldoet.
+  Er bestaat dan een (niet noodzakelijk unieke) affiene transformatie $F$ van $\mathbb{A}^{n}$.
+  \begin{itemize}
+  \item $F(p) = q$
+  \item $F_{*}v_{i} = w_{i}$ voor $i \in \{ 1,\dotsc,n \}$
+  \end{itemize}
+
+  \begin{proof}
+    Omdat $T_{p}\mathbb{A}^{n}$ en $T_{q}\mathbb{A}^{n}$ $n$ dimensies hebben, kan zowel $V$ als $W$ uitgebreid worden tot een basis van $T_{p}\mathbb{A}^{n}$, respectievelijk $T_{q}\mathbb{A}^{n}$.
+    Zij $\alpha$ en $\beta$ die basissen.
+    Nu bestaat er dus een unieke affiene transformatie voor de specifieke $\alpha$ en $\beta$ die aan de voorwaarden voldoet,\footnote{Zie stelling \ref{st:raakende-ruimtes-transformatie}.}
+    Merk op dat de $\alpha$ en $\beta$ niet uniek zijn.
+  \end{proof}
+\end{gev}
+
+\begin{gev}
+  Zij $\{p_{0},\dotsc,p_{k}\}$ en $\{q_{0},\dotsc,q_{k}\}$ twee verzamelingen van $k+1$ affien onafhankelijke punten in $\mathbb{A}^{n}$, dan bestaat er een affiene transformatie $F$ van $\mathbb{A}^{n}$ zodat $F(p_{i}) = q_{i}$ voor $i \in \{ 1,\dotsc,k \}$. Bovendien is $F$ uniek als $k=n$.
+
+  \begin{proof}
+    Beschouw de verzamelingen $V = \{\overrightarrow{p_{0}p_{1}},\dotsc,\overrightarrow{p_{0}p_{k}}\}$ en $W = \{\overrightarrow{q_{0}q_{1}},\dotsc,\overrightarrow{q_{0}q_{k}}\}$.
+    $V$ en $W$ bevatten nu elk $k$ lineair onafhankelijke vectoren.\footnote{Zie stelling \ref{st:criterium-affiene-afhankelijkheid}.}
+    Er bestaat nu dus een affiene transformatie $F$ die voldoet aan deze voorwaanden:
+    \begin{itemize}
+    \item $F(p_{0}) = q_{0}$
+    \item $F_{*}(\overrightarrow{p_{0}p_{i}}) = \overrightarrow{q_{0}q_{i}}$ voor $i \in \{ 1,\dotsc,n \}$
+    \end{itemize}
+    Bekijk nu $F(p_{i})$.
+    \[
+    \begin{array}{rll}
+      F(p_{i}) &= F(p_{0}) + \overrightarrow{F(p_{0})F(p_{i})} &\\
+               &= F(p_{0}) + F(\overrightarrow{p_{0}p_{i}}) &\\
+               &= q_{0} + \overrightarrow{q_{0}q_{i}} &= q_{i}
+    \end{array} 
+    \]
+    Diezelfde affiene transformatie is dus de affiene transformatie die $p_{i}$ op $q_{i}$ afbeeldt.
+    Als $k$ gelijk is aan $n$ is deze transformatie bovendien uniek.\footnote{Zie stelling \ref{st:raakende-ruimtes-transformatie}.}
+   \end{proof}
+\end{gev}
+
+
+\section{Affiene invarianten}
+\label{sec:affiene-invarianten}
+
+
+
+
+\end{document}
