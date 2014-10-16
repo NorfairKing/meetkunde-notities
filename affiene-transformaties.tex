@@ -212,30 +212,88 @@
 \end{de}
 
 \begin{st}
+  \label{st:affiene-transformatie-deelruimte-invariant}
+  Zij $F = t_{b} \circ A$ een affiene transformatie.
   Zij $S = p+V$ een affiene deelruimte van $\mathbb{A}^{n}$ met dimensie $k$, dan is $F(S)$ ook een affiene deelruimte van $\mathbb{A}^{n}$ met dimensie $k$.
   Sterker nog:
   \[ F(S) = F(p) + F_{*}(V) \]
 
-\TODO{bewijs}
+  \begin{proof}
+    Kies een willekeurig punt $q= p+v$ van $S$:
+    \[
+    \begin{array}{rll}
+    F(s) &= A(p+v) + b &\\
+         &= Ap + b + Av &= F(p) + F_{*}(v)      
+    \end{array}
+    \]
+  \end{proof}
 \end{st}
 
 \begin{st}
+  Zij $F = t_{b} \circ A$ een affiene transformatie.
   Zij $S= p+V$ en $T= q+W$ twee affiene deelruimten, dan is de onderlinge ligging van $F(S) = F(p) + F_{*}(V)$ en $F(T) = F(q) + F(W)$ gelijk aan de onderlinge ligging van $S$ en $T$.  
 
-\TODO{bewijs}
+  \begin{proof}
+    We maken een gevalsonderscheid voor de verschillende mogelijkheden van onderlinge ligging.
+    \begin{itemize}
+    \item Stel dat $S$ en $T$ parallel zijn:
+      \[ S \parallel T \Leftrightarrow V = W \Leftrightarrow F_{*}(V)=F_{*}(W) \Leftrightarrow F(S) \parallel F(T) \]
+    \item Stel dat $S$ en $T$ zwak parallel zijn:
+      \[ S \triangleleft T \Leftrightarrow V \subseteq W \Leftrightarrow F_{*}(V)\subseteq F_{*}(W) \Leftrightarrow F(S) \triangleleft F(T) \]
+    \item Stel dat $S$ en $T$ snijden, dan bestaat er een punt $x$ in de doorsnede van $S$ en $T$.
+      Er bestaan dus een $v\in V$ en een $w \in W$ zodat het volgende geldt:
+      \[
+      \begin{array}{rrll}
+                      & p + v  &= x   &= q + w\\
+         \Rightarrow  & F(p+v) &=F(x) &= F(q+w)\\
+         \Rightarrow  & F(p)+F_{*}(v) &= F(x) &= F(q)+F_{*}(w)\\
+      \end{array}
+      \]
+    \item Stel dat $S$ en $T$ kruisen, dan bestaat er geen punt $x$ in de doorsnede, en zijn $S$ en $T$ niet zwak parallel.
+      Omdat $S$ en $T$ niet parallel of zwak parallel zijn, zijn $F(S)$ en $F(T)$ niet parallel, noch zwak parallel.
+      Stel nu dat er een punt $x$ in de doorsnede van $F(S)$ en $F(T)$ zit zodat $F(S)$ en $F(T)$ snijden, dan sneden $S$ en $T$.
+      Contradictie.
+    \end{itemize}
+  \end{proof}
 \end{st}
 
 \begin{st}
+  Zij $F = t_{b} \circ A$ een affiene transformatie.
   $p_{0},\dotsc,p_{k} \in \mathbb{A}^{n}$ zijn affien onfhankelijk als en slechs als $F(p_{0}),\dotsc,F(p_{k}) \in \mathbb{A}^{n}$ affien onafhankelijk zijn.
 
-\TODO{bewijs}
+  \begin{proof}
+     Deze stelling is equivalent met de volgende: ``$p_{0},\dotsc,p_{k} \in \mathbb{A}^{n}$ zijn affien afhankelijk als en slechs als $F(p_{0}),\dotsc,F(p_{k}) \in \mathbb{A}^{n}$ affien afhankelijk zijn.''
+     Kies dus $k+1$ affien afhankelijke punten $p_{0},\dotsc,p_{k}$ van $\mathbb{A}^{n}$.
+     Dit betekent dat de vectoren $\overrightarrow{p_{0}p_{i}}$ lineair onafhankelijk zijn. \footnote{Zie stelling \ref{st:critirium-affien-afhankelijk}.}
+     De affiene transformatie $F$ gedraagt zich voor vectoren als een lineaire transformatie.
+     Lineaire transformaties zijn lineair\footnote{duh!} en behouden bijgevolg lineaire afhankelijkheid.
+     De vectoren $\overrightarrow{F(p_{0}p_{i})}$ zijn dus ook lineair afhankelijk.
+     Dit houdt precies in dat de punten $F(p_{0}),\dotsc,F(p_{k})$ affien onafhankelijk zijn.
+  \end{proof}
 \end{st}
 
 
 \begin{st}
   Zij $p$, $q$ en $r$ punten op een rechte $L$, dan zijn $F(p)$, $F(q)$ en $F(r)$ punten op de rechte $F(L)$ en is bovendien de deelverhouding $(p,q,r)$ gelijk aan $(F(p),F(q),F(r))$.
-
-\TODO{bewijs}
+  \[ 
+  \overrightarrow{pr} = (q,p,r) \overrightarrow{pq} \Rightarrow \overrightarrow{F(p)F(r)} = (q,p,r) \overrightarrow{F(p)F(q)}
+  \]
+  \begin{proof}
+    Als $p$, $q$ en $r$ colineair zijn, dan bestaat er een $\lambda$ zodat we $r$ kunnen schrijven als volgt:
+    \[ r = p + \lambda(\overrightarrow{pq}) \]
+    Beelden we nu $r$ af onder $F$ dan krijgen we volgende gelijkheid:
+    \[ F(r) = F(p +\lambda(\overrightarrow{pq})) = F(p) + \lambda(\overrightarrow{F(p)F(q)}) \]
+\clarify{Waarom geldt die laatste gelijkheid?}
+    Dit betekent precies dat $F(p)$, $F(q)$ en $F(r)$ colineair zijn.
+    Bekijken we nu de deelverhouding $(q,p,r)$ en beelden we ook de vergelijking daarvan af onder $F$, dan krijgen we volgende gelijkheid:
+    \[
+    \begin{array}{rrl}
+                  & F(\overrightarrow{pr}) &= F((q,p,r) \overrightarrow{pq})\\
+      \Rightarrow & \overrightarrow{F(p)F(r)} &= (q,p,r) \overrightarrow{F(p)F(q)}
+    \end{array}
+    \]
+\clarify{Waarom geldt die laatste overgang?}
+  \end{proof}
 \end{st}
 
 \begin{st}
@@ -250,13 +308,19 @@ Geen bewijs
 
 \begin{de}
   Een affiene transformatie $F$ van $\mathbb{A}^{n}$ wordt een \emph{dilatatie} genoemd als en slechts als er een $\lambda\in \mathbb{R}_{0}$ bestaat zodat het volgende geldt.
-  \[ F_{*} = \lambda I \]
+  \[ F_{*} = \lambda  \mathbb{I} \]
+  \[ F:\ p \mapsto \lambda \mathbb{I} p + b \]
 \end{de}
 
 \begin{st}
+  \label{st:samenstelling-dilataties-dilatatie}
   De samenstelling van twee dilataties $F$ en $G$ is een dilatatie.
-
-\TODO{bewijs}
+  
+  \begin{proof}
+    Zij $F=\lambda I$ en $G= \mu I$ twee dilataties.
+    \[ (G \circ F)_{*} = \mu \mathbb{I}  \cdot \lambda \mathbb{I} = (\mu\lambda) \mathbb{I} \]
+    Noem $\mu\lambda$ nu $\nu$, dan zien we dat $G \circ F$ een dilatatie is.
+  \end{proof}
 \end{st}
 
 \begin{de}
@@ -265,18 +329,51 @@ Geen bewijs
 
 \begin{st}
   De verzameling van dilataties vormt een deelgroep van de verzameling affiene transformaties met de samenstelling als bewerking.
+
+  \begin{proof}
+    We bewijzen elk deel van het criterium van een deelgroep.
+    \begin{itemize}
+    \item Het neutraal element van $A(n,R)$: $e_{A(n,\mathbb{R})}:\ p \mapsto \mathbb{I} p + \vec{0}$ is een dilatatie.
+    \item De samenstelling van twee dilataties is een dilatatie.\footnote{Zie stelling \ref{st:samenstelling-dilataties-dilatatie}.}
+    \item De inverse van een dilatatie is een dilatatie.\\
+      Kies een dilatatie $F_{*} = \lambda \mathbb{I} $. De inverse affiene transformatie $G$ van $F$ is ook een dilatatie:
+      \[ G_{*} = \frac{1}{\lambda} \mathbb{I}\]
+    \end{itemize}
+  \end{proof}
 \end{st}
 
 \begin{st}
-  Een affiene transformatie $F$ is een dilatatie als en slechts als $F$ ofwel een translatie is, ofwel een homothetie.
+  Een affiene transformatie $F$ van $\mathbb{A}^{n}$ is een dilatatie als en slechts als $F$ ofwel een translatie is, ofwel een homothetie.
 
-\TODO{bewijs}
+  \begin{proof}
+    Bewijs van een equivalentie\\
+    \begin{itemize}
+    \item $\Rightarrow$\\
+      Zij $F$ een dilatatie, dan is $F$ gegeven als volgt:
+      \[ F:\ p \mapsto \lambda p + b\]
+      Als $\lambda$ $1$ is, is $F$ een translatie.
+      Als $\lambda$ niet gelijk is aan $1$, kies dan het punt $p_{0} = \frac{1}{1-\lambda}b$.
+      $F$ is dan een homothetie: $H_{p_{0},\lambda}$
+      \[\forall p\in \mathbb{A}^{n}:\ F(p) = \lambda p + b = \lambda p + (1 - \lambda) p_{0} = p_{0} + \lambda \overrightarrow{p_{0}p} = H_{p_{0},\lambda} \]
+    \item $\Leftarrow$\\
+      Zij $F$ een translatie $F:\ p \mapsto p + b$, dan is $F$ een dilatatie met $\lambda = 1$.
+      Zij $F$ een homothetie $F = H_{p_{0},r}$, dan is $F$ een dilatatie met $\lambda = r$.
+    \end{itemize}
+  \end{proof}
 \end{st}
 
 \begin{st}
   De afbeelding van een affiene deelruimte $G$ van $\mathbb{A}^{n}$ onder een dilatatie is een deelruimte $H$ die parallel is met $G$.
 
-\TODO{bewijs}
+  \begin{st}
+    Zij $G = p + V$ een deelruimte van $\mathbb{A}^{n}$ en $F:\ p \mapsto \lambda p + b$ een dilatatie.
+    De afbeelding $H$ van $G$ onder $F$ is ook een deelruimte van $\mathbb{A}^{n}$.\footnote{Zie stelling \ref{st:affiene-transformatie-deelruimte-invariant}.}
+    Voor elk willekeurig punt $x$ van $g$ bestaat er een $v\in V$ zodat $x = p+v$ geldt.
+    \[ F(x) = \lambda(p+v) + b = (b + \lambda p) + \lambda v \in G \]
+    Elke afbeelding van een punt $x= p+v$ heeft dus een vrije vector $\lambda v$ die lineair afhankelijk is van $v$ en dus ook in $V$ zit.
+    Omdat $F$ een bijectie is, moet $F(V) = V$ gelden en is $H$ dus parallel met $G$.
+    \[ H \parallel G \]
+  \end{st}
 \end{st}
 
 \begin{st}
@@ -293,7 +390,7 @@ Geen bewijs
   Nu snijden $L'$ en $T'$ enkel in $q$.
   \[ L' \cap T' = \{q\} \]
 
-\TODO{bewijs}
+\TODO{bewijs p 48}
 \end{lem}
 
 \begin{lem}
