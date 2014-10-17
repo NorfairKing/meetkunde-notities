@@ -442,4 +442,96 @@ We kennen dan de richting van $L_{3}$ en een aangrijpingspunt van $L_{3}$.
 \TODO{Oefening 11}
 \TODO{Oefening 12}
 
+\section{Oefenzitting 3}
+\TODO{Oefening 1}
+
+\subsection*{Oefening 2}
+Gegeven zijn de homothetie $H_{c,r}$ met centrum $c$ en factor $r$, en de translatie $t_{a}$ in de richting van $a$.
+Toon aan dat de samenstelling van $H_{c,r}$ en $t_{a}$ commutatief is.
+\[ H_{c,r} \circ t_{a} = t_{a} \circ H_{c,r} \]
+Noteer de definities van deze transformaties:
+\[ 
+\begin{array}{rl}
+  H_{c,r}: & p \mapsto c + r\overrightarrow{cp}\\
+  t_{a}:   & p \mapsto p + a\\
+\end{array}
+\]
+Bekijk nu de samenstelling.
+\[ 
+\begin{array}{rll}
+  H_{c,r} \circ t_{a} &= c + r\overrightarrow{c(p+a)} &\\
+                     &= c + r(p + a - c) &\\
+                     &= c + r\overrightarrow{pc} +ra &= t_{a} \circ H_{c,r}
+\end{array}
+\]
+
+\subsection*{Oefening 3}
+Zij $D$ een dilatatie van $\mathbb{A}^{n}$ en $l$ en $m$ twee rechten in $\mathbb{A^{n}}$ met snijpunt $P$.
+\[ l \cap m = \{P\}\]
+Stel dat er een punt $X$ op $l$ en een punt $Y$ op $m$ zodat $D(X)$ op $l$ ligt en $D(Y)$ op $m$.
+Toon aan dat $P$ dan een vast punt is van $D$.
+\[ (\exists x\in l,y\in m: (D(X) \in l) \wedge (D(Y) \in m)) \Rightarrow D(P) \]
+\begin{proof}
+  Elke dilatatie beeldt een affiene deelruimte af op een parallelle affiene deelruimte.\footnote{Zie stelling \ref{st:dilatatie-parallelle-deelruimte}.}
+  $D(X)$ ligt op $l$, en wordt ook op een parallelle rechte afgebeeldt, dus moet die parallelle rechte $l$ zelf zijn.
+  Een analoge redenering geldt voor$D(Y)$ en $m$.
+  $D(P)$ wordt afgebeeldt op zowel $l$ als $m$, en dus op een punt in de doorsnede.
+  De doorsnede $l\cap m$ bevat enkel $P$, dus $P$ wordt op zichzelf afgebeeld door $D$.
+  \[ D(P) = P \]
+\end{proof}
+
+\subsection*{Oefening 4}
+Gegeven zijn de homothetie\"en $H_{c,r}$ en $H_{d,r}$ van $\mathbb{A}^{n}$ met centra $c$ en $d$ en factoren $r$ en $s$.
+\begin{itemize}
+\item Toon aan dat $H_{c,r} \circ H_{d,s}$ een translatie is als en slechts als $rs = 1$ geldt.
+\item Geef de nodige voorwaarden opdat $H_{c,r} \circ H_{d,s} = I_{\mathbb{A}^{n}}$ geldt. 
+\end{itemize}
+Noteer eerst de definities van $H_{c,r}$ en $H_{d,r}$.
+\[
+\begin{array}{rl}
+  H_{c,r}: & p \mapsto c + r\overrightarrow{cp}\\
+  H_{d.s}: & p \mapsto d + s\overrightarrow{dp}\\ 
+\end{array}
+\]
+\begin{itemize}
+\item Bekijk de samenstelling $H_{c,r} \circ H_{d,s}$.
+\[
+\begin{array}{rl}
+  H_{c,r} \circ H_{d,s} &= c + r\overrightarrow{c(d+s\overrightarrow{dp})}\\
+                      &= c + r(d + s\overrightarrow{dp} - c)\\
+                      &= c + r(d + s(p-d) -c)\\
+                      &= c + rd + rsp -rd -rc \\
+                      &= rsp + (1-r)c + (1-s)rd\\
+\end{array}
+\] 
+We zien dat dit laatste een translatie is als en slechs als de co\"efficient $rs$ bij $p$ $1$ is.
+\end{itemize}
+\TODO{Oefening 5}
+
+\subsection*{Oefening 6}
+Stel dat een affiene transformatie $F$ elke affiene deelruimte afbeeldt op een parallele affiene deelruimte.
+Toon aan dat $F$ een dilatatie is.\\\\
+Inderdaad, zie stelling \ref{st:dilatatie-parallelle-deelruimte}.
+
+
+
+\subsection*{Oefening 7}
+Gegeven zijn $k+1$ affien onafhankelijke punten $p_{i}$ van $\mathbb{A}^{n}$ en een punt $p$ in de affiene deelruimte bepaald door deze punten.
+Toon aan dat de barycentrische co\"ordinaten van $p$ ten opzichte van de punten $p_{i}$ invariant zijn onder affiene transformaties.
+\[ \forall F:\ F(p) = \sum_{i=0}^{n}\lambda_{i}F(p_{i}) \]
+\clarify{Waarom is dit belangrijk en niet gewoon saai? affiene meetkunde is de studie van verhoudingen. Lineaire algebra is...}
+\begin{proof}
+  Gegeven is het volgende:\footnote{Zie definitie \ref{barycentrische-coordinaten}.}
+  \[ p = \sum_{i=0}^{k}\lambda_{i}p_{i} \quad\text{ met }\quad \sum_{i=0}^{k}\lambda_{i} = 1 \]
+  Kies nu een willekeurige affiene transformatie $F$:
+  \[ F: p\mapsto Ap + b \]
+  \[
+  \begin{array}{rll}
+    F(p) &= A\sum_{i=0}^{k}\lambda_{i}p_{i} + b &\\
+         &= \sum_{i=0}^{k}\lambda_{i}Ap_{i} + b &= \sum_{i=0}^{k}\lambda_{i}(Ap_{i} + b) 
+  \end{array}
+  \]
+  Merk op dat die laatste stap alleen maar geldt als de $\lambda_{i}$ sommeren tot $1$.
+\end{proof}
+
 \end{document}

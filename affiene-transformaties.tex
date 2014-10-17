@@ -377,9 +377,38 @@ Geen bewijs
 \end{st}
 
 \begin{st}
+  \label{st:dilatatie-parallelle-deelruimte}
   Een affiene transformatie die elke affiene deelruimte $G$ van $\mathbb{A}^{n}$ afbeeldt op een parallelle affiene deelruimte is een dilatatie.
 
-\TODO{bewijs}
+  \begin{proof}
+\clarify{ de overgang van affien naar lineair en terug is niet helemaal duidelijk.}
+    Zij $p\in \mathbb{A}^{n}$ een punt en $\{v_{1},\dotsc, v_{n}\}$ een basis van $T_{p}\mathbb{A}^{n}$.
+  Er is gegeven dat elke affiene deelruimte van $\mathbb{A}^{n}$ op een parallelle affiene deelruimte wordt afgebeeldt, dus de richting $W$ van elke affiene deelruimte wordt op zichzelf afgebeelt.
+  \[ F_{*}(W) = W \]
+  We bewijzen nu dat $F_{*}$ een diagonaalmatrix $\lambda\mathbb{I}$ is in twee stappen:
+  \begin{itemize}
+  \item $F_{*}$ is een diagonaalmatrix.\\
+    Kies een richting $W = <v_{i}>$, dan geldt het volgende omdat het beeld van $v_{i}$ lineair afhankelijk moet zijn opdat $W$ op zichzelf afgebeeldt zou worden.
+    \[ F_{*}v_{i} = \lambda_{i} v_{i} \]
+    Dit kunnen we voor elke vector uit de basis doen.
+    We bekomen dan dat $F_{*}$ ten opzichte van die basis een diagonaalmatrix is.
+    \[
+    F_{*} = 
+    \begin{pmatrix}
+      \lambda_{1} &         & \\
+                  & \ddots & \\
+                  &        & \lambda_{n}\\
+    \end{pmatrix}
+    \]
+  \item De elementen van de diagonaalmatrix $F_{*}$ op de diagonaal zijn allemaal gelijk.\\
+    Kies nu $W = <\sum_{i=1}^{n}v_{i} >$
+    Er bestaat dan een $\lambda \in \mathbb{R}$ zodat ook die vector op een veelvoud op zichzelf wordt afgebeeld:
+    \[ F_{*}\left(\sum_{i=0}^{n}v_{i}\right) = \lambda\sum_{i=0}^{n}v_{i} \]
+    Omdat $F$ een affiene transformatie is geldt echter ook het volgende:
+    \[ F_{*}\left(\sum_{i=0}^{n}v_{i}\right) = \sum_{i=0}^{n}F_{*}(v_{i}) = \sum_{i=0}^{n}\lambda_{i}v_{i}\]
+    Omdat $\{v_{1},\dotsc, v_{n}\}$ een basis is, moet $\lambda$ dus wel gelijk zijn aan elke $\lambda_{i}$.
+  \end{itemize}
+  \end{proof}
 \end{st}
 
 \begin{lem}
