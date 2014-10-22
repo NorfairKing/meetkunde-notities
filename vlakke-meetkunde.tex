@@ -1,0 +1,226 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+
+\chapter{Vlakke meetkunde}
+\label{cha:vlakke-meetkunde}
+
+\section{Ceva en Menelaos}
+\label{sec:ceva-en-menelaos}
+
+\begin{de}
+  Een aantal rechten $L_{1},\dotsc,L_{k}$ noemen we \emph{concurrent} als de doorsnede van al de rechten niet leeg is.
+  \[ L_{1} \cap \dotsb L_{k} \neq \emptyset \]
+\end{de}
+
+\begin{lem}
+  \label{lem:rechten-concurrent-determinant}
+  Zij $L_{1}$, $L_{2}$ en $L_{3}$ drie rechten in $\mathbb{A}^{2}$ met de volgende vergelijkingen:
+  \[ L_{i} \leftrightarrow a_{i1}x_{1} + a_{i2}x_{2} = a_{i3} \]
+  De rechten zijn evenwijdig of concurrent als en slechts als de volgende determinant nul is:
+  \[
+  \begin{vmatrix}
+    a_{11} & a_{12} & a_{13}\\
+    a_{21} & a_{22} & a_{23}\\
+    a_{31} & a_{32} & a_{33}
+  \end{vmatrix}
+  = 0
+  \]
+
+  \begin{proof}
+    De drie rechten $L_{1}$, $L_{2}$ en $L_{3}$ hebben een niet-lege doorsnede als en slechts als het volgende geldt:
+    \clarify{waarom?}
+    \[
+    rang
+    \begin{pmatrix}
+    a_{11} & a_{12} & a_{13}\\
+    a_{21} & a_{22} & a_{23}\\
+    a_{31} & a_{32} & a_{33}
+    \end{pmatrix}
+    =
+    rang
+    \begin{pmatrix}
+    a_{11} & a_{12}\\
+    a_{21} & a_{22}\\
+    a_{31} & a_{32}
+    \end{pmatrix}
+    \]
+    Bovendien zijn de rechten evenwijdig als en slechts als de richtingsgetallen $(a_{11} a_{12})$ $(a_{21} a_{22})$ en $(a_{31}, a_{32})$ evenredig zijn.\footnote{Zie stelling \ref{st:parallelle-hypervlakken-gelijke-richtingsgetallen}.}
+    \[
+    rang
+    \begin{pmatrix}
+    a_{11} & a_{12}\\
+    a_{21} & a_{22}\\
+    a_{31} & a_{32}
+    \end{pmatrix}
+    = 1
+    \]
+    \begin{itemize}
+    \item $\Rightarrow$\\
+      Als de drie rechten $L_{1}$, $L_{2}$ en $L_{3}$ evenwijdig of concurrent zijn, dan is de volgende rang gelijk aan $1$ of aan $2$. 
+      \[
+      rang
+      \begin{pmatrix}
+        a_{11} & a_{12}\\
+        a_{21} & a_{22}\\
+        a_{31} & a_{32}
+      \end{pmatrix}
+      \]
+      De determinant is dus $0$.
+      \[
+      \begin{vmatrix}
+        a_{11} & a_{12} & a_{13}\\
+        a_{21} & a_{22} & a_{23}\\
+        a_{31} & a_{32} & a_{33}
+      \end{vmatrix}
+      = 0
+      \]
+    \item $\Leftarrow$\\
+      Als de determinant $0$ is, is de rang van deze matrix kleiner dan $3$.
+      \[
+      rang
+      \begin{pmatrix}
+        a_{11} & a_{12}\\
+        a_{21} & a_{22}\\
+        a_{31} & a_{32}
+      \end{pmatrix}
+      < 3
+      \]
+      Er zijn dus twee mogelijkheden. Ofwel is de rang $2$ en zijn de rechten concurrent, ofwel is de rang $1$ en zijn de rechten evenwijdig.
+    \end{itemize}
+  \end{proof}
+\end{lem}
+
+\begin{st}
+  Stelling van $Ceva$\\
+  Zij $a$, $b$ en $c$ drie affien onafhankelijke punten in $\mathbb{A}^{2}$ en zij $a'$ een punt op de rechte $bc$, verschillend van $b$, $b'$ een punt op de rechte $ac$ verschillend van $c$ en $c'$ een punt op de rechte $ab$, verschillend van $a$.
+  Noem nu $A = aa'$, $B = bb'$ en $C=cc'$.
+  $A$, $B$ en $C$ zijn concurrent als en slechts als volgende gelijkheid geldt:
+  \[ (a',b,c)(b',c,a)(c',a,b) = 1\]
+  \begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[scale=2] 
+      \coordinate [label=below:$a$] (a) at (0,0);
+      \coordinate [label=above:$b$] (b) at (1,2);
+      \coordinate [label=below:$c$] (c) at (4,0);
+      \draw (a) -- (b) -- (c) -- cycle;
+
+      \coordinate [label=above:$a'$] (ap) at ($ (b)!.5!(c) $);      
+      \coordinate [label=below:$b'$] (bp) at ($ (c)!.5!(a) $);    
+      \coordinate [label=above:$c'$] (cp) at ($ (a)!.5!(b) $);    
+
+      \draw (ap) -- (a);
+      \draw (bp) -- (b);
+      \draw (cp) -- (c);
+    \end{tikzpicture}    
+    \caption{Stelling van Ceva voor de transformatie}
+    \label{fig:stelling-van-ceva-voor}
+  \end{figure}
+
+  \begin{proof}
+    Er bestaat een affiene transformatie die $a$ op de oorsprong $(0,0)$ afbeeldt, $b$ op $(0,1)$ en $c$ op $(1,0)$.
+    Omdat de ligging van de punten $a'$, $b'$, $c'$ ten opzichte van de rechten affien invariant is, alsook de deelverhoudingen, volstaat het om de stelling te bewijzen voor de getransformeerde punten.
+    \clarify{waarom?}
+    Dan bestaan er dus een $\lambda$, $\mu$ en $\nu$ uit $\mathbb{R}$ zodat de punten $a'$, $b'$ en $c'$ als volgt getransformeerd worden.
+    \[
+    \begin{array}{cl}
+      a' &= (\lambda,1-\lambda)\\
+      b' &= (\mu, 0)\\
+      c' &= (0,\nu)\\
+    \end{array}
+    \]
+    \begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[scale=5] 
+      \coordinate [label=below:$a$] (a) at (0,0);
+      \coordinate [label=above:$b$] (b) at (0,1);
+      \coordinate [label=below:$c$] (c) at (1,0);
+      \draw (a) -- (b) -- (c) -- cycle;
+
+      \coordinate [label=above:$a'$] (ap) at ($ (b)!.5!(c) $);      
+      \coordinate [label=below:$b'$] (bp) at ($ (c)!.5!(a) $);    
+      \coordinate [label=left:$c'$] (cp) at ($ (a)!.5!(b) $);    
+
+      \draw (ap) -- (a);
+      \draw (bp) -- (b);
+      \draw (cp) -- (c);
+    \end{tikzpicture}    
+    \caption{Stelling van Ceva na de transformatie}
+    \label{fig:stelling-van-ceva-na}
+  \end{figure}
+  \end{proof}
+  Omdat we extra informatie hebben over de punten $a'$, $b'$ en $c'$, namelijk dat $a'$ niet gelijk is aan $b$, $b'$ niet gelijk is aan $c$ en $c'$ niet gelijk is aan $a$ weten we het volgende over $\lambda$, $\mu$ en $\nu$.
+  \[
+  \left\{
+  \begin{array}{rcl}
+    \lambda &\neq & 0\\ 
+    \mu &\neq & 1\\
+    \nu &\neq & 0
+  \end{array}
+  \right.
+  \]
+  De vergelijkingen van $A$, $B$ en $C$ zijn dan de volgende:
+  \[
+  \begin{array}{rclcl}
+  A &\leftrightarrow &
+  \begin{vmatrix}
+    x_{1} & x_{2} & 1\\
+    0 & 0 & 1\\
+    \lambda & 1-\lambda & 1
+  \end{vmatrix}
+  = 0
+  &\Leftrightarrow&
+  (1-\lambda)x_{1} - \lambda x_{2} = 0
+\\
+  B &\leftrightarrow &
+  \begin{vmatrix}
+    x_{1} & x_{2} & 1\\
+    0 & 1 & 1\\
+    \mu & 0 & 1
+  \end{vmatrix}
+  = 0
+  &\Leftrightarrow&
+  x_{1} - \mu x_{2} = \mu
+\\
+  C &\leftrightarrow &
+  \begin{vmatrix}
+    x_{1} & x_{2} & 1\\
+    1 & 0 & 1\\
+    0 & \nu & 1
+  \end{vmatrix}
+  = 0
+  &\Leftrightarrow&
+  \nu x_{1} - x_{2} = \nu
+  \end{array}
+  \]
+  $A$, $B$ en $C$ zijn nu concurrent als en slechts als de volgende determinant $0$ is.\footnote{Zie stelling \ref{lem:rechten-concurrent-determinant}.}
+  \[
+  \begin{vmatrix}
+    (1-\lambda) & -\lambda & 0 \\
+    1 & \mu & \mu \\
+    \nu & 1 & \nu
+  \end{vmatrix}
+  = 0
+  \quad\Leftrightarrow\quad
+  (1 - \lambda)\mu(\nu-1) + \lambda(\mu-1)\nu = 0
+  \]
+  We bekijken nu de deelverhoudingen:
+  \[
+  \left\{
+  \begin{array}{rlll}
+  (a',b,c) &= \dfrac{\overrightarrow{a'c}}{\overrightarrow{a'b}} &= \dfrac{1-\lambda,\lambda-1}{\lambda,\lambda} &= \dfrac{\lambda-1}{\lambda}\\
+  (b',c,a) &= \dfrac{\overrightarrow{b'a}}{\overrightarrow{b'c}} &= \dfrac{-\mu,0}{1-\mu,0} &= \dfrac{\mu}{\mu-1}\\
+  (c',a,b) &= \dfrac{\overrightarrow{c'b}}{\overrightarrow{c'a}} &= \dfrac{0,1-\nu}{0,\nu} &= \dfrac{\nu -1}{\nu}\\
+  \end{array}
+  \right.
+  \]
+  Deze impliceren dezelfde voorwaarde:
+  \[
+  \dfrac{\lambda-1}{\lambda}\dfrac{\mu}{\mu-1}\dfrac{\nu -1}{\nu} = -1
+  \Leftrightarrow
+  (1 - \lambda)\mu(\nu-1) + \lambda(\mu-1)\nu = 0
+  \]
+  Bijgevolg is de stelling bewezen.
+\clarify{waarom?}
+\end{st}
+
+\end{document}
