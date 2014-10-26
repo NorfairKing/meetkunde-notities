@@ -1,0 +1,157 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+
+\chapter{Derivaties}
+\label{cha:derivaties}
+
+\begin{de}
+  Zij $\mathcal{F}(\mathbb{A}^{n})$ alle functies van $\mathbb{A}^{n}$ naar $\mathbb{R}$ waarvoor alle parti\"ele afgeleiden van willekeurige orde bestaan en overal continu zijn.
+  \[ \{ f: \mathbb{A}^{n} \rightarrow \mathbb{R} \ |\ f \text{ is } C^{\infty} \} \]
+  $\mathcal{F}(\mathbb{A}^{n})$ is bovendien een re\"ele vectorruimte.
+\end{de}
+
+\begin{de}
+  Een derivatie in $p\in\mathbb{A}^{n}$ is een afbeelding $D_{p}$ waarop twee bewerkingen gedefinieerd zijn.
+  \[ D_{p}:\ \mathcal{F}(\mathbb{A}^{n}) \rightarrow \mathbb{R} \]
+  \begin{itemize}
+  \item $D_{p}$ is een lineaire afbeelding van $\mathcal{F}(\mathbb{A}^{n})$ naar $\mathbb{R}$:
+    \[ \forall a,b \in \mathbb{R}, \forall f,g \in \mathcal{F}(\mathbb{A}^{n}):\ D_{p}(af + bg) = aD_{p}(f) + bD_{p}(g) \]
+  \item Leibnitzregel: 
+    \[ \forall f,g \in \mathcal{F}(\mathbb{A}^{n}):\ D_{p}(fg) = D_{p}(f)g(p) + f(f)D_{p}(g)\]
+  \end{itemize}
+\end{de}
+
+\begin{ei}
+  De verzameling $T_{p}\mathbb{A}^{n}$ van alle derivaties in een punt $p$ vormt een vectorruimte met de volgende bewerkingen:
+  \begin{itemize}
+  \item Optelling:
+    \[ (D_{p} + D'_{p}):\ \mathcal{F}(\mathbb{A}^{n}) \rightarrow \mathbb{R}:\ f \mapsto (D_{p} + D'_{p})(f) = D_{p}(f) + D'_{p}(f)\]
+  \item Scalaire vermenigvuldiging:
+    \[ aD_{p}:\ \mathcal{F}(\mathbb{A}^{n}) \rightarrow \mathbb{R}:\ f \mapsto (aD_{p})(f) = aD_{p}(f)\]
+  \end{itemize}
+\end{ei}
+
+\begin{de}
+  Een \term{open bol} $B_{p,\epsilon}$ met middelpunt $p$ en straal $\epsilon$ is een verzameling punten als volgt:
+  \[ B_{p,\epsilon} = \left\{ (x_{1},\dotsc ,x_{n})\in \mathbb{A}^{n}\ \left|\ \sum_{i=1}^{n}(x_{i}-p_{i})^{2} < \epsilon^{2} \right.\right\}\]
+\end{de}
+
+\begin{de}
+  Een deelverzameling $U \subseteq \mathbb{A}^{n}$ noemen we een \term{omgeving} van $p$ als er een open bol met middelpunt $p$ bestaat die een deelverzameling is van $U$.
+\end{de}
+
+\begin{lem}
+  Zijn$D_{p}$ een derivatie in $p\in\mathbb{A}^{n}$ en $f\in\mathcal{F}(A^{n})$ een functie.
+  Als $f$ constant is, dan is de derivatie van $f$ in $p$ nul.
+  \[ (\exists c\in\mathbb{R},\ \forall q\in\mathbb{A}^{n}:\ f(q) = c) \quad\Rightarrow\quad D_{p}(f) = 0 \]
+  \TODO{bewijs p 63}
+\end{lem}
+
+\begin{lem}
+  Zij $D_{p}$ een derivatie in $p\in\mathbb{A}^{n}$ en $f\in\mathcal{F}(A^{n})$ een functie.
+  Als $f$ nul is in een omgeving van $p$, dan is de derivatie van $f$ in $p$ nul.
+  \[ (\exists \epsilon\in\mathbb{R}^{+}_{0},\ \forall q \in B(p,\epsilon):\ f(q) = 0) \quad\Rightarrow\quad D_{p}(f) = 0 \]
+  \TODO{bewijs p 63}
+\end{lem}
+
+\begin{lem}
+  Zij $D_{p}$ een derivatie in $p\in\mathbb{A}^{n}$ en $f\in\mathcal{F}(A^{n})$ een functie.
+  $D_{p}(f)$ hangt enkel af van de waarden van $f$ in een (willekeurige) omgeving van $p$.
+  \[ \forall \epsilon\in\mathbb{R}^{+}_{0},\ \forall q \in B(p,\epsilon),\ \forall f_{1},f_{2}\in\mathcal{F}(\mathbb{A}^{n}):\ f_{1}(q) = f_{2}(q) \]
+  \TODO{bewijs p 63}
+\end{lem}
+
+\begin{lem}
+  Zij $f \in \mathcal{F}(\mathbb{A}^{n})$ een functie en $p = (p_{1},\dotsb,p_{n}) \in \mathbb{A}^{n}$ een punt, dan bestaan er $n$ functies $f_{1},\dotsc,f_{n} \in \mathcal{F}(\mathbb{A}^{n})$ zodat het volgende geldt.
+  \[
+  \forall x = (x_{1},\dotsc,x_{n})\in\mathbb{A}^{n}:\ f(x) = f(p) + \sum_{i=i}^{n}f_{i}(x)(x_{i}-p_{i})
+  \]
+  \TODO{bewijs p 64}
+  \clarify{wat houdt dit lemma precies in?}
+\end{lem}
+
+\begin{st}
+  Zij $p\in\mathbb{A}^{n}$ een punt.
+  De partiele afgeleiden in $p$ vormen een basis voor de ruimte der derivaties in $p$.
+  \[ \left\{ \left(\frac{\partial}{\partial x_{1}}\right)_{p}, \left(\frac{\partial}{\partial x_{2}}\right)_{p}, \dotsc , \left(\frac{\partial}{\partial x_{n}}\right)_{p}\right\}  \]
+  \TODO{bewijs p 64 - 65}
+\end{st}
+
+\begin{opm}
+  Het verband tussen de definitie voor een rakende ruimte $T_{p}\mathbb{A}^{n}$ uit hoofdstuk \ref{cha:affiene-meetkunde} en de definitie voor een rakende ruimte als ruimte van derivaties in $p$ wordt gegeven door de volgende identificatie:
+  \question{ wat is een identificatie? }
+  \[ 
+  (0,\dotsc,0,1,0,\dotsc,0)_{p}
+  \leftrightarrow
+  \left(\frac{\partial}{\partial x_{i}}\right)_{p}
+  \]
+  Hier staat de $1$ op de $i$-de plaats.
+  In woorden identificeert elke raakvector dus met de richtingsafgeleide langs die vector.
+  \clarify{wat?!}
+  Zij immers $p\in\mathbb{A}^{n}$ een punt en $v_{p} = (v_{1},\dotsc,v_{n})_{p} \in T_{p}\mathbb{A}^{n}$ een raakvector.
+  Beschouw dan de richtingsafgeleide van $f$ langs $v_{p}$:
+  \[ v_{p}(f) = \left.\frac{d}{dt}f(p+tv)\right|_{t=0} = \sum_{i=1}^{n}v_{i}\frac{\partial f}{\partial x_{i}}(p)\]
+\end{opm}
+
+\section{Afgeleide afbeelding}
+\label{sec:afgeleide-afbeelding}
+
+\begin{de}
+  We noemen een deelverzameling $U$ van $\mathbb{A}^{n}$ een \term{open deelverzameling} als er voor elke $p\in U$ een open bol $B(p,\epsilon)$ bestaat die volledig in $U$ ligt.
+\end{de}
+
+\begin{de}
+  Zij $F$ een afbeelding van een deelverzameling $U$ van $\mathbb{A}^{n}$ naar $\mathbb{A}^{m}$ als volgt, dan noemen we de $F_{i}$ de \term{co\"ordinaatsfuncties} van $F$.
+  \[ F: U\subseteq \mathbb{A}^{n} \rightarrow \mathbb{A}^{m}:\ p\mapsto F(p) = (F_{1}(p),\dotsc,F_{m}(p)) \]  
+  We noemen $F$ differentieerbaar als al de $F_{i}$ $C^{\infty}$-continu zijn. 
+\end{de}
+
+\begin{de}
+  Zij $F$ een differentieerbare afbeelding en $p \in U$ een punt.
+  \[ F: U\subseteq \mathbb{A}^{n} \rightarrow \mathbb{A}^{m}:\ p\mapsto F(p) = (F_{1}(p),\dotsc,F_{m}(p)) \]
+  De Jacobiaan van $F$ in $p$ is de matrix $\mathcal{J}$.
+  \[
+  \mathcal{J} = 
+  \begin{pmatrix}
+  \frac{\partial F_{1}}{\partial x_{1}}(p) & \hdots & \frac{\partial F_{1}}{\partial x_{n}}(p)\\
+  \vdots & & \vdots\\
+  \frac{\partial F_{m}}{\partial x_{1}}(p) & \hdots & \frac{\partial F_{m}}{\partial x_{n}}(p)\\
+  \end{pmatrix}
+  \]  
+\end{de}
+
+\begin{de}
+  Zij $F$ een differentieerbare afbeelding en $p \in U$ een punt.
+  \[ F:\ U\subseteq \mathbb{A}^{n} \rightarrow \mathbb{A}^{m}:\ p\mapsto F(p) = (F_{1}(p),\dotsc,F_{m}(p)) \]
+  We defini\"eren de \term{afgeleide afbeelding} van $F$ in $p$ als de lineaire afbeelding $(F_{*})_{p}$:
+  \[
+  (F_{*})_{p}:\ T_{p}\mathbb{A}^{n}\rightarrow T_{F(p)}\mathbb{A}^{m}:\
+  \begin{pmatrix}
+    v_{1}\\v_{2}\\\vdots\\v_{n}
+  \end{pmatrix}_{p}
+  \mapsto
+  \left(
+  \mathcal{J}
+  \begin{pmatrix}
+    v_{1}\\v_{2}\\\vdots\\v_{n}
+  \end{pmatrix}
+  \right)_{p} 
+  \]
+\end{de}
+
+\begin{lem}
+  Zij $F$ een affiene transformatie.
+  \[ F:\ \mathbb{A}^{n} \rightarrow \mathbb{A}^{n}: p\mapsto Ap + b \]
+  De afgeleide afbeelding van $F$ in $p$ is gegeven door $(F_{*})_{p}$:
+  \[ (F_{*})_{p}: T_{p}\mathbb{A}^{n} \rightarrow T_{F(p)}\mathbb{A}^{n}:\ v_{p} \mapsto (Av)_{F(p)} \]
+  \TODO{bewijs p 68}
+\end{lem}
+
+\begin{st}
+  Zij $F:\ U\subseteq \mathbb{A}^{n} \rightarrow \mathbb{A}^{m}$ een differentieerbare afbeelding en $p$ een elemen van $U$.
+  Als $D_{p}$ een derivatie in $p$ is, dan is $(F_{*})_{p}(D_{p})$ de derivatie in $F(p)$.
+  \[ \left( (F_{*})_{p}(D_{p})\right) (f) = D_{p} (f\circ F) \]
+  \TODO{bewijs p 68}
+\end{st}
+
+\end{document}

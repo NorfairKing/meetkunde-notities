@@ -91,7 +91,7 @@
 \end{lem}
 
 \begin{st}
-  Stelling van $Ceva$\\
+  Stelling van \term{Ceva}\\
   Zij $a$, $b$ en $c$ drie affien onafhankelijke punten in $\mathbb{A}^{2}$ en zij $a'$ een punt op de rechte $bc$, verschillend van $b$, $b'$ een punt op de rechte $ac$ verschillend van $c$ en $c'$ een punt op de rechte $ab$, verschillend van $a$.
   Noem nu $A = aa'$, $B = bb'$ en $C=cc'$.
   $A$, $B$ en $C$ zijn concurrent als en slechts als volgende gelijkheid geldt:
@@ -129,24 +129,24 @@
     \end{array}
     \]
     \begin{figure}[H]
-    \centering
-    \begin{tikzpicture}[scale=5] 
-      \coordinate [label=below:$a$] (a) at (0,0);
-      \coordinate [label=above:$b$] (b) at (0,1);
-      \coordinate [label=below:$c$] (c) at (1,0);
-      \draw (a) -- (b) -- (c) -- cycle;
-
-      \coordinate [label=above:$a'$] (ap) at ($ (b)!.5!(c) $);      
-      \coordinate [label=below:$b'$] (bp) at ($ (c)!.5!(a) $);    
-      \coordinate [label=left:$c'$] (cp) at ($ (a)!.5!(b) $);    
-
-      \draw (ap) -- (a);
-      \draw (bp) -- (b);
-      \draw (cp) -- (c);
-    \end{tikzpicture}    
-    \caption{Stelling van Ceva na de transformatie}
-    \label{fig:stelling-van-ceva-na}
-  \end{figure}
+      \centering
+      \begin{tikzpicture}[scale=5] 
+        \coordinate [label=below:$a$] (a) at (0,0);
+        \coordinate [label=above:$b$] (b) at (0,1);
+        \coordinate [label=below:$c$] (c) at (1,0);
+        \draw (a) -- (b) -- (c) -- cycle;
+        
+        \coordinate [label=above:$a'$] (ap) at ($ (b)!.5!(c) $);      
+        \coordinate [label=below:$b'$] (bp) at ($ (c)!.5!(a) $);    
+        \coordinate [label=left:$c'$] (cp) at ($ (a)!.5!(b) $);    
+        
+        \draw (ap) -- (a);
+        \draw (bp) -- (b);
+        \draw (cp) -- (c);
+      \end{tikzpicture}    
+      \caption{Stelling van Ceva na de transformatie}
+      \label{fig:stelling-van-ceva-na}
+    \end{figure}
   \end{proof}
   Omdat we extra informatie hebben over de punten $a'$, $b'$ en $c'$, namelijk dat $a'$ niet gelijk is aan $b$, $b'$ niet gelijk is aan $c$ en $c'$ niet gelijk is aan $a$ weten we het volgende over $\lambda$, $\mu$ en $\nu$.
   \[
@@ -222,5 +222,104 @@
   Bijgevolg is de stelling bewezen.
 \clarify{waarom?}
 \end{st}
+
+\begin{opm}
+  De voorwaarde dat $a' \neq b$, $b' \neq c$ en $c' \neq a$ gelden zorgen ervoor dat de deelverhoudingen goed gedefinieerd zijn.
+  Stel bijvoobeeld dat $a'=b$ geldt (zoals in figuur \ref{fig:stelling-van-ceva-alternatief}), dan is $\lambda$ nul en $(a',b,c) = \frac{\lambda-1}{\lambda}$ bijgevolg niet gedefinieerd.
+  Als de rechten toch evenwijdig of concurrent zijn, dan moet \'e\'en van de andere twee deelverhoudingen nul zijn.
+  \clarify{waarom?}
+  \begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[scale=2] 
+      \coordinate [label=below:$a$] (a) at (0,0);
+      \coordinate [label=above:$b$] (b) at (1,2);
+      \coordinate [label=below:$c$] (c) at (4,0);
+      \draw (a) -- (b) -- (c) -- cycle;
+      
+      \coordinate [label=below:$a'$] (ap) at ($ (b) $);      
+      \coordinate [label=above:$b'$] (bp) at ($ (a) $);    
+      \coordinate [label=left:$c'$] (cp) at ($ (a)!.5!(b) $);    
+      
+      \draw (ap) -- (a);
+      \draw (bp) -- (b);
+      \draw (cp) -- (c);
+    \end{tikzpicture}    
+    \caption{Stelling van Ceva zonder de voorwaarden: $a' \neq b$, $b' \neq c$ en $c' \neq a$}
+    \label{fig:stelling-van-ceva-alternatief}
+  \end{figure}
+\end{opm}
+
+\begin{st}
+  Stelling van \term{Menelaos}\\
+  Zij $a$, $b$ en $c$ drie affien onafhankelijke punten in $\mathbb{A}^{2}$ en zij $a'$ een punt op de rechte $bc$, verschillend van $b$, $b'$ een punt op de rechte $ac$, verschillend van $b$ en $c'$ een punt op de rechte $ab$, verschillend van $a$.
+  $a$, $b$ en $c$ zijn collineair als en slechts als het volgende geldt over de deelverhoudingen:
+  \[ (a',b,c)(b',c,a)(c',a,b) = 1 \]
+  
+  \begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[scale=1.5] 
+      \coordinate [label=below:$a$] (a) at (0,0);
+      \coordinate [label=above:$b$] (b) at (2,2);
+      \coordinate [label=below:$c$] (c) at (4,0);
+      \draw (a) -- (b) -- (c) -- cycle;
+
+      \coordinate [label=above:$a'$] (ap) at ($ (b)!0.4!(c) $);      
+      \coordinate [label=below:$b'$] (bp) at ($ (a)!2!(c) $);    
+      \coordinate [label=above:$c'$] (cp) at ($ (a)!.75!(b) $);    
+
+      \draw [dashed] (c) -- (bp);
+
+      \draw (cp) -- (bp);
+    \end{tikzpicture}    
+    \caption{Stelling van Menelaos voor de transformatie}
+    \label{fig:stelling-van-menelaos-voor}
+  \end{figure}
+  
+  \begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[scale=4.5] 
+      \coordinate [label=below:$a$] (a) at (0,0);
+      \coordinate [label=above:$b$] (b) at (0,1);
+      \coordinate [label=below:$c$] (c) at (1,0);
+      \draw (a) -- (b) -- (c) -- cycle;
+
+      \coordinate [label=above:$a'$] (ap) at ($ (b)!0.4!(c) $);      
+      \coordinate [label=below:$b'$] (bp) at ($ (a)!2!(c) $);    
+      \coordinate [label=left:$c'$] (cp) at ($ (a)!.75!(b) $);    
+
+      \draw [dashed] (c) -- (bp);
+
+      \draw (cp) -- (bp);
+    \end{tikzpicture}    
+    \caption{Stelling van Menelaos na de transformatie}
+    \label{fig:stelling-van-menelaos-na}
+  \end{figure}
+
+\TODO{bewijs 54} 
+\end{st}
+
+
+\section{Pappus en Desargues}
+\label{sec:pappus-en-desargues}
+
+\begin{st}
+  Stelling van \term{Pappus}\\
+  Zij $L$ en $L'$ twee verschillende rechten in $\mathbb{A}^{2}$.
+  Zij $x$, $y$ en $z$ drie punten op $L$ en $x'$, $y'$ en $z'$ drie punten op $L'$ die allemaal niet tot de doorsnede van $L$ en $L'$ behoren.
+  \[
+    ((xy' \parallel x'y) \wedge (yz' \parallel y'z)) \Rightarrow xz' \parallel x'z
+  \]
+  
+\TODO{bewijs 56} 
+\end{st}
+
+\begin{st}
+  Stelling van \term{Desargues}\\
+  Zij $a$, $b$ en $c$ drie affien onafhankelijke punten en $a'$, $b'$ en $c'$ drie affien onafhankelijke punten, beide in $\mathbb{A}^{2}$.
+  \[  ((ab \parallel a'b') \wedge (ac \parallel a'c') \wedge (bc \parallel b'c')) \Rightarrow aa', bb' \text{ en } cc' \text{ zijn concurrent of parallel }\]
+  
+\TODO{bewijs 57} 
+\end{st}
+
 
 \end{document}
