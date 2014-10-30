@@ -1,0 +1,188 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+
+\chapter{Orientaties en Volume}
+\label{cha:orientaties-en-volume}
+
+\begin{de}
+  Zij $V$ een vectorruimte van dimensie $n$.
+  Het $n$-tal vectoren $(e_{1},\dotsc, e_{n})$ noemen we een \term{geordende basis} als de verzameling $\{e_{1}, \dotsc, e_{n} \}$ een basis is voor $V$.
+\end{de}
+
+\begin{de}
+  Zij $V$ een vectorruimte en $e = (e_{1},\dotsc, e_{n})$ en $f = (e_{1},\dotsc, e_{n})$ twee geordende basissen voor $V$.
+  Er bestaan nu dus $a_{ij}$ zodat we $f$ kunnen schrijven in functie van $e$.
+  \[ f_{i} = \sum_{j=1}^{n}a_{ij}e_{j} \]
+  Dit komt overeen met de volgende matrixvermenigvuldiging.
+  \[
+  \begin{pmatrix}
+    f_{1}\\\vdots \\f_{n}
+  \end{pmatrix}
+    =
+  \begin{pmatrix}
+    a_{11} & \hdots & a_{1n} \\
+    \vdots & \ddots & \vdots \\
+    a_{n1} & \hdots & a_{nn}
+  \end{pmatrix}
+  \begin{pmatrix}
+    e_{1}\\\vdots \\e_{n}
+  \end{pmatrix}
+  \]
+  We zeggen nu dat $e$ en $f$ dezelfde \term{orientatie} hebben als de determinant van die vierkante matrix groter is dan nul. Als de determinant kleiner is dan nul zeggen we dat $e$ en $f$ een tegengestelde orientatie hebben.
+  \[ 
+  \begin{vmatrix}
+    a_{11} & \hdots & a_{1n} \\
+    \vdots & \ddots & \vdots \\
+    a_{n1} & \hdots & a_{nn}
+  \end{vmatrix}
+  > 0
+  \]
+\end{de}
+
+\begin{ei}
+  De relatie ``heeft dezelfde orientatie als'' is een equivalentierelatie en deelt de verzameling van geordende basissen op in twee equivalentieklassen.
+\extra{ bewijs}
+\end{ei}
+
+\begin{de}
+  Zij $p\in \mathbb{A}^{n}$ een punt en zij $T_{p}\mathbb{A}^{n}$ de rakende ruimte in $p$.
+  We noemen de volgende verzameling de \term{natuurlijke geordende basis}.
+  \[
+  (e_{1},\dotsc, e_{n}) =
+  (
+    (1,0,\cdots,0),
+    (0,1,\cdots,0),
+    \dotsc,
+    (0,0,\cdots,1)
+    )
+  \]
+\end{de}
+
+\begin{de}
+  Zij $v = (v_{1},\dotsc,v_{n})$ een geordende basis van de rakende ruimte $T_{p}\mathbb{A}_{n}$ in een punt $p\in \mathbb{A}^{n}$, dan heeft $v$ een \term{positieve orientatie} als $(v_{1},\dotsc,v_{n})$ en $(e_{1},\dotsc, e_{n})$ dezelfde orientatie hebben. In het geval dat $(v_{1},\dotsc,v_{n})$ en $(e_{1},\dotsc, e_{n})$ een tegengestelde orientatie hebben zeggen we dat $v$ een \term{negatieve orientatie} heeft.
+\end{de}
+
+\begin{st}
+  De orientatie van een geordende basis $v = (v_{1},\dotsc,v_{n})$ van de rakende ruimte $T_{p}\mathbb{A}_{n}$ in een punt $p\in \mathbb{A}^{n}$, is enkel afhankelijk van de vectordelen van $(v_{1},\dotsc,v_{n})$.
+  Bovendien heeft $v$ een positieve orientatie als en slechts als de volgende determinant positief is.
+  \[ 
+  \begin{vmatrix}
+    v_{11} & \hdots & v_{1n} \\
+    \vdots & \ddots & \vdots \\
+    v_{n1} & \hdots & v_{nn}
+  \end{vmatrix}
+  > 0
+  \]
+\extra{bewijs}
+\end{st}
+
+\begin{de}
+  Zij $F$ een affiene transformatie, dan is $F$ \term{ori\"entatiebewarend} als $F$ elke positieve basis op een positieve basis afbeeld, en elke negatieve basis op een negatieve basis.
+  $F$ is \term{ori\"entatieomkerend} als ze do ori\"entatie van elke basis omkeert.
+\end{de}
+
+\begin{st}
+  Een affiene transformatie $F$ is ori\"entatiebewarend als $det(F_{*}) > 0$ en ori\"entatieomkerend als $det(F_{*}) < 0$.
+\extra{bewijs}
+\end{st}
+
+\begin{st}
+  Elke affiene transformatie is ofwel ori\"entatiebewarend, ofwel ori\"entatieomkerend.
+\extra{bewijs}
+\end{st}
+
+\begin{st}
+  Elke translatie is ori\"entatiebewarend.
+\extra{bewijs}
+\end{st}
+
+\begin{st}
+  Elke homothetie met positieve factor is ori\"entatiebewarend.
+ \question{waw doet een homothetie met negatieve factor?}
+\extra{bewijs}
+\end{st}
+
+\begin{st}
+  De samenstelling van twee ori\"entatiebewarende affiene transformaties is ori\"entatiebewarend.
+  \extra{bewijs}
+\question{wat gebeurt er bij andere samenstellingen?}
+\end{st}
+
+\begin{st}
+  De inverse van een ori\"entatiebewarende affiene transformatie is ori\"entatiebewarend.
+\extra{bewijs}
+\end{st}
+
+\begin{st}
+  De orientatiebewarende affiene transformaties vormen een deelgroep van de affiene transformaties, uitgerust met de samenstellingsbewerking.
+\extra{bewijs}
+\end{st}
+
+\section{Volume}
+\label{sec:volume}
+
+\begin{de}
+  Zij $p\in \mathbb{A}^{n}$ een punt en $v= (v_{1},\dotsc,v_{n})$ een geordende basis van $T_{p}\mathbb{A}^{n}$.
+  Het \term{volume} $Vol(v)$ van $v$ definieren we als de volgende determinant.
+  \[
+  Vol(v) = 
+  \begin{vmatrix}
+    v_{1} & \cdots & v_{n}\\
+  \end{vmatrix}
+  \]
+\end{de}
+
+\begin{de}
+  Zij $p\in \mathbb{A}^{n}$ een punt en $v= (v_{1},\dotsc,v_{n})$ een geordende basis van $T_{p}\mathbb{A}^{n}$.
+  We definieren het \term{parallellepipedum} $P(v)$ bepaald door $v$ als de volgende verzameling punten:
+  \[ P(v) = \left\{\left. p + \sum_{i=1}^{n}\lambda_{i}v_{i} \ \right|\ 0 \le \lambda_{i} \le 1 \right\} \]
+\end{de}
+
+\begin{de}
+  Een tweedimensionaal parallellepipedum heet een \term{parallellogram}.
+\end{de}
+
+\begin{de}
+  Het volume van een parallellepipedum $P(v)$ bepaald door een geordende basis $v$ van een rakende ruimte $T_{p}\mathbb{A}^{n}$ in een punt $p\in\mathbb{A}^{n}$ is de absolute waarde van het volume van de basis.
+  \[ Vol\left(P(v)\right) = |Vol(v)|\]
+\end{de}
+
+\begin{st}
+  Zij $F$ een affiene transformatie van $\mathbb{A}^{n}$ en $p\in\mathbb{A}^{n}$ een punt.
+  Zij $v= (v_{1},\dotsc,v_{n})$ een geordende basis van $T_{p}\mathbb{A}^{n}$.
+  $F_{*}(v) = (F_{*}(v_{1}),\dotsc,F_{*}(v_{n}))$ is een geordende basis van $T_{F(p)}\mathbb{A}^{n}$.
+  Bovendien geldt het volgende over het volume van $F_{*}(v)$.
+  \[ Vol\left( F_{*}(v) \right) = \left(det(F_{*}) \right)Vol(v) \]
+  \TODO{bewijs p 74}
+\end{st}
+
+\begin{gev}
+  Zij $P_{1}$ en $P_{2}$ twee willekeurige parallellepipeda in $\mathbb{A}^{n}$ en $F$ een affiene transformatie van $\mathbb{A}^{n}$.
+  \[ \frac{Vol(P_{1})}{Vol(P_{2})} = \frac{Vol(F(P_{1}))}{Vol(F(P_{2}))} \]
+\TODO{bewijs}
+\end{gev}
+
+\begin{gev}
+  Zij $F$ een affiene transformatie van $\mathbb{A}^{n}$ zodat $det(F_{*}) = 1$ geldt.
+  Zij bovendien $p\in\mathbb{A}^{n}$ een punt en $v= (v_{1},\dotsc,v_{n})$ een geordende basis van $T_{p}\mathbb{A}^{n}$.
+  \[ Vol(v) = Vol(F_{*}(v)) \]
+\end{gev}
+
+\begin{de}
+  Lineaire transformaties met determinant $1$ noemen we \term{speciale lineaire transformaties}.
+  \[ SL(n,\mathbb{R}) = \{ A \in GL(n,\mathbb{R}) \ |\ det(A) = 1 \} \]
+\end{de}
+
+\begin{de}
+  De affiene transformaties waarvan het lineair deel determinant $1$ heeft noemen we \term{equiaffiene transformaties}.
+  \[ SA(n,\mathbb{R}) \subseteq A(n,\mathbb{R}) \]
+\end{de}
+
+\begin{st}
+  De equiaffiene transformaties $SA(n,\mathbb{R})$ van een affiene ruimte $\mathbb{A}^{n}$ vormen een deelgroep van $A(n,\mathbb{R})$, uitgerust met de samenstellingsbewerking.
+\extra{bewijs}
+\end{st}
+
+
+
+\end{document}
