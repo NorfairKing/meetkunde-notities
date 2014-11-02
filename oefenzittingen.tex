@@ -67,7 +67,7 @@ $\phi$ is inderdaad een isomorfisme van re\"ele vectorruimten.\footnote{Zie stel
   \[ q+W \parallel q+R \]
 \end{enumerate}
 
-\TODO{oefening 4}
+\extra{oefening 4}
 
 \subsection*{Oefening 5}
 \[ S + T = p + (V + W) = p + <\{(1,0,0),(0,1,0)\}>\]
@@ -102,7 +102,7 @@ $S$ en $T$ zijn kruisend.
 \item $R_{1} = s + (V+W)$ en $R_{1} = t + (V+W)$, hebben dezelfde richting en dimensie, en zijn bijgevolg parallel.
 \end{enumerate}
 
-\TODO{oefening 9}
+\extra{oefening 9}
  
 \subsection*{Oefening 10}
 Tegenvoorbeeld:
@@ -116,11 +116,11 @@ Kies $S = <e_{1},e_{2}>$ en $T = <e_{3},e_{4}>$ deelruimten van $\mathbb{A}^{4}$
 Bepaal de parametervergelijkingen en carthesische vergelijkingen van de rechte door $p$ en $q$:
 \begin{enumerate}
 \item 
-\TODO{oefening 1.1}
+\extra{oefening 1.1}
 \item
-\TODO{oefening 1.2}
+\extra{oefening 1.2}
 \item
-\TODO{oefening 1.3}
+\extra{oefening 1.3}
 \item $p = (2,-1,7)$ en $q=(6,4,-3)$ in $\mathbb{A}^{3}$\\
   \[ \overrightarrow{pq} = (6,4,-3) - (2,-1,7) = (4,5,-10) \]
   Parametervergelijkingen:
@@ -168,7 +168,7 @@ Bepaal de parametervergelijkingen en carthesische vergelijkingen van de rechte d
   \right.
   \]
 \item
-\TODO{oefening 1.5}
+\extra{oefening 1.5}
 \end{enumerate}
 
 \subsection*{Oefening 2}
@@ -200,11 +200,11 @@ Bepaal parametervergelijkingen en carthesische vergelijkingen van het vlak door 
   = 0
   \]
   \[ H \leftrightarrow 2x_{1}+ x_{2}-x_{3} = 0 \]
-\TODO{oefening 2.1}
+\extra{oefening 2.1}
 \item $p= (1,0,6,1)$, $q=(2,-1,3,7)$ en $r=(0,0,2,1)$ in $\mathbb{A}^{4}$\\
   \[ \overrightarrow{pq} = (2,-1,3,7) - (1,0,6,1) = (1,-1,-3,6) \]
   \[ \overrightarrow{pr} = (0,0,2,1) - (1,0,6,1) = (1,0,-4,0) \]
-\TODO{oefening 2.2}
+\extra{oefening 2.2}
   
 \end{enumerate}
 
@@ -249,11 +249,11 @@ Bepaal parametervergelijkingen en carthesische vergelijkingen van de affiene dee
   H \leftrightarrow 2x_{2} - x_{4} = 0
   \]
 \item 
-  \TODO{ oefening 3.2 }
+  \extra{ oefening 3.2 }
 \end{itemize}
 
 \subsection*{Oefening 4}
-  \TODO{ oefening 4 }
+  \extra{ oefening 4 }
 \subsection*{Oefening 5}
 Gegeven een is volgend stelsel vergelijkingen.
 \[
@@ -436,14 +436,14 @@ We kennen dan de richting van $L_{3}$ en een aangrijpingspunt van $L_{3}$.
 \[ L_{3} = (5,-3,12) + \lambda (0,1,-1) \]
 \end{itemize}
 
-\TODO{Oefening 8}
-\TODO{Oefening 9}
-\TODO{Oefening 10}
-\TODO{Oefening 11}
-\TODO{Oefening 12}
+\extra{Oefening 8}
+\extra{Oefening 9}
+\extra{Oefening 10}
+\extra{Oefening 11}
+\extra{Oefening 12}
 
 \section{Oefenzitting 3}
-\TODO{Oefening 1}
+\extra{Oefening 1}
 
 \subsection*{Oefening 2}
 Gegeven zijn de homothetie $H_{c,r}$ met centrum $c$ en factor $r$, en de translatie $t_{a}$ in de richting van $a$.
@@ -506,7 +506,7 @@ Noteer eerst de definities van $H_{c,r}$ en $H_{d,r}$.
 \] 
 We zien dat dit laatste een translatie is als en slechs als de co\"efficient $rs$ bij $p$ $1$ is.
 \end{itemize}
-\TODO{Oefening 5}
+\extra{Oefening 5}
 
 \subsection*{Oefening 6}
 Stel dat een affiene transformatie $F$ elke affiene deelruimte afbeeldt op een parallele affiene deelruimte.
@@ -533,5 +533,42 @@ Toon aan dat de barycentrische co\"ordinaten van $p$ ten opzichte van de punten 
   \]
   Merk op dat die laatste stap alleen maar geldt als de $\lambda_{i}$ sommeren tot $1$.
 \end{proof}
+
+\section{Oefenzitting 4}
+\label{sec:oefenzitting-4}
+
+\extra{Oefening 1}
+\extra{Oefening 2}
+
+\subsection{Oefening 3}
+  \begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[scale=1] 
+      \coordinate [label=above:$a$] (a) at (2,3);
+      \coordinate [label=above:$b$] (b) at (5,4);
+      \coordinate [label=below:$c$] (c) at (7,0);
+      \coordinate [label=below:$d$] (d) at (0,0);
+      \draw (a) -- (b) -- (c) -- (d) -- cycle;
+
+      \coordinate [label=above:$k$] (k) at (1,2.66);
+      \coordinate [label=$n$] (n) at (2,2.3);
+      \coordinate [label=below:$l$] (l) at (7,1);
+      \coordinate [label=above:$m$] (m) at (8,0);
+      \draw (k) -- (a);
+      \draw (c) -- (m);
+      \draw (k) -- (m);
+
+      \draw [dashed] (d) -- (b);
+      \draw [dashed] (a) -- (c);
+    \end{tikzpicture}    
+  \end{figure}
+
+
+
+
+
+
+
+
 
 \end{document}
