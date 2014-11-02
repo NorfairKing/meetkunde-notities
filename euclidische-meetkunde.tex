@@ -1,0 +1,91 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+
+\chapter{Euclidische meetkunde}
+\label{cha:euclidische-meetkunde}
+
+\begin{de}
+  Zij $p\in\mathbb{A}^{n}$, $v_{p}$ en $w_{p}$ rakende vectoren in $T_{p}\mathbb{A}^{n}$.
+  Het \term{Euclidisch scalair product} $\cdot$ van $v_{p}$ en $w_{p}$ definieren we als volgt:
+  \[ v_{p} \cdot w_{p} = \sum_{i=1}^{n}v_{i}w_{i} \]
+\end{de}
+
+\begin{ei}
+  Distributiviteit ten opzichte van de optelling van vectoren.\\
+  Zij $u$, $v$ en $w$ raakvectoren in $T_{p}\mathbb{A}^{n}$ en $a$ en $b$ scalars in $\mathbb{R}$.
+  \[ (au + bv) \cdot w = au\cdot w + bv \cdot w \]
+\extra{bewijs}
+\end{ei}
+
+\begin{ei}
+  Commutativiteit.\\
+  Zij $v$ en $w$ raakvectoren in $T_{p}\mathbb{A}$.
+  \[ v\cdot w = w\cdot v\]
+\extra{bewijs}
+\end{ei}
+
+\begin{ei}
+  Positiviteit.\\
+  Zij $v$ een raakvector in $T_{p}\mathbb{A}$.
+  \[ v \cdot v \ge 0 \]
+\extra{bewijs}
+\end{ei}
+
+\begin{ei}
+  Zij $v$ een raakvector in $T_{p}\mathbb{A}$.
+  \[ v \cdot v = 0 \Leftrightarrow v = 0 \]
+\extra{bewijs}
+\end{ei}
+
+\begin{de}
+  Een \term{Euclidische ruimte} $\mathbb{E}^{n}$ is een affiene ruimte $\mathbb{A}^{n}$, uitgerust met het scalair product $\cdot$.
+\end{de}
+
+\begin{de}
+  Zij $p\in\mathbb{A}^{n}$, $v_{p}$ een rakende vector in $T_{p}\mathbb{A}^{n}$.
+  De \term{lengte} of \term{norm} van $v_{p}$ definieren we als volgt:
+  \[ \Vert v_{p} \Vert = \sqrt{v_{p} \cdot v_{p}} = \sqrt{\sum_{i=1}^{n}v_{i}^{2}} \]
+\end{de}
+
+\begin{ei}
+  Driehoeksongelijkheid.\\
+  Zij $v$ en $w$ raakvectoren in $T_{p}\mathbb{A}$.
+  \[ \Vert v + w \Vert \le \Vert v \Vert + \Vert w \Vert \]
+\extra{bewijs (zie LA)}
+\end{ei}
+
+\begin{ei}
+  Ongelijkheid van Cauchy-Schwartz\\
+  Zij $v$ en $w$ raakvectoren in $T_{p}\mathbb{A}$.
+  \[ |v \cdot w| \le \Vert v \Vert \Vert w \Vert \]
+\extra{bewijs (zie LA) en p 78}
+\end{ei}
+
+\begin{ei}
+  Zij $v$ en $w$ raakvectoren in $T_{p}\mathbb{A}$.
+  \[ |v \cdot w| = \Vert v \Vert \Vert w \Vert \Leftrightarrow v = \lambda w \]
+\extra{bewijs (zie LA) en p 78}
+\end{ei}
+
+\begin{de}
+  De cosinus van de \term{hoek} $\theta$ tussen twee vectoren $v$ en $w$ met $v$ en $w$ beide niet nul definieren we als volgt:
+  \[ v \cdot w = \Vert v \Vert \Vert w \Vert \cos(\theta) \]
+\end{de}
+
+\begin{de}
+  We noemen twee vectoren $v$ en $w$ \term{orthogonaal} als hun scalair product nul is.
+  \[ v \bot w \Leftrightarrow v \cdot w = 0 \]
+\end{de}
+
+\begin{de}
+  We noemen een basis $v = \{ v_{1}, \dotsc, v_{n} \}$ van een rakende ruimte $T_{p}\mathbb{E}^{n}$ \term{orthogonaal} als de vectoren van $v$ onderling orthogonaal zijn.
+\end{de}
+
+\begin{st}
+  Zij $v$ een raakvector van $T_{p}\mathbb{E}^{n}$ en $e = \{ e_{1}, \dotsc, e_{n} \}$ een basis van $T_{p}\mathbb{E}^{n}$.
+  \[ v = \sum_{i=1}^{n} (v \cdot e_{i})e_{i} \]
+\end{st}
+
+
+
+\end{document}
