@@ -37,7 +37,6 @@
 
   \begin{proof}
     Elke translatie is bijectief en heeft als inverse $(t_{b})^{-1} = t_{-b}$.
-    \clarify{waarom?}
     Elke affiene transformatie is de samenstelling van inverteerbare lineaire transformatie en een translatie:
     \[ F = t_{b} \circ A \]
     Zowel $t_{b}$ als $A$ zijn inverteerbaar, dus $F$ is ook inverteerbaar.
@@ -106,7 +105,7 @@
 \end{st} 
 
 \begin{st}
-  De verzameling $A(n,\mathbb{R}),\circ$ is een groep.
+  De verzameling $A(n,\mathbb{R})$, uitgerust met de samenstelling, vormt een groep.
 
   \begin{proof}
     We bewijzen elke eigenschap van een groep.
@@ -115,13 +114,13 @@
       Inderdaad, zie \ref{st:samenstelling-affiene-transformatie-intern}.
     \item De bewerking is associatief.
       Inderdaad, de samenstelling van affiene transformaties is associatief.
-      \clarify{ waarom ? }
+      Zij immers $i$, $j$ en $k$ drie affiene transformaties, respectievelijk van de vorm $A_{i}p+b_{i}$, $A_{j}p+b_{j}$, en  $A_{k}p+b_{k}$
+      \[ i \circ (j \circ k) = A_{i}(A_{j}(A_{k}p+b_{k})+b_{j})+b_{i} = (i \circ j) \circ k\]
     \item Er bestaat een neutraal element.
       Beschouw de affiene transformatie $F = \mathbb{I}^{n} + \vec{0}$.
       Nu geldt voor elke affiene transformatie $G$ het volgende:
       \[ F \circ G = G = G \circ F \]
-    \item Er bestaat voor elk element een invers element.
-      Inderdaad, zie \ref{st:samenstelling-affiene-transformatie-inverse}.
+    \item Er bestaat voor elk element een invers element.\stref{st:samenstelling-affiene-transformatie-inverse}.
     \end{itemize}
   \end{proof}
 \end{st}
@@ -300,7 +299,7 @@
   Zij $F:\ \mathbb{A}^{n} \rightarrow \mathbb{A}^{n}$ met $n\ge 2$ een bijectie die collineaire punten afbeeldt ap colineaire punten, dan is $F$ een affiene transformatie.
 
 Geen bewijs
-\TODO{Toch eens een bewijs proberen?}
+\extra{Toch eens een bewijs proberen?}
 \end{st}
 
 \section{Dilataties}
@@ -415,12 +414,47 @@ Geen bewijs
   \label{lem:parallelle-rechten-translatie-behouden}
   Zij $F = t_{b}$ een translatie en $p$, $q$ twee verschillende punten op een rechte $L$ in $\mathbb{A}^{n}$ die niet in de richting van $b$ ligt.
   Noem nu $p' = F(p)$ en $q'= F(q)$ en noem $L'$ de rechte door $p'$ parallel met $L$.
-  Noem bovendien $T$ de rechte door $p$ en $p'$ en $T'$ de rechte door $q$ parallel met $T$.
-
+  Noem bovendien $T$ de rechte door $p$ en $p'$ en $T'$ de rechte door $q$ parallel met $T$.\\\\
   Nu snijden $L'$ en $T'$ enkel in $q$.
   \[ L' \cap T' = \{q\} \]
 
-\TODO{bewijs p 48}
+  \begin{proof}
+    Omdat $p$ op $L$ ligt, ligt $p'$ op $F(L)$
+    \clarify{waarom?}
+    Dit betekent dat $F(L)$ evenwijdig is met $L$.
+    $F(L)$ is dus de rechte door $p'$ evenwijdig met $L$.
+    Omdat $q$ op $L$ ligt, ligt ook $q'$ op $F(L)$,
+    Omdat $T$ is de richting van $b$ ligt en $T$ parallel is met $T'$, ligt ook $T'$ in de richting van $b$ en dus is het beeld van $T'$ onder $F$ zichzelf.
+    Anderzijds ligt $q$ op $T'$ en $q'$ dus ook.
+    $L'$ is echter niet parallel met $T'$, dus $L' \cap T' = \{ q' \}$ 
+    \begin{figure}[H]
+      \centering
+      \begin{tikzpicture}[scale=1,extended line/.style={shorten >=-#1,shorten <=-#1},extended line/.default=1cm]
+        \coordinate [label=above:$p$]     (p) at (0,0);  
+        \coordinate [label=above:$p'$]   (pp) at ($ (p) + (5,0) $);  
+        \coordinate                       (r) at ($ (p) + (1.5,2.3333) $);  
+        \coordinate [label=above:$q$]     (q) at ($ (p) + (2,3) $);  
+        \coordinate [label=above:$q'$]   (qp) at ($ (p) + (7,3) $);  
+        \coordinate                      (rp) at ($ (pp) + (1.5,2.3333) $);  
+        \coordinate [label=right:$L$]     (l) at ($ (p)!0.5!(q) $);
+        \coordinate [label=right:$L'$]   (lp) at ($ (pp)!0.5!(qp) $);
+        \coordinate [label=above:$T$]     (l) at ($ (p)!0.5!(pp) $);
+        \coordinate [label=above:$T'$]   (lp) at ($ (q)!0.5!(qp) $);
+
+        \draw [extended line=1cm,dashed]  (p) -- (pp);
+        \draw [extended line=1cm,dashed]  (p) -- (q);
+        \draw [extended line=1cm,dashed]  (q) -- (qp);
+        \draw [extended line=1cm,dashed] (pp) -- (qp);
+
+        \draw [->,thick] (r) -- (rp);
+
+        \coordinate [label=above:$F$]   (lp) at ($ (r)!0.5!(rp) $);
+
+      \end{tikzpicture}    
+      \caption{Illustratie van lemma \ref{lem:parallelle-rechten-translatie-behouden}.}
+      \label{fig:parallelle-rechten-translatie-behouden}
+    \end{figure}    
+  \end{proof}
 \end{lem}
 
 \begin{lem}
@@ -432,7 +466,32 @@ Geen bewijs
   Nu snijden $L'$ en $T'$ enkel in $q$.
   \[ L' \cap T' = \{q\} \]
 
-\TODO{bewijs}
+  \begin{proof}
+    \begin{figure}[H]
+      \centering
+      \begin{tikzpicture}[scale=1,extended line/.style={shorten >=-#1,shorten <=-#1},extended line/.default=1cm]
+        \coordinate [label=above:$p_{0}$] (p0) at (0,0);  
+        \coordinate [label=above:$p'$]    (pp) at ($ (p0) + (6,0) $);  
+        \coordinate [label=above:$p$]      (p) at ($ (p0)!.6!(pp) $);  
+        \coordinate [label=above:$q'$]    (qp) at ($ (p0) + (4,3) $);  
+        \coordinate [label=above:$q$]      (q) at ($ (p0)!.6!(qp) $);  
+
+        \draw [extended line=1cm]  (p0) -- (qp);
+        \draw [extended line=1cm]  (p0) -- (pp);
+        \draw [extended line=1cm]  (p) -- (q);
+        \draw [extended line=1cm]  (pp) -- (qp);
+
+        \coordinate [label=left:$L$]      (l) at ($ (p)!.5!(q) $);
+        \coordinate [label=left:$L'$]     (l) at ($ (pp)!.5!(qp) $);
+        \coordinate [label=above:$T$]      (l) at ($ (p0)!.5!(p) $);
+        \coordinate [label=above:$T'$]     (l) at ($ (p0)!.5!(q) $);
+      \end{tikzpicture}    
+      \caption{Illustratie van lemma \ref{lem:parallelle-rechten-translatie-behouden}.}
+      \label{fig:parallelle-rechten-translatie-behouden}
+    \end{figure}    
+  \end{proof}
+
+\extra{bewijs}
 \end{lem}
 
 \end{document}
