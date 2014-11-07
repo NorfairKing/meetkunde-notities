@@ -307,10 +307,90 @@
   Zij $L$ en $L'$ twee verschillende rechten in $\mathbb{A}^{2}$.
   Zij $x$, $y$ en $z$ drie punten op $L$ en $x'$, $y'$ en $z'$ drie punten op $L'$ die allemaal niet tot de doorsnede van $L$ en $L'$ behoren.
   \[
-    ((xy' \parallel x'y) \wedge (yz' \parallel y'z)) \Rightarrow xz' \parallel x'z
+  ((xy' \parallel x'y) \wedge (yz' \parallel y'z)) \Rightarrow xz' \parallel x'z
   \]
   
-\TODO{bewijs 56} 
+  \begin{proof}
+    Voor twee rechten zijn er precies twee mogelijkheden.
+    \begin{enumerate}
+    \item De rechten snijden: $L \cap L' = \{ p \}$\\
+      Zij $H_{1}$ de homothetie met centrum $p$ die $x$ op $y$ afbeeldt en $H_{2}$ de homothetie met centrum $p$ die $y$ op $z$ afbeeldt.
+      $H_{1}$ beeldt dan $y'$ op $x'$ af en $H_{2}$ beeldt $z'$ op $y'$ af.\lemref{lem:parallelle-rechten-homothetie-behouden}
+      Merk nu op dat $H_{1}$ en $H_{2}$ verwisselbaar zijn.
+      \clarify{waarom?}
+      \[ H = H_{1} \circ H_{2} = H_{2} \circ H_{1} \]
+      Nu beeldt $H$ $x$ op $z$ af en $z'$ op $x'$.
+      Dit betekent precies dat $xz'$ en $zx'$ parallel zijn.
+
+      \begin{figure}[H]
+        \centering
+        \begin{tikzpicture}[scale=1,extended line/.style={shorten >=-#1,shorten <=-#1},extended line/.default=1cm] 
+          \coordinate [label=below:$p$]  (p) at (0,0);
+          \coordinate                   (p1) at (8,0);
+          \coordinate                   (p2) at (4,3);
+          \draw [extended line=1cm] (p) -- (p1);
+          \draw [extended line=1cm] (p) -- (p2);
+
+          \coordinate [label=above:$x$]  (x) at ($ (p)!.6!(p2) $);  
+          \coordinate [label=above:$y$]  (y) at ($ (p)!.9!(p2) $);  
+          \coordinate [label=above:$z$]  (z) at ($ (p)!.3!(p2) $);  
+
+          \coordinate [label=below:$x'$]  (xp) at ($ (p)!.45!(p1) $);  
+          \coordinate [label=below:$y'$]  (yp) at ($ (p)!.3!(p1) $);  
+          \coordinate [label=below:$z'$]  (zp) at ($ (p)!.9!(p1) $);  
+
+          \draw [dashed,red] (x) -- (yp);
+          \draw [dashed,red] (xp) -- (y);
+          \draw [dashed,green] (y) -- (zp);
+          \draw [dashed,green] (yp) -- (z);
+          \draw [dashed, blue] (x) -- (zp);
+          \draw [dashed, blue] (xp) -- (z);
+
+        \end{tikzpicture}    
+        \caption{Stelling van Pappus voor snijdende rechten}
+        \label{fig:stelling-van-pappus}
+      \end{figure}
+    \item De rechten zijn evenwijdig: $L \parallel L'$\\
+      Zij $T_{1}$ de translatie die $x$ afbeeldt op $y$ en $T_{2}$ de translatie die $y$ afbeeldt op $z$.
+      $T_{1}$ beeldt dan $y'$ af op $x'$ en $T_{2}$ beeldt $z'$ af op $y'$.\lemref{lem:parallelle-rechten-translatie-behouden}
+      Merk nu op dat $T_{1}$ en $T_{2}$ verwisselbaar zijn.
+      \clarify{waarom?}
+      \[ T = T_{1} \circ T_{2} = T_{2} \circ T_{1} \]
+      Nu beeldt $T$ $x$ op $z$ af en $z'$ op $x'$.
+      Dit betekent precies dat $xz'$ en $zx'$ parallel zijn.
+      
+      \begin{figure}[H]
+        \centering
+        \begin{tikzpicture}[scale=1,extended line/.style={shorten >=-#1,shorten <=-#1},extended line/.default=1cm] 
+          \coordinate                   (p1) at (0,0);
+          \coordinate                   (p2) at (6,0);
+          \coordinate                   (q1) at (0,3);
+          \coordinate                   (q2) at (6,3);
+          \draw [extended line=1cm] (p1) -- (p2);
+          \draw [extended line=1cm] (q1) -- (q2);
+
+          \coordinate [label=above:$x$]  (x) at ($ (p1)!.5!(p2) $);  
+          \coordinate [label=above:$y$]  (y) at ($ (p1)!1.!(p2) $);  
+          \coordinate [label=above:$z$]  (z) at ($ (p1)!0.!(p2) $);  
+
+          \coordinate [label=below:$x'$]  (xp) at ($ (q1)!.5!(q2) $);  
+          \coordinate [label=below:$y'$]  (yp) at ($ (q1)!0.!(q2) $);  
+          \coordinate [label=below:$z'$]  (zp) at ($ (q1)!1.!(q2) $);  
+
+
+          \draw [dashed,red] (x) -- (yp);
+          \draw [dashed,red] (xp) -- (y);
+          \draw [dashed,green] (y) -- (zp);
+          \draw [dashed,green] (yp) -- (z);
+          \draw [dashed, blue] (x) -- (zp);
+          \draw [dashed, blue] (xp) -- (z);
+
+        \end{tikzpicture}    
+        \caption{Stelling van Pappus voor evenwijdige rechten}
+        \label{fig:stelling-van-pappus}
+      \end{figure}
+    \end{enumerate}
+  \end{proof}
 \end{st}
 
 \begin{st}
@@ -318,6 +398,76 @@
   Zij $a$, $b$ en $c$ drie affien onafhankelijke punten en $a'$, $b'$ en $c'$ drie affien onafhankelijke punten, beide in $\mathbb{A}^{2}$.
   \[  ((ab \parallel a'b') \wedge (ac \parallel a'c') \wedge (bc \parallel b'c')) \Rightarrow aa', bb' \text{ en } cc' \text{ zijn concurrent of parallel }\]
   
+  \begin{proof}
+    We mogen ervan uitgaan dat de rechten $aa'$ en $bb'$ verschillend zijn.
+\clarify{waarom?}
+    Er zijn dan nog twee mogelijkheden.
+    \begin{enumerate}
+    \item $aa'$ en $bb'$ zijn evenwijdig: $aa' \parallel bb'$\\
+      Zij $T$ de translatie die $a$ op $a'$ afbeeldt, dan zal $T$ $b$ op $b'$ afbeelden.\lemref{lem:parallelle-rechten-translatie-behouden}
+      $T$ zal echter ook $bc$ op $b'c'$ afbeelden en $ac$ op $a'c'$.
+      \clarify{waarom?}
+      De doorsnede van $b'c'$ en $a'c'$ is dan $c'$ en bijgevolg wordt $c$ op $c'$ afgebeeldt door $T$.
+      Dit betekent precies dat $cc'$ en $aa'$ evenwijdig zijn.
+      \clarify{waarom?}
+      \begin{figure}[H]
+        \centering
+        \begin{tikzpicture}[scale=1,extended line/.style={shorten >=-#1,shorten <=-#1},extended line/.default=1cm]
+          \coordinate [label=above:$a$]  (a) at (0,0);  
+          \coordinate [label=above:$b$]  (b) at (1,2);  
+          \coordinate [label=above:$c$]  (c) at (4,1);  
+
+          \coordinate [label=above:$a'$]  (ap) at ($ (a) + (8,0) $);  
+          \coordinate [label=above:$b'$]  (bp) at ($ (b) + (8,0) $);  
+          \coordinate [label=above:$c'$]  (cp) at ($ (c) + (8,0) $);  
+
+          \draw (a) -- (b) -- (c) -- cycle;
+          \draw (ap) -- (bp) -- (cp) -- cycle;
+
+          \draw [extended line=1cm,dashed] (a) -- (ap);
+          \draw [extended line=1cm,dashed] (b) -- (bp);
+          \draw [extended line=1cm,dashed] (c) -- (cp);
+
+        \end{tikzpicture}    
+        \caption{Stelling van Desargues  voor evenwijdige rechten}
+        \label{fig:stelling-van-desargues}
+      \end{figure}
+
+    \item $aa'$ en $bb'$ snijden: $aa' \cap bb' = \{p\}$\\
+      Zij $H$ de homothetie die $a$ op $a'$ afbeeldt, dan zal $H$ $b$ op $b'$ afbeelden.\lemref{lem:parallelle-rechten-homothetie-behouden}
+      $H$ zal echter ook $bc$ op $b'c'$ afbeelden en $ac$ op $a'c'$.
+      \clarify{waarom?}
+      De doorsnede van $b'c'$ en $a'c'$ is dan $c'$ en bijgevolg wordt $c$ op $c'$ afgebeeldt door $T$.
+      Dit betekent precies dat $aa'$, $bb'$ en $cc'$ concurrent zijn.
+      \clarify{waarom?}
+      \begin{figure}[H]
+        \centering
+        \begin{tikzpicture}[scale=1,extended line/.style={shorten >=-#1,shorten <=-#1},extended line/.default=1cm]
+          \coordinate [label=above:$a$]  (a) at (0,0);  
+          \coordinate [label=above:$b$]  (b) at (1,2);  
+          \coordinate [label=above:$c$]  (c) at (4,1);  
+
+          \coordinate [label=above:$p$]  (p) at (6,1);
+          \coordinate [label=above:$a'$]  (ap) at ($ (4,2) + (8,0) $);  
+          \coordinate [label=above:$b'$]  (bp) at ($ (3,0) + (8,0) $);  
+          \coordinate [label=above:$c'$]  (cp) at ($ (0,1) + (8,0) $);  
+
+          \draw (a) -- (b) -- (c) -- cycle;
+          \draw (ap) -- (bp) -- (cp) -- cycle;
+
+          \draw [extended line=1cm,dashed] (a) -- (ap);
+          \draw [extended line=1cm,dashed] (b) -- (bp);
+          \draw [extended line=1cm,dashed] (c) -- (cp);
+
+        \end{tikzpicture}    
+        \caption{Stelling van Desargues voor snijdende rechten}
+        \label{fig:stelling-van-desargues}
+      \end{figure}
+    \end{enumerate}
+
+    
+    
+  \end{proof}
 \TODO{bewijs 57} 
 \end{st}
 
