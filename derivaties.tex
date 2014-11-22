@@ -4,6 +4,8 @@
 \chapter{Derivaties}
 \label{cha:derivaties}
 
+\TODO{zeker dat dit hoofdstuk erbij komt?}
+
 \begin{de}
   Zij $\mathcal{F}(\mathbb{A}^{n})$ alle functies van $\mathbb{A}^{n}$ naar $\mathbb{R}$ waarvoor alle parti\"ele afgeleiden van willekeurige orde bestaan en overal continu zijn.
   \[ \{ f: \mathbb{A}^{n} \rightarrow \mathbb{R} \ |\ f \text{ is } C^{\infty} \} \]
@@ -11,7 +13,7 @@
 \end{de}
 
 \begin{de}
-  Een derivatie in $p\in\mathbb{A}^{n}$ is een afbeelding $D_{p}$ waarop twee bewerkingen gedefinieerd zijn.
+  Een \term{derivatie} in $p\in\mathbb{A}^{n}$ is een afbeelding $D_{p}$ waarop twee bewerkingen gedefinieerd zijn met bovendien de volgende twee eigenschappen.
   \[ D_{p}:\ \mathcal{F}(\mathbb{A}^{n}) \rightarrow \mathbb{R} \]
   \begin{itemize}
   \item $D_{p}$ is een lineaire afbeelding van $\mathcal{F}(\mathbb{A}^{n})$ naar $\mathbb{R}$:
@@ -22,7 +24,7 @@
 \end{de}
 
 \begin{ei}
-  De verzameling $T_{p}\mathbb{A}^{n}$ van alle derivaties in een punt $p$ vormt een vectorruimte met de volgende bewerkingen:
+  De verzameling $T_{p}\mathbb{A}^{n}$ van alle derivaties in een punt $p$ vormt een vectorruimte met de volgende bewerkingen.
   \begin{itemize}
   \item Optelling:
     \[ (D_{p} + D'_{p}):\ \mathcal{F}(\mathbb{A}^{n}) \rightarrow \mathbb{R}:\ f \mapsto (D_{p} + D'_{p})(f) = D_{p}(f) + D'_{p}(f)\]
@@ -41,17 +43,28 @@
 \end{de}
 
 \begin{lem}
-  Zijn$D_{p}$ een derivatie in $p\in\mathbb{A}^{n}$ en $f\in\mathcal{F}(A^{n})$ een functie.
+  Zij $D_{p}$ een derivatie in $p\in\mathbb{A}^{n}$ en $f\in\mathcal{F}(A^{n})$ een functie.
   Als $f$ constant is, dan is de derivatie van $f$ in $p$ nul.
   \[ (\exists c\in\mathbb{R},\ \forall q\in\mathbb{A}^{n}:\ f(q) = c) \quad\Rightarrow\quad D_{p}(f) = 0 \]
-  \TODO{bewijs p 63}
+
+  \begin{proof}
+    Kies een willekeurige $g\in \mathcal{F}(\mathbb{A}^{n})$ met $g(p) \neq 0$.
+    Wegens de lineariteit van $D_{p}$ geldt volgende bewering:
+    \[ D_{p}(fg) = D_{p}(f(p)g = f(p)D_{p}(g) \]
+    Omwille van de Leibnizregel geldt het volgende echter ook:
+    \[ D_{p}(fg) = D_{p}(f)g(p) + f(p)D_{p}(g) \]
+    Combineren we nu deze twee redeneringen, dan krijgen we het volgende:
+    \[ f(p)D_{p}(g) = D_{p}(f)g(p) + f(p)D_{p}(g) \Rightarrow D_{p}(f)g(p) = 0 \]
+    Omdat $g(p)$ niet nul is, moet $D_{p}(f)$ nul zijn.
+  \end{proof}
 \end{lem}
 
 \begin{lem}
   Zij $D_{p}$ een derivatie in $p\in\mathbb{A}^{n}$ en $f\in\mathcal{F}(A^{n})$ een functie.
   Als $f$ nul is in een omgeving van $p$, dan is de derivatie van $f$ in $p$ nul.
   \[ (\exists \epsilon\in\mathbb{R}^{+}_{0},\ \forall q \in B(p,\epsilon):\ f(q) = 0) \quad\Rightarrow\quad D_{p}(f) = 0 \]
-  \TODO{bewijs p 63}
+
+\TODO{bewijs p 63}
 \end{lem}
 
 \begin{lem}
