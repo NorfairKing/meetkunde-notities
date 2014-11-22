@@ -14,27 +14,54 @@
   Distributiviteit ten opzichte van de optelling van vectoren.\\
   Zij $u$, $v$ en $w$ raakvectoren in $T_{p}\mathbb{A}^{n}$ en $a$ en $b$ scalars in $\mathbb{R}$.
   \[ (au + bv) \cdot w = au\cdot w + bv \cdot w \]
-\extra{bewijs}
+
+  \begin{proof}
+    \[
+    \begin{array}{rll}
+      (au + bv) \cdot w &= \sum_{i=1}^{n}(au + bv)_{i}w_{i} &\\
+                        &= \sum_{i=1}^{n}(au_{i} + bv_{i})w_{i} &\\
+                        &= \sum_{i=1}^{n}(au_{i}w_{i} + bv_{i}w_{i}) &\\
+                        &= \sum_{i=1}^{n}au_{i}w_{i} + \sum_{i=1}^{n}bv_{i}w_{i} &= au\cdot w + bv \cdot w
+    \end{array}
+    \]
+  \end{proof}
 \end{ei}
 
 \begin{ei}
   Commutativiteit.\\
   Zij $v$ en $w$ raakvectoren in $T_{p}\mathbb{A}$.
   \[ v\cdot w = w\cdot v\]
-\extra{bewijs}
+  \begin{proof}
+    \[ 
+    \begin{array}{rll}
+      v\cdot w &= \sum_{i=1}^{n}v_{i}w_{i} &\\
+               &= \sum_{i=1}^{n}w_{i}v_{i} &= w \cdot v
+    \end{array}
+    \]
+  \end{proof}
 \end{ei}
 
 \begin{ei}
   Positiviteit.\\
   Zij $v$ een raakvector in $T_{p}\mathbb{A}$.
   \[ v \cdot v \ge 0 \]
-\extra{bewijs}
+
+  \begin{proof}
+    \[
+    v \cdot v =  \sum_{i=1}^{n}v_{i}v_{i} = \sum_{i=1}^{n}v_{i}^{2} \ge 0
+    \]
+  \end{proof}
 \end{ei}
 
 \begin{ei}
   Zij $v$ een raakvector in $T_{p}\mathbb{A}$.
   \[ v \cdot v = 0 \Leftrightarrow v = 0 \]
-\extra{bewijs}
+
+  \begin{proof}
+    \[
+    v \cdot v =  \sum_{i=1}^{n}v_{i}v_{i} = \sum_{i=1}^{n}v_{i}^{2} = 0 \Leftrightarrow v = 0
+    \]
+  \end{proof}
 \end{ei}
 
 \begin{de}
@@ -51,20 +78,46 @@
   Driehoeksongelijkheid.\\
   Zij $v$ en $w$ raakvectoren in $T_{p}\mathbb{A}$.
   \[ \Vert v + w \Vert \le \Vert v \Vert + \Vert w \Vert \]
-\extra{bewijs (zie LA)}
+
+  \[
+  \Vert v + w \Vert
+  = \sqrt{\sum_{i=1}^{n}(v+w)_{i}^{2}}
+  = \sqrt{\sum_{i=1}^{n}(v_{i}+w_{i})^{2}}
+  = \sqrt{\sum_{i=1}^{n}v_{i}^{2}+w_{i}^{2}+ 2v_{i}w_{i}} 
+  \le \sqrt{\sum_{i=1}^{n}v_{i}^{2}+w_{i}^{2}} 
+  = \Vert v \Vert + \Vert w \Vert
+  \]
 \end{ei}
 
 \begin{ei}
+  \label{ei:ongelijkheid-van-cauchy-schwartz}
   Ongelijkheid van Cauchy-Schwartz\\
   Zij $v$ en $w$ raakvectoren in $T_{p}\mathbb{A}$.
   \[ |v \cdot w| \le \Vert v \Vert \Vert w \Vert \]
-\extra{bewijs (zie LA) en p 78}
+
+  \begin{proof}
+    Kies twee vectoren $v$ en $w$ en een scalar $lambda\in \mathbb{R}$.
+    Beschouw nu $(v+\lambda w) \cdot (v + \lambda w)$.
+    Dit is zeker positief.
+    \[ (v+\lambda w) \cdot (v + \lambda w) = (v \cdot v) + 2 \lambda (v \cdot w) + \lambda^{2}(w \cdot w) \]
+    Beschouw bovenstaande gelijkheid als een tweedegraadsveelterm $P$ in $\lambda$ die steeds positief is.
+    De discriminant van $P$ is dus negatief.
+    \[ 4(v \cdot w)^{2} - 4(v \cdot v)(w \cdot w) \le 0 \]
+    \[ \Rightarrow  (v \cdot w)^{2} - (v \cdot v)(w \cdot w) \le 0 \]
+    \[ \Leftrightarrow |v \cdot w| - \Vert v \Vert \Vert w \Vert \le 0 \]
+    $|v \cdot w|$ is dus kleiner of gelijk aan $\Vert v \Vert \Vert w \Vert$.
+  \end{proof}
 \end{ei}
 
 \begin{ei}
   Zij $v$ en $w$ raakvectoren in $T_{p}\mathbb{A}$.
   \[ |v \cdot w| = \Vert v \Vert \Vert w \Vert \Leftrightarrow v = \lambda w \]
-\extra{bewijs (zie LA) en p 78}
+
+  \begin{proof}
+    Bekijk eerst opnieuw het bewijs van de ongelijkheid van Cauchy-Schwartz.\eiref{ei:ongelijkheid-van-cauchy-schwartz}
+    De ongelijkheid wordt een gelijkheid als er een unieke $\lambda$ bestaat zodat $(v+\lambda w) \cdot (v + \lambda w) = 0$ geldt.
+    Dit is precies wanneer er een lambda bestaat zodat $v=\lambda w$ geldt.
+  \end{proof}
 \end{ei}
 
 \begin{de}
@@ -81,10 +134,73 @@
   We noemen een basis $v = \{ v_{1}, \dotsc, v_{n} \}$ van een rakende ruimte $T_{p}\mathbb{E}^{n}$ \term{orthogonaal} als de vectoren van $v$ onderling orthogonaal zijn.
 \end{de}
 
+\begin{de}
+  We noemen een basis $v = \{ v_{1}, \dotsc, v_{n} \}$ van een rakende ruimte $T_{p}\mathbb{E}^{n}$ \term{orthonormaal} als de vectoren van $v$ onderling orthogonaal zijn en lengte $1$ hebben.
+\end{de}
+
 \begin{st}
   Zij $v$ een raakvector van $T_{p}\mathbb{E}^{n}$ en $e = \{ e_{1}, \dotsc, e_{n} \}$ een basis van $T_{p}\mathbb{E}^{n}$.
+  We noemen het rechterlid de \term{orthonormale expansie} van $v$ ten opzichte van $e$.
   \[ v = \sum_{i=1}^{n} (v \cdot e_{i})e_{i} \]
+\TODO{bewijs p 79}
 \end{st}
+
+\begin{gev}
+  \label{gev:identiteit-van-parseval}
+  De \term{identiteit van Parseval}\\
+  Zij $e = \{e_{1},\dotsc,e_{n}\}$ een orthonormale basis van $T_{p}\mathbb{E}^{n}$. 
+  \[ v \cdot w = \sum_{i=1}^{n}(v \cdot e_{i})(w \cdot e_{i})\]
+\extra{bewijs}
+\end{gev}
+
+\TODO{procedure van graham schmidt, bekijk lineairealgebra en p 79.}
+
+\begin{de}
+  Zij $p$ en $q$ twee punten van $\mathbb{E}^{n}$, dan defini\"eren we de \term{afstand} tussen $p$ en $q$ als $d(p,q)$.
+  \[ d(p,q) = \Vert \overline{pq} \Vert = \Vert p-q \Vert \]
+\end{de}
+
+\begin{ei}
+  \label{ei:symmetrie-afstand}
+  Symmetrie van de afstand\\
+  Zij $p$ en $q$ twee punten van $\mathbb{E}^{n}$.
+  \[ d(p,q) = d(q,p) \]
+  \extra{bewijs}
+\end{ei}
+
+\begin{ei}
+  \label{ei:afstand-positief}
+  Positiviteit van de afstand.
+  Zij $p$ en $q$ twee punten van $\mathbb{E}^{n}$
+  \[ d(p,q) \ge 0 \]
+  \extra{bewijs}
+\end{ei}
+
+\begin{ei}
+  \label{ei:afstand-nul-gelijk}
+  Zij $p$ en $q$ twee punten van $\mathbb{E}^{n}$
+  \[ d(p,q) = 0 \Leftrightarrow p = q \]
+  \extra{bewijs}
+\end{ei}
+
+\begin{ei}
+  \label{ei:driehoeksongelijkheid-in-En}
+  Driehoeksongelijkheid in $\mathbb{E}^{n}$.
+  \[ d(p,r) \le d(p,q) + d(q,r) \]
+  \extra{bewijs}
+\end{ei}
+
+\section{Euclidische transformaties}
+\label{sec:eucl-transf}
+
+\begin{de}
+  \label{de:euclidische-transformatie}
+  Een affiene transformatie $F$ met lineair deel $A$ en translatiedeel $b$ noemen we een \term{Euclidische transformatie} of een \term{isometrie van de Euclidische ruimte} als en slechts als $A$ een orthogonale transformatie is.
+  \[ A \in O(n) = \{ X \in GL(n,\mathbb{R}^{n}) \ |\ X^{T}X = I \} \]
+\end{de}
+
+\subsection{Orthogonale transformaties}
+\label{sec:orth-transf}
 
 
 
