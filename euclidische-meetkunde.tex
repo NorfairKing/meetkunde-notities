@@ -237,4 +237,226 @@
   De groep van alle orthogonale matrices met determinant $1$ wordt de \term{speciale orthogonale groep} genoemd.
 \end{de}
 
+\begin{st}
+  Zij $v$ en $w$ twee kolomvectoren uit $\mathbb{R}^{n}$ en $X \in GL(n,\mathbb{R})$ een orthogonale vierkante matrix.
+  \[ \forall v,w \in \mathbb{R}^{n}:\ (Xv)\cdot(Xw) = v \cdot w \Leftrightarrow X \in O(n) \]
+
+\extra{bewijs}
+\[ (Xv) \cdot (Xw) = (Xv)^{T}(Xw) = v^{T}X^{T}Xw = v^{T}(XX^{T})w \]
+\end{st}
+
+\begin{st}
+  Oertogonale transformaties bewaren de norm van een vector.
+\end{st}
+
+\begin{de}
+  Orthogonale matrices zijn matrices waarvan de kolommon (en dus ook de rijen) een orthogonale basis vormen.
+\end{de}
+
+\begin{st}
+  Zij $X\in O(n)$ een ortogonale matrix en $\lambda\in \mathbb{R}$ een eigenwaarde van $X$, dan bestaat er een vector $v\neq \vec{0}$ zodat $Xv = \lambda v$.
+  $\lambda$ moet dan $1$ of $-1$ zijn: $ \Vert v \Vert^{2} = \Vert X v \Vert^{2} = \lambda^{2}\Vert v\Vert^{2}$
+  Als $v$ een eigenvector is met eigenwaarde $1$, en $w$ een eigenvector met eigenwaarde $-1$, dan zijn $v$ en $w$ orthogonaal: $v \bot w$
+  want $v \cdot w = Xv \cdot Xw = -v \cdot w$.
+\extra{bewijs, zie spectraalstelling bij LA en definitie eigenwaarde. scheiden in apparte stellingen etc}
+\end{st}
+
+\begin{de}
+  Zij $X$ een lineaire transformatie van $\mathbb{R}^{n}$, dan noemen we een linearie deelruimte $V$ van $\mathbb{R}^{n}$ \term{invariant onder een lineaire transformatie} $X$ als voor alle $v\in V$ $Xv \in V$ geldt.
+\end{de}
+
+\begin{de}
+  Zij $V$ en $W$ twee lineaire deelruimten van een vectorruimte $U$ en $V$ een deelruimte van $W$.
+  Het \term{orthogonaal complement} $V^{\bot}$ van $V$ ten opzichte van $W$ is de ruimte van alle vectoren $w\in W$ die loodrecht staan op alle vectoren in $V$.
+  \[ V^{\bot}_{W} = \{ w \in W\ |\ \forall v \in V:\ w \bot v \} \]
+\end{de}
+
+\begin{st}
+  Zij $V$ en $W$ twee lineaire deelruimten van een vectorruimte $U$ en $V$ een deelruimte van $W$.
+  \[ dim(V) + dim(V^{\bot}_{W}) = dim(W) \]
+  \extra{bewijs}
+\end{st}
+
+\begin{st}
+  Zij $V$ een lineaire deelruimte van een vectorruimte $U$.
+  Zij $X$ een orthogonale transformatie van $U$.
+  \[ V \text{ is invariant onder } X \Leftrightarrow V^{\bot}_{U} \text{ is invariant onder } X \]
+\extra{bewijs, zie ook p 82}
+\end{st}
+
+\subsection{Euclidische invarianten en afstand}
+\label{sec:eucl-invar-en}
+
+\begin{st}
+  Een affiene transformatie $F$ is een isometrie als en slechts als volgende bewering geldt:
+  \[ \forall v,w:\ F_{*}v \cdot F_{*}w = v \cdot w \]
+\extra{bewijs}
+\end{st}
+
+\begin{st}
+  Elke traslatie is een isometrie.
+\extra{bewijs}
+\end{st}
+
+\begin{st}
+  Elke orthogonale transformatie is een isometrie.
+\extra{bewijs}
+\end{st}
+
+\begin{st}
+  De samenstelling van twee isometrie\"en is oon isometrie.
+\extra{bewijs}
+\end{st}
+
+\begin{st}
+  De inverse van een isometrie is een isometrie.
+\extra{bewijs}
+\end{st}
+
+\begin{de}
+  De verzameling van alle isometrie\"en van $\mathbb{E}^{n}$ wordt genoteerd als $Iso(n,\mathbb{R})$.
+\end{de}
+
+\begin{st}
+  $Iso(n,\mathbb{R}),\circ$ is een groep.
+\end{st}
+
+\begin{de}
+  $Iso(n,\mathbb{R}),\circ$ noemt men soms de \term{Euclidische groep}.
+\end{de}
+
+\begin{de}
+  De verzameling van orientatiebewarende isometrie\"en noteren we als $Iso^{+}(n,\mathbb{R})$ en de verzameling van orientatieomkerende isometrie\"en noteren we als $Iso^{-}(n,\mathbb{R})$.
+\end{de}
+
+\begin{st}
+  $\{ Iso^{+}(n,\mathbb{R}), Iso^{-}(n,\mathbb{R} \}$ is een partitie van ...
+\extra{bewijs}
+\end{st}
+
+\begin{de}
+  Een eigenschap noemen we \term{Euclidisch invariant} als de eigenschap invariant is onder isometrie\"en.
+\end{de}
+
+\begin{st}
+  Het volume van een basis is, op teken na een Euclidische invariant.
+\extra{bewijs}
+\end{st}
+
+\begin{st}
+  Elke affiene invariant is ook een euclidische invariant.
+\extra{bewijs}
+\end{st}
+
+\begin{st}
+  Het scalair product van twee vectoren is een Euclidische invariant.
+\extra{bewijs}
+\[ F_{*}v \cdot F_{*}w = v \cdot w \]
+\end{st}
+
+\begin{st}
+  De ortogonale stand van vectoren is een euclidische invariant.
+\extra{bewijs}
+\end{st}
+
+\begin{st}
+  De lengte van vectoren is een Euclidische invariant.
+\extra{bewijs}
+\[ \forall v:\ \Vert F_{*}v \Vert = \sqrt{F_{*}v \cdot F_{*}v} = \Vert v \Vert \]
+\end{st}
+
+\begin{st}
+  De afstand tussen twee punten is een Euclidische invariant.
+\extra{bewijs}
+\[ d(F(p),F(q)) = \Vert \overrightarrow{F(p)F(q)} \Vert = \Vert F_{*}(\overrightarrow{pq}) \Vert = \Vert \overrightarrow{pq} \Vert = d(p,q) \]
+\end{st}
+
+\begin{st}
+  Zij $F:\ \mathbb{E}^{n}\rightarrow \mathbb{E}^{n}$ een willekeurige afbeelding die de afstand tussen twee punten bewaart, dan is $F$ een isometrie.
+  \[ \forall p,q \in \mathbb{E}^{n}:\  d(F(p),F(q)) = d(p,q) \]
+\TODO{bewijs p 83}
+\end{st}
+
+\subsection{Bestaan van isometrie\"en}
+\label{sec:best-van-isom}
+
+\begin{st}
+  Zij $p$ en $q$ twee punten van $\mathbb{E}^{n}$ en zij $\{ v_{1},\dotsc,v_{n} \}$ een orthonormale basis van $T_{p}\mathbb{E}^{n}$ en $\{ w_{1},\dotsc,w_{n} \}$ een orthonormale basis van $T_{q}\mathbb{E}^{n}$, dan bestaat er een unieke isometrie $F$ van $\mathbb{E}^{n}$ zodat:
+  \begin{itemize}
+  \item $F(p) = q$
+  \item $\forall i:\ F_{*}v_{i} = w_{i}$
+  \end{itemize}
+\TODO{bewijs p 85}
+\end{st}
+
+\begin{gev}
+  Zij $a$, $b$, $a'$ en $b'$ vier punten in $\mathbb{E}^{2}$ zodat $d(a,b) = d(a',b') \neq 0$ geldt, dan bestaat er juist \'e\'en orientatiebewarende isometrie $F$ van $\mathbb{E}^{2}$ zodat $F(a) = a'$ en $F(b) = b'$ gelden alsook juist \'e\'e orientatieomkerende isometrie $F$ van $\mathbb{E}^{2}$ met dezelfde eigenschap.
+\TODO{bewijs p 85}
+\end{gev}
+
+\subsection{Deelruimten van de Euclidische ruimte}
+\label{sec:deelruimten-van-de}
+
+\begin{de}
+  Twee affiene deelruimten $S=p+V$ en $T=q+W$ van $\mathbb{E}^{n}$ noemen we \term{orthogonaal} als en slechts als $V$ en $W$ ortogonaal zijn:
+  \[ S \bot T \Leftrightarrow V \bot W \Leftrightarrow \forall v \in V, w \in W:\ v \bot w \]
+\end{de}
+
+\begin{st}
+  Zij $S$ een affiene deelruimte van $\mathbb{E}^{n}$ en $x\in \mathbb{E}^{n}$ een punt(?!), dan bestaat er precies \'e\'en affiene deelruimte $T$ door $x$ die orthogonaal complementair is met $S$.
+  $S$ en $T$ snijden elkaar bovendien in precies \'e\'en punt $y$:
+  \[ d(x,y) = inf\{ d(x,z) \ |\ z \in S  \} \]
+\TODO{bewijs p 86}
+\end{st}
+
+\begin{de}
+  De \term{afstand} tussen een punt $x\in ...$ en een affiene deelruimte $S$ van $\mathbb{E}^{n}$ noteren we als $d(x,S)$.
+  \[ d(x,S) = inf\{ d(x,z)\ |\ z \in S \} \]
+\end{de}
+
+\begin{de}
+  De \term{afstand} tussen twee affiene deelruimten $S$ en $T$ van $\mathbb{E}^{n}$ noteren we als $d(S,T)$.
+  \[ d(S,T) = inf\{ d(s,t) \ |\ s\in S, t\in T \} \]
+\end{de}
+
+\begin{st}
+  Zij $\{u_{1}, \dotsc, u_{n-k}\}$ een orthonormale basis is van $V^{\bot}$
+  \[ \forall i \in \{ 1, \dotsc, n-k \} :\ x \in S \Leftrightarrow \overrightarrow{px} \in V \Leftrightarrow \overrightarrow{px} \bot V^{\bot} \Leftrightarrow \overrightarrow{px} \cdot u_{i} = 0 \]
+\extra{bewijs}
+\end{st}
+
+\begin{st}
+  Zij $S=p+V$ een $k$-dimensionale affiene deelruimte van $\mathbb{E}^{n}$, dan is de dimensie van $V^{\bot}$ $n-k$.
+\extra{bewijs}
+\end{st}
+
+\begin{gev}
+  Het ortogonaal complement van een hypervlak is \'e\'endimensionaal.
+\extra{bewijs}
+\end{gev}
+
+\begin{de}
+  De vergelijkingen $\overrightarrow{px} \cdot u_{i} = 0$ of $(x-p) \cdot u_{i} = 0$ noemen we de carthesische vergelijkingen van $S$. Elke vergelijking $(x-p)\cdot u_{i} = 0$ appart stelt een hypervlak voor met richtingsgetallen $u_{i}$ en deze zijn lineair onafhankelijk.
+\end{de}
+
+\begin{de}
+  Zij $\{u\}$ een basis van $V^{\bot}$ met \'e\'en elemen, dan noemen we $u$ een \term{normaal} op $S$.
+\end{de}
+
+\begin{de}
+  Zij $u$ een normaal van lengte $1$, dan noemen we $u$ een \term{eenheidsnormaal}.
+\end{de}
+
+\begin{st}
+  De vergelijking van een hypervlak $S$ door een punt $p$ ziet er als volgt uit, wanneer $u$ een (eenheids?!)normaal is.
+  \[ x \in S \Leftrightarrow (x-p) \cdot u = 0 \]
+\extra{bewijs, wut}
+\end{st}
+
+\begin{gev}
+  Het richtingsgetal van een hypervlak $S$ is de normaal op $S$
+\extra{bewijs, wut}
+\end{gev}
+
+
 \end{document}
