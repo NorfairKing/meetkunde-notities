@@ -248,7 +248,10 @@
   Symmetrie van de afstand\\
   Zij $p$ en $q$ twee punten van $\mathbb{E}^{n}$.
   \[ d(p,q) = d(q,p) \]
-  \extra{bewijs}
+
+  \begin{proof}
+    \[ d(p,q) = \Vert p-q \Vert = \sqrt{\sum_{i=1}^{n}(p-q)^{2}_{i}} = \sqrt{\sum_{i=1}^{n}(q-p)^{2}_{i}} = \Vert q-p \Vert = d(q,p) \]
+  \end{proof}
 \end{ei}
 
 \begin{ei}
@@ -256,14 +259,22 @@
   Positiviteit van de afstand.
   Zij $p$ en $q$ twee punten van $\mathbb{E}^{n}$
   \[ d(p,q) \ge 0 \]
-  \extra{bewijs}
+
+  \begin{proof}
+    \[ d(p,q) = \Vert p-q \Vert = \sqrt{\sum_{i=1}^{n}(p-q)^{2}_{i}} \ge 0 \]
+    Elke term in de som is positief, want het zij kwadraten.
+    De wortel is dus zinvol en natuurlijk ook positief.
+  \end{proof}
 \end{ei}
 
 \begin{ei}
   \label{ei:afstand-nul-gelijk}
   Zij $p$ en $q$ twee punten van $\mathbb{E}^{n}$
   \[ d(p,q) = 0 \Leftrightarrow p = q \]
-  \extra{bewijs}
+
+  \begin{proof}
+    \[ d(p,q) = \Vert p-q \Vert = \sqrt{\sum_{i=1}^{n}(p-q)^{2}_{i}} = 0 \Leftrightarrow p = q \]
+  \end{proof}
 \end{ei}
 
 \begin{ei}
