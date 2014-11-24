@@ -142,7 +142,16 @@
   Zij $v$ een raakvector van $T_{p}\mathbb{E}^{n}$ en $e = \{ e_{1}, \dotsc, e_{n} \}$ een basis van $T_{p}\mathbb{E}^{n}$.
   We noemen het rechterlid de \term{orthonormale expansie} van $v$ ten opzichte van $e$.
   \[ v = \sum_{i=1}^{n} (v \cdot e_{i})e_{i} \]
-\TODO{bewijs p 79}
+
+  \begin{proof}
+    $e$ is een basis voor $T_{p}\mathbb{E}^{n}$, dus er bestaan scalars $v_{i}$ zodat $v = \sum_{i=1}^{n}v_{i}e_{i}$ geldt.
+    Beschouw nu voor elke $j \in \{ 1,\dotsc,n \}$ $v\cdot e_{j}$
+    \[ v \cdot e_{j}
+    = \left(\sum_{i=1}^{n}v_{i}e_{i}\right) \cdot e_{j}
+    = \sum_{i=1}^{n}v_{i}(e_{i}\cdot e_{j})
+    = \sum_{i=1}^{n}v_{i}\delta_{ij} = v_{j}
+    \]
+  \end{proof}
 \end{st}
 
 \begin{gev}
@@ -150,10 +159,84 @@
   De \term{identiteit van Parseval}\\
   Zij $e = \{e_{1},\dotsc,e_{n}\}$ een orthonormale basis van $T_{p}\mathbb{E}^{n}$. 
   \[ v \cdot w = \sum_{i=1}^{n}(v \cdot e_{i})(w \cdot e_{i})\]
-\extra{bewijs}
+
+  \begin{proof}
+    \[
+    \begin{array}{rll}
+
+      v \cdot w &= \sum_{i=1}^{n} (v \cdot e_{i})e_{i} \cdot \sum_{j=1}^{n} (w \cdot e_{j})e_{j} &\\ 
+                &= \sum_{i=1}^{n}\sum_{j=1}^{n}  (v \cdot e_{i})e_{i} \cdot (w \cdot e_{j})e_{j} &\\
+                &= \sum_{i=1}^{n}\sum_{j=1}^{n}  (v \cdot e_{i})e_{i} \cdot e_{j}(w \cdot e_{j}) &\\
+                &= \sum_{i=1}^{n}\sum_{j=1}^{n}  (v \cdot e_{i})\delta_{ij}(w \cdot e_{j}) &\\
+                &= \sum_{i=1}^{n}(v \cdot e_{i})(w \cdot e_{i})
+    \end{array}
+    \]
+  \end{proof}
 \end{gev}
 
 \TODO{procedure van graham schmidt, bekijk lineairealgebra en p 79.}
+
+\begin{st}
+  Zij $\beta = v_{1},\dotsc,v_{n}$ een basis van $T_{p}\mathbb{E}^{n}$, dan kunnen we $\beta$ omvormen tot een orthonormale basis $\gamma = \{u_1,u_2,\ldots,u_n\}$ door middel van het \term{orthogonalisatieproc\'ed\'e van Gram-Schmidt}
+
+  \begin{proof}
+    Bewijs door constructie.\\
+    We zullen eenvoudigweg het algoritme beschrijven en de correctheid ervan bewijzen.\\\\
+    \begin{itemize}
+    \item 
+      We normeren de eerste vector $v_1$ door ze te delen door zijn norm.
+      \[
+      u_1 = \frac{1}{\Vert v_1\Vert}v_1
+      \]
+      We construeren nu $v_2'$ zodat ze loodrecht staat op $u_1$.
+      \[
+      v_2' = v_2 - (v_2 \cdot v_1) u_1
+      \]
+      $v_2'$ is zeker niet nul omdat $u_1$ ofwel niet op dezelfde rechte ligt als $v_2$, ofwel is $v_2' = \vec{0}$. $v_2'$ staat nu wel degelijk loodrecht op $u_1$.
+      \[
+      \begin{array}{rll}
+        v_2' \cdot u_1 &= (v_2 - (v_2 \cdot v_1) u_1) \cdot u_1) &\\
+        &= (v_2 \cdot u_1) - ((v_2 \cdot v_1) u_1 \cdot u_1) &\\
+        &= (v_2 \cdot u_1) - (v_2 \cdot v_1) (u_1 \cdot u_1) &\\
+        &= ( v_2 \cdot u_1) - (v_2 \cdot v_1) \Vert u_1\Vert &\\
+        &= (v_2 \cdot u_1) - (v_2 \cdot v_1) &= 0
+      \end{array}
+      \]
+      Merk op dat $u_1$ echt genormeerd moet zijn, opdat dit zou werken. Tenslotte normeren we $v_2'$ nog om $u_2$ te bekomen.
+      \[
+      u_2 = \frac{1}{\Vert v_2'\Vert}v_2' = \frac{1}{\Vert v_2 - (v_2 \cdot v_1) u_1\Vert}(v_2 - (v_2 \cdot v_1) u_1)
+      \]
+    \item
+      Dit proces kunnen we verder zetten. We beschrijven nu de stappen die je moet ondernemen in iteratie $k+1$.
+      We construeren $v_{k+1}'$ als volgt.
+      \[
+      v_{k+1}' = v_{k+1} - ( v_{k+1}\cdot u_1 ) u_1 - ( v_{k+1}\cdot u_2 )u_2 - \dotsb - (v_{k+1}\cdot u_k ) u_k
+      = v_{k+1} - \sum_{i=1}^k (v_{k+1}\cdot u_i)
+      \]
+      Beschouw de sommatie in deze formule als \'e\'en vector. Nu is de redenering om te besluiten dat $v_{k+1}'$ dezelfde als die bij $v_2'$.
+      $v_{k+1}'$ is staat inderdaad loodrecht op alle vectoren $v_i$ met $i\le k$.
+
+      \[
+      \begin{array}{rll}
+        (v_{k+1}' \cdot u_i) &= \left( v_{k+1} - \sum_{j=1}^k (v_{k+1} \cdot u_j)u_j\right) \cdot u_i &\\
+                            &= (v_{k+1} \cdot u_i) - \left( \sum_{j=1}^k (v_{k+1} \cdot u_j)u_j\right) \cdot u_{i} &\\
+                            &= (v_{k+1} \cdot u_i) - \sum_{j=1}^k \left((v_{k+1} \cdot u_j) u_j \right) \cdot u_i &\\
+                            &= ( v_{k+1} \cdot 3u_i ) - \sum_{j=1}^k (v_{k+1} \cdot u_j ) ( u_j \cdot u_i)
+      \end{array}
+      \]
+      In de laatste som is elke term behalve de term waarbij $i=j$ geldt nul.
+      \[
+      (v_{k+1},u_i) - (v_{k+1},u_i) = 0
+      \]
+      We kunnen nu $v_{k+1}'$ ook normeren door te delen door de norm.
+      \[
+      u_{k+1} = \frac{1}{\Vert v_{k+1}'\Vert}v_{k+1}'
+      \]
+    \item
+      Omdat $V$ eindig dimensionaal is zal dit algoritme zeker stoppen. Het resultaat is $\{u_1,u_2,\ldots,u_n\}$, een orthonormale basis.
+    \end{itemize}
+  \end{proof}
+\end{st}
 
 \begin{de}
   Zij $p$ en $q$ twee punten van $\mathbb{E}^{n}$, dan defini\"eren we de \term{afstand} tussen $p$ en $q$ als $d(p,q)$.
