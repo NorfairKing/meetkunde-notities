@@ -96,7 +96,7 @@
   \[ |v \cdot w| \le \Vert v \Vert \Vert w \Vert \]
 
   \begin{proof}
-    Kies twee vectoren $v$ en $w$ en een scalar $lambda\in \mathbb{R}$.
+    Kies twee vectoren $v$ en $w$ en een scalar $\lambda\in \mathbb{R}$.
     Beschouw nu $(v+\lambda w) \cdot (v + \lambda w)$.
     Dit is zeker positief.
     \[ (v+\lambda w) \cdot (v + \lambda w) = (v \cdot v) + 2 \lambda (v \cdot w) + \lambda^{2}(w \cdot w) \]
@@ -173,8 +173,6 @@
     \]
   \end{proof}
 \end{gev}
-
-\TODO{procedure van graham schmidt, bekijk lineairealgebra en p 79.}
 
 \begin{st}
   Zij $\beta = v_{1},\dotsc,v_{n}$ een basis van $T_{p}\mathbb{E}^{n}$, dan kunnen we $\beta$ omvormen tot een orthonormale basis $\gamma = \{u_1,u_2,\ldots,u_n\}$ door middel van het \term{orthogonalisatieproc\'ed\'e van Gram-Schmidt}
@@ -281,7 +279,7 @@
   \label{ei:driehoeksongelijkheid-in-En}
   Driehoeksongelijkheid in $\mathbb{E}^{n}$.
   \[ d(p,r) \le d(p,q) + d(q,r) \]
-  \extra{bewijs}
+\extra{bewijs}
 \end{ei}
 
 \section{Euclidische transformaties}
@@ -297,34 +295,74 @@
 \label{sec:orth-transf}
 
 \begin{st}
+  \label{st:i-orthogonaal}
   \[ \mathbb{I}_{n} \in O(n) \] 
-  \extra{bewijs}
+
+  \begin{proof}
+    \[ \mathbb{I}_{n}^{T}\mathbb{I}_{n} = \mathbb{I}_{n}\mathbb{I}_{n} = \mathbb{I}_{n} \]
+  \end{proof}
 \end{st}
 
 \begin{st}
+  \label{st:product-orthogonale-matrices-orthogonaal}
   Het product van twee orthogonale matrices is een orthogonale matrix.
-  \extra{bewijs}
+
+  \begin{proof}
+    Zij $X$ en $Y$ twee orthogonale matrices met dezelfde dimensies $n \times n$.
+    \[
+    \begin{array}{rll}
+      (XY)^{T}(XY) &= Y^{T}X^{T}XY &\\
+                  &= Y^{T}\mathbb{I}_{n}Y &\\
+                  &= Y^{T}Y &= \mathbb{I}_{n}
+    \end{array}
+    \]
+    $XY$ is dus ook een orthogonale matrix.
+  \end{proof}
 \end{st}
 
 \begin{st}
-  Zij $X$ een orthogonale matrix, dan is ook $X^{T}=x^{-1}$ orthogonaal.
+  \label{st:inverse-orthogonale-matrix-orthogonaal}
+  Zij $X$ een orthogonale matrix, dan is ook $X^{T}=X^{-1}$ orthogonaal.
   \[ X \in O(n) \Leftrightarrow X^{T} = X^{-1} \in O(n)\]
-  \extra{bewijs}
+
+  \begin{proof}
+    Zij $X$ een orthogonale $n\times n$ matrix.
+    \[ (X^{T})^{T}X^{T} = XX^{T} = XX^{-1} = \mathbb{I}_{n} \]
+  \end{proof}
 \end{st}
 
 \begin{st}
   $O(n)$ is een deelgroep van $GL(n,\mathbb{R})$
-  \extra{bewijs}
+
+  \begin{proof}
+    We gaan elke eigenschap in het criterium van een deelgroep na.
+    \begin{itemize}
+    \item $\mathbb{I}_{n}$, het neutraal element van $GL(n,\mathbb{I}_{n})$ is een element van $O(n)$.\stref{st:i-orthogonaal}
+    \item Het product van twee orthogonale matrices is orthogonaal.\stref{st:product-orthogonale-matrices-orthogonaal}
+    \item De inverse van een orthogonale matrix is ortogonaal.\stref{st:inverse-orthogonale-matrix-orthogonaal}
+    \end{itemize}
+  \end{proof}
 \end{st}
 
 \begin{de}
   $O(n)$ noemt men de \term{orthogonale groep}.
-  \extra{bewijs}
 \end{de}
 
 \begin{st}
   De verzameling van alle orthonale matrices met positieve determinant (determinant $1$) is een deelgroep van $O(n)$.
-  \extra{bewijs}
+
+  \begin{proof}
+    We gaan elke eigenschap in het criterium van een deelgroep na.
+    \begin{itemize}
+    \item $\mathbb{I}_{n}$, het neutraal element van $O(n)$ heeft determinant $1$.
+    \item Het product van twee matrices met determinant $1$ heeft determinant $1$.
+      Zij $A$ en $B$ twee matrices met determinant $1$:
+      \[ |AB| = |A||B| = 1\cdot 1 = 1 \]
+    \item De inverse van een matrix met determinant heeft determinant $1$.
+      Zij immers $A$ een matrix met determinant $1$.
+      \[ |A^{-1}| = |A^{T}| = |A| \]
+    \end{itemize}
+  \end{proof}
 \end{st}
 
 \begin{de}
@@ -340,7 +378,7 @@
 \end{st}
 
 \begin{st}
-  Oertogonale transformaties bewaren de norm van een vector.
+  Ortogonale transformaties bewaren de norm van een vector.
 \end{st}
 
 \begin{de}
