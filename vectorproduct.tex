@@ -1,0 +1,87 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+
+\chapter{Het vectorproduct in $\mathbb{E}^{3}$}
+\label{cha:het-vect-mathbb}
+
+\begin{lem}
+  Zij $v$ en $w$ twee raakvectoren in $p\in \mathbb{E}^{3}$, dan bestaat er juist \'e\'en raakvector $u$ in $p$ zodat voor alle raakvectoren $x$ in $p$ het volgende geldt:
+  \[ x \cdot u = Vol(x,v,w) \]
+\TODO{bewijs p 107} 
+\end{lem}
+
+\begin{de}
+  Voor elke twee raakvectoren $v$ en $w$ in $p\in \mathbb{E}^{3}$ defini\"eren we het vectorproduct $v\times w$ als volgt:
+  \[
+  v \times w =
+  \begin{vmatrix}
+    e_{1} & e_{2} & e_{3}\\
+    v_{1} & v_{2} & v_{3}\\
+    w_{1} & w_{2} & w_{3}
+  \end{vmatrix}
+  \]
+  Hierboven is $(e_{1},e_{2},e_{3})$ de natuurlijke basis.
+\end{de}
+\TODO{formele}
+
+\begin{st}
+  Het vectorproduct is bilineair.
+\extra{bewijs}
+\end{st}
+
+\begin{st}
+  \[ \forall v,w \in V:\ v \bot v\times w \wede w \bot \times v\times w \]
+\extra{bewijs}
+\end{st}
+
+\begin{st}
+  \[ \forall v,w \in V:\ v\times w = 0 \Leftrightarrow v \text{ en } w \text{ zijn lineair afhankelijk.} \]
+\extra{bewijs}
+\end{st}
+
+\begin{st}
+  \[ \forall v,w \in V:\ v\times w = - w\times v \]
+\extra{bewijs}
+\end{st}
+
+\begin{st}
+  \[ \forall u,v,w \in V:\ u \times (v \times w) = (u \cdot w)v - (u \cdot v)w \]
+\extra{bewijs}
+\end{st}
+
+\begin{st}
+  De \term{identiteit van Jacobi}\\
+  \[ \forall u,v,w \in V:\ u \times (v \times w) + v \times (w \times u) + w \times (u \times v) = 0 \]
+\extra{bewijs}
+\end{st}
+
+\begin{st}
+  De \term{identiteit van Lagranga}\\
+  \[
+  \forall a,b,c,d \in V:\ (a\times b) \cdot (c \times d) =
+  \begin{vmatrix}
+    a \cdot c & a \cdot d\\
+    b \cdot c & b \cdot d
+  \end{vmatrix}
+  \]
+\TODO{bewijs p 109}
+\end{st}
+
+\begin{st}
+  \[ \forall v,w \in V:\ \Vert v \times w\Vert = \Vert v \Vert \Vert w \Vert |\sin(\theta)| \]
+\TODO{bewijs p 109}
+\end{st}
+
+\begin{st}
+  Als $v$ en $w$ lineair onafhankelijk zijn, dan is $(v,w,v\times w)$ een positief geori\"enteerde basis van $T_{p}\mathbb{E}^{3}$.
+\extra{bewijs}
+\end{st}
+
+\begin{st}
+  Als $(u,v,w)$ een positief geori\"enteerde orthonormale basis van $T_{p}\mathbb{E}^{3}$ is, dan geldt het volgende:
+  \[ w = u \times v \wedge v = w \times u \wedge \wedge u = v \times w \]
+\extra{bewijs}
+\end{st}
+
+
+\end{document}
