@@ -1,0 +1,198 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+
+\chapter{Euclidische transformaties}
+\label{cha:euclidische-transformaties}
+
+\section{Rotaties in $\mathbb{E}^{2}$}
+\label{sec:roties-in-e2}
+
+\begin{lem}
+  Voor elke $A\in SO(2)$ bestaat er een $\theta\in \mathbb{R}$ zodat $A$ er als volgt uit ziet:
+  \[
+  A =
+  \begin{pmatrix}
+    \cos(\theta) & -\sin(\theta)\\
+    \sin(\theta) & \cos(\theta)
+  \end{pmatrix}
+  \]
+\TODO{bewijs p 91}
+\end{lem}
+
+\begin{st}
+  Voor elke $A\in O(2)$ bestaat er een $\theta\in \mathbb{R}$ zodat $A$ er als volgt uit ziet:
+  \[
+  A =
+  \begin{pmatrix}
+    \cos(\theta) & \sin(\theta)\\
+    \sin(\theta) & -\cos(\theta)
+  \end{pmatrix}
+  \]
+\extra{bewijs}
+\end{st}
+
+\begin{de}
+  Een \term{rotatie} van $\mathbb{E}^{2}$ is een afbeelding van de vorm $Rot$:
+  \[ Rot:\ \mathbb{E}^{2} \rightarrow \mathbb{E}^{2}:\ p \mapsto Rot(p) = x_{0} + A(\overrightarrow{x_{0}p}) \]
+  Hierin is $x_{0}$ een element van $\mathbb{E}^{2}$ en $A$ een element van $SO(2)$ verschillend van de eenheidsmatrix.
+  We noemen $x_{0}$ het \term{centrum} van de rotatie en $\theta$ de \term{rotatiehoek}.
+\end{de}
+
+\begin{ei}
+  Een rotatie is een ori\"entatiebewarende isometrie.
+\extra{bewijs}
+\end{ei}
+
+\TODO{poolcoordinaten defini\"eren}
+
+\begin{st}
+  Zij $p$ een punt in $\mathbb{E}^{2}$ met poolcoordinaten $(r,v), r\in \mathbb{R}^{+}, v\in \mathbb{R}$ ten opzichte van het centrum van een $A$ een rotatie met rotatiehoek $\theta$.
+  \[
+  A = 
+  \begin{pmatrix}
+    \cos(\theta) & -\sin(\theta)\\
+    \sin(\theta) & \cos(\theta)
+  \end{pmatrix}
+  \quad\text{ en }\quad
+  \overrightarrow{x_{0}p} = 
+  \begin{pmatrix}
+    r\cos(v)\\ r\sin(v)\\
+  \end{pmatrix}
+  \]
+  \[ Rot(p) = x_{0} +
+  \begin{pmatrix}
+    r\cos(v+\theta)\\ r\sin(v+\theta)\\
+  \end{pmatrix}
+  \]
+\end{st}
+\section{Rotaties in $\mathbb{E}^{3}$}
+\label{sec:roties-in-e3}
+
+\begin{de}
+  Een \term{rotatie} van $\mathbb{E}^{3}$ is een afbeelding van de vorm $Rot$.
+  \[ Rot:\ \mathbb{E}^{3} \rightarrow \mathbb{E}^{3}:\ p \mapsto Rot(p) = x_{0} + A(\overrightarrow{x_{0}p}) \]
+  Hierin is $x_{0}$ een element van $\mathbb{E}^{3}$ en $A$ een element van $SO(3)$ verschillend van de eenheidsmatrix.
+  We noemen $x_{0}$ het \term{centrum} van de rotatie en $\theta$ de \term{rotatiehoek}.
+\end{de}
+
+
+\begin{st}
+  De punten die op zichzelf worden afgebeeld vormen een affiene deelruimte van $\mathbb{E}^{3}$ door $x_{0}$ in de richting van $Ker(A-\mathbb{I}_{3})$.
+\extra{bewijs}
+\end{st}
+
+\begin{st}
+  Een vast punt van een rotatie is een eigenvector van de rotatiematrix.
+\extra{bewijs}
+\end{st}
+
+\begin{de}
+  We noemen $L = x_{0} + Ker(A-\mathbb{I}_{3})$ de \term{as} van de rotatie.
+\end{de}
+
+\section{Spiegelingen}
+\label{sec:spiegelingen}
+
+\begin{de}
+  Zij $S$ een affiene deelruimte van $\mathbb{E}^{n}$.
+  Voor een willekeurig punt $x\in \mathbb{E}^{n}$ defini\"eren we $T_{x}$ als de unieke deelruimte door $x$, orthogonaal complementair mat $S$.
+  Bovendien definieren wa $\pi_{S}(x)$ als het snijpunt van $S$ en $T_{x}$.
+\end{de}
+ 
+\begin{de}
+  De afbeelding $\pi_{S}:\ \mathbb{E}^{n} \rightarrow S:\ x \mapsto \pi_{S}(x)$ noemen we een \term{orthogonale projectie} op $S$.
+\end{de}
+
+\begin{de}
+  De \term{spiegeling} $R_{S}$ in een affiene deelruimte $S$ van $\mathbb{E}^{n}$ is een afbeelding als volgt:
+  \[ R_{S}:\ \mathbb{E}^{n} \rightarrow \mathbb{E}^{n}:\ x \mapsto R_{S}(x) = x + 2\overrightarrow{x\pi_{S}(x)} \]
+\end{de}
+
+\begin{st}
+  Een spiegeling is een isometrie.
+\TODO{bewijs p 95}
+\end{st}
+
+\begin{st}
+  Voor elke spiegeling $R_{S}$ geldt $R_{S} \circ R_{S} = Id$.
+\extra{bewijs}
+\end{st}
+
+\begin{st}
+  Voor elke spiegeling $R_{S}$ geldt $\forall s \in S:\ R_{S}(x) = x$.
+\extra{bewijs}
+\end{st}
+
+\begin{lem}
+  Zij $S=p+V$ een affiene deelruimte van $\mathbb{E}^{n}$ en $W$ het orthogonaal complement van $V$.
+  \[ \forall v\in V:\ (R_{S})_{*}(v) = v \]
+\extra{bewijs}
+\end{lem}
+
+\begin{lem}
+  Zij $S=p+V$ een affiene deelruimte van $\mathbb{E}^{n}$ en $W$ het orthogonaal complement van $V$.
+  \[ \forall w\in W:\ (R_{S})_{*}(w) = w \]
+\extra{bewijs}
+\end{lem}
+
+\begin{de}
+  Een \term{schuifspiegeling} is de samenstelling van een spiegeling in een as $S$ en een translatie in de richting van een vector parallel met $S$.
+\end{de}
+
+\section{Structuur van isometrie\"en}
+\label{sec:struct-van-isom}
+
+\begin{de}
+  Zij $F$ een isometrie van $\mathbb{E}^{n}$, dan noemen wa $x$ een \term{vast punt} van $F$ als $F(x)=x$ geldt.
+\end{de}
+
+\begin{de}
+  De verzameling vaste punten van een isometrie noteren we als $V(F)$.
+  \[ V(F) = \{ x \in \mathbb{E}^{n} \ |\ F(x) = x \} \]
+\end{de}
+
+\begin{st}
+  Als $F$ een isometrie van $\mathbb{E}^{n}$ is en $V(F)$ niet leeg, dan is $V(F)$ een affiene deelruimte in de richting van $Ker(F_{#}-\mathbb{I}_{n})$.
+\TODO{bewijs p 97}
+\end{st}
+
+\begin{st}
+  Zij $F$ een isometrie van $\mathbb{E}^{n}$.
+  Dan bestaan er juist \'e\'en isometrie $G$ en juist \'e\'en translatie $t_{b}$ van $\mathbb{E}^{n}$ als volgt:
+  \begin{itemize}
+  \item $F = t_{b} \circ G$ $(F_{*} = F_{*})$
+  \item $V(G) \neq \emptyset$
+  \item $G_{*}b = b$ ($b$ ligt in de richting van $V(G)$.)
+  \item $t_{b}\circ G = G \circ t_{b}$
+  \end{itemize}
+\TODO{bewijs p 97}
+\end{st}
+
+\begin{st}
+  Elke isometrie $F\in Iso(2,\mathbb{R}$ van het Euclidisch vlak is een translatie, een rotatie of een schuifspiegeling met als as een rechte.
+  \TODO{bewijs p 99}
+\end{st}
+
+\begin{de}
+  De samenstelling van een ratatie rond een as $L$ met een translatie in de richting van $L$ een \term{schroefbeweging}.
+\end{de}
+
+\begin{de}
+  De samenstelling van een rotatie rond een as $L$ en een spiegelijk in een vlak $H$, loodrecht op $L$ een \term{draaispiegeling}.
+\end{de}
+
+\begin{st}
+  Elke isometrie $F\in Iso(3,\mathbb{R})$ van de driedimensionale Euclidische ruimte is een translatie, een schroefbeweging, een schuifspiegeling tegenover een vlak of een draaispiegeling.
+\TODO{bewijs p 102} 
+\end{st}
+
+\begin{st}
+  \[ R_{H} \circ K = K \circ R_{H} \]
+  \clarify{meer uitleg}
+\extra{bewijs}
+\end{st}
+
+
+
+
+\end{document}
