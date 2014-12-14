@@ -464,4 +464,144 @@
 \label{sec:het-frenet-apparaat-voor-krommen-in-e3}
 
 
+\begin{de}
+  Een kromme in de driedimensionale Euclidische ruimte noemen we een ruimtekromme.
+\end{de}
+
+\begin{de}
+  Zij $\beta: I \subseteq \mathbb{R} \rightarrow \mathbb{E}^{3}$ een booglengtegeparametriseerde ruimtekromme.
+  $\beta'$ is dan een vectorveld langs $\beta$ met lengte $1$.
+  We noemen $\beta'$ het \term{eenheidsrakend vectorveld} aan $\beta$ en noteren dit met $T$.
+\end{de}
+
+\begin{st}
+  Het vectorveld $T'$ staat loodrecht op $T$.
+\extra{bewijs}
+\end{st}
+
+\begin{de}
+  We defini\"eren de \term{kromming} van een ruimtekromme als $\kappa$:
+  \[ \kappa = \Vert T' \Vert \]
+\end{de}
+
+\begin{st}
+  Een ruimtekromme met kromming $0$ is een rechte.
+\extra{bewijs}
+\end{st}
+
+\begin{de}
+  We defini\"eren een vectorveld $N$ langs $\beta$ als volgt.
+  \[ N = \frac{T'}{\kappa} \]
+  $N$ noemen we het \term{hoofdnormaalvectorveld} van $\beta$.
+\end{de}
+
+\begin{de}
+  We defini\"eren een vectorveld $B$ langs $\beta$ als volgt.
+  \[ B = T \times N \]
+  $B$ noemen we het \term{binormaalvectorveld} van $\beta$.
+\end{de}
+
+\begin{de}
+  We noemen $(T,N,B)$ het \term{Frenet-referentiestelsel} van $\beta$.
+\end{de}
+
+\begin{lem}
+  $B'$ is evenredig met $N$.
+\TODO{bewijs p 166}
+\end{lem}
+\begin{de}
+  We defini\"eren een functie $\tau$ als volgt.
+  \[ \tau = -B' \cdot N \]
+  $\tau$ wordt de \term{torsie} van $\beta$ genoemd.
+\end{de}
+
+\begin{st}
+  De \term{formules van Frenet voor ruimtekrommen}\\
+  Zij $\beta$ een booglengtegeparametriseerde ruimtekromme met kromming $\kappa>0$.
+  \[
+  \left\{
+    \begin{array}{r cccc}
+      T' &=& & \kappa N &\\
+      N' &=& -\kappa T & & +\tau B\\
+      B' &=& & -\tau N &\\
+    \end{array}
+  \right.
+  \]
+\TODO{bewijsp 167}
+\end{st}
+
+\begin{de}
+  De rechte door $\beta(s)$ in de richting van $T(s)$ noemen we de \term{raaklijn} in $\beta(s)$ aan $\beta$.
+\end{de}
+
+\begin{de}
+  Het vlak, opgespannen door $T(s)$ en $N(s)$, noemen we het \term{osculatievlak} in $\beta(s)$ aan $\beta$.
+\end{de}
+
+\begin{st}
+  Zij $\beta$ een booglengtegeparametriseerde ruimtekromme met kromming $\kappa> 0$, dan is $\beta$ gelegen in een vlak als en slechts als $\tau$ nul is.
+\TODO{bewijs p 169}
+\end{st}
+
+\section{Kromming en torsie van reguliere ruimtekrommen}
+\label{sec:kromming-en-torsie}
+
+\begin{st}
+  De \term{formules van Frenet voor reguliere ruimtekrommen}\\
+  Zij $\alpha$ een reguliere kromme in $\mathbb{E}^{3}$ met snelheid $v>0$ en kromming $\kappa > 0$.
+  \[
+  \left\{
+    \begin{array}{r cccc}
+      T' &=& & v\kappa N &\\
+      N' &=& -v\kappa T & & +v\tau B\\
+      B' &=& & -v\tau N &\\
+    \end{array}
+  \right.
+  \]
+\extra{bewijs}
+\end{st}
+
+\section{Kromming en torsie van congruente krommen}
+\label{sec:kromming-en-torsie-1}
+
+\begin{st}
+  Zij $F$ een isometrie van $\mathbb{E}^{3}$ en zij $\epsilon = \det F_{*} \pm 1$.
+  Als $\alpha$ en $\beta = F \circ \alpha$ twee congruente booglengtegeparametriseerde krommen zijn met $\kappa_{\alpha} > 0$, dan geldt het volgende:
+  \[ F_{*}T_{\alpha} = T_{\alpha}, F_{*}N_{\alpha} = N_{\beta} \text{ en } F_{*}B_{\alpha}= B_{\beta} \]
+  \[ \kappa_{\alpha} = \kappa_{\beta} \text{ en } \tau_{alpha} = \epsilon \tau_{\beta} \]
+\TODO{bewijs p 175}
+\end{st}
+
+\begin{st}
+  De \term{congruentiestelling voor ruimtekrommen}
+  Zij $\alpha, \beta:\ I \subseteq \mathbb{R} \rightarrow \mathbb{E}^{3}$ twee booglengtegeparametriseerde ruimtekrommen die op een zelfde interval gedefini\"eerd zijn.
+  Als $\kappa_{\alpha} = \kappa_{\beta}>0$ en $\tau_{alpha} = \pm \tau_{\beta}$ gelden, dan zijn $\alpha$ en $\beta$ congruent.
+  Als $\tau_{alpha}$ gelijk is aan $\tau_{\beta}$, is de isometrie die $\alpha$ en $\beta$ relateert ori\"entatiebewarend, anders is die ori\"entatieomkerend.
+\TODO{bewijs p 176}
+\end{st}
+
+\begin{st}
+  Zij $\alpha, \beta:\ I \subseteq \mathbb{R} \rightarrow \mathbb{E}^{3}$ twee reguliere ruimtkrommen die op een  zelfde interval gedefini\"eerd zijn.
+  Als $v_{\alpha} = v_{\beta} > 0$, $\kappa_{\alpha} = \kappa_{\beta}>0$ en $\tau_{alpha} = \pm \tau_{\beta}$ gelden, dan zijn $\alpha$ en $\beta$ congruent.
+  \TODO{bewijs}
+\end{st}
+
+\section{Cilinderschroeflijnen en cirkelschroeflijnen}
+\label{sec:cilind-en-cirk}
+
+\begin{de}
+  Een reguliere kromme $\alpha: I \subseteq \mathbb{R} \rightarrow \mathbb{E}^{3}$ wordt een \term{Cilinderschroeflijn} of \term{cilindrische helix} genoemd als het eenheidsrakend vectorveld $T$ een constante hoek maake met een gegeven vector .
+  \[ \forall t \in I:\ \exists u\in \mathbb{R}^{3}, \exists \theta \in \mathbb{R}:\ \Vert u \Vert = 1 \wedge T(t) \cdot u = \cos(\theta) \]
+\end{de}
+
+\begin{st}
+  Een reguliere ruimtekromme $\beta$ met $\kappa>0$ is een Cilinderschroeflijn als en slechts als $\frac{\tau}{\kappa}$ een constante functie is.
+\TODO{bewijs p 181}
+\end{st}
+
+\begin{st}
+  Als $\alpha$ een reguliere ruimtekromme is met $\kappa>0$ en $\tau$ allebei constant, dan is $\alpha$ (na Herparametrisatie) congruent met een cirkelschroeflijn.
+\TODO{bewijs p 181}
+\end{st}
+
 \end{document}
