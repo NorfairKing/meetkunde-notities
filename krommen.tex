@@ -1,0 +1,467 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+
+\chapter{Algemene theorie van krommen in $\mathbb{E}^{n}$}
+\label{cha:algemene-theorie-van}
+
+\section{Krommen en vectorvelden langs krommen}
+\label{sec:kromm-en-vect}
+
+\begin{de}
+  Een \term{kromme} in de Euclidische ruimte $\mathbb{E}^{n}$ is een afbeelding van de vorm $\alpha$...
+  \[ \alpha:\ I \subseteq \mathbb{R} \rightarrow \mathbb{E}^{n}:\ t \mapsto \alpha(t) = (\alpha_{1}(t), \alpha_{2}(t), \dotsc, \alpha_{n}(t)) \]
+  ... waarbij $I=(a,b)$ een open interval is en de $a_{i}:I \rightarrow \mathbb{R}$ re\"ele functies zijn.
+  De functies $\alpha_{i}$ noemen we de \term{co\"ordinaatsfunctes} van $\alpha$ en $t$ de \term{parameter} op de kromme.
+  $\alpha$ wordt ook wel eens de \term{parametrisatie} van een kromme genoemd.
+\end{de}
+
+\begin{de}
+  We noemmen een kromme $\alpha$ \term{differentieerbaar} als elke $\alpha_{i}$ oneindig vaak differentieerbaar is.
+  \[ a_{i} \in C^{\infty}(I,\mathbb{R}) \]
+\end{de}
+
+\begin{st}
+  Een \term{rechte} in $\mathbb{E}^{n}$ is een kromme.
+\extra{bewijs}
+\end{st}
+
+\begin{st}
+  Een \term{cirkel} in $\mathbb{E}^{n}$ is een kromme.
+  \[ \alpha: \mathbb{R} \rightarrow \mathbb{E}^{2}:\ t \mapsto (m_{1}+ R\cos(t),m_{2}+ R\sin(t)) \]
+\extra{bewijs}
+\end{st}
+
+\extra{helix}
+
+\begin{de}
+  Zij $\alpha: I \subseteq \mathbb{R} \rightarrow \mathbb{E}^{n}$ een kromme.
+  Een \term{vectorveld langs $\alpha$} is een afbeelding van de vorm $Y$:
+  \[ Y:\ I \rightarrow T\mathbb{E}^{n}:\ t\mapsto Y(t) = (Y_{1}(t),\dotsc,Y_{n}(t))_{\alpha(t)} \in T_{\alpha(t)}\mathbb{E}^{n} \]
+  We noemen de $Y_{i}: I \rightarrow \mathbb{R}$ de componentsfuncties van $Y$.
+\end{de}
+
+\begin{de}
+  $Y$ is \term{differentieerbaar} als en slechts als elke $Y_{i}$ oneindig vaak differentieerbaar is.
+  \[ Y_{i} \in C^{\infty}(I,\mathbb{R}) \]
+\end{de}
+
+\begin{opm}
+  Vanaf dit punt in de cursus zullen we steeds veronderstellen dat krommen, vectorvelden en functies onbeperkt differentieerbaar zijn.
+\end{opm}
+
+\begin{de}
+  Het \term{snelheidsvectorveld} $\alpha'$ associeert met een kromme $\alpha$ en vectorveld als volgt:
+  \[ \alpha:\ I \subseteq \mathbb{R} \rightarrow \mathbb{E}^{n}:\ t \mapsto \alpha(t) = (\alpha_{1}(t), \alpha_{2}(t), \dotsc, \alpha_{n}(t)) \]
+  \[ \alpha':\ I \rightarrow T\mathbb{E}^{n}:\ t\mapsto \alpha'(t) = (\alpha'_{1}(t),\dotsc,\alpha'_{n}(t))_{\alpha(t)} \in T_{\alpha(t)}\mathbb{E}^{n} \]
+  Hierin is $\alpha'_{i}$ de afgeleide van $\alpha$.
+  We defini\"eren bovendien de \term{snelheid} van $\alpha$ als $v$:
+  \[ v: I \rightarrow \mathbb{R}:\ t \mapsto v(t) = \Vert \alpha'(t) \Vert \]
+  Terslotte defini\"eren we de \term{lengte} van het segment $\alpha$ tussen $\alpha(a)$ en $\alpha(b)$. als $l$:
+  \[ l = \int_{a}^{b}v(t)dt = \int_{a}^{b}\Vert \alpha'(t) \Vert dt \]
+\end{de}
+\extra{verantwoording van lengte?}
+
+\begin{de}
+  Zij $\alpha$ een kromme en $a\in I$ een element (van wat?)
+  We defini\"eren de \term{booglengte} vanaf $a$ als $s$:
+  \[ s:\ I \rightarrow \mathbb{R}:\ t \mapsto s(t) = \int_{a}^{t}v(u)du = \int_{a}^{t}\Vert \alpha'(u) \Vert du  \]
+\end{de}
+
+\begin{de}
+  De \term{raaklijn} aan $\alpha$ in $t_{0}\in I$ (of in $\alpha(t_{0})$) is de rechte door $\alpha(t_{0})$ in de richting van $\alpha'(t_{0})$.
+  (De raaklijn is enkel gedefini\"eerd als $\alpha'(t_{0})$ niet nul is.)
+\end{de}
+
+\begin{de}
+  Zij $Y = (Y_{1},\dotsc,Y_{n})$ een vectorveld langs een kromme $\alpha$ met componentsfuncties $Y_{i}$.
+  De \term{afgeleide} $Y'$ van het vectorveld $Y$ is het vectorveld met componentsfuncties $Y_{i}'$.
+  \[ Y' = (Y'_{1},\dotsc,Y'_{n}) \]
+\end{de}
+
+\begin{de}
+  Het \term{versnellingsvectorveld} is de afgeleide van het snelheidsvectorveld.
+\end{de}
+
+\begin{de}
+  Zij $Y$ en $Z$ twee vectorvelden langs een kromme $\alpha:\ I \subseteq \mathbb{R}\rightarrow \mathbb{E}^{n}$.
+  We defini\"eren $Y+Z$ als volgt:
+  \[ (Y + Z)(t) = Y(t) + Z(t)\]
+\end{de}
+
+\begin{de}
+  Zij $Y$ en $Z$ twee vectorvelden langs een kromme $\alpha:\ I \subseteq \mathbb{R}\rightarrow \mathbb{E}^{n}$.
+  We defini\"eren $Y\cdot Z$ als volgt:
+  \[ (Y \cdot Z)(t) = Y(t) \cdot Z(t)\]
+\end{de}
+
+\begin{de}
+  Zij $Y$ een vectorveld langs een kromme $\alpha:\ I \subseteq \mathbb{R}\rightarrow \mathbb{E}^{n}$ en $f: I \rightarrow \mathbb{R}$ een functie.
+  We defini\"eren $fY$ als volgt:
+  \[ (fY)(t) = f(t)Y(t)\]
+\end{de}
+
+\begin{st}
+  De \term{rekenregels van de afgeleide van een vectorveld}\\
+  \begin{itemize}
+  \item $(Y+Z)' = Y' + Z'$
+  \item $(Y \cdot Z)' = Y'\cdot Z + Y \cdot Z'$
+  \item $(fY)' = f'Y + fY'$
+  \end{itemize}
+\TODO{bewijs p 123}
+\end{st}
+
+\begin{de}
+  Een \term{orthonormaal referentieveld} langs een kromme $\alpha$ defini\"eren we als een verzameling van $n$ vectorvelden $Y_{i}$ zodat $Y_{i}\cdot Y_{j} = \delta_{ij}$ geldt.
+\end{de}
+
+\section{Herparametrisaties en de booglengteparametrisatie}
+\label{sec:herp-en-de}
+
+\begin{de}
+  Een \term{diffeomorfisme} is een bijectief en differentieerbare functie $h$ zodat ook $h^{-1}$ differentieerbaar is.
+\end{de}
+
+\begin{de}
+  Zij $I,\bar{I} \subseteq \mathbb{R}$ open intervallen en $\alpha:\ I \rightarrow \mathbb{E}^{n}$ een kromme.
+  Als $h: \bar{I} \rightarrow I$ een difeomorfisme is, dan is $\beta = \alpha \circ h: \bar{I} \rightarrow \mathbb{R}$ opnieuw een kromme die we een \term{Herparametrisatie} van $\alpha$ noemen.
+\end{de}
+
+\begin{opm}
+  Het beeld van een kromme en een herparametrisatie van die kromme valt samen.
+\end{opm}
+
+\extra{kleine eigenschappen van Herparametrisaties}
+
+\begin{de}
+  We noemen een kromme $\alpha$ \term{regulier} als $v(t)$ strikt positief is voor alle $t$.
+\end{de}
+
+\begin{st}
+  Elke herparametrisatie van een reguliere kromme is regulier.
+\extra{bewijs}
+\end{st}
+
+\begin{st}
+  Elke reguliere kromme heeft een herparametrisatie met snelheid $1$.
+  Als $\beta$ en $\beta'$ beide zulke herparametrisaties zijn, dan geldt het volgende voor $c\in \mathbb{R}$ een constante.
+  \[ \beta(t) = \beta'(\pm t + c) \]
+\TODO{bewijs p 126}
+\end{st}
+
+\begin{de}
+  Een kromme met snelheid $1$ noemen we \term{booglengtegeparametriseerd}.
+\end{de}
+\begin{de}
+  Een herparametrisatie met snelheid $1$ van een reguliere kromme noemen we een \term{booglengteherparametrisatie}.
+\end{de}
+
+\section{Congruente krommen}
+\label{sec:congruente-krommen}
+
+\begin{de}
+  We noemen twee krommen $\alpha$ en $\beta$ in $\mathbb{E}^{n}$ \term{congruent} als er een isometrie $F$ van $\mathbb{E}^{n}$ bestaat zodat $\beta = F \circ \alpha$ geldt.
+\end{de}
+
+\section{Krommen en de afgeleide afbeelding}
+\label{sec:krommen-en-de}
+
+\begin{st}
+  Zij $U$ een open deel van $\mathbb{E}^{n}$ en $F: U \subseteq \mathbb{E}^{n} \rightarrow \mathbb{E}^{n}$ een differentieerbare afbeelding.
+  Kies $p$ een element van $U$ en $v_{p}\in T_{p}\mathbb{E}^{n}$ een raakvector aan $p$.
+  \[ (F_{*})_{p}v_{p} = (P \circ \alpha)'(t_{0}) \]
+  Hierin is $\alpha:\ I \subseteq \mathbb{R} \rightarrow \mathbb{E}^{n}$ een willekeurige kromme zodat $\alpha(t_{0}) = p$ en $\alpha'(t_{0}) = v_{p}$ gelden en waarvan het beeld een deel is van $U$.
+\TODO{bewijs p 129}
+\end{st}
+
+
+\chapter{Krommen in het Euclidisch vlak $\mathbb{E}^{2}$}
+\label{cha:kromm-het-eucl}
+
+\section{De complexe structuur van $\mathbb{E}^{2}$}
+\label{sec:de-compl-struct}
+
+\begin{de}
+  De \term{complexe structuur} $J$ van $\mathbb{E}^{2}$ is de volgende afbeelding:
+  \[
+  J: T\mathbb{E}^{2} \rightarrow T\mathbb{E}^{2}: 
+  \begin{pmatrix}
+    v_{1}\\v_{2}
+  \end{pmatrix}_{p}
+  \mapsto
+  \begin{pmatrix}
+    -v_{2}\\v_{1}
+  \end{pmatrix}_{p}
+  =
+  \left(
+    \begin{pmatrix}
+      0 & -1\\
+      1 & 0
+    \end{pmatrix}
+    \begin{pmatrix}
+      v_{1}\\v_{2}
+    \end{pmatrix}
+  \right)_{p}
+  \]
+\end{de}
+
+\begin{st}
+  $JJ$, beperkt tot een rakende ruimte $T_{p}\mathbb{E}^{2}$  is een orthogonale lineaire transformatie.
+\extra{bewijs}
+\end{st}
+
+\begin{st}
+  $J^{2} = -\mathbb{I}_{2}$
+\extra{bewijs}
+\end{st}
+
+\begin{st}
+  $J$ is antisymmetrisch.
+  \[ \forall v,w \in T_{p}\mathbb{E}^{2}:\ Jv\cdot w = -v \cdot Jw \]
+\extra{bewijs}
+\end{st}
+
+\begin{st}
+  \[ \forall v,w \in T_{p}\mathbb{E}^{2}:\ Jv\cdot v = 0 \]
+\extra{bewijs}
+\end{st}
+
+\begin{st}
+  Zij $v\in T_{p}\mathbb{E}^{2}$ een eenheidsvector, dan is $(v,Jv)$ een positief geori\"enteerde orthonormale basis voor $T_{p}\mathbb{E}^{2}$.
+\extra{bewijs}
+\end{st}
+
+\section{Het Frenet-apparaat voor booglengtegeparametriseerde vlakke krommen}
+\label{sec:het-frenet-apparaat}
+
+\begin{de}
+  Zij $\beta$ een booglengtegeparametriseerde krommen in $\mathbb{E}^{2}$.
+  Het vectorveld $T(s) = \beta'(s)$ is het \term{eenheidsrakend vectorveld} van $\beta$.
+\end{de}
+
+\begin{de}
+  Zij $\beta$ een booglengtegeparametriseerde krommen in $\mathbb{E}^{2}$.
+  Het vectorveld $N = JT$ noemen we de \term{geori\"enteerde normaal} op $\beta$.
+\end{de}
+
+\begin{de}
+  Zij $\beta$ een booglengtegeparametriseerde krommen in $\mathbb{E}^{2}$.
+  $(T,N)$ is een positief geori\"enteerd orthonormaal referentiestelsel langs $\beta$ dat we het \term{Frenet-apparaat} noemen.
+\end{de}
+
+\begin{st}
+  Zij $\beta: I \subseteq \mathbb{R} \rightarrow \mathbb{E}^{2}$ een booglengtegeparametriseerde kromme en zij $(T,N)$ het Frenet-referentiestelsel, dan bestaat er een functie $\kappa: I \rightarrow \mathbb{R}$ zodat het volgende geldt:
+  \[ 
+  \left\{
+    \begin{array}{cl}
+      T' = \kappa N\\
+      N' = -\kappa T
+    \end{array}
+  \right.
+  \]
+\TODO{bewijs p 136}
+\end{st}
+
+\begin{de}
+  We noemen $\kappa= T'\cdot N$ de \term{georienteerde kromming} van $\beta$ en de formules uit de vorige stelling de \term{formules van Frenet}.
+\end{de}
+
+\begin{st}
+  Stel dat $\beta: I \subseteq \mathbb{R} \rightarrow \mathbb{E}^{2}$ een booglengtegeparametriseerde kromme is met kromming nul, dan is $\beta$ een deel van een rechte.
+\TODO{bewijs p 137}
+\end{st}
+
+\begin{st}
+  Stel dat $\beta: I \subseteq \mathbb{R} \rightarrow \mathbb{E}^{2}$ een booglengtegeparametriseerde kromme is met constante kromming $k$, dan is $\beta$ een cirkel met straal $\frac{1}{|k|}$.
+\TODO{bewijs p 138}
+\end{st}
+\TODO{osculerende parabool}
+
+\section{Osculerende cirkel en evoluut}
+\label{sec:oscul-cirk-en}
+
+\begin{de}
+  Zij $\beta:\ I \subseteq \mathbb{R} \rightarrow \mathbb{E}^{2}$ een booglengtegeparametriseerde kromme, $s_{0}$ een element van $I$ zodat $\kappa(s_{0})$ niet nul is.
+  Het punt $m$ wordt het \term{krommingsmiddelpunt} van $\beta$ in $s_{0}$ genoemd.
+  \[ m = \beta(s_{0}) + \frac{1}{\kappa(s_{0})}N(s_{0})\]
+\end{de}
+
+\begin{de}
+  Zij $\beta:\ I \subseteq \mathbb{R} \rightarrow \mathbb{E}^{2}$ een booglengtegeparametriseerde kromme met krommingsmiddelpunt $s_{0}$ van $\beta$.
+  De cirkel met middelpunct $M$ en straal $r= \frac{1}{|\kappa(s_{0})|}$ noemen we de \term{osculatiecirkel} aan $\beta$ in $\beta(s_{0})$ genoemd.
+\end{de}
+
+\begin{st}
+  Zij $\beta:\ I \subseteq \mathbb{R} \rightarrow \mathbb{E}^{2}$ een booglengtegeparametriseerde kromme, $s_{0}$ een element van $I$ zodat $\kappa(s_{0})$ niet nul is.
+  Er bestaat precies \'e\'en booglengtegeparametriseerde cirkel $c$ waarvoor het volgende geldt:
+  \[ c(s_{0}) = \beta(s_{0}) \wedge c'(s_{0}) = \beta'(s_{0}) \wedge c''(s_{0}) = \beta''(s_{0})\]
+\TODO{bewijs p 143}
+\end{st}
+
+\begin{de}
+  Zij $\beta:\ I \subseteq \mathbb{R} \rightarrow \mathbb{E}^{2}$ een booglengtegeparametriseerde kromme waarbij $\kappa(s)$ voor geen enkele $s\in I$ nul is.
+  De kromme $\gamma$ die bestaat uit alle krommingsmiddelpunten van $\beta$ wordt de \term{centrale kromme} of de \term{evoluut} van $\beta$ genoemd.
+  \[ \gamma(s) = \beta(s) + \frac{1}{\kappa(s)}N(s) \]
+\end{de}
+
+\section{Spiraalbogen en het Lemma van Kneser}
+\label{sec:spiraalbogen-en-het}
+
+\begin{de}
+  Zij $\beta:\ I \subseteq \mathbb{R} \rightarrow \mathbb{E}^{2}$ een booglengtegeparametriseerde kromme met kromming $\kappa$ en zij $a$ en $b$ elementen van $I$ als volgt, dan noemen we $\beta|_{[a,b]}$ een \term{spiraalboog}.
+  \begin{itemize}
+  \item $a \le b$
+  \item $\kappa > 0$ op $[a,b]$
+  \item $\kappa$ is strikt stijgend op $[a,b]$.
+  \end{itemize}
+\end{de}
+
+\begin{de}
+  Noteer $B_{s}$, respectievelijk $\overline{B_{s}}$ voor de open, respectievelijk gesloten, schijf met als rand de osculatiecirkel in $\beta(s)$.
+\end{de}
+
+\begin{lem}
+  Het \term{Lemma van Kneser}\\
+  Als $\beta|_{[a,b]}$ een spiraalboog is, dan geldt $\overline{B_{b}} \subseteq B_{a}$.
+\TODO{bewijs p 146}
+\end{lem}
+
+\begin{st}
+  Een spiraalboog heeft geen zelfdoorsnijdingen.
+\extra{bewijs}
+\end{st}
+
+\begin{st}
+  Als $\beta|_{[a,b]}$ een spiraalboog is, en $c$ een element van $(a,b)$, dan ligt $\beta|_{[a,c)}$ helemaal buiten $B_{c}$ en $\beta|_{(c,b]}$ helemaal binnen $B_{c}$.
+\extra{bewijs}
+\end{st}
+
+\section{Kromming van congruente krommen}
+\label{sec:kromm-van-congr}
+
+\begin{st}
+  Zij $F$ een isometrie van $\mathbb{E}^{2}$ en zij $\epsilon = \det F_{*} = \pm 1$
+  Als $\alpha$ en $\beta = F \circ \alpha$ twee congruente booglengtegeparametriseerde krommen zijn, dan geldt het volgende:
+  \[ F_{*}T_{\alpha} = T_{\beta} \wedge F_{*}N_{\alpha} = \epsilon N_{\beta} \]
+\TODO{bewijs p 147}
+\end{st}
+
+\begin{st}
+  De \term{congruentiestelling voor vlakke krommen}\\
+  Zij $\alpha$ en $\beta$ twee booglengtegeparametriseerde krommen die op een zelfde interval $I$ gedefini\"eerd zijn.
+  Als $\kappa_{\alpha}$ gelijk is aan $\kappa_{\beta}$, dan bestaat er een ori\"entatiebewarende isometrie $F$ zodat $\beta = F \circ \alpha$ geldt.
+  Als $\kappa_{\alpha}$ gelijk is aan $\\kappa_{\beta}$, dan bestaat er een ori\"entatieomkerende isometrie $F$ zodat $\beta = F \circ \alpha$ geldt.
+\TODO{bewijs p 148}
+\end{st}
+
+\section{Intrinsieke vergelijking}
+\label{sec:intr-verg}
+
+\begin{lem}
+  Als $f$ en $g$ twee functies $I \subseteq \mathbb{R} \rightarrow \mathbb{R}$ zijn met $f^{2}+g^{2} = 1$, dan bestaat er een functie $\theta: I \rightarrow \mathbb{R}$ zodat het volgende geldt:
+  \[ f = \cos(\theta) \text{ en } g = \sin(\theta) \]
+\TODO{bewijs p 150}
+\end{lem}
+\TODO{hoekfunctie}
+
+\begin{de}
+  Een vergelijking van de vorm ``$\kappa = \dotsb$'' bepaalt een unieke booglengtgeparametriseerde vlakke kromme, op ori\"entatiebewarende isometrie\"en na.
+  Zo\'n vergelijking heet de \term{intrinsieke vergelijking} van een kromme.
+\end{de}
+
+\section{Kromming van reguliere krommen}
+\label{sec:kromm-van-regul}
+
+
+\begin{st}
+  De \term{formules van Frenet voor reguliere vlakke krommen}\\
+  Beschouw een reguliere kromme $\alpha:\ I \subseteq \mathbb{R} \rightarrow \mathbb{E}^{2}$ met snelheid $v>0$, dan gelden volgende vergelijkingen.
+  \[
+  \left\{
+    \begin{array}{cl}
+      T' &= v\kappa N\\
+      V' &= -v\kappa T
+    \end{array}
+  \right.
+  \]
+\TODO{bewijs p 153}
+\end{st}
+
+\section{Globale studie van vlakke krommen}
+\label{sec:globale-studie-van}
+
+\begin{de}
+  Een \term{lokale eigenschap} van een kromme beschrijft de kromme in de buurt van een bepaald punt.
+\end{de}
+
+\begin{de}
+  Een \term{globale eigenschap} van een kromme bescrijft de kromme in zijn geheel.
+\end{de}
+
+\subsection{Gesloten krommen}
+\label{sec:gesloten-krommen}
+
+\begin{de}
+  We noemen een kromme $\alpha:\ \mathbb{R} \rightarrow \mathbb{E}^{2}$ \term{gesloten} als er een strikt positief getal $\omega\in \mathbb{R}^{+}_{0}$ bestaat zodat $\alpha(t + \omega) = \alpha(t)$ voor elke $t\in \mathbb{R}$ geldt.
+  $\omega$ noemen we een \term{periode} van $\alpha$.
+\end{de}
+
+\begin{de}
+  De kleinste periode van een kromme noemen we de \term{echte periode}.
+\end{de}
+
+\begin{de}
+  We noemen een gesloten kromme met periode $\omega$ \term{enkelvoudig gesloten} als de beperking $\alpha|_{[0,\omega)}$ injectief is. 
+\end{de}
+
+\begin{ei}
+  Een enkelvoudig gesloten kromme snijdt zichzelf niet.
+\extra{bewijs}
+\end{ei}
+
+\subsection{Totale kroming en rotatieindex}
+\label{sec:totale-kroming-en}
+
+\begin{de}
+  De \term{rotatieindex} van een kromme $\beta$ noemen we $i_{\beta}$:
+  \[ i_{\beta} = \frac{1}{2\pi} (\theta(L) - \theta(0)) \]
+  De rotatieindex geeft aan hoe dikwijls een kromme netto ronddraait in positieve zin tijdens \'e\'en periode.
+\end{de}
+
+\begin{st}
+  De kromming $\kappa$ van een gesloten booglengtegeparametriseerde vlakke kromme $\beta$ met lengte $L$ is gerelateerd aan de rotatieindex:
+  \[ \int_{0}^{L}\kappa(s)\ ds = 2\pi i_{\beta} \]
+\TODO{bewij p 158}
+\end{st}
+
+\begin{de}
+  We noemen het volgende de \term{totale kromming} van $\beta$:
+  \[ \int_{0}^{L}\kappa(s)\ ds \]
+\end{de}
+
+\begin{st}
+  De rotatieindex van een enkelvoidig gesloten vlakke kromme is $1$ of $-1$.
+\zb
+\end{st}
+
+\begin{st}
+  De \term{stelling van Jordan}\\
+  Een enkelvoudig gesloten vlakke kromme deelt het vlak op in twee gebieden:: een begrensde binnenkant en een onbegrensde buitenkant.
+\zb
+\end{st}
+
+\begin{st}
+  De \term{isoperimetrische ongelijkheid}\\
+  \[ L^{2} \ge 4\pi A \]
+  De gelijkheid treedt op als en slechts als $\beta$ een cirkel is (die eenmaal doorlopen wordt).
+\zb
+\end{st}
+
+
+\chapter{Krommen in de Euclidische ruimte$\mathbb{E}^{3}$}
+\label{cha:kromm-het-eucl}
+
+\section{Het Frenet-apparaat voor krommen in $\mathbb{E}^{3}$}
+\label{sec:het-frenet-apparaat-voor-krommen-in-e3}
+
+
+\end{document}

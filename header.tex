@@ -24,8 +24,8 @@
 \newcommand{\extra}[1]{\todo[color=orange,inline,size=\small]{EXTRA: #1}}
 \newcommand{\waarom}[0]{\clarify{waarom precies?}}
 
-% Nuttigere emph
-\let\oldemph\emph
-\renewcommand\emph[1]{{\textbf{\oldemph{#1}}}}
 
-\newcommand{\term}[1]{\index{#1}\emph{#1}}
+\newcommand{\term}[1]{\index{#1}\textbf{#1}}
+\newcommand{\zb}[0]{{\footnotesize {\it Zonder bewijs\/}}}
+
+
