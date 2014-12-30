@@ -1,0 +1,73 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+
+\chapter{Algoritmen}
+\label{cha:algoritmen}
+
+\section{Onderlinge ligging van twee affiene deelruimten bepalen}
+\subsection{Abstract}
+\subsubsection{Vraag}
+
+\begin{center}
+  Gegeven twee affiene deelruimten $p+V$ en $q+W$.
+  Bepaal de onderlinge ligging van $p+V$ en $q+W$.
+\end{center}
+
+\subsubsection{Antwoord}
+Herneem eerst het deel over affiene deelruimten.\secref{sec:affiene-deelruimten}
+Ga in volgorde deze `vragenlijst' af.
+\begin{itemize}
+\item $V = W \rightarrow p+V \parallel q+W$
+\item $V \subseteq W \rightarrow p+V \triangleleft q+W$
+\item $S \cap T \neq \emptyset \rightarrow $ snijdend
+\item $S \cap T = \emptyset \rightarrow $ kruisend
+\end{itemize}
+
+Meestal worden de punten helemaal gegeven, maar van de lineaire deelruimten enkel een basis of een verzameling opspannede vectoren $v$ en $w$.
+
+\begin{itemize}
+\item Dun $v$ en $w$ uit tot basissen $v'$ en $w'$ van $V$ en $W$.
+  Noem $v'$ en $w'$ trouwens zo dat $v'$ de kleinste verzameling is van de twee.
+\item Als $v'$ en $w'$ niet hetzelfde aantal vectoren bevat, dan kunnen $V$ en $W$ al niet gelijk zijn.
+\item Als de vectoren in $v'$ lineair afhankelijk zijn van de vectoren in $w'$, dan zijn $V$ en $W$ gelijk of is $V$ een deel van $W$.
+\end{itemize}
+
+\subsection{Voorbeeld}
+
+\subsubsection{Vraag}
+\begin{center}
+  Gegeven de punten $p=(1,1,1)$ en $q=(2,-1,0)$ en de lineaire deelruimten $V=<(1,0,1),(1,2,3)>$ en $W=<(1,4,5)>$. Bepaal de onderlinge ligging van $V$ en $W$.
+\end{center}
+
+\subsubsection{Antwoord}
+\begin{itemize}
+\item $v=\{(1,0,1),(1,2,3)\}$ is al een vrije verzameling, alsook $w=\{(1,4,5)\}$.
+\item $v$ en $w$ bevatten niet hetzelfde aantal vectoren, dus $V$ en $W$ zijn zeker niet gelijk.
+\item We bekijken of $v\cup w$ nog steeds een vrije verzameling is.
+  In feite lossen we dus het volgende stelsel op:
+  \[
+  a(1,0,1) + b(1,2,3) + c(1,4,5) = 0
+  \]
+  Als de enige oplossing van dit stelsel $(a,b,c) = (0,0,0)$ is, dan is $W$ geen deel van $V$.
+  Omdat we met precies drie vectoren te maken hebben van dimensie $3$ kunnen we dit echter eenvoudiger berekenen met een determinant:
+  \[
+  \begin{vmatrix}
+    1 & 0 & 1\\
+    1 & 2 & 3\\
+    1 & 4 & 5
+  \end{vmatrix}
+  \]
+  Deze determinant is $0$, dus $v\cup w$ is geen vrij verzameling. $W$ is dus een deel(ruimte) van $V$.
+  Dit betekent dat $q+W$ zwak parallel is met $p+V$.
+  \[ q+W \triangleleft p+V \]
+\end{itemize}
+
+
+
+\end{document}
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 
