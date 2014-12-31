@@ -270,7 +270,7 @@
 \begin{st}
 \label{st:affiene-doorsnede-ruimte}
   Zij $S = p + V$ en $T = q + W$ twee affiene deelruimten van $\mathbb{A}^{n}$.
-  De doorsnede $U = S \cup T$ van $S$ en $T$ is ofwel leeg, ofwel ook een affiene deelruimte van $\mathbb{A}^{n}$ met richting $V \cap W$.
+  De doorsnede $U = S \cap T$ van $S$ en $T$ is ofwel leeg, ofwel ook een affiene deelruimte van $\mathbb{A}^{n}$ met richting $V \cap W$.
 
   \begin{proof}
     Zij $S = p + V$ en $T = q + W$ twee willekeurige affiene deelruimten van $\mathbb{A}^{n}$.
@@ -363,11 +363,11 @@
 \label{sec:parametervergelijkingen}
 \begin{de}
   Zij $p+V \subseteq \mathbb{A}^{n}$ een affiene deelruimte en $\{v_{1},\dotsc,v_{k}\}$ een basis van $V$.
-  Een willekeurig punt $x\in \mathbb{A}^{n}$ behoort tot $p+V$ als en slechts als er $\lambda_{1},\dotsc,\lambda_{k} \in \mathbb{B}$ bestaan zodat het volgende geldt:\footnote{Zie lemma \ref{lem:equivalenties-affiene-deelruimte}}
+  Een willekeurig punt $x\in \mathbb{A}^{n}$ behoort tot $p+V$ als en slechts als er $\lambda_{1},\dotsc,\lambda_{k} \in \mathbb{B}$ bestaan zodat het volgende geldt:\lemref{lem:equivalenties-affiene-deelruimte}
   \[
   x = p + \lambda_1v_1 + \dotsb + \lambda_{k}v_{k}  
   \]
-  We noemen deze vergelijking de \emph{parametervergelijkingen} van $p+V$.
+  We noemen deze vergelijking de \term{parametervergelijkingen} van $p+V$.
   \[
   p+V \leftrightarrow
   \left\{
@@ -383,8 +383,7 @@
 \begin{de}
   Zij $p+V \subseteq \mathbb{A}^{n}$ een affiene deelruimte en $\{v_{1},\dotsc,v_{k}\}$ een basis van $V$.
   We kunnen nu de oplossingen van de parametervergelijkingen $\tilde{q} = (\lambda_{1},\dotsc,\lambda_{k})$ beschouwen as een een punt van een $k$-dimensionale affiene ruimte.
-  We noemen deze ruimte de coordinaatruimte van $p+V$.
-  \clarify{ Naam is zelf verzonnen. }
+  We noemen deze ruimte de \term{coordinaatruimte} van $p+V$.
 \end{de}
 
 \begin{st}
@@ -444,9 +443,8 @@
     \end{vmatrix}
     = 0
     \]
-    \clarify{ waarom? }
     We kunnen deze determinanten allemaal ontwikkelen naar de eerste rij.
-    We krijgen dan de $n-k$ \emph{carthesische vergelijkingen} van $p+V$.
+    We krijgen dan de $n-k$ \term{carthesische vergelijkingen} van $p+V$.
     \[
     p+V \leftrightarrow 
 	\left\{    
@@ -459,8 +457,7 @@
     \right.     
     \]
     Deze vergelijkingen zijn bovendien lineair onafhankelijk.
-    \clarify{ waarom? }
-	Tenslotte kennen we dan ook een stelsel voor $V$.     
+    Tenslotte kennen we dan ook een stelsel voor $V$.     
     \[
     V \leftrightarrow 
 	\left\{    
@@ -498,9 +495,7 @@
     \[
     a_{1}(x_{1}-p_{1}) + a_{2}(x_{2}-p_{2}) + \dotsb + a_{n}(x_{n}-p_{n}) = 0
     \]
-    Het $n$-tal $(a_{1},\dotsc,a_{n})$ is bovendien uniek bepaald, op de evenredigheidsfactor na, en wordt het \emph{richtingsgetal} van $H$ genoemd.
-    \clarify{ waarom? }
-    \clarify{ wat is de evenredigheidsfactor? }
+    Het $n$-tal $(a_{1},\dotsc,a_{n})$ is bovendien uniek bepaald, op de evenredigheidsfactor na, en wordt het \term{richtingsgetal} van $H$ genoemd.
   \end{proof}
 \end{st}
 
@@ -520,13 +515,11 @@
   \end{proof}
 \end{st}
 
-\section{Vergelijkingen van affiene deelruimten en hun onderlinge stand}
-\label{sec:vergelijkingen-van-affiene-deelruimten}
 
 \section{Rechten in $\mathbb{A}^{n}$}
 \begin{de}
   \label{de:rechte}
-  Zijn $p$ een punt van $\mathbb{A}^{n}$, en $v\in \mathbb{R}^{n}$ een niet-nulvector, dan is $L$ de \emph{rechte} door $p$ in de richting van $<v>$.
+  Zijn $p$ een punt van $\mathbb{A}^{n}$, en $v\in \mathbb{R}^{n}$ een niet-nulvector, dan is $L$ de \term{rechte} door $p$ in de richting van $<v>$.
   \[
   L = p + <v>
   \]
@@ -548,11 +541,9 @@
   De rechte $L=pq$ door twee punten $p$ en $q$ is precies $p + <\vec{pq}>$.
   De carthesische vergelijkingen van $pq$ zijn dan de volgenden:
   \[
-  (q_{1}-p_{1})(x_{i}-p_{i}) = (q_{j}-p_{j})(x_{1}-p_{1})
+  (q_{1}-p_{1})(x_{i}-p_{i}) = (q_{i}-p_{i})(x_{1}-p_{1})
   \]
-\question{Wat doen die $j$s hier?}
-
-\TODO{bewijs}
+\extra{bewijs}
 \end{st}
 
 
@@ -568,12 +559,12 @@
 \end{st}
 
 \begin{de}
-  De \emph{barycentrische co\"ordinaten} van een punt $x$ ten opzichte van twee punten $p$ en $q$ zijn de $\lambda_{1}$ en $\lambda_{2}$ die aan volgende gelijkheid voldoen.
+  De \term{barycentrische co\"ordinaten} van een punt $x$ ten opzichte van twee punten $p$ en $q$ zijn de $\lambda_{1}$ en $\lambda_{2}$ die aan volgende gelijkheid voldoen.
   \[ x = \lambda_{1}p + \lambda_{2}q \text{ met } \lambda_{1} + \lambda_{2} = 1 \]
 \end{de}
 
 \begin{de}
-  Het \emph{barycentrum} of het midden van twee punten is het punt met als barycentrische co\"ordinaten $(\frac{1}{2},\frac{1}{2})$.
+  Het \term{barycentrum} of het midden van twee punten is het punt met als barycentrische co\"ordinaten $(\frac{1}{2},\frac{1}{2})$.
 \end{de}
 
 \begin{st}
@@ -607,7 +598,7 @@
 \end{st}
 
 \begin{de}
-  De \emph{deelverhouding} van drie colineaire punten $p$, $q$ en $r$ is een getal genoteerd als $(p,q,r)$ dat voldoet aan volgende gelijkheid.
+  De \term{deelverhouding} van drie colineaire punten $p$, $q$ en $r$ is een getal genoteerd als $(p,q,r)$ dat voldoet aan volgende gelijkheid.
   \[ \vec{pr} = (p,q,r)\vec{pq} \]
   We gebruiken ook wel de volgende notatie:
   \[ (p,q,r) = \frac{\vec{pr}}{\vec{pq}} = \frac{r-p}{q-p} = \frac{p-r}{p-q} \]
@@ -617,7 +608,7 @@
 
 \begin{st}
   \label{st:stelling-van-thales}
-  \emph{Stelling van Thales}\\
+  \term{Stelling van Thales}\\
   Zij $H_{1}$, $H_{2}$ en $H_{3}$ drie parallelle hypervlakken van $\mathbb{A}_{n}$
   \[
   \begin{array}{rl}
@@ -672,6 +663,7 @@
     $\lambda$ moet dus gelijk zijn aan $\lambda'$.
   \end{proof}
 \end{st}
+\extra{illustratie voor stelling van thales?}
 
 \section{Barycentrische co\"ordinaten}
 \label{sec:baryc-coordinaten}
@@ -683,7 +675,7 @@
 
 \begin{st}
   \label{st:critirium-affien-afhankelijk}
-  \emph{Criterium voor affiene afhankelijkheid}\\
+  \term{Criterium voor affiene afhankelijkheid}\\
   De $k+1$ punten $p_{0},\dotsc,p_{k}$ van een $n$-dimensionale affiene ruimte $\mathbb{A}^{n}$ zijn affien afhankelijk als en slechts als de vrije vectoren $\vec{p_{0}p_{i}}$ met $i \in \{1,\dotsc,k\}$ lineair afhankelijk zijn.
 
   \begin{proof}
@@ -708,19 +700,19 @@
 
 \begin{gev}
   $k+1$ affien onafhankelijke punten $p_{0},\dotsc,p_{k}$ van $\mathbb{A}^{n}$ bepalen een $k$-dimensionale affiene deelruimte $D$ van $\mathbb{A}^{n}$.
-  \[ D = p_{0} + \overrightarrow{p_{0}p_{1}},\dotsc,\overrightarrow{p_{0}p_{k}}> \]
+  \[ D = p_{0} + <\overrightarrow{p_{0}p_{1}},\dotsc,\overrightarrow{p_{0}p_{k}}> \]
   We noemen dit de affiene deelruimte bepaald door de punten $p_{0},\dotsc,p_{k}$.
 
 \TODO{bewijs}
 \end{gev}
 
 \begin{de}
-  De \emph{barycentrische co\"ordinaten} van een punt $x$ ten opzichte van $k+1$ punten $p_{0},\dotsc,p_{k}$ zijn de $\lambda_{0},\dotsc,\lambda_{k} \in \mathbb{R}$ die aan volgende gelijkheid voldoen.
-  \[ x = \sum_{i=0}^{k}\lambda k_{i}p_{i} \text{ met } \sum_{i=0}^{n}\lambda_{i} = 1 \]
+  De \term{barycentrische co\"ordinaten} van een punt $x$ ten opzichte van $k+1$ punten $p_{0},\dotsc,p_{k}$ zijn de $\lambda_{0},\dotsc,\lambda_{k} \in \mathbb{R}$ die aan volgende gelijkheid voldoen.
+  \[ x = \sum_{i=0}^{k}\lambda_{i} k_{i}p_{i}\ \text{ met }\ \sum_{i=0}^{n}\lambda_{i} = 1 \]
 \end{de}
 
 \begin{de}
-  Het \emph{barycentrum} of het midden van $k+1$ punten is het punt met als barycentrische co\"ordinaten $(\frac{1}{k+1},\dotsc,\frac{1}{k+1})$.
+  Het \term{barycentrum} of het midden van $k+1$ punten is het punt met als barycentrische co\"ordinaten $(\frac{1}{k+1},\dotsc,\frac{1}{k+1})$.
 \end{de}
 
 

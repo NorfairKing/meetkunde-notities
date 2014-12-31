@@ -62,6 +62,441 @@ Meestal worden de punten helemaal gegeven, maar van de lineaire deelruimten enke
   \[ q+W \triangleleft p+V \]
 \end{itemize}
 
+\newpage
+\section{Parametervergelijkingen van een affiene deelruimte bepalen}
+\subsection{Abstract}
+\subsubsection{Vraag}
+\begin{center}
+  Zij $S$ de affiene deelruimte van $\mathbb{A}^{n}$ door het punt $p$ in de richting van een lineaire deelruimte $V$ van $\mathbb{R}^{n}$ met als basis $\beta=\{v_{1},v_{2},\dotsc,v_{k}\}$.
+  Bepaal de parametervergelijkingen van $S=p+V$.
+\end{center}
+\subsubsection{Antwoord}
+Elk punt $x\in \mathbb{A}^{n}$ in $S$ voldoet aan de volgende vector vergelijking:
+\[ x\in S \Leftrightarrow \exists \lambda_{1},\lambda_{2},\dotsc ,\lambda_{k}:\ x =  p  + \sum_{i=1}^{k}\lambda_{i}v_{i} \]
+Deze vectorvergelijking komt overeen met het volgende stelsel:
+\[
+x \in S \Leftrightarrow \exists \lambda_{1},\lambda_{2},\dotsc ,\lambda_{k}:\
+\left\{
+  \begin{array}{c}
+    x_{1} = p_{1} + \lambda_{1}v_{11} + \lambda_{2}v_{12} + \dotsb + \lambda_{k}v_{1k}\\
+    x_{2} = p_{2} + \lambda_{1}v_{21} + \lambda_{2}v_{22} + \dotsb + \lambda_{k}v_{2k}\\
+    \vdots \\
+    x_{n} = p_{n} + \lambda_{1}v_{n1} + \lambda_{2}v_{n2} + \dotsb + \lambda_{k}v_{nk}\\
+  \end{array}
+\right.
+\]
+
+\subsection{Voorbeeld}
+\subsubsection{Vraag}
+\begin{center}
+  Zij $S$ de affiene deelruimte van $\mathbb{A}^{4}$ door het punt $p= (1,2,3,4)$ in de richting van $V = <(0,1,-1,0), (4,6,3,5)>$.
+  Bepaal de parametervergelijkingen van $S$.
+\end{center}
+\subsubsection{Antwoord}
+\[
+x \in \Leftrightarrow \exists \lambda,\mu:\ x = (1,2,3,4) + \lambda (0,1,-1,0) + \mu (4,6,3,5)
+\]
+\[
+x \in S \Leftrightarrow \exists \lambda, \mu:\
+\left\{
+  \begin{array}{c}
+    x_{1} = 1 + 0\lambda + 4\mu\\
+    x_{2} = 2 + 1\lambda + 6\mu\\
+    x_{3} = 3 - 1\lambda + 3\mu\\
+    x_{4} = 4 + 0\lambda + 5\mu\\
+  \end{array}
+\right.
+\]
+
+\newpage
+\section{Carthesische vergelijkingen van een affiene deelruimte bepalen}
+\subsection{Abstract}
+\subsubsection{Vraag}
+\begin{center}
+  Zij $S$ de affiene deelruimte van $\mathbb{A}^{n}$ door het punt $p$ in de richting van een lineaire deelruimte $V$ van $\mathbb{R}^{n}$ met als basis $\beta=\{v_{1},v_{2},\dotsc,v_{k}\}$.
+  Bepaal de Carthesische van $S=p+V$.
+\end{center}
+
+\subsubsection{Antwoord}
+De vergelijkingen voor $S$ halen we uit de volgende:
+\[
+x \in S \Leftrightarrow
+rang
+\begin{pmatrix}
+  x_{1}-p_{1} & x_{2}-p_{2} & \hdots & x_{n}-p_{n} \\
+  v_{11} & v_{12} & \hdots & v_{1n} \\
+  v_{21} & v_{22} & \hdots & v_{2n} \\
+  \vdots & \vdots & \ddots & \vdots \\ 
+  v_{k1} & v_{k2} & \hdots & v_{kn}
+\end{pmatrix}
+= dim(V)
+\]
+Wanneer we de determinant van deze matrix ontwikkelen naar de eerste rij moet elke determinant nul zijn, en zo bekomen we de carthesische vergelijkingen.
+(Bekijk vooral het voorbeeld, dat zal veel verduidelijken)
+
+\subsection{Voorbeeld}
+\subsubsection{Vraag}
+\begin{center}
+  Bepaal in $\mathbb{A}_{4}$ voor de affiene deelruimte door $p=(1,1,5,7)$ in de richting van $V=<(1,4,1,6),(6,4,2,8)>$ de carthesische vergelijkingen.
+\end{center}
+
+\subsubsection{Antwoord}
+\[
+x \in S \Leftrightarrow
+rang
+\begin{pmatrix}
+  x_{1}-1 & x_{2}-1 & x_{3}-5 & x_{4}-7\\
+  1 & 4 & 1 & 6\\
+  6 & 4 & 2 & 8
+\end{pmatrix}
+= 2
+\]
+Dit komt neer op de volgende vergelijkingen.
+\[
+x \in S \Leftrightarrow
+\left\{
+  \begin{array}{c}
+    \begin{vmatrix}
+      x_{2}-1 & x_{3}-5 & x_{4}-7\\
+      4 & 1 & 6\\
+      4 & 2 & 8
+    \end{vmatrix}
+    = 0\\
+    \begin{vmatrix}
+      x_{1}-1  & x_{3}-5 & x_{4}-7\\
+      1 & 1 & 6\\
+      6 & 2 & 8
+    \end{vmatrix}
+    =0\\
+    \begin{vmatrix}
+      x_{1}-1 & x_{2}-1 & x_{4}-7\\
+      1 & 4 & 6\\
+      6 & 4 & 8
+    \end{vmatrix}
+    = 0\\
+    \begin{vmatrix}
+      x_{1}-1 & x_{2}-1 & x_{3}-5\\
+      1 & 4 & 1 \\
+      6 & 4 & 2 
+    \end{vmatrix}
+    = 0\\
+  \end{array}
+\right.
+\]
+We rekenen alleen de eerste twee uit omdat de dimensie van de gezochte affiene deelruimte maximum $2$ kan zijn.
+De andere twee vergelijkingen zullen dus lineair afhankelijk zijn van de eerste twee.
+Of uitgeschreven:
+\[
+x \in S \Leftrightarrow
+\left\{
+\begin{array}{cccccc}
+          &-4x_{2} &-8x_{3}  &+ 4x_{4} &+16 &= 0\\
+  -4x_{1} &        &+28x_{3} &-4x_{4} &-106 &= 0\\
+(8x_{1} &+28x_{2} &        &-20x_{4} &+172 &=0)\\
+(4x_{1}  &+4x_{2} &- 20x_{3} &        &+92 &=0)
+\end{array}
+\right.
+\]
+De bekomen vergelijkingen zijn nu lineair onafhankelijk, maar we kunnen ze nog vereenvoudigen.
+\[
+x \in S \Leftrightarrow
+\left\{
+\begin{array}{cccccc}
+          &-x_{2} &-2x_{3}  &+ x_{4} &+4 &= 0\\
+  -2x_{1} &        &+14x_{3} &-2x_{4} &-53 &= 0\\
+\end{array}
+\right.
+\]
+
+\newpage
+\section{Som van twee affiene deelruimten bepalen vanuit Parametervergelijkingen}
+\subsection{Abstract}
+\subsubsection{Vraag}
+\begin{center}
+  Zij $p+V$ en $p+W$ twee affiene deelruimten van $\mathbb{A}^{n}$ met parametervergelijkingen als volgt, bepaal de som ervan.
+  \[ x\in p+V \Leftrightarrow \exists \lambda_{1},\lambda_{2},\dotsc,\lambda_{a}:\ x = p + \sum_{i=1}^{a}\lambda_{i}v_{i} \]
+  \[ x\in q+W \Leftrightarrow \exists \lambda_{1},\lambda_{2},\dotsc,\lambda_{b}:\ x = p + \sum_{i=1}^{b}\lambda_{i}w_{i} \]
+\end{center}
+
+\subsubsection{Antwoord}
+\[ x \in p+(V+W)  \Leftrightarrow \lambda_{1},\lambda_{2},\dotsc,\lambda_{a}\lambda'_{1},\lambda'_{2},\dotsc,\lambda'_{b}:\ x = p + \sum_{i=1}^{a}\lambda_{i}v_{i}+ \sum_{i=1}^{b}\lambda'_{i}w_{i}\]
+
+\subsection{Voorbeeld}
+\subsubsection{Vraag}
+\begin{center}
+  Zij $p=(1,2,3)$ een punt van $\mathbb{A}^{3}$ en $V=<(5,4,3),(-2,5,1)>$ en $W=<(1,2,3),(-1,0,1)>$ twee lineaire deelruimten van $\mathbb{R}^{3}$
+  Bepaal $(p+V) + (p+W)$.
+\end{center}
+
+\subsubsection{Antwoord}
+\[
+x\in p+(V+W) \Leftrightarrow \exists \lambda, \gamma, \mu, \nu:\ 
+x = (1,2,3) + \lambda (5,4,3) + \gamma (-2,5,1) + \mu (1,2,3) + \nu (-1,0,1)
+\]
+
+
+\question{kunnen we met parametervergelijkingen ook een doorsnede berekenen?}
+
+\newpage
+\section{Doorsnede van twee affiene deelruimten bepalen vanuit Carthesische vergelijkingen}
+\subsection{Abstract}
+\subsubsection{Vraag}
+\begin{center}
+  Zij $R$ en $S$ twee affiene deelruimten van $\mathbb{A}^{n}$ met carthesische vergelijkingen als volgt, bepaal de onderlinge ligging.
+  \[
+  x \in R \Leftrightarrow
+  \left\{
+    \begin{array}{c}
+      a_{11}x_{1} + \dotsb + a_{1n}x_{n} = b_{1}\\
+      \vdots\\
+      a_{k1}x_{1} + \dotsb + a_{kn}x_{n} = b_{k}\\
+    \end{array}
+  \right.
+  ,\quad
+  x \in S \Leftrightarrow
+  \left\{
+    \begin{array}{c}
+      c_{11}x_{1} + \dotsb + c_{1n}x_{n} = d_{1}\\
+      \vdots\\
+      c_{k1}x_{1} + \dotsb + c_{kn}x_{n} = d_{k}\\
+    \end{array}
+  \right.
+  \]
+\end{center}
+\subsubsection{Antwoord}
+We zoeken de doorsnede van $R$ en $S$ door de vergelijkingen samen te nemen en er ze uit te dunnen tot een vrij stel vergelijkingen.
+
+\subsection{Voorbeeld}
+\subsubsection{Vraag}
+\begin{center}
+  Zij $R$ en $S$ de affiene deelruimtes van $\mathbb{A}^{3}$ als volgt, bepaal de onderlinge ligging.
+  \[
+  x \in R \Leftrightarrow
+  \left\{
+  x_{1}+x_{2}=1
+  \right.
+  ,\quad
+  x\in S \Leftrightarrow
+  \left\{
+    \begin{array}{c}
+      x_{1}-x_{2} = 2\\
+      x_{1} + 3x_{3} = 0\\
+    \end{array}
+  \right.
+  \]
+\end{center}
+
+\subsubsection{Antwoord}
+We bepalen eerst de doorsnede van $R$ en $S$ door de vergelijkingen samen te nemen.
+\[
+  x\in R \cap S \Leftrightarrow
+  \left\{
+    \begin{array}{c}
+      x_{1}+x_{2}=1\\
+      x_{1}-x_{2} = 2\\
+      x_{1} + 3x_{3} = 0\\
+    \end{array}
+  \right.
+\]
+\[
+\leftrightarrow
+  \left\{
+    \begin{array}{c}
+      x_{1}=\frac{3}{2}\\
+      x_{2}=-\frac{1}{2}\\
+      \\
+    \end{array}
+  \right.
+\]
+De doorsnede van $R$ en $S$ is dus de rechte daar $(\frac{3}{2},-\frac{1}{2},0)$, evenwijdig met de $x_{3}$ as.
+
+\newpage
+\section{Onderlinge ligging van twee affiene deelruimten bepalen vanuit zowel carthesische als parametervergelijkingen}
+\subsection{Abstract}
+\subsubsection{Vraag}
+\begin{center}
+  Zij $R$ en $S=p+V$ twee affiene deelruimten van $\mathbb{A}^{n}$ met carthesische vergelijkingen en parametervergelijkingen als volgt, bepaal de onderlinge ligging.
+  \[
+  x \in R \Leftrightarrow
+  \left\{
+    \begin{array}{c}
+      a_{11}x_{1} + \dotsb + a_{1n}x_{n} = b_{1}\\
+      \vdots\\
+      a_{k1}x_{1} + \dotsb + a_{kn}x_{n} = b_{k}\\
+    \end{array}
+  \right.
+  ,\quad
+  x\in S \Leftrightarrow
+  x= p+ \sum_{i=1}^{k}a_{i}v_{i}
+  \]
+\end{center}
+
+\subsubsection{Antwoord}
+We vullen de parametervergelijkingen in in de carthesische vergelijkingen om de doorsnede van $R$ en $S$ te berekenen.
+\extra{en dan?}
+
+\subsection{Voorbeeld}
+\subsubsection{Vraag}
+\begin{center}
+  Zij $R$ en $S=p+V$ twee affiene deelruimten van $\mathbb{A}^{n}$ met Carthesische vergelijkingen en parametervergelijkingen als volgt.
+\end{center}
+\[
+x\in R \Leftrightarrow
+\left\{
+  \begin{array}{c}
+    x_{1}+x_{2}+x_{3}+x_{4}=1
+  \end{array}
+\right.
+,\quad
+x\in S \Leftrightarrow
+\begin{pmatrix}x_{1}\\x_{2}\\x_{3}\\x_{4}\end{pmatrix}
+=
+\begin{pmatrix}1\\1\\1\\1\\\end{pmatrix}
++\lambda
+\begin{pmatrix}0\\1\\-1\\0\\\end{pmatrix}
+\]
+
+\subsubsection{Antwoord}
+We vullen de parametervergelijkingen in in de Carthesische vergelijkingen.
+\[ 1+(1+\lambda)+(1+\lambda) + 1 = 1 \]
+Deze vergelijking is vals, dus de doorsnede van $R$ en $S$ is leeg.
+\extra{en nu?}
+
+\newpage
+\section{Vergelijkingen opstellen van een rechte}
+\subsection{Abstract}
+\subsubsection{Vraag}
+\begin{center}
+  Zij $p$ en $q$ twee punten in $\mathbb{A}^{n}$, bepaal de rechte door $p$ en $q$.
+\end{center}
+\subsubsection{Antwoord}
+Bereken eerst $\overrightarrow{pq}= q-p$, u zal het nodig hebben!
+\begin{itemize}
+\item Parametervergelijking:
+  \[
+  x\in pq \Leftrightarrow \exists \lambda
+  x = p + \lambda \overrightarrow{pq} = p + \lambda (q-p)
+  \]
+\item Carthesische vergelijkingen:
+  \[
+  x\in pq \Leftrightarrow
+  rang
+  \begin{pmatrix}
+    x_{1}-p_{1} & x_{2}-p_{2} & \hdots & x_{n}-p_{n}\\
+    \overrightarrow{pq}_{1} & \overrightarrow{pq}_{2} & \hdots & \overrightarrow{pq}_{n}\\
+  \end{pmatrix}
+  =
+  rang
+  \begin{pmatrix}
+    x_{1}-p_{1} & x_{2}-p_{2} & \hdots & x_{n}-p_{n}\\
+    q_{1}-p_{1} & q_{2}-p_{2} & \hdots & q_{n}-p_{n}\\
+  \end{pmatrix}
+  = 1
+  \]
+  Elke $2\times 2$ deelmatrix hiervan moet dus determinant $0$ hebben.
+\item Barycentrische vergelijkingen:
+  \[
+  x\in pq \Leftrightarrow \exists \lambda
+  x = \lambda p_{1} + (1-\lambda)p_{2}
+  \]
+\end{itemize}
+
+\subsection{Voorbeeld}
+\subsubsection{Vraag}
+\begin{center}
+  Zij $p=(8,6,-1,1)$ en $q=(-1,0,4,2)$ twee punten in $\mathbb{A}^{4}$, bepaal de rechte door $p$ en $q$.
+\end{center}
+
+\subsubsection{Antwoord}
+\[ q-p= (-9,-6,5,1) \]
+
+\begin{itemize}
+\item Parametervergelijkingen:
+  \[
+  x\in pq \Leftrightarrow \exists \lambda:\ 
+  x = (8,6,-1,1) + \lambda (-9,-6,5,1)
+  \]
+\item Carthesische vergelijkingen:
+  \[
+  x \in pq \Leftrightarrow
+  rang
+  \begin{pmatrix}
+    x_{1}-8 & x_{2}-6 & x_{3}+1 & x_{4}-1\\
+    -9 & -6 & 5 & 1\\
+  \end{pmatrix}
+  =1
+  \]
+  \[
+  x \in pq \Leftrightarrow
+  \left\{
+  \begin{array}{c}
+    \begin{vmatrix}
+      x_{1}-8 & x_{2}-6\\
+      -9 & -6\\
+    \end{vmatrix}
+    =0\\
+    \begin{vmatrix}
+      x_{1}-8 & x_{3}+1\\
+      -9 & 5\\
+    \end{vmatrix}
+    =0\\
+    \begin{vmatrix}
+      x_{1}-8 & x_{4}-1\\
+      -9 & 1\\
+    \end{vmatrix}
+    =0\\
+  \end{array}
+  \right.
+  \]
+  \[ 
+  x \in pq \Leftrightarrow
+  \left\{
+    \begin{array}{ccccccc}
+      -6x_{1} &+9x_{2} &        &       & -6 &= 0\\
+      5x_{1}  &       &+9x_{3}  &       &-31 &= 0\\
+      x_{1}   &       &        &+9x_{4} &-17 &= 0\\
+    \end{array}
+  \right.
+  \]
+\item Barycentrische vergelijkingen:
+  \[
+  x\in pq \Leftrightarrow \exists \lambda:\ 
+  x = \lambda (8,6,-1,1) + (1- \lambda)(-1,0,4,2)
+  \]
+\end{itemize}
+
+
+
+
+
+\newpage
+\section{Parametervergelijkingen omzetten naar Carthesische vergelijkingen}
+\subsection{Abstract}
+\subsubsection{Vraag}
+\subsubsection{Antwoord}
+
+\subsection{Voorbeeld}
+\subsubsection{Vraag}
+\subsubsection{Antwoord}
+
+\section{Carthesische vergelijkingen omzetten naar parametervergelijkingen}
+\subsection{Abstract}
+\subsubsection{Vraag}
+\subsubsection{Antwoord}
+
+\subsection{Voorbeeld}
+\subsubsection{Vraag}
+\subsubsection{Antwoord}
+
+\section{Carthesische vergelijkingen omzetten naar parametervergelijkingen}
+\subsection{Abstract}
+\subsubsection{Vraag}
+\subsubsection{Antwoord}
+
+\subsection{Voorbeeld}
+\subsubsection{Vraag}
+\subsubsection{Antwoord}
+
 
 
 \end{document}
