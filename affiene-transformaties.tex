@@ -5,20 +5,25 @@
 \label{cha:affiene-transformaties}
 
 \begin{de}
-  Een afbeelding $F$ noemen we een \emph{affiene transformatie} als er een reguliere $n\times n$ matrix $A$ en een punt $b$ bestaat zodat we $F$ als volgt definieren:
+  Een afbeelding $F$ noemen we een \term{affiene transformatie} als er een reguliere $n\times n$ matrix $A$ en een punt $b$ bestaat zodat we $F$ als volgt definieren:
   \[ F:\ \mathbb{A}^{n} \rightarrow \mathbb{A}^{n}: p \mapsto F(p) = Ap + b \text{ met } det(A) \neq 0 \]
   $A$ noemen we het lineair deel van $F$ en $b$ het translatiedeel.
 \end{de}
 
 \begin{de}
-  Zij $F$ een affiene transformatie met $A=\mathbb{I}^{n}$, dan noemen we $F$ een translatie in de richting van $b$.
+  Zij $F$ een affiene transformatie met lineair deel $A=\mathbb{I}^{n}$, dan noemen we $F$ een \term{translatie} in de richting van $b$.
   \[ F:\ \mathbb{A}^{n} \rightarrow \mathbb{A}^{n}: p \mapsto F(p) = p + b \]
 \end{de}
+\extra{translaties commuteren
+\label{st:translaties-commuteren}}
 
 \begin{de}
-  Zij $F$ een affiene transformatie als volgt, dan noemen we $F$ een \emph{homothetie} $H_{p_{0},r}$ met centrum $p_{0}$ en factor $r$.
+  Zij $F$ een affiene transformatie als volgt, dan noemen we $F$ een \term{homothetie} $H_{p_{0},r}$ met centrum $p_{0}$ en factor $r$.
   \[ F:\ \mathbb{A}^{n} \rightarrow \mathbb{A}^{n}: p \mapsto F(p) = p_{0} + r(\overrightarrow{p_{0}p}) = rp + (1-r)p_{0} \]
 \end{de}
+
+\extra{homothetieen commuteren
+\label{st:homothetieen-commuteren}}
 
 \begin{st}
   Een affiene transformatie $F:\ \mathbb{A}^{n} \rightarrow \mathbb{A}^{n}: p \mapsto F(p) = Ap + b$ kan steeds ontbonden worden in een translatie $t_{b}$ en een lineaire transformatie $A$.
@@ -44,7 +49,7 @@
 \end{st}
 
 \begin{de}
-  Zij $F = t_{b} \circ A$ een affiene transformatie en $p\in \mathbb{A}^{n}$ een punt, dan definieren we de \emph{afgeleide afbeelding} $(F_{*})_{p}$ in het punt $p$ als de volgende lineaire afbeelding:
+  Zij $F = t_{b} \circ A$ een affiene transformatie en $p\in \mathbb{A}^{n}$ een punt, dan definieren we de \term{afgeleide afbeelding} $(F_{*})_{p}$ in het punt $p$ als de volgende lineaire afbeelding:
   \[ (F_{*})_{p}:\ T_{p}\mathbb{A}^{n} \rightarrow T_{F(p)}\mathbb{A}^{n}:\ v_{p} \mapsto (F_{*})_{p}(v_{p}) = (Av)_{F(p)} \]
   We definieren ook de afgeleide afbeelding $F_{*}v$ op vrije vectoren:
   \[ F_{*}:\ V\rightarrow V:\ v\mapsto F_{*}(v) = Av \]
@@ -105,13 +110,13 @@
 \end{st} 
 
 \begin{st}
-  De verzameling $A(n,\mathbb{R})$, uitgerust met de samenstelling, vormt een groep.
+  De verzameling van affiene transformaties $A(n,\mathbb{R})$ van $n$-dimensionale affiene ruimte, uitgerust met de samenstelling, vormt een groep.
 
   \begin{proof}
     We bewijzen elke eigenschap van een groep.
     \begin{itemize}
     \item De bewerking $\circ$ is intern.
-      Inderdaad, zie \ref{st:samenstelling-affiene-transformatie-intern}.
+      Inderdaad.\stref{st:samenstelling-affiene-transformatie-intern}
     \item De bewerking is associatief.
       Inderdaad, de samenstelling van affiene transformaties is associatief.
       Zij immers $i$, $j$ en $k$ drie affiene transformaties, respectievelijk van de vorm $A_{i}p+b_{i}$, $A_{j}p+b_{j}$, en  $A_{k}p+b_{k}$
@@ -126,11 +131,11 @@
 \end{st}
 
 \begin{de}
-  De groep $A(n,\mathbb{R}),\circ$ noemen we de \emph{affiene groep} in dimensie $n$.
+  De groep $A(n,\mathbb{R}),\circ$ noemen we de \term{affiene groep} in dimensie $n$.
 \end{de}
 
 \begin{st}
-  \label{st:raakende-ruimtes-transformatie}
+  \label{st:rakende-ruimtes-transformatie}
   Zij $p$ en $q$ twee punten van $\mathbb{A}^{n}$ en zijn $\{v_{1},\dotsc,v_{n}\}$ een basis van $T_{p}\mathbb{A}^{n}$ en $\{w_{1},\dotsc,w_{n}\}$ een basis van $T_{q}\mathbb{A}^{n}$, dan bestaat er een unieke affiene transformatie $F$ van $\mathbb{A}^{n}$ zodat het volgende geldt:
   \begin{itemize}
   \item $F(p) = q$
@@ -173,7 +178,7 @@
   \begin{proof}
     Omdat $T_{p}\mathbb{A}^{n}$ en $T_{q}\mathbb{A}^{n}$ $n$ dimensies hebben, kan zowel $V$ als $W$ uitgebreid worden tot een basis van $T_{p}\mathbb{A}^{n}$, respectievelijk $T_{q}\mathbb{A}^{n}$.
     Zij $\alpha$ en $\beta$ die basissen.
-    Nu bestaat er dus een unieke affiene transformatie voor de specifieke $\alpha$ en $\beta$ die aan de voorwaarden voldoet,\footnote{Zie stelling \ref{st:raakende-ruimtes-transformatie}.}
+    Nu bestaat er dus een unieke affiene transformatie voor de specifieke $\alpha$ en $\beta$ die aan de voorwaarden voldoet,\stref{st:raakende-ruimtes-transformatie}
     Merk op dat de $\alpha$ en $\beta$ niet uniek zijn.
   \end{proof}
 \end{gev}
@@ -207,11 +212,12 @@
 \label{sec:affiene-invarianten}
 
 \begin{de}
-  We noemen een begrip of eigenschap \emph{affien invariant} als ze bewaard blijven onder affiene transformaties.
+  We noemen een begrip of eigenschap \term{affien invariant} als ze bewaard blijft onder affiene transformaties.
 \end{de}
 
 \begin{st}
   \label{st:affiene-transformatie-deelruimte-invariant}
+  Een \textbf{affiene transformatie is affien invariant}.\\
   Zij $F = t_{b} \circ A$ een affiene transformatie.
   Zij $S = p+V$ een affiene deelruimte van $\mathbb{A}^{n}$ met dimensie $k$, dan is $F(S)$ ook een affiene deelruimte van $\mathbb{A}^{n}$ met dimensie $k$.
   Sterker nog:
@@ -229,6 +235,7 @@
 \end{st}
 
 \begin{st}
+  De \textbf{onderlinge ligging van affiene deelruimten is affien invariant}.\\
   Zij $F = t_{b} \circ A$ een affiene transformatie.
   Zij $S= p+V$ en $T= q+W$ twee affiene deelruimten, dan is de onderlinge ligging van $F(S) = F(p) + F_{*}(V)$ en $F(T) = F(q) + F(W)$ gelijk aan de onderlinge ligging van $S$ en $T$.  
 
@@ -257,6 +264,7 @@
 \end{st}
 
 \begin{st}
+  De \textbf{affiene onafhankelijkheid is affien invariant}.\\
   Zij $F = t_{b} \circ A$ een affiene transformatie.
   $p_{0},\dotsc,p_{k} \in \mathbb{A}^{n}$ zijn affien onfhankelijk als en slechs als $F(p_{0}),\dotsc,F(p_{k}) \in \mathbb{A}^{n}$ affien onafhankelijk zijn.
 
@@ -271,42 +279,56 @@
   \end{proof}
 \end{st}
 
-
 \begin{st}
-  Zij $p$, $q$ en $r$ punten op een rechte $L$, dan zijn $F(p)$, $F(q)$ en $F(r)$ punten op de rechte $F(L)$ en is bovendien de deelverhouding $(p,q,r)$ gelijk aan $(F(p),F(q),F(r))$.
-  \[ 
-  \overrightarrow{pr} = (q,p,r) \overrightarrow{pq} \Rightarrow \overrightarrow{F(p)F(r)} = (q,p,r) \overrightarrow{F(p)F(q)}
-  \]
+  \label{st:colineariteit-affien-invariant}
+  De \textbf{colineariteit en deelverhouding van drie punten is affien invariant}.\\
+  Zij $p$, $q$ en $r$ colineaire punten van $\mathbb{A}^{n}$ en $F$ een affiene transformatie.
+  \[ (p,q,r) = (F(p),F(q),F(r)) \]
+
   \begin{proof}
-    Als $p$, $q$ en $r$ colineair zijn, dan bestaat er een $\lambda$ zodat we $r$ kunnen schrijven als volgt:
-    \[ r = p + \lambda(\overrightarrow{pq}) \]
-    Beelden we nu $r$ af onder $F$ dan krijgen we volgende gelijkheid:
-    \[ F(r) = F(p +\lambda(\overrightarrow{pq})) = F(p) + \lambda(\overrightarrow{F(p)F(q)}) \]
-\clarify{Waarom geldt die laatste gelijkheid?}
-    Dit betekent precies dat $F(p)$, $F(q)$ en $F(r)$ colineair zijn.
-    Bekijken we nu de deelverhouding $(q,p,r)$ en beelden we ook de vergelijking daarvan af onder $F$, dan krijgen we volgende gelijkheid:
-    \[
-    \begin{array}{rrl}
-                  & F(\overrightarrow{pr}) &= F((q,p,r) \overrightarrow{pq})\\
-      \Rightarrow & \overrightarrow{F(p)F(r)} &= (q,p,r) \overrightarrow{F(p)F(q)}
-    \end{array}
-    \]
-\clarify{Waarom geldt die laatste overgang?}
+     \[ \overrightarrow{pr} = \lambda\overrightarrow{pq} \]
+     Stel dat $(p,q,r)= \lambda$ geldt. Pas nu $F$ toe op $p$, $q$ en $r$.
+     \[ \overrightarrow{F(p)F(r)} = F_{*}(\overrightarrow{pq}) = F_{*}(\lambda\overrightarrow{pq}) = \lambda\overrightarrow{F(p)F(q)} \]
   \end{proof}
 \end{st}
 
 \begin{st}
-  Zij $F:\ \mathbb{A}^{n} \rightarrow \mathbb{A}^{n}$ met $n\ge 2$ een bijectie die collineaire punten afbeeldt ap colineaire punten, dan is $F$ een affiene transformatie.
+  Zij $F:\ \mathbb{A}^{n} \rightarrow \mathbb{A}^{n}$ met $n\ge 2$ een bijectie die collineaire punten afbeeldt op colineaire punten, dan is $F$ een affiene transformatie.
 
 Geen bewijs
 \extra{Toch eens een bewijs proberen?}
 \end{st}
 
+\begin{st}
+  \label{st:barycentrische-coordinaten-affien-invariant}
+  De \textbf{barycentrische coordinaten zijn affien invariant}\\
+  Gegeven zijn $k+1$ affien onafhankelijke punten $p_{i}$ van $\mathbb{A}^{n}$ en een punt $p$ in de affiene deelruimte bepaald door deze punten.
+  Dde barycentrische co\"ordinaten van $p$ ten opzichte van de punten $p_{i}$ zijn invariant onder affiene transformaties.
+  \[ \forall F:\ F(p) = \sum_{i=0}^{n}\lambda_{i}F(p_{i}) \]
+  \begin{proof}
+    Gegeven is het volgende:\footnote{Zie definitie \ref{barycentrische-coordinaten}.}
+    \[ p = \sum_{i=0}^{k}\lambda_{i}p_{i} \quad\text{ met }\quad \sum_{i=0}^{k}\lambda_{i} = 1 \]
+    Kies nu een willekeurige affiene transformatie $F$:
+    \[ F: p\mapsto Ap + b \]
+    \[
+    \begin{array}{rll}
+      F(p) &= A\sum_{i=0}^{k}\lambda_{i}p_{i} + b &\\
+      &= \sum_{i=0}^{k}\lambda_{i}Ap_{i} + b &= \sum_{i=0}^{k}\lambda_{i}(Ap_{i} + b) 
+    \end{array}
+    \]
+    Merk op dat die laatste stap alleen maar geldt als de $\lambda_{i}$ sommeren tot $1$.
+  \end{proof}
+\end{st}
+
+\begin{opm}
+  Dit is net het punt van affiene meetkunde. Ha,.. Ha,.. Get it?
+\end{opm}
+
 \section{Dilataties}
 \label{sec:dilataties}
 
 \begin{de}
-  Een affiene transformatie $F$ van $\mathbb{A}^{n}$ wordt een \emph{dilatatie} genoemd als en slechts als er een $\lambda\in \mathbb{R}_{0}$ bestaat zodat het volgende geldt.
+  Een affiene transformatie $F$ van $\mathbb{A}^{n}$ wordt een \term{dilatatie} genoemd als en slechts als er een $\lambda\in \mathbb{R}_{0}$ bestaat zodat het volgende geldt.
   \[ F_{*} = \lambda  \mathbb{I} \]
   \[ F:\ p \mapsto \lambda \mathbb{I} p + b \]
 \end{de}
@@ -377,10 +399,9 @@ Geen bewijs
 
 \begin{st}
   \label{st:dilatatie-parallelle-deelruimte}
-  Een affiene transformatie die elke affiene deelruimte $G$ van $\mathbb{A}^{n}$ afbeeldt op een parallelle affiene deelruimte is een dilatatie.
+  Een affiene transformatie $F$ die elke affiene deelruimte $G$ van $\mathbb{A}^{n}$ afbeeldt op een parallelle affiene deelruimte is een dilatatie.
 
   \begin{proof}
-\clarify{ de overgang van affien naar lineair en terug is niet helemaal duidelijk.}
     Zij $p\in \mathbb{A}^{n}$ een punt en $\{v_{1},\dotsc, v_{n}\}$ een basis van $T_{p}\mathbb{A}^{n}$.
   Er is gegeven dat elke affiene deelruimte van $\mathbb{A}^{n}$ op een parallelle affiene deelruimte wordt afgebeeldt, dus de richting $W$ van elke affiene deelruimte wordt op zichzelf afgebeelt.
   \[ F_{*}(W) = W \]
@@ -389,8 +410,9 @@ Geen bewijs
   \item $F_{*}$ is een diagonaalmatrix.\\
     Kies een richting $W = <v_{i}>$, dan geldt het volgende omdat het beeld van $v_{i}$ lineair afhankelijk moet zijn opdat $W$ op zichzelf afgebeeldt zou worden.
     \[ F_{*}v_{i} = \lambda_{i} v_{i} \]
+    $\lambda_{i}$ mag hier niet nul zijn.
     Dit kunnen we voor elke vector uit de basis doen.
-    We bekomen dan dat $F_{*}$ ten opzichte van die basis een diagonaalmatrix is.
+    We bekomen dan dat $F_{*}$ ten opzichte van die basis een diagonaalmatrix is (ten opzichte van die basis).
     \[
     F_{*} = 
     \begin{pmatrix}
@@ -419,9 +441,7 @@ Geen bewijs
   \[ L' \cap T' = \{q\} \]
 
   \begin{proof}
-    Omdat $p$ op $L$ ligt, ligt $p'$ op $F(L)$
-    \clarify{waarom?}
-    Dit betekent dat $F(L)$ evenwijdig is met $L$.
+    $p'$ ligt op $F(L)$ en $F(L)$ is evenwijdig met $L$.
     $F(L)$ is dus de rechte door $p'$ evenwijdig met $L$.
     Omdat $q$ op $L$ ligt, ligt ook $q'$ op $F(L)$,
     Omdat $T$ is de richting van $b$ ligt en $T$ parallel is met $T'$, ligt ook $T'$ in de richting van $b$ en dus is het beeld van $T'$ onder $F$ zichzelf.

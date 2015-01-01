@@ -28,14 +28,15 @@
 
   \begin{proof}
     De drie rechten $L_{1}$, $L_{2}$ en $L_{3}$ hebben een niet-lege doorsnede als en slechts als het volgende geldt:
-    \clarify{waarom?}
     \[
     rang
-    \begin{pmatrix}
+    \left(
+    \begin{array}{cc|c}
     a_{11} & a_{12} & a_{13}\\
     a_{21} & a_{22} & a_{23}\\
     a_{31} & a_{32} & a_{33}
-    \end{pmatrix}
+    \end{array}
+    \right)
     =
     rang
     \begin{pmatrix}
@@ -44,7 +45,7 @@
     a_{31} & a_{32}
     \end{pmatrix}
     \]
-    Bovendien zijn de rechten evenwijdig als en slechts als de richtingsgetallen $(a_{11} a_{12})$ $(a_{21} a_{22})$ en $(a_{31}, a_{32})$ evenredig zijn.\footnote{Zie stelling \ref{st:parallelle-hypervlakken-gelijke-richtingsgetallen}.}
+    Bovendien zijn de rechten evenwijdig als en slechts als de richtingsgetallen $(a_{11} a_{12})$ $(a_{21} a_{22})$ en $(a_{31}, a_{32})$ evenredig zijn.
     \[
     rang
     \begin{pmatrix}
@@ -90,6 +91,8 @@
   \end{proof}
 \end{lem}
 
+\extra{concurrentie is affien invariant \label{st:concurrentie-affien-invariant}}
+
 \begin{st}
   Stelling van \term{Ceva}\\
   Zij $a$, $b$ en $c$ drie affien onafhankelijke punten in $\mathbb{A}^{2}$ en zij $a'$ een punt op de rechte $bc$, verschillend van $b$, $b'$ een punt op de rechte $ac$ verschillend van $c$ en $c'$ een punt op de rechte $ab$, verschillend van $a$.
@@ -118,9 +121,8 @@
 
   \begin{proof}
     Er bestaat een affiene transformatie die $a$ op de oorsprong $(0,0)$ afbeeldt, $b$ op $(0,1)$ en $c$ op $(1,0)$.
-    Omdat de ligging van de punten $a'$, $b'$, $c'$ ten opzichte van de rechten affien invariant is, alsook de deelverhoudingen, volstaat het om de stelling te bewijzen voor de getransformeerde punten.
-    \clarify{waarom?}
-    Dan bestaan er dus een $\lambda$, $\mu$ en $\nu$ uit $\mathbb{R}$ zodat de punten $a'$, $b'$ en $c'$ als volgt getransformeerd worden.
+    Omdat de ligging van de punten $a'$, $b'$, $c'$ ten opzichte van de rechten affien invariant is, alsook de deelverhoudingen, volstaat het om de stelling te bewijzen voor de getransformeerde punten.\stref{st:barycentrische-coordinaten-affien-invariant}
+    Dan bestaan er dus een $\lambda$, $\mu$ en $\nu$ uit $\mathbb{R}$ tussen $0$ en $1$ zodat de punten $a'$, $b'$ en $c'$ als volgt getransformeerd worden.
     \[
     \begin{array}{cl}
       a' &= (\lambda,1-\lambda)\\
@@ -319,8 +321,7 @@
     \item De rechten snijden: $L \cap L' = \{ p \}$\\
       Zij $H_{1}$ de homothetie met centrum $p$ die $x$ op $y$ afbeeldt en $H_{2}$ de homothetie met centrum $p$ die $y$ op $z$ afbeeldt.
       $H_{1}$ beeldt dan $y'$ op $x'$ af en $H_{2}$ beeldt $z'$ op $y'$ af.\lemref{lem:parallelle-rechten-homothetie-behouden}
-      Merk nu op dat $H_{1}$ en $H_{2}$ verwisselbaar zijn.
-      \clarify{waarom?}
+      Merk nu op dat $H_{1}$ en $H_{2}$ verwisselbaar zijn.\stref{st:homothetieen-commuteren}
       \[ H = H_{1} \circ H_{2} = H_{2} \circ H_{1} \]
       Nu beeldt $H$ $x$ op $z$ af en $z'$ op $x'$.
       Dit betekent precies dat $xz'$ en $zx'$ parallel zijn.
@@ -356,8 +357,7 @@
     \item De rechten zijn evenwijdig: $L \parallel L'$\\
       Zij $T_{1}$ de translatie die $x$ afbeeldt op $y$ en $T_{2}$ de translatie die $y$ afbeeldt op $z$.
       $T_{1}$ beeldt dan $y'$ af op $x'$ en $T_{2}$ beeldt $z'$ af op $y'$.\lemref{lem:parallelle-rechten-translatie-behouden}
-      Merk nu op dat $T_{1}$ en $T_{2}$ verwisselbaar zijn.
-      \clarify{waarom?}
+      Merk nu op dat $T_{1}$ en $T_{2}$ verwisselbaar zijn.\stref{st:translaties-commuteren}
       \[ T = T_{1} \circ T_{2} = T_{2} \circ T_{1} \]
       Nu beeldt $T$ $x$ op $z$ af en $z'$ op $x'$.
       Dit betekent precies dat $xz'$ en $zx'$ parallel zijn.
@@ -405,17 +405,14 @@
   \[  ((ab \parallel a'b') \wedge (ac \parallel a'c') \wedge (bc \parallel b'c')) \Rightarrow aa', bb' \text{ en } cc' \text{ zijn concurrent of parallel }\]
   
   \begin{proof}
-    We mogen ervan uitgaan dat de rechten $aa'$ en $bb'$ verschillend zijn.
-\clarify{waarom?}
+    We mogen ervan uitgaan dat de rechten $aa'$ en $bb'$ verschillend zijn (anders kunnen we de punten gewoon hernoemen om hetzelfde te bekomen).
     Er zijn dan nog twee mogelijkheden.
     \begin{enumerate}
     \item $aa'$ en $bb'$ zijn evenwijdig: $aa' \parallel bb'$\\
       Zij $T$ de translatie die $a$ op $a'$ afbeeldt, dan zal $T$ $b$ op $b'$ afbeelden.\lemref{lem:parallelle-rechten-translatie-behouden}
       $T$ zal echter ook $bc$ op $b'c'$ afbeelden en $ac$ op $a'c'$.
-      \clarify{waarom?}
       De doorsnede van $b'c'$ en $a'c'$ is dan $c'$ en bijgevolg wordt $c$ op $c'$ afgebeeldt door $T$.
       Dit betekent precies dat $cc'$ en $aa'$ evenwijdig zijn.
-      \clarify{waarom?}
       \begin{figure}[H]
         \centering
         \begin{tikzpicture}[scale=1,extended line/.style={shorten >=-#1,shorten <=-#1},extended line/.default=1cm]
@@ -442,10 +439,8 @@
     \item $aa'$ en $bb'$ snijden: $aa' \cap bb' = \{p\}$\\
       Zij $H$ de homothetie die $a$ op $a'$ afbeeldt, dan zal $H$ $b$ op $b'$ afbeelden.\lemref{lem:parallelle-rechten-homothetie-behouden}
       $H$ zal echter ook $bc$ op $b'c'$ afbeelden en $ac$ op $a'c'$.
-      \clarify{waarom?}
       De doorsnede van $b'c'$ en $a'c'$ is dan $c'$ en bijgevolg wordt $c$ op $c'$ afgebeeldt door $T$.
       Dit betekent precies dat $aa'$, $bb'$ en $cc'$ concurrent zijn.
-      \clarify{waarom?}
       \begin{figure}[H]
         \centering
         \begin{tikzpicture}[scale=1,extended line/.style={shorten >=-#1,shorten <=-#1},extended line/.default=1cm]
@@ -470,11 +465,7 @@
         \label{fig:stelling-van-desargues}
       \end{figure}
     \end{enumerate}
-
-    
-    
   \end{proof}
-\TODO{bewijs 57} 
 \end{st}
 
 

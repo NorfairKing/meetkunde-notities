@@ -544,6 +544,7 @@
   (q_{1}-p_{1})(x_{i}-p_{i}) = (q_{i}-p_{i})(x_{1}-p_{1})
   \]
 \extra{bewijs}
+\clarify{ook parametervgl?}
 \end{st}
 
 
@@ -554,7 +555,8 @@
   \begin{proof}
     Er gaat een rechte door $p$ en $q$ met $p$ als aangrijpingspunt en de vectorruimte met $\overleftarrow{pq}$ als basis als richting.
     Deze rechte is bovendien uniek.
-\clarify{ waarom is deze rechte uniek? Intu\"itief is het duidelijk, maar hoe tonen we het aan? }
+    De vergelijking zijn immers eigenlijk $n$ eerstegraadsvergelijkingen.
+    $p$ en $q$ zijn verschillend bovendien, dus elk van die eerstegraadsvergelijkingen hebben $1$ oplossing.
   \end{proof}
 \end{st}
 
@@ -682,12 +684,12 @@
     Zij $V$ de vectorruimte opgespannen door de vrije vectoren $\overrightarrow{p_{0}p_{i}}$, dan liggen de $k+1$ punten $p_{0},\dotsc,p_{k}$ allemaal in $p_{0} + V$.
     \[ V = <\overrightarrow{p_{0}p_{1}},\dotsc,\overrightarrow{p_{0}p_{k}}> \]
     \[ \forall i:\ p_{i} \in p_{0}+V \]
-    Nu geldt dat de dimensie van $p_{0} + V$ kleiner of gelijk is aan $k$ als er slechts als de vrije vectoren lineair afhankelijk zijn.
+    Nu geldt dat de dimensie van $p_{0} + V$ kleiner of gelijk is aan $k$ als en slechts als er slechts als de vrije vectoren lineair afhankelijk zijn.
     \begin{itemize}
     \item $\Rightarrow$\\
       Als de punten $p_{0},\dotsc,p_{k}$ affien onafhankelijk zijn dan is de dimensie van de affiene deelruimte waarin ze zich bevinden van dimensie groter of gelijk aan $k$.\footnote{Zie definitie \ref{de:affien-afhankelijk}.}
       De vrije vectoren $\overrightarrow{p_{0}p_{1}},\dotsc,\overrightarrow{p_{0}p_{k}}$ zijn dan zeker lineair onafhankelijk.
-      \clarify{waarom?}
+      Het zijn immers $k$ vectoren die een $k$ dimensionale ruimte opspannen.
     \item $\Leftarrow$\\
       Stel dat de vrije vectoren $\overrightarrow{p_{0}p_{1}},\dotsc,\overrightarrow{p_{0}p_{k}}$ lineair onafhankelijk zijn, dan is de dimensie van $V$ gelijk aan $k$.
       Als dan $S = p_{0}+W$ een affiene deelruimte is van dimensie $l$ zodat alle punter $p_{i}$ erin liggen, dan liggen alle vrije vectoren $\overrightarrow{p_{0}p_{1}},\dotsc,\overrightarrow{p_{0}p_{k}}$ ook is $W$. $V$ moet dan een deelverzameling zijn van $W$. Bijgevolg is de dimensie van $W$ groter of gelijk aan die van $V$.

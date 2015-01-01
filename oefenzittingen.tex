@@ -409,7 +409,7 @@ x - y - z &= -4\\
 We zien dat dit stelsel strijdig is, en de doorsnede bijgevolg leeg is.
 \[ L \leftrightarrow x = (1,1,0) + \lambda(1,7,-5) \]
 \[ L' \leftrightarrow x = (-1,3,0) + \lambda(1,-1,2) \]
-We zien dat de rechten een verschillende righting hebben, dus ze zijn kruisend.
+We zien dat de rechten een verschillende richting hebben, dus ze zijn kruisend.
 
 \item Bepaal de rechte met richting $(0,1,-1)$ die deze rechten snijdt.\\
 Zij $H_{1}$ het vlak dat $L$ bevat en ook de richting $(0,1,-1)$ heeft.
@@ -516,23 +516,7 @@ Inderdaad, zie stelling \ref{st:dilatatie-parallelle-deelruimte}.
 
 
 \subsection*{Oefening 7}
-Gegeven zijn $k+1$ affien onafhankelijke punten $p_{i}$ van $\mathbb{A}^{n}$ en een punt $p$ in de affiene deelruimte bepaald door deze punten.
-Toon aan dat de barycentrische co\"ordinaten van $p$ ten opzichte van de punten $p_{i}$ invariant zijn onder affiene transformaties.
-\[ \forall F:\ F(p) = \sum_{i=0}^{n}\lambda_{i}F(p_{i}) \]
-\clarify{Waarom is dit belangrijk en niet gewoon saai? affiene meetkunde is de studie van verhoudingen. Lineaire algebra is...}
-\begin{proof}
-  Gegeven is het volgende:\footnote{Zie definitie \ref{barycentrische-coordinaten}.}
-  \[ p = \sum_{i=0}^{k}\lambda_{i}p_{i} \quad\text{ met }\quad \sum_{i=0}^{k}\lambda_{i} = 1 \]
-  Kies nu een willekeurige affiene transformatie $F$:
-  \[ F: p\mapsto Ap + b \]
-  \[
-  \begin{array}{rll}
-    F(p) &= A\sum_{i=0}^{k}\lambda_{i}p_{i} + b &\\
-         &= \sum_{i=0}^{k}\lambda_{i}Ap_{i} + b &= \sum_{i=0}^{k}\lambda_{i}(Ap_{i} + b) 
-  \end{array}
-  \]
-  Merk op dat die laatste stap alleen maar geldt als de $\lambda_{i}$ sommeren tot $1$.
-\end{proof}
+Inderdaad! {st:barycentrische-coordinaten-affien-invariant}
 
 \section{Oefenzitting 4}
 \label{sec:oefenzitting-4}
@@ -658,7 +642,7 @@ Omdat de ligging van de punten $a'$, $b'$, $c'$ ten opzichte van de rechten affi
   =0
   \]
 \item Bereken nu het snijpunt van $aa'$ en $cc'$: $(\nicefrac{1}{3},\nicefrac{1}{3})$, dit is het zwaartepunt.
-  \[ (z,a,a') = \frac{\overrightarrow{za'}}{\overrightarrow{za}} =\frac{a'-z}{a-z} = \frac{(\nicefrac{1}{2}, \nicefrac{1}{2})-(\nicefrac{1}{3},\nicefrac{1}{3})}{(0,0)-(\nicefrac{1}{3},\nicefrac{1}{3})} = 2\]
+  \[ (z,a',a) = \frac{\overrightarrow{za'}}{\overrightarrow{za}} =\frac{a-z}{a'-z} = \frac{(0,0)-(\nicefrac{1}{3},\nicefrac{1}{3})}{(\nicefrac{1}{2}, \nicefrac{1}{2})-(\nicefrac{1}{3},\nicefrac{1}{3})} = -2\]
 \end{enumerate}
 
 \subsection*{Oefening 5}
@@ -684,22 +668,22 @@ Omdat de ligging van de punten $a'$, $b'$, $c'$ ten opzichte van de rechten affi
     \draw [extended line=2cm, dashed, red] (p) -- (ap);
     \draw [extended line=2cm, dashed, green] (p) -- (bp);
     \draw [extended line=2cm, dashed, blue] (p) -- (cp);
-    \draw [extended line=2cm, red] (a) -- +($(p)-(ap)$) node[above,text=red] {$l_{a}$};
-    \draw [extended line=2cm, green] (b) -- +($(p)-(bp)$) node[above,text=green] {$l_{b}$};
-    \draw [extended line=2cm, blue] (c) -- +($(p)-(cp)$) node[above,text=blue] {$l_{c}$};
+    \draw [extended line=4cm, red] (a) -- +($(p)-(ap)$) node[above,text=red] {$l_{a}$};
+    \draw [extended line=6.5cm, green] (b) -- +($(p)-(bp)$) node[above,text=green] {$l_{b}$};
+    \draw [extended line=7.5cm, blue] (c) -- +($(p)-(cp)$) node[above,text=blue] {$l_{c}$};
+
+    \coordinate [label=right:$q$] (q) at ($ (z)!-2!(p) $);  
   \end{tikzpicture}
   \caption{oefening 5, een illustratie}
 \end{figure}
 
 \begin{enumerate}
 \item Zij $H$ de homothetie met centrum $z$ die $a'$ afbeeldt op $a$, dan beeldt $H$ ook $b$ op $b'$ af en $c$ op $c'$.
-  $H$ beeldt ook $pa'$ op $l_{a}$ af, $pb'$ op $l_{b}$ en $pc'$ op $l_{c}$.
-\clarify{waarom?}
-  $l_{a}$,$l_{b}$ en $l_{c}$ zijn dus concurrent.
-\clarify{waarom?}
+  $H$ beeldt ook $pa'$ op $l_{a}$ af, $pb'$ op $l_{b}$ en $pc'$ op $l_{c}$.\stref{st:colineariteit-affien-invariant}
+  $l_{a}$,$l_{b}$ en $l_{c}$ zijn dus concurrent.stref{st:concurrentie-affien-invariant}
 \item Omdat de afbeelding van $p$ onder $H$ $q$ is, zijn $p$, $q$ en $z$ colineair.
-\item Er geldt bovendien $(z,p,q)=-2$. Zie oefening 4.
-\clarify{waarom precies?}
+\item Er geldt bovendien $(z,p,q)=-2$.
+  Merk eerst op dat $z$, $p$ en $q$ colineair zijn, dus het is zinvol om over $(z,p,q)$ te spreken.-
 \end{enumerate}
 
 \extra{Oefening 6}
@@ -732,7 +716,7 @@ Omdat de ligging van de punten $a'$, $b'$, $c'$ ten opzichte van de rechten affi
 Hint: probeer hier geen analytisch bewijs te geven, er zijn teveel onbekenden.\\\\
 
 Merk de volgende zaken op:
-\clarify{waarom?}
+\clarify{waarom?: zie Thales}
 \[
 \begin{array}{cc}
   (b,a,p_{0}) = (b,c,p_{1})\\
@@ -744,7 +728,7 @@ Merk de volgende zaken op:
 \]
 Bovendien geldt het volgende:
 \[ \forall p,q,r;\ (p,q,r) + (q,p,r) = 1\]
-\clarify{waarom?}
+\clarify{waarom? is een eigenschap, ga zelf na}
 Er geldt dus het volgende:
 \[ (b,a,p_{0}) = (b,a,p_{6}) \Rightarrow p_{0} = p_{6} \]
 
