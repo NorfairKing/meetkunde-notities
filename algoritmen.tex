@@ -234,8 +234,81 @@ x\in p+(V+W) \Leftrightarrow \exists \lambda, \gamma, \mu, \nu:\
 x = (1,2,3) + \lambda (5,4,3) + \gamma (-2,5,1) + \mu (1,2,3) + \nu (-1,0,1)
 \]
 
+\newpage
+\section{Doorsnede van twee affiene deelruimten bepalen vanuit parametervergelijkingen}
+\subsection{Abstract}
+\subsubsection{Vraag}
+\begin{center}
+  Zij $p+V$ en $p+W$ twee affiene deelruimten van $\mathbb{A}^{n}$ met parametervergelijkingen als volgt, bepaal de doorsnede ervan.
+  \[ x\in p+V \Leftrightarrow \exists \lambda_{1},\lambda_{2},\dotsc,\lambda_{a}:\ x = p + \sum_{i=1}^{a}\lambda_{i}v_{i} \]
+  \[ x\in q+W \Leftrightarrow \exists \lambda_{1},\lambda_{2},\dotsc,\lambda_{b}:\ x = p + \sum_{i=1}^{b}\lambda_{i}w_{i} \]
+\end{center}
 
-\question{kunnen we met parametervergelijkingen ook een doorsnede berekenen? doorsnede is p+lamv = q+lamw}
+\subsubsection{Antwoord}
+We zoeken de doorsnede van de twee 'stelsels' in de opgave.
+Met andere woorden zoeken we $\lambda_{i}$ die aan het volgende stelsel voldoen.
+\[ \sum_{i=1}^{a}\lambda_{i}v_{i} = \sum_{i=1}^{b}\lambda_{i}w_{i} \]
+Van daaruit berekenen we dan de $x$ die beschreven worden door die $\lambda_{i}$.
+
+\subsection{Voorbeeld}
+\subsubsection{Vraag}
+\begin{center}
+  Zij $p+V$ en $q+W$ twee affiene deelruimten van $\mathbb{A}^{3}$ 
+  Bepaal de doorsnede van $p+V$ en $q+W$:
+  \[ x\in p+V \Leftrightarrow \exists \lambda, \mu:\ x = (1,2,3) + \lambda (2,3,0) + \mu (-1,-1,0) \]
+  \[ x\in q+W \Leftrightarrow \exists \nu:\ x = (3,3,3) + \nu (0,-1,0) \]
+\end{center}
+
+\subsubsection{Antwoord}
+\[
+x\in p+V\cap q+V \Leftrightarrow \exists \lambda, \mu, \nu:\ (1,2,3) + \lambda (2,3,0) + \mu (-1,-1,0) = (3,3,3) + \nu (0,-1,0)
+\]
+\[
+x\in p+V\cap q+V \Leftrightarrow \exists \lambda, \mu, \nu:\ 
+\lambda (2,3,0) + \mu (-1,-1,0) - \nu (0,-1,0) = (2,1,0)
+\]
+\[
+\begin{array}{rcc}
+  \left(
+    \begin{array}{ccc|c}
+      2 & -1 & 0 & 2\\
+      3 & -1 & -1 & 1\\
+      0 & 0 & 0 & 0\\
+    \end{array}
+  \right)
+  &\overset{R2 \mapsto R2-\frac{3}{2}R1}{\longleftrightarrow}&
+  \left(
+    \begin{array}{ccc|c}
+      2 & -1 & 0 & 2\\
+      0 & \frac{1}{2} & -1 & -2\\
+      0 & 0 & 0 & 0\\
+    \end{array}
+  \right)
+  \\
+  &\overset{R2 \mapsto 2\cdot R2}{\longleftrightarrow}&
+  \left(
+    \begin{array}{ccc|c}
+      2 & -1 & 0 & 2\\
+      0 & 1 & -2 & -4\\
+      0 & 0 & 0 & 0\\
+    \end{array}
+  \right)\\
+  &\overset{R1 \mapsto \frac{1}{2}(R1+R2)}{\longleftrightarrow}&
+  \left(
+    \begin{array}{ccc|c}
+      1 & 0 & -1 & -1\\
+      0 & 1 & -2 & -4\\
+      0 & 0 & 0 & 0\\
+    \end{array}
+  \right)\\
+\end{array}
+\]
+De oplossingsverzameling van dit stelsel is de volgende:
+\[
+\{ (\nu-1,2\nu-4,\nu) \mid \nu \in \mathbb{R} \}
+\]
+Dit betekent dat dit de doorsnede van $p+V$ en $q+W$ de volgende is: (heel $q+W$.)
+\[ x\in \exists \nu:\ x = (3,3,3) + \nu (0,-1,0) \]
 
 \newpage
 \section{Doorsnede van twee affiene deelruimten bepalen vanuit Carthesische vergelijkingen}
