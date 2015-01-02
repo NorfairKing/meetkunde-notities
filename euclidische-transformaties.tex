@@ -8,7 +8,7 @@
 \label{sec:roties-in-e2}
 
 \begin{lem}
-  Voor elke $A\in SO(2)$ bestaat er een $\theta\in \mathbb{R}$ zodat $A$ er als volgt uit ziet:
+  Voor elke $A\in SO(2)$ met $\det(A)=1$ bestaat er een $\theta\in \mathbb{R}$ zodat $A$ er als volgt uit ziet:
   \[
   A =
   \begin{pmatrix}
@@ -16,11 +16,46 @@
     \sin(\theta) & \cos(\theta)
   \end{pmatrix}
   \]
-\TODO{bewijs p 91}
+
+  \begin{proof}
+    Zij $A$ een matrix in $SO(2)$:
+    \[
+    A =
+    \begin{pmatrix}
+      a_{11} & a_{12}\\
+      a_{21} & a_{22}
+    \end{pmatrix}
+    \]
+    $A^{T}$ en $A^{-1}$ zien er dan als volgt uit:
+    \[
+    A^{T} =
+    \begin{pmatrix}
+      a_{11} & a_{21}\\
+      a_{12} & a_{22}
+    \end{pmatrix}
+    ,\quad
+    A^{-1} = 
+    \begin{pmatrix}
+      a_{22} & -a_{12}\\
+      -a_{21} & a_{11}
+    \end{pmatrix}
+    \]
+    Omdat $A$ orthogonaal is moet $A^{T}$ gelijk zijn aan $A^{-1}$.
+    $a_{11}$ en $a_{22}$, en $a_{21}$ en $-a_{12}$ moeten dus gelijk zijn.
+    \[ 
+    A = 
+    \begin{pmatrix}
+      a_{11} & a_{12}\\
+      -a_{12} & a_{11}
+    \end{pmatrix}
+    \]
+    Omdat de determinint van $A$ $1$ is moet ook $a_{11}^{2} + a_{12}^{2}=1$ gelden.
+    $a_{11}$ en $A_{21}$ moeten dus $\cos\theta$ en $\sin\theta$ zijn voor een bepaalde $\theta$.
+  \end{proof}
 \end{lem}
 
-\begin{st}
-  Voor elke $A\in O(2)$ bestaat er een $\theta\in \mathbb{R}$ zodat $A$ er als volgt uit ziet:
+\begin{opm}
+  Voor elke $A\in O(2)$ met $\det(A) =-1$ bestaat er dus ook een $\theta\in \mathbb{R}$ zodat $A$ er als volgt uit ziet:
   \[
   A =
   \begin{pmatrix}
@@ -28,12 +63,21 @@
     \sin(\theta) & -\cos(\theta)
   \end{pmatrix}
   \]
-\extra{bewijs}
-\end{st}
+\end{opm}
 
 \begin{de}
   Een \term{rotatie} van $\mathbb{E}^{2}$ is een afbeelding van de vorm $Rot$:
-  \[ Rot:\ \mathbb{E}^{2} \rightarrow \mathbb{E}^{2}:\ p \mapsto Rot(p) = x_{0} + A(\overrightarrow{x_{0}p}) \]
+  \[
+  Rot:\ \mathbb{E}^{2} \rightarrow \mathbb{E}^{2}:\ 
+  p \mapsto Rot(p)
+  = x_{0} + A(\overrightarrow{x_{0}p})
+  = x_{0} +
+  \begin{pmatrix}
+    \cos(\theta) & -\sin(\theta)\\
+    \sin(\theta) & \cos(\theta)
+  \end{pmatrix}
+  \overrightarrow{x_{0}p}
+  \]
   Hierin is $x_{0}$ een element van $\mathbb{E}^{2}$ en $A$ een element van $SO(2)$ verschillend van de eenheidsmatrix.
   We noemen $x_{0}$ het \term{centrum} van de rotatie en $\theta$ de \term{rotatiehoek}.
 \end{de}
@@ -43,7 +87,10 @@
 \extra{bewijs}
 \end{ei}
 
-\TODO{poolcoordinaten defini\"eren}
+\begin{de}
+  We definieren voor een vector $(x,y)$ van $\mathbb{E}^{2}$ de \term{poolco\"ordinaten} $(r,\theta)$ als volgt:
+  \[ (x,y) = (r\cos\theta, r\sin\theta) \]
+\end{de}
 
 \begin{st}
   Zij $p$ een punt in $\mathbb{E}^{2}$ met poolcoordinaten $(r,v), r\in \mathbb{R}^{+}, v\in \mathbb{R}$ ten opzichte van het centrum van een $A$ een rotatie met rotatiehoek $\theta$.
@@ -64,6 +111,7 @@
     r\cos(v+\theta)\\ r\sin(v+\theta)\\
   \end{pmatrix}
   \]
+\extra{bewijs}
 \end{st}
 \section{Rotaties in $\mathbb{E}^{3}$}
 \label{sec:roties-in-e3}
