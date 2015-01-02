@@ -144,7 +144,7 @@
 \begin{de}
   Zij $S$ een affiene deelruimte van $\mathbb{E}^{n}$.
   Voor een willekeurig punt $x\in \mathbb{E}^{n}$ defini\"eren we $T_{x}$ als de unieke deelruimte door $x$, orthogonaal complementair mat $S$.
-  Bovendien definieren wa $\pi_{S}(x)$ als het snijpunt van $S$ en $T_{x}$.
+  Bovendien definieren we $\pi_{S}(x)$ als het snijpunt van $S$ en $T_{x}$.
 \end{de}
  
 \begin{de}
@@ -157,8 +157,38 @@
 \end{de}
 
 \begin{st}
+  \examen
+  \label{st:spiegeling-isometrie}
   Een spiegeling is een isometrie.
-\TODO{bewijs p 95}
+
+  \begin{proof}
+    We zullen bewijzen dat een spiegeling afstanden behoudt, daaruit volgt dan de stelling.\stref{st:afstand-bewaard-dan-isometrie}
+    Zij $S$ een affiene deelruimte van $\mathbb{E}^{n}$ en $R_{S}$ de spiegeling is $S$.
+    Zij $T_{x}=x+W$ het orthogonaal complement van $S$ door $x$ en $\{u_{1},\dotsc,u_{k}\}$ een orthonormale basis van $W$.
+    De projectie van $x$ op $S$ ziet er als volgt uit:
+    \[ \pi_{S}(x) = x+\sum_{i=1}^{k}\lambda_{i}u_{i} \]
+    Er moet nu het volgende gelden voor elk punt in $S$.
+    \[ \forall i\in \{1,\dotsc,k\}:\ (\pi_{S}(x) -p)\cdot u_{i} = 0 \]
+    Dit betekent dat de $\lambda_{i}$ er als volgt uit zien:\waarom
+    \[ \forall i\in \{1,\dotsc,k\}:\ \lambda_{i} = (p-x)\cdot u_{i}\]
+    We bekijken nu de afstand tussen twee willekeurige punten $x$ en $y$ van $\mathbb{E}^{n}$.
+    \[
+    \begin{array}{rll}
+      R_{S}(x) - R_{S}(y) &= x + 2\overrightarrow{x\pi_{S}(x)} - y - 2\overrightarrow{y\pi_{S}(y)} &\\
+                         &= (x-y) + 2(\overrightarrow{x\pi_{S}(x)} -\overrightarrow{y\pi_{S}(y)}) &\\
+                         &= (x-y) + 2(\pi_{S}(x)-x + y-\pi_{S}(y)) &\\
+                         &= (y-x) + 2(\pi_{S}(x)-\pi_{S}(y)) &\\
+                         &= (y-x) + 2((x+\sum_{i=1}^{k}\lambda_{i}u_{i})-(y+\sum_{i=1}^{k}\mu u_{i})) &\\
+                         &= (y-x) + 2((x+\sum_{i=1}^{k}((y-x)\cdot u_{i})u_{i})-(y+\sum_{i=1}^{k}((x-y)\cdot u_{i})u_{i})) &\\
+                         &= (y-x) + 2((x-y) + \sum_{i=1}^{k}((y-x)\cdot u_{i})u_{i} - \sum_{i=1}^{k}((x-y)\cdot u_{i})u_{i}) &\\
+                         &= (x-y) + 2(\sum_{i=1}^{k}((y-x)\cdot u_{i})u_{i} - \sum_{i=1}^{k}((x-y)\cdot u_{i})u_{i}) &\\
+                         &= (x-y) + 2(\sum_{i=1}^{k}((y-x)\cdot u_{i})u_{i} - \sum_{i=1}^{k}((x-y)\cdot u_{i})u_{i}) &\\
+                         &= (x-y) - 4(\sum_{i=1}^{k}((x-y)\cdot u_{i})u_{i} ) &\\
+    \end{array}
+    \]
+\TODO{wat??}
+    \TODO{beter uitwerken}
+  \end{proof}
 \end{st}
 
 \begin{st}
