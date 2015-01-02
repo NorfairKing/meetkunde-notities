@@ -265,14 +265,14 @@ x\in p+V\cap q+V \Leftrightarrow \exists \lambda, \mu, \nu:\ (1,2,3) + \lambda (
 \]
 \[
 x\in p+V\cap q+V \Leftrightarrow \exists \lambda, \mu, \nu:\ 
-\lambda (2,3,0) + \mu (-1,-1,0) - \nu (0,-1,0) = (2,1,0)
+\lambda (2,3,0) + \mu (-1,-1,0) + \nu (0,1,0) = (2,1,0)
 \]
 \[
 \begin{array}{rcc}
   \left(
     \begin{array}{ccc|c}
       2 & -1 & 0 & 2\\
-      3 & -1 & -1 & 1\\
+      3 & -1 & 1 & 1\\
       0 & 0 & 0 & 0\\
     \end{array}
   \right)
@@ -280,7 +280,7 @@ x\in p+V\cap q+V \Leftrightarrow \exists \lambda, \mu, \nu:\
   \left(
     \begin{array}{ccc|c}
       2 & -1 & 0 & 2\\
-      0 & \frac{1}{2} & -1 & -2\\
+      0 & \frac{1}{2} & 1 & -2\\
       0 & 0 & 0 & 0\\
     \end{array}
   \right)
@@ -289,7 +289,7 @@ x\in p+V\cap q+V \Leftrightarrow \exists \lambda, \mu, \nu:\
   \left(
     \begin{array}{ccc|c}
       2 & -1 & 0 & 2\\
-      0 & 1 & -2 & -4\\
+      0 & 1 & 2 & -4\\
       0 & 0 & 0 & 0\\
     \end{array}
   \right)\\
@@ -297,7 +297,7 @@ x\in p+V\cap q+V \Leftrightarrow \exists \lambda, \mu, \nu:\
   \left(
     \begin{array}{ccc|c}
       1 & 0 & -1 & -1\\
-      0 & 1 & -2 & -4\\
+      0 & 1 & 2 & -4\\
       0 & 0 & 0 & 0\\
     \end{array}
   \right)\\
@@ -305,7 +305,7 @@ x\in p+V\cap q+V \Leftrightarrow \exists \lambda, \mu, \nu:\
 \]
 De oplossingsverzameling van dit stelsel is de volgende:
 \[
-\{ (\nu-1,2\nu-4,\nu) \mid \nu \in \mathbb{R} \}
+\{ (\nu-1,-2\nu-4,\nu) \mid \nu \in \mathbb{R} \}
 \]
 Dit betekent dat dit de doorsnede van $p+V$ en $q+W$ de volgende is: (heel $q+W$.)
 \[ x\in \exists \nu:\ x = (3,3,3) + \nu (0,-1,0) \]
@@ -538,10 +538,6 @@ Bereken eerst $\overrightarrow{pq}= q-p$, u zal het nodig hebben!
   \]
 \end{itemize}
 
-
-
-
-
 \newpage
 \section{Parametervergelijkingen omzetten naar Carthesische vergelijkingen}
 \subsection{Abstract}
@@ -561,15 +557,102 @@ Bereken eerst $\overrightarrow{pq}= q-p$, u zal het nodig hebben!
 \subsubsection{Vraag}
 \subsubsection{Antwoord}
 
-\section{Carthesische vergelijkingen omzetten naar parametervergelijkingen}
+\newpage
+\section{Het orthogonaal complement bepalen}
+\label{sec:orthogonaal-complement-bepalen}
 \subsection{Abstract}
 \subsubsection{Vraag}
+\begin{center}
+  Gegeven een lineaire deelruimte $V$ van $\mathbb{R}^{n}$, bepaal het orthogonaal complement $V^{\bot}$.
+\end{center}
+
 \subsubsection{Antwoord}
+Voor elke vector $v_{i}$ in een basis voor $V$ stellen we een vergelijking op voor een vector $x$ in $V^{\bot}$:
+\[ \forall i: v_{i}\cdot x = 0 \]
+We lossen dit stelsel op om de parametervergelijking te vinden van $V^{\bot}$.
+
+\subsection{Voorbeeld}
+\subsubsection{Vraag}
+\begin{center}
+  Zij $V$ een lineaire deelruimte van $\mathbb{R}^{3}$ als volgt, bepaal het orthogonaal complement.
+  \[ V = \{ \lambda(1,7,-5) \mid \lambda \in \mathbb{R} \} \]
+\end{center}
+\subsubsection{Antwoord}
+Voor elke vector in de basis van $V$ stellen we een vergelijking op: (in dit geval dus maar \'e\'en)
+Voor elke vector $w=(x,y,z)$ van $V^{\bot}$ geldt het volgende:
+\[ \left\{ (x,y,z) \cdot (1,7,-5) = 0\right. \Leftrightarrow \left\{ x+7y-5z=0 \right. \]
+We lossen dit stelsel op:
+\[ V^{\bot} = \{ (-7\lambda+5\mu,\lambda,\mu) \mid \lambda,\mu \in \mathbb{R} \} \]
+
+
+\newpage
+\section{De loodrechte euclidische deelruimte door een punt bepalen}
+\subsection{Abstract}
+\subsubsection{Vraag}
+\begin{center}
+  Zij $S=p+V$ een euclidische deelruimte van $\mathbb{E}^{n}$, bepaal de euclidische deelruimte $R$, loodrecht op $S$, door $q$.
+\end{center}
+\subsubsection{Antwoord}
+We bepalen eerst het orthogonaal complement $V^{\bot}$ van $V$.\secref{sec:orthogonaal-complement-bepalen}
+$R$ is dan $q+V^{\bot}$.
+
+\subsection{Voorbeeld}
+\subsubsection{Vraag}
+\begin{center}
+  Zij $S=(1,4,5) + \lambda(3,4,2) + \mu (7,6,4)$ een euclidische deelruimte van $\mathbb{E}^{3}$.
+  Bepaal de euclidisch deelruimte loodrecht op $S$, door $q=(5,6,4)$.
+\end{center}
+\subsubsection{Antwoord}
+\begin{itemize}
+\item We bepalen eerst de richting $V$ van $S$:
+  \[ V = \{ \lambda(3,4,2) + \mu (7,6,4) \mid \lambda,\mu \in
+  \mathbb{R} \} \]
+\item Vervolgens bepalen we $V^{\bot}$:
+  Voor elke vector $w=(x,y,z)\in V^{\bot}$ geldt het volgende:
+  \[
+  \left\{
+    \begin{array}{cc}
+      (x,y,z) \cdot (3,4,2)&= 0\\
+      (x,y,z) \cdot (7,6,4)&= 0
+    \end{array}
+  \right.
+  \Leftrightarrow
+  \left\{
+    \begin{array}{cc}
+      3x+4y+2z&= 0\\
+      7x+6y+4z&= 0
+    \end{array}
+  \right.
+  \longleftrightarrow
+  \begin{pmatrix}
+    1 & 0 & \dfrac{2}{5}\\
+    0 & 1 & \dfrac{1}{5}
+  \end{pmatrix}
+  \]
+  \[
+  V^{\bot} = \{ \lambda(-2, - 1, 5) \mid \lambda \in \mathbb{R} \}
+  \]
+\item We kunnen $R$ nu eenvoudigweg opschrijven:
+  \[ R = q+V^{\bot} \leftrightarrow x = (5,6,4) + \lambda (-2, - 1, 5) \]
+\end{itemize}
+
+\newpage
+\section{De gemeenschappelijke loodlijn van twee rechten bepalen}
+\subsection{Abstract}
+\subsubsection{Vraag}
+\begin{center}
+  Gegeven twee rechter $L_{1}$ en $L_{2}$, bepaal de gemeenschappelijke loodlijn.
+\end{center}
+
+\subsubsection{Antwoord}
+De gemeenschappelijke loodlijn van twee rechten staat loodrecht op beide rechten.
+
 
 \subsection{Voorbeeld}
 \subsubsection{Vraag}
 \subsubsection{Antwoord}
 
+ 
 
 
 \end{document}

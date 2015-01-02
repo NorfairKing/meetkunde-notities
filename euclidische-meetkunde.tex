@@ -11,7 +11,7 @@
 \end{de}
 
 \begin{ei}
-  Distributiviteit ten opzichte van de optelling van vectoren.\\
+  \textbf{Distributiviteit ten opzichte van de optelling van vectoren}\\
   Zij $u$, $v$ en $w$ raakvectoren in $T_{p}\mathbb{A}^{n}$ en $a$ en $b$ scalars in $\mathbb{R}$.
   \[ (au + bv) \cdot w = au\cdot w + bv \cdot w \]
 
@@ -28,7 +28,7 @@
 \end{ei}
 
 \begin{ei}
-  Commutativiteit.\\
+  \textbf{Commutativiteit}\\
   Zij $v$ en $w$ raakvectoren in $T_{p}\mathbb{A}$.
   \[ v\cdot w = w\cdot v\]
   \begin{proof}
@@ -42,7 +42,7 @@
 \end{ei}
 
 \begin{ei}
-  Positiviteit.\\
+  \textbf{Positiviteit}\\
   Zij $v$ een raakvector in $T_{p}\mathbb{A}$.
   \[ v \cdot v \ge 0 \]
 
@@ -176,6 +176,7 @@
 
 \begin{st}
   Zij $\beta = v_{1},\dotsc,v_{n}$ een basis van $T_{p}\mathbb{E}^{n}$, dan kunnen we $\beta$ omvormen tot een orthonormale basis $\gamma = \{u_1,u_2,\ldots,u_n\}$ door middel van het \term{orthogonalisatieproc\'ed\'e van Gram-Schmidt}
+  \[ w_{i} = v_{i} - \sum_{j=1}^{i-1}(v_{i}\cdot e_{j})e_{j} \ \text{ zodat }\ u_{i}=\frac{w_{i}}{\Vert w_{i}\Vert}\]
 
   \begin{proof}
     Bewijs door constructie.\\
@@ -243,7 +244,7 @@
 
 \begin{ei}
   \label{ei:symmetrie-afstand}
-  Symmetrie van de afstand\\
+  \textbf{Symmetrie van de afstand}\\
   Zij $p$ en $q$ twee punten van $\mathbb{E}^{n}$.
   \[ d(p,q) = d(q,p) \]
 
@@ -254,7 +255,7 @@
 
 \begin{ei}
   \label{ei:afstand-positief}
-  Positiviteit van de afstand.
+  \textbf{ Positiviteit van de afstand}\\
   Zij $p$ en $q$ twee punten van $\mathbb{E}^{n}$
   \[ d(p,q) \ge 0 \]
 
@@ -381,9 +382,10 @@
   Ortogonale transformaties bewaren de norm van een vector.
 \end{st}
 
-\begin{de}
+\begin{st}
   Orthogonale matrices zijn matrices waarvan de kolommon (en dus ook de rijen) een orthogonale basis vormen.
-\end{de}
+\extra{bewijs}
+\end{st}
 
 \begin{st}
   Zij $X\in O(n)$ een ortogonale matrix en $\lambda\in \mathbb{R}$ een eigenwaarde van $X$, dan bestaat er een vector $v\neq \vec{0}$ zodat $Xv = \lambda v$.
@@ -420,12 +422,13 @@
 \label{sec:eucl-invar-en}
 
 \begin{st}
-  Een affiene transformatie $F$ is een isometrie als en slechts als volgende bewering geldt:
+  Een affiene transformatie $F$ is een isometrie als en slechts als ze het inproduct bewaart.
   \[ \forall v,w:\ F_{*}v \cdot F_{*}w = v \cdot w \]
 \extra{bewijs}
 \end{st}
 
 \begin{st}
+  \label{st:translatie-isometrie}
   Elke traslatie is een isometrie.
 \extra{bewijs}
 \end{st}
@@ -436,6 +439,7 @@
 \end{st}
 
 \begin{st}
+  \label{st:samenstelling-isometrieen-intern}
   De samenstelling van twee isometrie\"en is oon isometrie.
 \extra{bewijs}
 \end{st}
@@ -462,7 +466,7 @@
 \end{de}
 
 \begin{st}
-  $\{ Iso^{+}(n,\mathbb{R}), Iso^{-}(n,\mathbb{R} \}$ is een partitie van ...
+  $\{ Iso^{+}(n,\mathbb{R}), Iso^{-}(n,\mathbb{R}) \}$ is een partitie van ...
 \extra{bewijs}
 \end{st}
 
@@ -506,24 +510,69 @@
 \begin{st}
   Zij $F:\ \mathbb{E}^{n}\rightarrow \mathbb{E}^{n}$ een willekeurige afbeelding die de afstand tussen twee punten bewaart, dan is $F$ een isometrie.
   \[ \forall p,q \in \mathbb{E}^{n}:\  d(F(p),F(q)) = d(p,q) \]
-\TODO{bewijs p 83}
+
+  \begin{proof}
+    Zij $b$ het beeld van $0$ onder $F$ en definieer $G = t_{-b} \circ F$.
+    $0$ wordt dan op $0$ afgebeeld door $G$.
+    Bovendien kunnen we $F$ als $F = t_{b} \circ G$
+    Omdat $t_{b}$ een isometrie is\stref{st:translatie-isometrie} en de samenstelling van isometrie\"en intern\stref{st:samenstelling-isometrieen-intern}, moeten we enkel bewijzen dat $G$ een isometrie is.
+    Omdat $G$ geen translatiedeel meer bevat, betekent dit dat we moeten bewijzen dat $G$ een orthogonale transformatie is.
+    Merk nu op dat $G$ ook de afstand tussen punten bewaart.
+    \[ d(G(p),G(q)) = \Vert G(p) - G(q) \Vert = \Vert F(p) - b - F(q) + b = d(F(p),F(q)) = d(p,q) \]
+    \begin{itemize}
+    \item $G$ bewaart de norm.\\
+      \[ \Vert G(p) \Vert G(p) - G(0) \Vert = d(G(p),G(0)) = d(p,0) = \Vert p \Vert \]
+    \item $G$ bewaart het scalair product.\\
+      \[ \Vert G(p) - G(q) \Vert = d(G(p),G(q)) = d(p,q) = \Vert p-q \Vert \]
+      \[ \Vert G(p)\Vert^{2} -2 G(p) \cdot G(q) + \Vert G(q) \Vert^{2} = \Vert p \Vert^{2} - 2p\cdot q + \Vert q \Vert^{2} \]
+      Omdat $G$ de norm bewaart volgt hieruit dat $-2 G(p) \cdot G(q)$ gelijk is aan $- 2p\cdot q$.
+    \item $G$ is lineair.\\
+      Zij $\{ e_{1},\dotsc,e_{n}\}$ een orthonormale basis van $\mathbb{R}^{n}$, dan volgt uit de vorige stap dat $G(\{ e_{1},\dotsc,e_{n}\})$ ook een orthonormale basis is.
+      De orthonormale expansie van een punt $p$ verkrijgen we dan als volgt.
+      \[ G(p) = \sum_{i=1}^{n}(G(p) \cdot G(e_{i}))G(e_{i}) = \sum_{i}^{n}(p\cdot e_{i}) G(e_{i}) \]
+      Aangezien het rechhterlid lineair is in $p$, is ook het linkerlid lineair in $p$.
+\clarify{is dit het criterium voor isometrieen ofzo?}
+    \end{itemize}
+  \end{proof}
 \end{st}
 
 \subsection{Bestaan van isometrie\"en}
 \label{sec:best-van-isom}
 
 \begin{st}
+  \label{st:bestaan-isometrie}
   Zij $p$ en $q$ twee punten van $\mathbb{E}^{n}$ en zij $\{ v_{1},\dotsc,v_{n} \}$ een orthonormale basis van $T_{p}\mathbb{E}^{n}$ en $\{ w_{1},\dotsc,w_{n} \}$ een orthonormale basis van $T_{q}\mathbb{E}^{n}$, dan bestaat er een unieke isometrie $F$ van $\mathbb{E}^{n}$ zodat:
   \begin{itemize}
   \item $F(p) = q$
   \item $\forall i:\ F_{*}v_{i} = w_{i}$
   \end{itemize}
-\TODO{bewijs p 85}
+  \begin{proof}
+    Er bestaat een unieke affiene transformatie $F$ die aan de eisen voldoet.\stref{st:rakende-ruimtes-transformatie}
+    Het lineair deel $A$ vinden we door de vectoren $v_{i}$ als de kolommen an een matrix $V$ te schrijven en de vectoren $w_{i}$ als colommen van een matrix $W$, dan geldt $A=WV^{-1}$.
+  $V$ en $W$ zijn orthogonaal want $\{ v_{1},\dotsc,v_{n} \}$ en $\{ w_{1},\dotsc,w_{n} \}$ zijn orthogonale basissen\needed, dus $A$ is ook orthogonaal\needed.
+  $F$ is bijgevolg een isometrie.
+  \end{proof}
 \end{st}
 
 \begin{gev}
-  Zij $a$, $b$, $a'$ en $b'$ vier punten in $\mathbb{E}^{2}$ zodat $d(a,b) = d(a',b') \neq 0$ geldt, dan bestaat er juist \'e\'en orientatiebewarende isometrie $F$ van $\mathbb{E}^{2}$ zodat $F(a) = a'$ en $F(b) = b'$ gelden alsook juist \'e\'e orientatieomkerende isometrie $F$ van $\mathbb{E}^{2}$ met dezelfde eigenschap.
-\TODO{bewijs p 85}
+  Zij $a$, $b$, $a'$ en $b'$ vier punten in $\mathbb{E}^{2}$ zodat $d(a,b) = d(a',b') \neq 0$ geldt, dan bestaat er juist \'e\'en orientatiebewarende isometrie $F$ van $\mathbb{E}^{2}$ zodat $F(a) = a'$ en $F(b) = b'$ gelden alsook juist \'e\'en orientatieomkerende isometrie $F$ van $\mathbb{E}^{2}$ met dezelfde eigenschap.
+
+  \begin{proof}
+    Zij $v_{1} = \frac{\overrightarrow{ab}}{\Vert \overrightarrow{ab} \Vert}$ en $w_{1} = \frac{\overrightarrow{a'b'}}{\Vert \overrightarrow{a'b'} \Vert}$ twee eenheidsvectoren.
+    Zij $v_{2}$ de (enige\needed) vector met lengte $1$ zodat $(v_{1},v_{2})$ een positief georienteerde orthonormale basis is, en $w_{2}$ de enige vector met lengte $1$ zodat $(w_{1},w_{2})$ een positief georienteerde orthonormale basis is.
+    Elke isometrie die $a$ op $a'$ afbeeldt en $b$ op $b'$ moet $v_{1}$ op $w_{1}$ afbeelden:
+    \[
+    F_{*}(v_{1})
+    = F_{*}\left(\frac{\overrightarrow{ab}}{d(a,b)}\right)
+    = \frac{\overrightarrow{F(a)F(b)}}{d(a,b)}
+    = \frac{\overrightarrow{a'b'}}{d(a',b')}
+    = w_{1}
+    \]
+    Zij $F$ een isometrie die aan de voorwaarden voldoet.
+    Als $F$ ori\"entatiebewarend is, dan zal $v_{2}$ afgebeeldt worden op $w_{2}$.
+    Er bestaat dan een unieke $F$ die aan de voorwaarden voldoet.\stref{st:bestaan-isometrie}
+    Als $F$ ori\"entatieomkerend is zal $v_{2}$ afgebeeldt worden op $-w_{2}$ en geldt hetzelfde.
+  \end{proof}
 \end{gev}
 
 \subsection{Deelruimten van de Euclidische ruimte}
@@ -535,10 +584,19 @@
 \end{de}
 
 \begin{st}
-  Zij $S$ een affiene deelruimte van $\mathbb{E}^{n}$ en $x\in \mathbb{E}^{n}$ een punt(?!), dan bestaat er precies \'e\'en affiene deelruimte $T$ door $x$ die orthogonaal complementair is met $S$.
+  Zij $S$ een affiene deelruimte van $\mathbb{E}^{n}$ en $x\in \mathbb{E}^{n}$ een punt, dan bestaat er precies \'e\'en affiene deelruimte $T$ door $x$ die orthogonaal complementair is met $S$.
   $S$ en $T$ snijden elkaar bovendien in precies \'e\'en punt $y$:
   \[ d(x,y) = inf\{ d(x,z) \ |\ z \in S  \} \]
-\TODO{bewijs p 86}
+
+  \begin{proof}
+    Zij $S=p+V$ een euclidische deelruimte van $\mathbb{E}^{n}$.
+    De gezochte affiene deelruimte $T$ moet door $x$ gaan en als richting $V^{\bot}$ hebben.
+    $T=x+V^{\bot}$ is dus de einge mogelijkheid.
+    Noem $y$ het punt waarin $S$ en $T$ snijden.
+    Omdat $S$ en $T$ orthogonaal complementair zijn geldt voor alle $z\in S$ dat $\overrightarrow{yz}$ loodrecht staat op $\overrightarrow{yx}$.
+    \[ d(x,z)^{2} = \Vert \overrightarrow{xz} \Vert^{2} = \Vert \overrightarrow{xy} + \overrightarrow{yz} \Vert^{2} = \Vert \overrightarrow{xy} \Vert^{2} + \Vert \overrightarrow{yz} \Vert^{2} = d(x,y)^{2} + d(y,z)^{2} \]
+    De afstand tussen $x$ en $z$ is groter dan de afstand tussen $x$ en $y$ met gelijkeid als $y$ gelijk is aan $z$.
+  \end{proof}
 \end{st}
 
 \begin{de}
@@ -572,7 +630,7 @@
 \end{de}
 
 \begin{de}
-  Zij $\{u\}$ een basis van $V^{\bot}$ met \'e\'en elemen, dan noemen we $u$ een \term{normaal} op $S$.
+  Zij $S=p+V$ een hypervlak, en $\{u\}$ een basis van $V^{\bot}$ met \'e\'en element, dan noemen we $u$ een \term{normaal} op $S$.
 \end{de}
 
 \begin{de}

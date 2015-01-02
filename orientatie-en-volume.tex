@@ -10,7 +10,7 @@
 \end{de}
 
 \begin{de}
-  Zij $V$ een vectorruimte en $e = (e_{1},\dotsc, e_{n})$ en $f = (e_{1},\dotsc, e_{n})$ twee geordende basissen voor $V$.
+  Zij $V$ een vectorruimte en $e = (e_{1},\dotsc, e_{n})$ en $f = (f_{1},\dotsc, f_{n})$ twee geordende basissen voor $V$.
   Er bestaan nu dus $a_{ij}$ zodat we $f$ kunnen schrijven in functie van $e$.
   \[ f_{i} = \sum_{j=1}^{n}a_{ij}e_{j} \]
   Dit komt overeen met de volgende matrixvermenigvuldiging.
@@ -41,7 +41,6 @@
 
 \begin{ei}
   De relatie ``heeft dezelfde orientatie als'' is een equivalentierelatie en deelt de verzameling van geordende basissen op in twee equivalentieklassen.
-\extra{ bewijs}
 \end{ei}
 
 \begin{de}
@@ -83,7 +82,12 @@
 
 \begin{st}
   Een affiene transformatie $F$ is ori\"entatiebewarend als $det(F_{*}) > 0$ en ori\"entatieomkerend als $det(F_{*}) < 0$.
-\extra{bewijs}
+
+  \begin{proof}
+     Zij $v=(v_{1},v_{2},\dotsc,v_{n})$ een geordende basis van $T_{p}\mathbb{A}^{n}$.
+     $w = (F_{*}(v_{1}),F_{*}(v_{2}),\dotsc,F_{*}(v_{n}))$ is dan een geordende basis van $T_{F_{*}(p)}\mathbb{A}^{n}$.
+     \[ det((F_{*}(v_{1})F_{*}(v_{2})\dotsc F_{*}(v_{n})) = det(A(v_{1} v_{2} \dotsc v_{n})) = det(F_{*})det(v_{1} v_{2} \dotsc v_{n}) \]
+  \end{proof}
 \end{st}
 
 \begin{st}

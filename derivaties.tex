@@ -4,8 +4,6 @@
 \chapter{Derivaties}
 \label{cha:derivaties}
 
-\TODO{zeker dat dit hoofdstuk erbij komt?}
-
 \begin{de}
   Zij $\mathcal{F}(\mathbb{A}^{n})$ alle functies van $\mathbb{A}^{n}$ naar $\mathbb{R}$ waarvoor alle parti\"ele afgeleiden van willekeurige orde bestaan en overal continu zijn.
   \[ \{ f: \mathbb{A}^{n} \rightarrow \mathbb{R} \ |\ f \text{ is } C^{\infty} \} \]
@@ -50,7 +48,7 @@
   \begin{proof}
     Kies een willekeurige $g\in \mathcal{F}(\mathbb{A}^{n})$ met $g(p) \neq 0$.
     Wegens de lineariteit van $D_{p}$ geldt volgende bewering:
-    \[ D_{p}(fg) = D_{p}(f(p)g = f(p)D_{p}(g) \]
+    \[ D_{p}(fg) = D_{p}(f(p)g) = f(p)D_{p}(g) \]
     Omwille van de Leibnizregel geldt het volgende echter ook:
     \[ D_{p}(fg) = D_{p}(f)g(p) + f(p)D_{p}(g) \]
     Combineren we nu deze twee redeneringen, dan krijgen we het volgende:
@@ -64,14 +62,24 @@
   Als $f$ nul is in een omgeving van $p$, dan is de derivatie van $f$ in $p$ nul.
   \[ (\exists \epsilon\in\mathbb{R}^{+}_{0},\ \forall q \in B(p,\epsilon):\ f(q) = 0) \quad\Rightarrow\quad D_{p}(f) = 0 \]
 
-\TODO{bewijs p 63}
+  \begin{proof}
+    Per definitie bestaat er een open bol $B(p,\epsilon) \in U$. Binnen die open bol is $f$ nog steeds identiek nul.
+    Beschouw nu de functie $g$ die buiten $B(p,\epsilon)$ identiek $1$ is, maar ook $0$ in $p$.
+    $fg$ is dan gelijk aan $f$.
+    Nu geldt er daarom ook het volgende:
+    \[ D_{p}(f) = D_{p}(fg) = D_{p}(f)g(p) + f(p)D_{p}(g) = 0 \]
+  \end{proof}
 \end{lem}
 
 \begin{lem}
   Zij $D_{p}$ een derivatie in $p\in\mathbb{A}^{n}$ en $f\in\mathcal{F}(A^{n})$ een functie.
   $D_{p}(f)$ hangt enkel af van de waarden van $f$ in een (willekeurige) omgeving van $p$.
   \[ \forall \epsilon\in\mathbb{R}^{+}_{0},\ \forall q \in B(p,\epsilon),\ \forall f_{1},f_{2}\in\mathcal{F}(\mathbb{A}^{n}):\ f_{1}(q) = f_{2}(q) \]
-  \TODO{bewijs p 63}
+
+  \begin{proof}
+    Stel dat twee functies $f_{1}$ en $f_{2}$ uit $\mathcal{F}(\mathbb{A}^{n})$ gelijk zijn in een omgeving $U$ van $p$, dan is $f_{1}-f_{2}$ nul op $U$.
+    \[ D_{p}(f_{1}-f_{2}) = 0 \Rightarrow D_{p}(f_{1}) = D_{p}(f_{2}) \]
+  \end{proof}
 \end{lem}
 
 \begin{lem}
