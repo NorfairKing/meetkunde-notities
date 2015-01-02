@@ -38,7 +38,7 @@ Let ook op, de examenvragen komen hoogstwaarschijnlijk niet terug, maar het zijn
     \end{pmatrix}
     =
     \begin{pmatrix}
-      -1\\0\\4\\5
+      -1\\0\\4\\-5
     \end{pmatrix}
     + \mu
     \begin{pmatrix}
@@ -46,7 +46,7 @@ Let ook op, de examenvragen komen hoogstwaarschijnlijk niet terug, maar het zijn
     \end{pmatrix}
     \longleftrightarrow
     \begin{pmatrix}
-      3\\0\\-3\\6
+      3\\0\\-3\\-4
     \end{pmatrix}
     =
     \lambda
@@ -64,20 +64,91 @@ Let ook op, de examenvragen komen hoogstwaarschijnlijk niet terug, maar het zijn
         -1 & 2 & 3\\
         2 & 0 & 0\\
         0 & 1 & -3\\
-        -2 & 2 & 6
+        -2 & 2 & -4
       \end{array}
     \right)
     \]
-    Hiereen is eenvoudig te zijn dat $\lambda$ enkel $0$ kan zijn en $\mu$ enkel $-\frac{1}{3}$.
-    De doorsnede van de twee rechten is dus als volgt:
-    \[
-    S \cap T =
-    \left\{
-      \begin{pmatrix}
-        2 \\0\\1\\1
-      \end{pmatrix}
-    \right\}
+    Dit stelsel is strijdig, dus de doorsnede van $L_{1}$ en $L_{2}$ is leeg.
+    $(1,2,0,2)$ is bovendien lineair onafhankelijk van $(2,0,1,2)$, dus de rechten kruisen.
+  \item 
+    We kennen de richting van de gemeenschappelijke loodlijn kennen we nu al, we berekenen dus nog het snijpunt ervan met $L_{1}$.
+    \[ 
+    \begin{pmatrix}
+      2\\0\\1\\1
+    \end{pmatrix}
+    + a
+    \begin{pmatrix}
+      1\\2\\0\\2
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+      -1\\0\\4\\-5
+    \end{pmatrix}
+    + b
+    \begin{pmatrix}
+      2\\0\\1\\2
+    \end{pmatrix}
+    + c
+    \begin{pmatrix}
+      0\\1\\2\\-1
+    \end{pmatrix}
+    \longleftrightarrow
+    \begin{pmatrix}
+      2 & 0 & 1 & 3\\
+      0 & 1 & 2 & 0\\
+      1 & 2 & 0 & -3\\
+      2 & -1 & 2 & 6
+    \end{pmatrix}
     \]
+    De oplossing hiervan is $(a,b,c)=(1,-2,1)$.
+    Het snijpunt van $L_{1}$ met de gemeenschappelijke loodlijn is dus $p$:
+    \[
+    \begin{pmatrix}
+      2\\0\\1\\1
+    \end{pmatrix}
+    +
+    \begin{pmatrix}
+      1\\2\\0\\2
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+      3\\2\\1\\3
+    \end{pmatrix}
+    \]
+    De gemeenschappelijke loodlijn is dan $L_{3}$:
+    \[
+    L_{3} =
+    \begin{pmatrix}
+      3\\2\\1\\3
+    \end{pmatrix}
+    +
+    \lambda
+    \begin{pmatrix}
+      0\\1\\2\\-1
+    \end{pmatrix}
+    \]
+  \item Nee, de richtingsvector van de gemeenschappelijke loodlijn moet van een zeer specifieke vorm zijn.
+    % Elke vector op de gemeenschappelijke loodlijn van $S$ en $T$ staat loodrecht op zowel $(1,2,0,2)$ als $(2,0,1,2)$:
+    % \[
+    % \left\{
+    %   \begin{array}{c}
+    %     (1,2,0,2) \cdot (u,x,y,z) = 0\\
+    %     (2,0,1,2) \cdot (u,x,y,z) = 0
+    %   \end{array}
+    % \right.
+    % \longleftrightarrow
+    % \left\{
+    %   \begin{array}{c}
+    %     u+2x+2z = 0\\
+    %     2u+y+z = 0
+    %   \end{array}
+    % \right.
+    % \longleftrightarrow
+    % \begin{pmatrix}
+    %   1 & 0 & \frac{1}{2} & 1\\
+    %   0 & 1 & -\frac{1}{2} & 1
+    % \end{pmatrix}
+    % \]
   \end{enumerate}
 
 \item 
@@ -95,7 +166,6 @@ Let ook op, de examenvragen komen hoogstwaarschijnlijk niet terug, maar het zijn
       \fill (m) circle [radius=1pt];
 
     \end{tikzpicture}
-    \caption{oefening 5, een illustratie}
   \end{figure}
   \begin{itemize}
   \item Syntetisch

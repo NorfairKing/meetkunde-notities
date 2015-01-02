@@ -641,18 +641,93 @@ $R$ is dan $q+V^{\bot}$.
 \subsection{Abstract}
 \subsubsection{Vraag}
 \begin{center}
-  Gegeven twee rechter $L_{1}$ en $L_{2}$, bepaal de gemeenschappelijke loodlijn.
+  Gegeven twee kruisende rechten $L_{1}=p_{1}+\lambda v_{1}$ en $L_{2}=p_{2}+\mu v_{2}$ in $\mathbb{E}^{3}$, bepaal de gemeenschappelijke loodlijn die beide rechten snijdt.
 \end{center}
 
 \subsubsection{Antwoord}
-De gemeenschappelijke loodlijn van twee rechten staat loodrecht op beide rechten.
+\begin{itemize}
+\item
+  De gemeenschappelijke loodlijn van twee rechten staat loodrecht op beide rechten, dus elke vector $x$ uit de richting van de gemeenschappelijke loodlijn staat loodrecht op de richting van $L_{1}$ en $L_{2}$.
+  \[
+  \left\{
+    \begin{array}{cc}
+      x \cdot v_{1} &= 0\\
+      x \cdot v_{2} &= 0
+    \end{array}
+  \right.
+  \]
+  Wanneer we dit stelsel oplossen bekomen we een vergelijking voor de richting $<v_{3}>$ van de gemeenschappelijke loodlijn.
+\item We lossen tenslotte vervolgens de volgend stelsel op om het snijpunt $p$ van $L_{1}$ met de gezochte rechte te vinden.
+  \[ p_{2} + a v_{2} + b v_{3} = p_{1} + c v_{1} \]
+\item De gemeenschappelijke rechte is nu $p+<v_{3}>$.
+\end{itemize}
+
 
 
 \subsection{Voorbeeld}
 \subsubsection{Vraag}
-\subsubsection{Antwoord}
+\begin{center}
+  Gegeven twee rechten $L_{1}= (2,0,1) + \lambda(1,2,0)$ en $L_{2}= (-1,0,4) + \mu(2,0,1)$, bepaal de gemeenschappelijke loodlijn die beide rechten snijdt.
+\end{center}
 
- 
+\subsubsection{Antwoord}
+\begin{itemize}
+\item Elke vector $w=(x,y,z)$ in de richting van de gemeenschappelijke loodlijn staat loodrecht op de richting van zowel $L_{1}$ als $L_{2}$.
+  \[
+  \left\{
+    \begin{array}{cc}
+      (x,y,z) \cdot (1,2,0) = 0\\
+      (x,y,z) \cdot (2,0,1) = 0\\
+    \end{array}
+  \right. 
+  \longleftrightarrow
+  \left\{
+    \begin{array}{cc}
+      x+2y &= 0\\
+      2x+z &= 0\\
+    \end{array}
+  \right. 
+  \longleftrightarrow
+  \begin{pmatrix}
+    1 & 0 & \frac{1}{2}\\
+    0 & 1 & -\frac{1}{4}
+  \end{pmatrix}
+  \]
+  De richting van de gemeenschappelijke loodlijn is dus $V$:
+  \[ V = \{ \lambda(-2,1,4)  \mid \lambda \in \mathbb{R} \} \]
+\item 
+  \[ (-1,0,4) + a (2,0,1) + b (-2,1,4) = (2,0,1) + c(1,2,0) \]
+  \[
+  \longleftrightarrow
+  \begin{pmatrix}
+    2 & -2 & -1 & 3\\
+    0 & 1 & -2 & 0\\
+    1 & 4 & 0 & -3
+  \end{pmatrix}
+  \longleftrightarrow
+  \begin{pmatrix}
+    1 & 0 & 0 & \frac{249}{157}\\
+    0 & 1 & 0 & \frac{180}{157}\\
+    0 & 0 & 0 & \frac{90}{157}
+  \end{pmatrix}
+  \]
+  Het snijpunt $p$ van de gemeenschappelijke loodlijn met $L_{1}$ is dus $\left(\frac{249}{157},\frac{180}{157},\frac{90}{157}\right)$.
+\item De gemeenschappelijke loodlijn is dan $\leftrightarrow \left(\frac{249}{157},\frac{180}{157},\frac{90}{157}\right) + \lambda (-2,1,4)$.
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 \end{document}
