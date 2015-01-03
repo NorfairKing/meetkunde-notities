@@ -7,7 +7,61 @@
 \begin{lem}
   Zij $v$ en $w$ twee raakvectoren in $p\in \mathbb{E}^{3}$, dan bestaat er juist \'e\'en raakvector $u$ in $p$ zodat voor alle raakvectoren $x$ in $p$ het volgende geldt:
   \[ x \cdot u = Vol(x,v,w) \]
-\TODO{bewijs p 107} 
+  \begin{proof}
+    \begin{itemize}
+      Bewijs van uniek bestaan.
+    \item Uniciteit\\
+      Zij $(e_{1},e_{2},e_{3})$ de natuurlijke basis van $T_{p}\mathbb{E}^{3}$.
+      Stel dat er een $u$ aan de voorwaarde voldoet voor een bepaalde $v$ en $w$ in $T_{p}\mathbb{E}^{3}$.
+      \[
+      u_{1} = e_{1}\cdot u = Vol(e_{1},v,w) = 
+      \begin{vmatrix}
+        1 & 0 & 0\\
+        v_{1} & v_{2} & v_{3}\\
+        w_{1} & w_{2} & w_{3}
+      \end{vmatrix}
+      =
+      \begin{vmatrix}
+        v_{2} & v_{3}\\
+        w_{2} & w_{3}
+      \end{vmatrix}
+      \]
+      Analoog vinden we de andere coordinaten van $u$:
+      \[ 
+      u_{2} = -
+      \begin{vmatrix}
+        v_{1} & v_{3}\\
+        w_{1} & w_{3}
+      \end{vmatrix}
+      ,\quad
+      u_{3} = 
+      \begin{vmatrix}
+        v_{1} & v_{2}\\
+        w_{1} & w_{2}
+      \end{vmatrix}
+      \]
+      $u$ moet dus uniek zijn.
+    \item Bestaan\\
+      Bestaan is nu eenvoudig.
+      Construeer $u$ als volgt:
+      \[ u = \left( 
+        \begin{vmatrix}
+          v_{2} & v_{3}\\
+          w_{2} & w_{3}
+        \end{vmatrix},
+        -
+        \begin{vmatrix}
+          v_{1} & v_{3}\\
+          w_{1} & w_{3}
+        \end{vmatrix},
+        \begin{vmatrix}
+          v_{1} & v_{2}\\
+          w_{1} & w_{2}
+        \end{vmatrix}
+      \right) \]
+    \end{itemize}
+  \end{proof}
+\extra{wat een lelijk bewijs!}
 \end{lem}
 
 \begin{de}
@@ -57,7 +111,7 @@
 \end{st}
 
 \begin{st}
-  De \term{identiteit van Lagranga}\\
+  De \term{identiteit van Lagrange}\\
   \[
   \forall a,b,c,d \in V:\ (a\times b) \cdot (c \times d) =
   \begin{vmatrix}
@@ -65,7 +119,7 @@
     b \cdot c & b \cdot d
   \end{vmatrix}
   \]
-\TODO{bewijs p 109}
+\TODO{bewijjs p 109}
 \end{st}
 
 \begin{st}
