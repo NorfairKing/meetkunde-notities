@@ -162,32 +162,77 @@
   Een spiegeling is een isometrie.
 
   \begin{proof}
+    \begin{figure}[H]
+      \centering
+      \begin{tikzpicture}[scale=1,extended line/.style={shorten >=-#1,shorten <=-#1},extended line/.default=1cm] 
+        \coordinate [label=above:$x$] (x) at (3,3);
+        \fill (x) circle [radius=1pt];
+        \coordinate [label=above:$\pi_{s}(x)$] (pix) at (3,0);
+        \fill (pix) circle [radius=1pt];
+        \coordinate [label=below:$R_{S}(x)$] (rx) at (3,-3);
+        \fill (rx) circle [radius=1pt];
+        \coordinate [label=above:$y$] (y) at (-2,2);
+        \fill (y) circle [radius=1pt];
+        \coordinate [label=above:$\pi_{s}(y)$] (piy) at (-2,0);
+        \fill (piy) circle [radius=1pt];
+        \coordinate [label=below:$R_{S}(y)$] (ry) at (-2,-2);
+        \fill (ry) circle [radius=1pt];
+        \draw [dashed] (x) -- (pix) -- (rx);
+        \draw [dashed] (y) -- (piy) -- (ry);
+        \draw [extended line=2cm] (piy) -- (pix);
+
+        \coordinate [label=above:$p$] (p) at ($ (pix)!.7!(piy) $);  
+        \fill (p) circle [radius=1pt];
+
+        \draw [dashed] (x) -- (p);
+        \draw [dashed] (y) -- (p);
+
+      \end{tikzpicture}
+      \caption{Een illustratie}
+    \end{figure}
     We zullen bewijzen dat een spiegeling afstanden behoudt, daaruit volgt dan de stelling.\stref{st:afstand-bewaard-dan-isometrie}
-    Zij $S$ een affiene deelruimte van $\mathbb{E}^{n}$ en $R_{S}$ de spiegeling is $S$.
-    Zij $T_{x}=x+W$ het orthogonaal complement van $S$ door $x$ en $\{u_{1},\dotsc,u_{k}\}$ een orthonormale basis van $W$.
-    De projectie van $x$ op $S$ ziet er als volgt uit:
-    \[ \pi_{S}(x) = x+\sum_{i=1}^{k}\lambda_{i}u_{i} \]
-    Er moet nu het volgende gelden voor elk punt in $S$.
-    \[ \forall i\in \{1,\dotsc,k\}:\ (\pi_{S}(x) -p)\cdot u_{i} = 0 \]
-    Dit betekent dat de $\lambda_{i}$ er als volgt uit zien:\waarom
-    \[ \forall i\in \{1,\dotsc,k\}:\ \lambda_{i} = (p-x)\cdot u_{i}\]
-    We bekijken nu de afstand tussen twee willekeurige punten $x$ en $y$ van $\mathbb{E}^{n}$.
-    \[
-    \begin{array}{rll}
-      R_{S}(x) - R_{S}(y) &= x + 2\overrightarrow{x\pi_{S}(x)} - y - 2\overrightarrow{y\pi_{S}(y)} &\\
-                         &= (x-y) + 2(\overrightarrow{x\pi_{S}(x)} -\overrightarrow{y\pi_{S}(y)}) &\\
-                         &= (x-y) + 2(\pi_{S}(x)-x + y-\pi_{S}(y)) &\\
-                         &= (y-x) + 2(\pi_{S}(x)-\pi_{S}(y)) &\\
-                         &= (y-x) + 2((x+\sum_{i=1}^{k}\lambda_{i}u_{i})-(y+\sum_{i=1}^{k}\mu u_{i})) &\\
-                         &= (y-x) + 2((x+\sum_{i=1}^{k}((y-x)\cdot u_{i})u_{i})-(y+\sum_{i=1}^{k}((x-y)\cdot u_{i})u_{i})) &\\
-                         &= (y-x) + 2((x-y) + \sum_{i=1}^{k}((y-x)\cdot u_{i})u_{i} - \sum_{i=1}^{k}((x-y)\cdot u_{i})u_{i}) &\\
-                         &= (x-y) + 2(\sum_{i=1}^{k}((y-x)\cdot u_{i})u_{i} - \sum_{i=1}^{k}((x-y)\cdot u_{i})u_{i}) &\\
-                         &= (x-y) + 2(\sum_{i=1}^{k}((y-x)\cdot u_{i})u_{i} - \sum_{i=1}^{k}((x-y)\cdot u_{i})u_{i}) &\\
-                         &= (x-y) - 4(\sum_{i=1}^{k}((x-y)\cdot u_{i})u_{i} ) &\\
-    \end{array}
-    \]
-\TODO{wat??}
-    \TODO{beter uitwerken}
+    \begin{itemize}
+    \item 
+      Zij $S$ een affiene deelruimte van $\mathbb{E}^{n}$ en $R_{S}$ de spiegeling in $S$.
+      Zij $T_{x}=x+W$ de affiene deelruimte van $\mathbb{E}^{n}$ die loodrecht staat op $S$ en door $x$ gaat.
+      Zij bovendien $\{u_{1},\dotsc,u_{k}\}$ een orthonormale basis van $W$.
+    \item Kies twee willekeurige punten $x$ en $y$ uit $\mathbb{E}^{n}$ waarvoor we de afstand zullen bekijken.
+      Kies ook een willekeurig punt $p$ van $S$.
+      $pi_{S}(x)$ kan nu als volgt geschreven worden:
+      \[ \pi_{S}(x) = x + \sum_{i=1}^{k}((p-x)\cdot u_{i})u_{i} \]
+      \clarify{beter uitlegen waarom precies, ookal is het intu\"itief duidelijk.}
+      Merk op dat hetzelfde kan gezegd worden over $y$ (met hetzelfde punt $p$).
+    \item 
+      Bekijk nu $R_{S}(y) - R_{S}(y)$.
+      \[
+      \begin{array}{rll}
+        R_{S}(x) - R_{S}(y) &= (x + 2\overrightarrow{x\pi_{S}(x)}) - (y + 2\overrightarrow{y\pi_{S}(y)}) &\\
+                           &= (x + 2(\pi_{S}(x) - x)) - (y + 2(\pi_{S}(y) - y)) &\\
+                           &= (-x + 2\pi_{S}(x)) - (-y + 2\pi_{S}(y)) &\\
+                           &= (-x + 2(x + \sum_{i=1}^{k}((p-x)\cdot u_{i})u_{i})) - (-y + 2(y + \sum_{i=1}^{k}((p-y)\cdot u_{i})u_{i})) &\\
+                           &= (x + 2\sum_{i=1}^{k}((p-x)\cdot u_{i})u_{i}) - (y + 2\sum_{i=1}^{k}((p-y)\cdot u_{i})u_{i}) &\\
+                           &= (x-y) + 2\left(\sum_{i=1}^{k}((p-x)\cdot u_{i})u_{i} -  \sum_{i=1}^{k}((p-y)\cdot u_{i})u_{i}\right) &\\
+                           &= (x-y) + 2\left(\sum_{i=1}^{k}\left(((p-x)\cdot u_{i})u_{i} - ((p-y)\cdot u_{i})u_{i}\right)\right) &\\
+                           &= (x-y) + 2\left(\sum_{i=1}^{k}\left((((p-x)\cdot u_{i})- ((p-y)\cdot u_{i}))u_{i}\right)\right) &\\
+                           &= (x-y) + 2\left(\sum_{i=1}^{k}(((p-x)-(p-y))\cdot u_{i} )u_{i}\right) &\\
+                           &= (x-y) + 2\left(\sum_{i=1}^{k}((y-x)\cdot u_{i} )u_{i}\right) &\\
+                           &= (x-y) - 2\left(\sum_{i=1}^{k}((x-y)\cdot u_{i} )u_{i}\right) &\\
+      \end{array}
+      \]
+    \item We kunnen nu de afstand tussen $x$ en $y$ na spiegeling, vergelijken met de afstand tussen $x$ en $y$.
+      We gebruiken het kwadraat omdat dat makkelijker rekent (en toch monotoon is voor afstanden).
+      \[
+      \begin{array}{rll}
+        d(R_{S}(x),R_{S}(y)) &= \left\| R_{S}(x) - R_{S}(y)\right\|^{2} & \\
+                            &= (R_{S}(x) - R_{S}(y))^{2} &\\
+                            &= \left((x-y) - 2\left(\sum_{i=1}^{k}((x-y)\cdot u_{i} )u_{i}\right)\right)^{2} &\\
+                            &= (x-y)^{2} -4(x-y)\left(\sum_{i=1}^{k}((x-y)\cdot u_{i} )u_{i}\right) + 4\left(\sum_{i=1}^{k}((x-y)\cdot u_{i} )u_{i}\right)^{2} &\\
+                            &= (x-y)^{2} -4\left(\sum_{i=1}^{k}((x-y)\cdot u_{i} )u_{i}\right)^{2} + 4\left(\sum_{i=1}^{k}((x-y)\cdot u_{i} )u_{i}\right)^{2} &\\
+                            &= (x-y)^{2}
+      \end{array}
+      \]
+      \clarify{Waarom geldt die voorlaatste gelijkheid.}
+    \end{itemize}
   \end{proof}
 \end{st}
 
@@ -210,7 +255,7 @@
 \begin{lem}
   Zij $S=p+V$ een affiene deelruimte van $\mathbb{E}^{n}$ en $W$ het orthogonaal complement van $V$.
   \[ \forall w\in W:\ (R_{S})_{*}(w) = w \]
-\extra{bewijs}
+\TODO{bewijs p 96}
 \end{lem}
 
 \begin{de}
@@ -221,29 +266,81 @@
 \label{sec:struct-van-isom}
 
 \begin{de}
-  Zij $F$ een isometrie van $\mathbb{E}^{n}$, dan noemen wa $x$ een \term{vast punt} van $F$ als $F(x)=x$ geldt.
+  Zij $F$ een isometrie van $\mathbb{E}^{n}$, dan noemen we $x$ een \term{vast punt} van $F$ als $F(x)=x$ geldt.
 \end{de}
 
 \begin{de}
-  De verzameling vaste punten van een isometrie noteren we als $V(F)$.
+  De verzameling vaste punten van een isometrie $F$ noteren we als $V(F)$.
   \[ V(F) = \{ x \in \mathbb{E}^{n} \ |\ F(x) = x \} \]
 \end{de}
 
 \begin{st}
   Als $F$ een isometrie van $\mathbb{E}^{n}$ is en $V(F)$ niet leeg, dan is $V(F)$ een affiene deelruimte in de richting van $Ker(F_{*}-\mathbb{I}_{n})$.
-\TODO{bewijs p 97}
+
+  \begin{proof}
+    Zij $F=t_{b} \circ A$ en beschouw dan wat er gebeurt met een vast punt van $F$:
+    \[ x\in V(F) \Leftrightarrow F(x) = x \Leftrightarrow Ax+b=x \Leftrightarrow (A-I)x+b = 0 \]
+    De verzameling van vaste punten wordt dus gegeven door de oplossingen van het lineaire stelsel $(A-I)x+b=0$.
+    Als $V(F)$ niet leeg is, dan moet dit stelsel oplosbaar zijn, en dan is de oplossingsverzameling een affiene deelruimte met richting $ker(A-I)$.
+  \end{proof}
 \end{st}
 
 \begin{st}
   Zij $F$ een isometrie van $\mathbb{E}^{n}$.
   Dan bestaan er juist \'e\'en isometrie $G$ en juist \'e\'en translatie $t_{b}$ van $\mathbb{E}^{n}$ als volgt:
   \begin{itemize}
-  \item $F = t_{b} \circ G$ $(F_{*} = F_{*})$
+  \item $F = t_{b} \circ G$ (dus $G_{*} = F_{*}$)
   \item $V(G) \neq \emptyset$
   \item $G_{*}b = b$ ($b$ ligt in de richting van $V(G)$.)
   \item $t_{b}\circ G = G \circ t_{b}$
   \end{itemize}
-\TODO{bewijs p 97}
+
+  \begin{proof}
+    \begin{itemize}
+    \item 
+    Zij $A$ de matrix van $F_{*}$, merk dan eerst op dat de kern van $(A-I)$ loodrecht staat op het beeld van $(A-I)$.
+    \[ ker(A-I) \bot im(A-I) \]
+    \[
+    \begin{array}{rll}
+      \forall x\in ker(A-I), y \in im(A-I):\ & Ax = x \text{ en } y = Az-z:\ &\\
+      x\cdot y &= x \cdot (Az - z)\\
+      &= x \cdot Az - x\cdot z\\
+      &= Ax \cdot Az - x\cdot z\\
+      &= x \cdot z - x \cdot z &= 0
+    \end{array}
+    \]
+    In het bijzonder zit dus enkel de nulvector in de doorsnede van
+    $ker(A-I)$ en $Im(A-I)$.
+    \[ dim(ker(A-I)) + dim(im(A-I)) = n \]
+    \[ dim(ker(A-I) + im(A-I)) = n \]
+    \[ \mathbb{R}^{n} = ker(A-I) \oplus im(A-I)\]
+  \item Kies nu een willekeurige $p\in \mathbb{E}^{n}$.
+    We kunnen de vector $\overrightarrow{pF(p)}$ dan ontbinden als $x+y$ met $x\in ker(A-I)$ en $y\in im(A-I)$.
+    Er bestaat dus een vector $z$ als volgt:
+    \[ y = Az-z\]
+    Zij $q$ nu $p-z$ en beschouw $\overrightarrow{qF(q)}$:
+    \[
+    \begin{array}{rll}
+      \overrightarrow{qFq} &= \overrightarrow{qp} + \overrightarrow{pF(p)} + \overrightarrow{F(p)F(q)} &\\
+                           &= z + x + y + A(\overrightarrow{pq}) &\\
+                           &= z + x + (Az - z) + A(-z) &\\
+                           &= z + x + Az - z -Az &= x
+    \end{array}
+    \]
+  \item Definieren we nu $G = t_{-x} \circ F$ voor een bepaalde $x$, dan is $G$ een isometrie \waarom en is $q$ er een vast punt van.
+    Kiezen we voor $b$ $x$, dan geldt $F=t_{b} \circ G$.
+    Hieruit volgt ook dat $b$ invariant is onder $G_{*}$.
+    \[ G_{*}b = F_{*}b = Ab = b \]
+
+  \item Stel dat $G$ translatiedeel $c$ heeft, dan geldt voor elke $r\in \mathbb{E}^{n}$ het volgende:
+    \[ (t_{b}\circ G)(r) = G(r) + b = Ar + c + b = A(r+b)+c = G(r+b) = (G\circ b)(r) \]
+
+  \item De ontbinding is uniek.
+\TODO{bewijs afmaken}
+  \end{itemize}
+
+  \end{proof}
+\TODO{opnieuw bekijken}
 \end{st}
 
 \begin{st}
