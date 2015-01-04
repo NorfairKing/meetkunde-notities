@@ -20,18 +20,22 @@
   \[ a_{i} \in C^{\infty}(I,\mathbb{R}) \]
 \end{de}
 
-\begin{st}
+\begin{de}
   Een \term{rechte} in $\mathbb{E}^{n}$ is een kromme.
-\extra{bewijs}
-\end{st}
+  Vvoor $p\in \mathbb{E}^{n}$ en $v\in \mathbb{R}^{n}$ is de afbeelding $\alpha$ een parametrisatie voor de rechte door $p$ in de richting van $v$.
+    \[ \alpha:\ \mathbb{R} \rightarrow \mathbb{E}^{n}:\ t \mapsto p+tv \]
+\end{de}
 
-\begin{st}
+\begin{de}
   Een \term{cirkel} in $\mathbb{E}^{n}$ is een kromme.
   \[ \alpha: \mathbb{R} \rightarrow \mathbb{E}^{2}:\ t \mapsto (m_{1}+ R\cos(t),m_{2}+ R\sin(t)) \]
-\extra{bewijs}
-\end{st}
+\end{de}
 
-\extra{helix}
+\begin{de}
+  \examen
+  Een \term{helix} of \term{cirkelschroeflijn} in $\mathbb{E}^{3}$ is de baan van een punt dat een schroefbeweging uitvoert.
+  \[ \alpha: \mathbb{R} \rightarrow \mathbb{E}^{3}\ t \mapsto (a\cos t, a \sin t, bt) \]
+\end{de}
 
 \begin{de}
   Zij $\alpha: I \subseteq \mathbb{R} \rightarrow \mathbb{E}^{n}$ een kromme.
@@ -59,7 +63,6 @@
   Terslotte defini\"eren we de \term{lengte} van het segment $\alpha$ tussen $\alpha(a)$ en $\alpha(b)$. als $l$:
   \[ l = \int_{a}^{b}v(t)dt = \int_{a}^{b}\Vert \alpha'(t) \Vert dt \]
 \end{de}
-\extra{verantwoording van lengte?}
 
 \begin{de}
   Zij $\alpha$ een kromme en $a\in I$ een element (van wat?)
@@ -107,7 +110,6 @@
   \item $(Y \cdot Z)' = Y'\cdot Z + Y \cdot Z'$
   \item $(fY)' = f'Y + fY'$
   \end{itemize}
-\TODO{bewijs p 123}
 \end{st}
 
 \begin{de}
@@ -142,7 +144,7 @@
 \end{st}
 
 \begin{st}
-  Elke reguliere kromme heeft een herparametrisatie met snelheid $1$.
+  Elke reguliere kromme $\alpha$ heeft een herparametrisatie met snelheid $1$.
   Als $\beta$ en $\beta'$ beide zulke herparametrisaties zijn, dan geldt het volgende voor $c\in \mathbb{R}$ een constante.
   \[ \beta(t) = \beta'(\pm t + c) \]
 \TODO{bewijs p 126}
@@ -346,10 +348,11 @@
 \end{st}
 
 \begin{st}
+  \examen
   De \term{congruentiestelling voor vlakke krommen}\\
   Zij $\alpha$ en $\beta$ twee booglengtegeparametriseerde krommen die op een zelfde interval $I$ gedefini\"eerd zijn.
   Als $\kappa_{\alpha}$ gelijk is aan $\kappa_{\beta}$, dan bestaat er een ori\"entatiebewarende isometrie $F$ zodat $\beta = F \circ \alpha$ geldt.
-  Als $\kappa_{\alpha}$ gelijk is aan $\\kappa_{\beta}$, dan bestaat er een ori\"entatieomkerende isometrie $F$ zodat $\beta = F \circ \alpha$ geldt.
+  Als $\kappa_{\alpha}$ gelijk is aan $\kappa_{\beta}$, dan bestaat er een ori\"entatieomkerende isometrie $F$ zodat $\beta = F \circ \alpha$ geldt.
 \TODO{bewijs p 148}
 \end{st}
 

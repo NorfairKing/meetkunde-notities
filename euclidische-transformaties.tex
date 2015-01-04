@@ -213,7 +213,6 @@
       Kies ook een willekeurig punt $p$ van $S$.
       $pi_{S}(x)$ kan nu als volgt geschreven worden:
       \[ \pi_{S}(x) = x + \sum_{i=1}^{k}((p-x)\cdot u_{i})u_{i} \]
-      \clarify{beter uitlegen waarom precies, ookal is het intu\"itief duidelijk.}
       Merk op dat hetzelfde kan gezegd worden over $y$ (met hetzelfde punt $p$).
     \item 
       Bekijk nu $R_{S}(y) - R_{S}(y)$.
@@ -240,11 +239,15 @@
                             &= (R_{S}(x) - R_{S}(y))^{2} &\\
                             &= \left((x-y) - 2\left(\sum_{i=1}^{k}((x-y)\cdot u_{i} )u_{i}\right)\right)^{2} &\\
                             &= (x-y)^{2} -4(x-y)\left(\sum_{i=1}^{k}((x-y)\cdot u_{i} )u_{i}\right) + 4\left(\sum_{i=1}^{k}((x-y)\cdot u_{i} )u_{i}\right)^{2} &\\
-                            &= (x-y)^{2} -4\left(\sum_{i=1}^{k}((x-y)\cdot u_{i} )u_{i}\right)^{2} + 4\left(\sum_{i=1}^{k}((x-y)\cdot u_{i} )u_{i}\right)^{2} &\\
+                            &= (x-y)^{2} -4(x-y)\left(\sum_{i=1}^{k}u_{i}((x-y)\cdot u_{i} )\right) + 4\left(\sum_{i=1}^{k}((x-y)\cdot u_{i} )u_{i}\right)^{2} &\\
+                            &= (x-y)^{2} -4\left(\sum_{i=1}^{k}((x-y) \cdot u_{i})\cdot((x-y)\cdot u_{i} )\right) + 4\left(\sum_{i=1}^{k}((x-y)\cdot u_{i} )u_{i}\right)^{2} &\\
+                            &= (x-y)^{2} -4\left(\sum_{i=1}^{k}((x-y)\cdot u_{i} )^{2}\right) + 4\left(\sum_{i=1}^{k}((x-y)\cdot u_{i} )^{2}\right) &\\
                             &= (x-y)^{2}
       \end{array}
       \]
-      \clarify{Waarom geldt die voorlaatste gelijkheid.}
+      Merk op dat de voorlaatste gelijkheid enkel geld omdat de $u_{i}$ een orthonormale basis is.
+      Elke $u_{i}\cdot u_{j}$ is dus $\delta_{ij}$.
+      
     \end{itemize}
   \end{proof}
 \end{st}
