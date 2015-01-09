@@ -125,29 +125,82 @@
 
 \begin{de}
   Zij $I,\bar{I} \subseteq \mathbb{R}$ open intervallen en $\alpha:\ I \rightarrow \mathbb{E}^{n}$ een kromme.
-  Als $h: \bar{I} \rightarrow I$ een difeomorfisme is, dan is $\beta = \alpha \circ h: \bar{I} \rightarrow \mathbb{R}$ opnieuw een kromme die we een \term{Herparametrisatie} van $\alpha$ noemen.
+  Als $h: \bar{I} \rightarrow I$ een difeomorfisme is, dan is $\beta$ opnieuw een kromme die we een \term{Herparametrisatie} van $\alpha$ noemen.
+  \[ \beta = \alpha \circ h: \bar{I} \rightarrow \mathbb{R} \]
 \end{de}
+
+\begin{st}
+  Zij $\beta = \alpha \circ h$ een herparametrisatie van een kromme $\alpha$ dan geldt het volgende ...
+  \[ v_{\beta} = |h'|(v_{\alpha} \circ h) \]
+  ... en als $h$ bovendien stijgend is ook het volgende:
+  \[ s_{\beta} = s_{\alpha}(h(t)) \]
+  Als $h$ dalend is geldt analoog het volgende:
+  \[ s_{\beta} = -s_{\alpha}(h(t)) \]
+  \begin{proof}
+    We bewijzen de delen appart
+    \begin{itemize}
+    \item 
+      Beschouw eerst $\beta'(t)$.
+      \[ \beta'(t) = (\alpha \circ h)'(t) = \alpha'(h(t)) h'(t) \] Gaan
+      we dan verder met $v_{\beta}(t)$:
+      \[ v_{\beta}=(t) = \Vert \beta'(t) \Vert = \Vert
+      \alpha'(h(t))h'(t) \Vert = |h'(t)|\Vert \alpha'(h(t)) \Vert =
+      |h'(t)|v_{\alpha}(h(t)) \] Of kortweg:
+      \[ v_{\beta} = |h'|(v_{\alpha} \circ h) \]
+    \item 
+      De booglengte van $\beta$, gemeten vanaf $t_{0}\in \bar{I}$ en de booglengte van $\alpha$, gemeten vanaf $h_{0} = h(t_{0})$ verhouden zich als volgt:
+      \[ s_{\beta} = \int_{t_{0}}^{t}v_{\beta}(u)\ du = \int_{t_{0}}^{t}v_{\alpha}(h(u))h'(u)\ du = \int_{h(t_{0})}^{h(t)}v_{\alpha}v_{\alpha}(u)\ dv = s_{\alpha}(h(t)) \]
+    \end{itemize}
+  \end{proof}
+\end{st}
 
 \begin{opm}
   Het beeld van een kromme en een herparametrisatie van die kromme valt samen.
 \end{opm}
-
-\extra{kleine eigenschappen van Herparametrisaties}
 
 \begin{de}
   We noemen een kromme $\alpha$ \term{regulier} als $v(t)$ strikt positief is voor alle $t$.
 \end{de}
 
 \begin{st}
-  Elke herparametrisatie van een reguliere kromme is regulier.
-\extra{bewijs}
+  Zij $\alpha$ een reguliere kromme.
+  \[ s_{\alpha}'(t) = v_{\alpha}(t) \]
 \end{st}
 
 \begin{st}
-  Elke reguliere kromme $\alpha$ heeft een herparametrisatie met snelheid $1$.
-  Als $\beta$ en $\beta'$ beide zulke herparametrisaties zijn, dan geldt het volgende voor $c\in \mathbb{R}$ een constante.
-  \[ \beta(t) = \beta'(\pm t + c) \]
-\TODO{bewijs p 126}
+  Elke herparametrisatie van een reguliere kromme is regulier.
+  \zb
+\end{st}
+
+\begin{st}
+  Zij $\alpha$ een reguliere kromme.
+  \begin{itemize}
+  \item $\alpha$ heeft een herparametrisatie met snelheid $1$.
+  \item Als $\beta$ en $\beta'$ beide zulke
+    herparametrisaties zijn, dan geldt het volgende voor $c\in \mathbb{R}$ een constante.
+    \[ \beta(t) = \beta'(\pm t + c) \]
+  \end{itemize}
+
+  \begin{proof}
+    We bewijzen elk deel appart.
+    \begin{itemize}
+    \item 
+      Als $\alpha$ regulier is, heeft $\alpha$ overal een positieve snelheid.
+      $s_{\alpha}$ is dan een diffeomorfisme van $I$ naar $\bar{I} = s_{\alpha}(I)$.
+      Noem de inverse van $s_{\alpha}$ nu $h$:
+      \[ h:\ \bar{I}\rightarrow I \] Er geldt dan vanuit die definitie
+      het volgende:
+      \[ \forall t:\ s_{\alpha}(h(t)) = t \] We leiden deze vergelijking
+      nu af om het volgende te bekomen:
+      \[ \forall t:\ v_{\alpha}(h(t))h'(t) = 1 \] De herparametrisatie
+      $\beta = \alpha \circ h$ voldoet aan de voorwaarden:
+      \[ v_{\beta} = |h'|(v_{\alpha} \circ h) = h'(v_{\alpha} \circ h) =
+      1\]
+    \item Stel nu dat $\beta_{1}$ en $\beta_{2}$ beide herparametrisaties van $\alpha$ zijn met snelheid $1$, dan bestaat er een diffeomorfisme $q$ als volgt:
+      \[ \beta_{1}(t) = \beta_{2}(q(t))\]
+      $q'(t)$ moet dan $1$ of $-1$ zijn, dus $q(t)$ moet $\pm t + c$ zijn voor een bepaalde constante $c\in \mathbb{R}$.
+    \end{itemize}
+  \end{proof}
 \end{st}
 
 \begin{de}
@@ -157,15 +210,91 @@
   Een herparametrisatie met snelheid $1$ van een reguliere kromme noemen we een \term{booglengteherparametrisatie}.
 \end{de}
 
+\begin{st}
+  \label{st:constante-snelheid-loodrecht-op-versnelling}
+  Een reguliere kromme $\alpha$ heeft een constante snelheid als en slechts als $\alpha'' \bot \alpha'$ geldt.
+
+  \begin{proof}
+    Als $\alpha$ een constante sneldheid $c$ heeft, dan geldt $\alpha'\cdot \alpha' = c^{2}$ en bijgevolg het volgende:
+    \[ 0 = (\alpha'\cdot \alpha')' = 2\alpha''\cdot \alpha' \]
+  \end{proof}
+\end{st}
+
+\begin{st}
+  Een reguliere kromme $\alpha$ is een rechte als en slechts als $\alpha''$ en $\alpha'$ colineair zijn.
+
+  \begin{proof}
+    Zij $\beta$ de booglengteherparametrisatie van $\alpha$
+    Dan is $\beta''$ nul als $\beta$ (en dus $\alpha$) een rechte is:
+    \[ \beta(s) = p+sv \text{ met } \Vert v \Vert = 1 \]
+    Omgekeerd, als $f\beta' = \beta''$ geldt, dan ook het volgende:
+    \[ f = f \cdot \beta'\cdot \beta' = \beta''\cdot \beta' = 0 \]
+    Merk op dat de laatste gelijkheid enkel geldt omdat $\beta$ een constante snelheid heeft.\stref{st:constante-snelheid-loodrecht-op-versnelling}
+    $\beta''$ moet nu dus nul zijn, en $\beta$ (en dus ook $\alpha$) daarom een rechte.
+  \end{proof}
+\end{st}
+
 \section{Congruente krommen}
 \label{sec:congruente-krommen}
+
+\begin{opm}
+   Zij $\alpha$ een kromme $\alpha:\ I\rightarrow \mathbb{E}^{n}$ en $F$ een isometrie van $\mathbb{E}^{n}$, dan is $F \circ \alpha$ opnieuw een kromme in $\mathbb{E}^{n}$.
+\end{opm}
+
+\begin{de}
+  Zij $Y$ een vectorveld langs een kromme $\alpha:\ I\rightarrow \mathbb{E}^{n}$ en $F$ een isometrie van $\mathbb{E}^{n}$.
+  We definieren een vectorveld $F_{*}Y$ langs $F(\alpha)$ als volgt:
+  \[ (F_{*}Y)(t) = F_{*}(Y(t)) \in F_{*}(T_{\alpha(t)}\mathbb{E}^{n}) = T_{F(\alpha)(t)}\mathbb{E}^{n} \]
+\end{de}
+
+\begin{st}
+  Zij $F = b \circ A$ een isometrie van $\mathbb{E}$ en $\alpha$ een kromme $\alpha:\ I\rightarrow \mathbb{E}^{n}$.
+  \[ (F(\alpha))' = F_{*}(\alpha') \]
+  \begin{proof}
+    \[ (F(\alpha))'(t) = (A\alpha + b)'(t) = (A\alpha')(t) = A(\alpha'(t)) = F_{*}(\alpha'(t)) \]
+  \end{proof}
+\end{st}
+
+\begin{st}
+  Zij $F = b \circ A$ een isometrie van $\mathbb{E}$ en $\alpha$ een kromme $\alpha:\ I\rightarrow \mathbb{E}^{n}$.
+  \[ (F_{*}(Y))' = F_{*}(Y') \]
+  \begin{proof}
+    \[ (F_{*}(Y))'(t) = (AY)'(t) = A(Y'(t)) = F_{*}(Y'(t)) = (F_{*}Y')(t) \]
+  \end{proof}
+\end{st}
+
+\begin{st}
+  Zij $F = b \circ A$ een isometrie van $\mathbb{E}$ en $\alpha$ een kromme $\alpha:\ I\rightarrow \mathbb{E}^{n}$.
+  \[ v_{F(\alpha)} = v_{\alpha} \]
+  \begin{proof}
+    \[ v_{F(\alpha)} = \Vert F(\alpha)' \Vert = \Vert F_{*}(\alpha') = \Vert \alpha' \Vert = v_{\alpha} \]
+    Merk op dat dit enkel geldt omdat $F$ afstanden bewaart.
+  \end{proof}
+\end{st}
+
+\begin{gev}
+  De afbeelding van een kromme onder een isometrie is booglengtegeparametriseerd als en slechts als de kromme booglengtegeparametriseerd is.
+\end{gev}
+
+\begin{st}
+  Zij $F = b \circ A$ een isometrie van $\mathbb{E}$ en $\alpha$ een kromme $\alpha:\ I\rightarrow \mathbb{E}^{n}$.
+  \[ s_{F(\alpha)} = s_{\alpha} \]
+  \begin{proof}
+    \[ v_{F(\alpha)} = \int_{a}^{t}v_{F(\alpha)}(u)\ du = \int_{a}^{t}v_{\alpha}(u)\ du= v_{\alpha} \]
+    Merk op dat dit enkel geldt omdat $F$ afstanden bewaart.
+  \end{proof}
+\end{st}
+
 
 \begin{de}
   We noemen twee krommen $\alpha$ en $\beta$ in $\mathbb{E}^{n}$ \term{congruent} als er een isometrie $F$ van $\mathbb{E}^{n}$ bestaat zodat $\beta = F \circ \alpha$ geldt.
 \end{de}
 
+
+
 \section{Krommen en de afgeleide afbeelding}
 \label{sec:krommen-en-de}
+
 
 \begin{st}
   Zij $U$ een open deel van $\mathbb{E}^{n}$ en $F: U \subseteq \mathbb{E}^{n} \rightarrow \mathbb{E}^{n}$ een differentieerbare afbeelding.

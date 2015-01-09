@@ -17,9 +17,22 @@ Let ook op, de examenvragen komen hoogstwaarschijnlijk niet terug, maar het zijn
 \begin{enumerate}
 \item
   \begin{enumerate}[(a)]
-  \item \TODO{}
-  \item \TODO{}
-  \item \TODO{}
+  \item Zie definitie \ref{de:spiegeling} op pagina \pageref{de:spiegeling}
+  \item Zie stelling \ref{st:spiegeling-isometrie} op pagina \pageref{st:spiegeling-isometrie}
+  \item Een spiegeling om een $m$-dimensionale affiene deelruimte in een $n$-dimensionale affiene deelruimte is ori\"entatiebewarend als en slecht als $n+m$ even is.
+    \begin{figure}[H]
+      \centering
+      \begin{tabular}{|c|c|c|c|c|}
+        \hline
+        Spiegeling om $\downarrow$ in $\rightarrow$& $0D$ & $1D$ & $2D$ & $3D$\\\hline\hline
+        punt & Bewarend & Omkerend & Bewarend & Omkerend\\\hline
+        rechte & N/A & Bewarend & Omkerend & Bewarend\\\hline
+        vlak & N/A & N/A & Bewarend & Omkerend \\\hline
+        ruimte & N/A & N/A & N/A & Bewarend\\\hline
+      \end{tabular}
+      \caption{Spiegelingen}
+    \end{figure}
+
   \end{enumerate}
 \item \TODO{}
 \end{enumerate}
@@ -155,23 +168,27 @@ Let ook op, de examenvragen komen hoogstwaarschijnlijk niet terug, maar het zijn
   \begin{figure}[H]
     \centering
     \begin{tikzpicture}[scale=1,extended line/.style={shorten >=-#1,shorten <=-#1},extended line/.default=1cm] 
-      \coordinate [label=left:$l$] (l1) at (-1,0);
-      \coordinate (l2) at (1,3);
-      \coordinate [label=right:$m$] (m1) at (2,1);
-      \coordinate (m2) at (0,4);
-      \draw [extended line=1cm] (l1) -- (l2);
-      \draw [extended line=1cm] (m1) -- (m2);
+      \coordinate [label=above:$O$] (o) at (1,2);
+      \coordinate [label=left:$m$] (m1) at (-1,1);
+      \coordinate [label=right:$l$] (l1) at (2,1);
 
-      \coordinate [label=above:$M$] (m) at (1,1);
+      \draw [extended line=1cm] (o) -- (m1);
+      \draw [extended line=1cm] (o) -- (l1);
+
+      \coordinate [label=above:$M$] (m) at (1.5,.5);
       \fill (m) circle [radius=1pt];
 
     \end{tikzpicture}
   \end{figure}
+  We zoeken een punt $A$ op $l$ en een punt $B$ op $m$ zodat $|AM|$ gelijk is aan $|MB|$ en $A$, $B$ en $M$ colineair zijn.
+  Met andere woorden zodat $(A,B,M)$ gelijk is aan $1$.
+  \[ M = \frac{1}{2}A + \frac{1}{2}B \]
+  Noem het snijpunt van $l$ en $m$ $O$.
   \begin{itemize}
-  \item Syntetisch
-    We zoeken een punt op $l$ en een punt op $m$ zodat $|AM|$ gelijk is aan $|MB|$.
+  \item Syntetisch\\
   \item \TODO{}
-  \item Analytisch
+  \item Analytisch\\
+  \item \TODO{}
   \item \TODO{}
   \end{itemize}
 \item \TODO{}
