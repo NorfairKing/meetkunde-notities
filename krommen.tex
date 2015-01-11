@@ -508,7 +508,7 @@
       \[ F(\alpha(s_{0})) = \beta_{s_{0}} \quad\wedge\quad
       F_{*}(T_{\alpha}(s_{0})) = T_{\beta}(s_{0}) \quad\wedge\quad
       F_{*}(N_{\alpha}(s_{0})) = N_{\beta}(s_{0}) \] Deze isometrie is
-      bovendie ori\"entatiebewarend.\gevref{gev:orientatie-isometrie}
+      bovendien ori\"entatiebewarend.\gevref{gev:orientatie-isometrie}
     \item We defini\"eren nu een hulpkromme $\gamma$ als $F \circ \alpha$ en zullen aantonen dat $\gamma$ gelijk is aan $\beta$.
       Merk nu op dat $\gamma$ en $\alpha$ congruent zijn, dus ze hebben dezelfde kromming.
       $\beta$ heeft in het bijzonder dan ook dezelfde kromming als $\alpha$.
@@ -668,7 +668,10 @@
 
 \begin{st}
   Het vectorveld $T'$ staat loodrecht op $T$.
-\extra{bewijs}
+
+  \begin{proof}
+    \[ T\cdot T = 1 \Rightarrow 2\cdot(T'\cdot T) = 0 \]
+  \end{proof}
 \end{st}
 
 \begin{de}
@@ -759,17 +762,68 @@
 \begin{st}
   Zij $F$ een isometrie van $\mathbb{E}^{3}$ en zij $\epsilon = \det F_{*} \pm 1$.
   Als $\alpha$ en $\beta = F \circ \alpha$ twee congruente booglengtegeparametriseerde krommen zijn met $\kappa_{\alpha} > 0$, dan geldt het volgende:
-  \[ F_{*}T_{\alpha} = T_{\alpha}, F_{*}N_{\alpha} = N_{\beta} \text{ en } F_{*}B_{\alpha}= B_{\beta} \]
-  \[ \kappa_{\alpha} = \kappa_{\beta} \text{ en } \tau_{alpha} = \epsilon \tau_{\beta} \]
+  \[ F_{*}T_{\alpha} = T_{\alpha},\ F_{*}N_{\alpha} = N_{\beta} \text{ en } F_{*}B_{\alpha}= \epsilon B_{\beta} \]
+  \[ \kappa_{\alpha} = \kappa_{\beta} \text{ en } \tau_{\alpha} = \epsilon \tau_{\beta} \]
 \TODO{bewijs p 175}
 \end{st}
 
 \begin{st}
   De \term{congruentiestelling voor ruimtekrommen}
-  Zij $\alpha, \beta:\ I \subseteq \mathbb{R} \rightarrow \mathbb{E}^{3}$ twee booglengtegeparametriseerde ruimtekrommen die op een zelfde interval gedefini\"eerd zijn.
-  Als $\kappa_{\alpha} = \kappa_{\beta}>0$ en $\tau_{alpha} = \pm \tau_{\beta}$ gelden, dan zijn $\alpha$ en $\beta$ congruent.
-  Als $\tau_{alpha}$ gelijk is aan $\tau_{\beta}$, is de isometrie die $\alpha$ en $\beta$ relateert ori\"entatiebewarend, anders is die ori\"entatieomkerend.
-\TODO{bewijs p 176}
+  Zij $\alpha$ en $\beta$ twee booglengtegeparametriseerde ruimtekrommen die op een zelfde interval gedefini\"eerd zijn.
+  \[ \alpha, \beta :\ I \subseteq \mathbb{R} \rightarrow \mathbb{E}^{3} \]
+  Als $\kappa_{\alpha} = \kappa_{\beta}>0$ en $\tau_{\alpha} = \pm \tau_{\beta}$ gelden, dan zijn $\alpha$ en $\beta$ congruent.
+  Als $\tau_{alpha}$ gelijk is aan $\tau_{\beta}$, is de isometrie die $\alpha$ en $\beta$ relateert ori\"entatiebewarend, anders is die ori\"entatieomkerend.\\
+  Met andere woorden: \textbf{``Twee booglengtegeparametriseerde krommen zijn congruent als ze dezelfde kromming en (eventueel tegengestelde) torsie hebben.''}
+
+  \begin{proof}
+    Gevalsonderscheid
+    \begin{itemize}
+    \item $\tau_{1} = \tau_{2}$\\
+      \begin{itemize}
+      \item Kies een willekeurig punt $s_{0}$ uit $I$.  Zij $F$ de
+        (unieke!\stref{st:bestaan-isometrie}) isometrie die
+        $\alpha(s_{0})$ op $\beta(s_{0})$ afbeeldt alsook het
+        bijhornde Frenet apparaat.
+        \[ F(\alpha(s_{0})) = \beta(s_{0}) \quad\wedge\quad
+        F_{*}(T_{\alpha}(s_{0})) = T_{\beta}(s_{0}) \quad\wedge\quad
+        F_{*}(N_{\alpha}(s_{0})) = N_{\beta}(s_{0})\quad\wedge\quad
+        F_{*}(B_{\alpha}(s_{0})) = B_{\beta}(s_{0}) \] Deze isometrie
+        is bovendien
+        ori\"entatiebewarend.\gevref{gev:orientatie-isometrie}
+
+      \item Definieer nu een kromme $\gamma$ als $\gamma=F \circ \alpha$.
+        $\gamma$ en $\beta$ zijn dan zeker al gelijk in $s_{0}$.
+        We zullen nu aantonen dat $\gamma$ en $\beta$ overal gelijk zijn.
+        Merk eerst op dat de kromming en torse van $\gamma$ en $\beta$ al gelijk zijn.
+        \[ \kappa_{\gamma} = \kappa_{\beta} \quad\wedge\quad \tau_{\gamma} = \tau_{\beta} \]
+      \item We definieren nu de functie $f$:
+        \[ f:\ I \rightarrow \mathbb{R}:\ s \mapsto f(s) = T_{\beta}(s) \cdot T_{\gamma}(s) + N_{\beta}(s) \cdot N_{\gamma}(s) + B_{\beta}(s) + B_{\gamma}(s) \]
+        Uit de ongelijkheid van Cauchy schwarz volgt dat $f(s)$ voor elke $s\in I$ kleiner is dan of gelijk aan $3$.
+        Bovendien is $f(s)$ precies gelijk aan $3$ wanneer $\gamma$ en $\beta$ precies hetzelfde Frenet-Apparaat hebben in $s$.
+        \begin{itemize}
+        \item In $s_{0}$ is dit al vast het geval.
+        \item $f'$ is identiek nul:
+          \[
+          \begin{array}{rll}
+            f' &= (T'_{\beta} \cdot T_{\gamma} + T_{\beta} \cdot T'_{\gamma})\\
+               &+ (N'_{\beta}\cdot N_{\gamma} + N_{\beta}\cdot N'_{\gamma})\\ 
+               &+ (B'_{\beta} \cdot B_{\gamma} + B_{\beta} \cdot B'_{\gamma})\\
+               &= ((\kappa_{\beta}N_{\beta}) \cdot T_{\gamma} + T_{\beta}\cdot (\kappa_{\gamma}N_{\gamma}))\\
+               &+ ((-\kappa_{\beta}T_{\beta} + \tau_{\beta}B_{\beta})\cdot N_{\gamma} + N_{\beta}\cdot(-\kappa_{\gamma}T_{\gamma} + \tau_{\gamma}B_{\gamma}))\\
+               &+ ((-\tau_{\beta}N_{\beta})\cdot B_{\gamma} + B_{\beta} \cdot (-\tau_{\gamma}N_{\gamma}))\\
+               &= 0
+          \end{array}
+          \]
+          Let hier goed op het gebruik van de formules van Frenet.\clarify{waarom is dit nul?!}
+        \item Omdat $f$ in $s_{0}$ priecies $3$ is, en constant is, moet $f$ overal $3$ zijn.
+        \end{itemize}
+      \item Omdat $\beta'$ en $\gamma'$ gelijk zijn, verschillen $\beta$ en $\gamma$ met hoogstens een constante.
+        Omdat $\beta$ en $\gamma$ gelijk zijn in $s_{0}$ moet die constante nul zijn.
+      \end{itemize}
+    \item $\tau_{1} = -\tau_{2}$\\
+      \extra{afmaken}
+    \end{itemize}
+  \end{proof}
 \end{st}
 
 \begin{st}
