@@ -248,6 +248,7 @@
 \end{de}
 
 \begin{st}
+  \label{st:rekenregel-afgeleide-afbeelding-na-isometrie}
   Zij $F = b \circ A$ een isometrie van $\mathbb{E}$ en $\alpha$ een kromme $\alpha:\ I\rightarrow \mathbb{E}^{n}$.
   \[ (F(\alpha))' = F_{*}(\alpha') \]
   \begin{proof}
@@ -476,17 +477,72 @@
 \begin{st}
   Zij $F$ een isometrie van $\mathbb{E}^{2}$ en zij $\epsilon = \det F_{*} = \pm 1$
   Als $\alpha$ en $\beta = F \circ \alpha$ twee congruente booglengtegeparametriseerde krommen zijn, dan geldt het volgende:
-  \[ F_{*}T_{\alpha} = T_{\beta} \wedge F_{*}N_{\alpha} = \epsilon N_{\beta} \]
-\TODO{bewijs p 147}
+  \[ F_{*}T_{\alpha} = T_{\beta} \quad\wedge\quad F_{*}N_{\alpha} = \epsilon N_{\beta} \wedge \kappa_{\alpha} = \kappa_{\beta} \]
+
+  \begin{proof}
+    \[ F_{*}T_{\alpha} = F_{*}(\alpha') = (F \circ \alpha)' = \beta' = T_{\beta} \]
+    \stref{st:rekenregel-afgeleide-afbeelding-na-isometrie}
+\TODO{bewijs p 148}
+  \end{proof}
 \end{st}
 
 \begin{st}
   \examen
   De \term{congruentiestelling voor vlakke krommen}\\
   Zij $\alpha$ en $\beta$ twee booglengtegeparametriseerde krommen die op een zelfde interval $I$ gedefini\"eerd zijn.
+  \[ \alpha,\beta:\ I \subseteq \mathbb{R} \rightarrow \mathbb{E}^{2} \]
   Als $\kappa_{\alpha}$ gelijk is aan $\kappa_{\beta}$, dan bestaat er een ori\"entatiebewarende isometrie $F$ zodat $\beta = F \circ \alpha$ geldt.
-  Als $\kappa_{\alpha}$ gelijk is aan $\kappa_{\beta}$, dan bestaat er een ori\"entatieomkerende isometrie $F$ zodat $\beta = F \circ \alpha$ geldt.
-\TODO{bewijs p 148}
+  Als $\kappa_{\alpha}$ tegengesteld is aan $\kappa_{\beta}$, dan bestaat er een ori\"entatieomkerende isometrie $F$ zodat $\beta = F \circ \alpha$ geldt\\
+  Met andere woorden:
+  \textbf{``Twee booglengtegeparametriseerde krommen zijn congruent als ze dezelfde (of een tegengestelde) kromming hebben.''}
+
+  \begin{proof}
+    Gevalsonderscheid.
+    \begin{itemize}
+    \item $\kappa_{\alpha} = \kappa_{\beta}$\\
+      \begin{itemize}
+      \item 
+      Stel dat $\alpha$ en $\beta$ twee krommen zijn met constante snelheid $1$ en dezelfde kromming.
+      Beschouw een willekeurig punt $s_{0}$ uit het interval $I$.
+      Zij $F$ de (unieke!\stref{st:bestaan-isometrie}) isometrie die $\alpha(s_{0})$ op $\beta(s_{0})$ afbeeldt alsook het bijhornde Frenet apparaat.
+      \[ F(\alpha(s_{0})) = \beta_{s_{0}} \quad\wedge\quad
+      F_{*}(T_{\alpha}(s_{0})) = T_{\beta}(s_{0}) \quad\wedge\quad
+      F_{*}(N_{\alpha}(s_{0})) = N_{\beta}(s_{0}) \] Deze isometrie is
+      bovendie ori\"entatiebewarend.\gevref{gev:orientatie-isometrie}
+    \item We defini\"eren nu een hulpkromme $\gamma$ als $F \circ \alpha$ en zullen aantonen dat $\gamma$ gelijk is aan $\beta$.
+      Merk nu op dat $\gamma$ en $\alpha$ congruent zijn, dus ze hebben dezelfde kromming.
+      $\beta$ heeft in het bijzonder dan ook dezelfde kromming als $\alpha$.
+    \item Definieer nu de functie $f$: (merk op dat we de aangrijpingspunten verwaarlozen, het scalair product maakt toch enkel gebruik van het vectordeel).
+      \[ f:\ I \rightarrow \mathbb{R}:\ s \mapsto f(s) = T_{\beta}(s) \cdot T_{\gamma}(s) \]
+      We gebruiken nu de ongelijkheid van Cauchy-Schwarz:
+      \[ T_{\beta}(s) \cdot T_{\gamma}(s) \le \left\| T_{\beta}(s) \right\| \cdot \left\| T_{\gamma}(s) \right\|  \]
+      $f(s)$ is dus steeds kleiner of gelijk aan $1$ met gelijkheid wanneer $T_{\beta}(s)$ en $T_{\gamma}(s)$ gelijk zijn.
+
+    \item We bewijzen nu dat $f(s)$ identiek $1$ is, daaruit volgt dan dat $\beta$ en $\gamma$ gelijk zijn in eerste afgeleide.
+      \begin{itemize}
+      \item $f(s_{0}) = T_{\beta}(s_{0}) \cdot T_{\gamma}(s_{0}) = T_{\beta}(s_{0}) \cdot F_{*}T_{\alpha}(s_{0}) = T_{\beta}(s_{0})^{2} = 1$.
+      \item $f'$ is identiek nul en $f$ dus constant.
+        \[
+        \begin{array}{rll}
+          f' &= T_{\beta}'\cdot T_{\gamma} + T_{\beta}\cdot T'_{\gamma}\\
+             &= \kappa_{\beta}N_{\beta} \cdot T_{\gamma} + T_{\beta} \cdot \kappa_{\gamma}N_{\gamma}\\
+             &= \kappa_{\beta}(JT_{\beta} \cdot T_{\gamma} + T_{\beta} \cdot JT_{\gamma})
+             &= 0
+        \end{array}
+        \]
+        In de eerste gelijkheid gebruiken we de productregel van afgeleiden op de definitie van $f$.
+        In de tweede gelijkheid gebruiken we de definitie van de kromming: $T' = \kappa N$.
+        Tenslotte gebruiken we nog dat $\kappa_{\gamma}$ en $\kappa_{\beta}$ gelijk zijn en de definitie van $N$: $N=JT$.
+        Ook nog belangrijk voor de laatste gelijkheid is dat $J$ antisymmetrisch is.
+      \item $f$ is dus constant en $1$ in $s_{0}$, dus identiek $1$.
+      \end{itemize}
+
+    \item Integratie van $\beta'=\gamma'$ geeft ons $\beta(s) =\gamma(s) + c$, maar omdat $\gamma$ en $\beta$ gelijk zijn in $s_{0}$ moet $c$ nul zijn.
+    \end{itemize}
+
+    \item $\kappa_{\alpha} = - \kappa_{\beta}$\\
+    \end{itemize}
+  \end{proof}
 \end{st}
 
 \section{Intrinsieke vergelijking}
