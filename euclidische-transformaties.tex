@@ -379,24 +379,23 @@
     \item $F$ is orientatiebewarend: $\det(A) = 1$.
       \begin{itemize}
       \item $A$ is de eenheidsmatrix: $F$ is een translatie.
-      \item $A$ is niet de eenheidsmatrix: $F$ is een rotatie.
-        De kern van $A-I$ is dan enkel de nulvector\waarom , dus $b$ ook.
+      \item $A$ is niet de eenheidsmatrix: $F$ is een rotatie:\\
+        De kern van $A-I$ is dan enkel de nulvector, dus $b$ is de nulvector (want $b$ ligt in de richting van $V(G)$).
         $F$ is dan gelijk aan $G$ en daarom is ook $V(G) = V(F)$ \'e\'en enkel punt.
       \end{itemize}
     \item $F$ is orientatieomkerend: $\det(A) = -1$.
       $F$ is een schuifspiegeling.
-      Merk, om dit in te zien, eerst op dat zowel $1$ als $-1$ eigenwaarden zijn van $A$:
+      Merk, om dit in te zien, eerst op dat zowel $1$ als $-1$ eigenwaarden zijn van $A$ ($A$ is immers orthogonaal):
       \[ det(A-I) = det(A-A^{T}A) = det(A)det(I-A^{T}) = -det(I-A) = -det(A-I) \Rightarrow det(A-I) = 0 \]
       \[ det(A+I) = det(A+A^{T}A) = det(A)det(I+A^{T}) = -det(I+A) \Rightarrow det(A+I) = 0 \]
-      De eigenvectoren bij de eigenwaarden $1$ en $-1$ staan nu loodrecht op elkaar.\waarom
+      De eigenvectoren bij de eigenwaarden $1$ en $-1$ staan nu loodrecht op elkaar.
       In het bijzonder is de kern van $A-I$ een eendimensionale deelruimte.
-      $V(G)$ is dan een rechte $L=x_{0}+<x>$.\waarom
+      $V(G)$ is dan een rechte $L=x_{0}+<x>$.
 
-      Kies nu een willekeurige $x$ uit $\mathbb{E}^{2}$.
-      Zij $y_{0}$ de orthogonale projectie $\pi_{L}(x)$ van $x$ op $L$, dan staat $\overrightarrow{y_{0}x}$ loodrecht op $v$.
-      Het is dus een eigenvector van $A$ met eigenwaarde $-1$.\waarom.
+      Kies nu een willekeurige $x$ uit $\mathbb{E}^{2}$, dan staat $\overrightarrow{\pi_{L}(x)x}$ loodrecht op $v$.
+      Het is dus een eigenvector van $A$ met eigenwaarde $-1$.
       Bijgevolg is $G$ de spiegeling in $L$:
-      \[ G(x) = y_{0} + G_{*}(\overrightarrow{y_{0}x}) = y_{0} - \overrightarrow{y_{0}x} = -x + 2y_{0} = x + 2\overrightarrow{xy_{0}} = x+2\overrightarrow{x\pi_{L}(x)} = R_{L}(x) \]
+      \[ G(x) = \pi_{L}(x) + G_{*}(\overrightarrow{\pi_{L}(x)x}) = \pi_{L}(x) - \overrightarrow{\pi_{L}(x)x} = -x + 2\pi_{L}(x) = x + 2\overrightarrow{x\pi_{L}(x)} = R_{L}(x) \]
       Omdat $b$ in de richting van $L$ wijst, is $F$ dus de samenstelling van een spiegeling in een as en een translatie in de richting van die as.
     \end{itemize}
   \end{proof}
@@ -419,7 +418,6 @@
 \begin{st}
   \examen
   Elke isometrie $F\in Iso(3,\mathbb{R})$ van de driedimensionale Euclidische ruimte is een translatie, een schroefbeweging, een schuifspiegeling tegenover een vlak of een draaispiegeling.
-  \TODO{bewijs p 102} 
   \begin{proof}
     We ontbinden $F$ in $t_{b}$ en $G$ waarbij $V(G) \neq \emptyset$ en $G_{*}b = b$ gelden.
     \[F = t_{b} \circ G\]
@@ -431,22 +429,23 @@
       \item $A$ is de eenheidsmatrix: $F$ is een translatie.
       \item $A$ is niet de eenheidsmatrix: $F$ is een schroefbeweging
         $V(G)$ is dan immers een rechte $L$.
-        \[ \forall x \in \mathbb{E}^{3}:\ G(x) = x_{0}\]
+        \[ \forall x \in \mathbb{E}^{3}:\ G(x) = x_{0} + A(\overrightarrow{x_{0}x}) \]
+        $G$ is dus een rotatie en $F$ een samenstelling van $G$ en $t_{b}$.
       \end{itemize}
 
     \item $F$ is orientatieomkerend: $\det(A) = -1$.
       $-1$ is opnieuw een eigenwaarde van $A$:
       \[ det(A+I) = det(A+A^{T}A) = det(A)det(I+A^{T}) = -det(I+A) \]
-      Zij $v$ een eigenvector bij $-1$ zijn $W=<v>^{\bot}$, dan is $W$ een tweedimensionale invariante deelruimte van $A$ en elke eigenvector bij eigenwaarde $1$ staat loodrecht op $v$ en behoort dus tot $W$.
-      \clarify{wut}
+      Zij $v$ een eigenvector bij $-1$ en zij $W=<v>^{\bot}$, dan is $W$ een tweedimensionale invariante deelruimte van $A$.
       \begin{itemize}
-      \item $1$ is een eigenwaarde van $A$: $F$ is een schuifspiegelijng:
-        Als ook $1$ een eigenwaarde is van $A$ met eigenwaarde $w$, dan is $<v,w>$ een invariante deelruimte van $A$ en bijgevolg is een vector loodrecht hierop automatisch een eigenvector van $A$.\waarom
-        Omdat de determinanti van $A$ $-1$ is moet de bijhorende eigenwaarde $1$ zijn.
+      \item $1$ is een eigenwaarde van $A$: $F$ is een schuifspiegelijng:\\
+        Elke eigenvector bij eigenwaarde $1$ staat loodrecht op $v$ en behoort dus tot $W$.
+        Als ook $1$ een eigenwaarde is van $A$ met eigenwaarde $w$, dan is $<v,w>$ een invariante deelruimte van $A$ en bijgevolg is een vector loodrecht hierop automatisch een eigenvector van $A$.
+        Omdat de determinant van $A$ $-1$ is moet de bijhorende eigenwaarde $1$ zijn.
         Bijgevolg is de dimensie van de kern van $A-I$ $2$ en dus is $W$ die kern.
         $V(G)$ is dan een vlak $H=x_{0}+W$.
         $G$ is dan een spiegeling in $H$ en dus is $F$ een schuifspiegeling.
-      \item $1$ is geen eigenwaarde van $A$: $F$ is een draaispiegeling.
+      \item $1$ is geen eigenwaarde van $A$: $F$ is een draaispiegeling:\\
         Als $1$ geen eigenwaarde is van $A$ dan heeft de kern van $A-I$ dimensie $0$.
         $F$ is dan gelijk aan $G$ en $G$ heeft priecies \'e\'en vast punt $x_{0}$.
         Definieer $H=x_{0}+W$ en definieer een isometrie $K$ van $\mathbb{E}^{3}$ als volgt:
@@ -460,27 +459,20 @@
       \end{itemize}
     \end{itemize}
   \end{proof}
-  \TODO{opnieuw bekijken, belangrijk!}
 \end{st}
-
-\begin{st}
-  \[ R_{H} \circ K = K \circ R_{H} \]
-  \clarify{meer uitleg}
-\extra{bewijs}
-\end{st}
-
-\begin{ei}
-  \examen
-  Een affiene transformatie van $\mathbb{E}^{n}$ die hoeken bewaart is een isometrie of een dilatatie.
-\extra{bewijs}
-\end{ei}
 
 \question{waarom spreken we niet over schuifspiegelingingen tegenover deelruimtes van $0$, $1$ of drie dimensies? examen!}
 
 \begin{st}
   \examen
-  Elke translatie van $\mathbb{E}^{n}$ kan geschreven worden als de samenstelling van twee spiegelingen teggenover parallelle hypervlakken van $\mathbb{E}^{n}$.
+  Elke translatie van $\mathbb{E}^{n}$ kan geschreven worden als de samenstelling van twee spiegelingen tegenover parallelle hypervlakken van $\mathbb{E}^{n}$.
 \extra{bewijs}
 \end{st}
+
+
+
+
+
+
 
 \end{document}
