@@ -1,0 +1,478 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+
+\chapter{Euclidische transformaties}
+\label{cha:euclidische-transformaties}
+
+\section{Rotaties in $\mathbb{E}^{2}$}
+\label{sec:roties-in-e2}
+
+\begin{lem}
+  Voor elke $A\in SO(2)$ met $\det(A)=1$ bestaat er een $\theta\in \mathbb{R}$ zodat $A$ er als volgt uit ziet:
+  \[
+  A =
+  \begin{pmatrix}
+    \cos(\theta) & -\sin(\theta)\\
+    \sin(\theta) & \cos(\theta)
+  \end{pmatrix}
+  \]
+
+  \begin{proof}
+    Zij $A$ een matrix in $SO(2)$:
+    \[
+    A =
+    \begin{pmatrix}
+      a_{11} & a_{12}\\
+      a_{21} & a_{22}
+    \end{pmatrix}
+    \]
+    $A^{T}$ en $A^{-1}$ zien er dan als volgt uit:
+    \[
+    A^{T} =
+    \begin{pmatrix}
+      a_{11} & a_{21}\\
+      a_{12} & a_{22}
+    \end{pmatrix}
+    ,\quad
+    A^{-1} = 
+    \begin{pmatrix}
+      a_{22} & -a_{12}\\
+      -a_{21} & a_{11}
+    \end{pmatrix}
+    \]
+    Omdat $A$ orthogonaal is moet $A^{T}$ gelijk zijn aan $A^{-1}$.
+    $a_{11}$ en $a_{22}$, en $a_{21}$ en $-a_{12}$ moeten dus gelijk zijn.
+    \[ 
+    A = 
+    \begin{pmatrix}
+      a_{11} & a_{12}\\
+      -a_{12} & a_{11}
+    \end{pmatrix}
+    \]
+    Omdat de determinint van $A$ $1$ is moet ook $a_{11}^{2} + a_{12}^{2}=1$ gelden.
+    $a_{11}$ en $A_{21}$ moeten dus $\cos\theta$ en $\sin\theta$ zijn voor een bepaalde $\theta$.
+  \end{proof}
+\end{lem}
+
+\begin{opm}
+  Voor elke $A\in O(2)$ met $\det(A) =-1$ bestaat er dus ook een $\theta\in \mathbb{R}$ zodat $A$ er als volgt uit ziet:
+  \[
+  A =
+  \begin{pmatrix}
+    \cos(\theta) & \sin(\theta)\\
+    \sin(\theta) & -\cos(\theta)
+  \end{pmatrix}
+  \]
+\end{opm}
+
+\begin{de}
+  \examen
+  Een \term{rotatie} van $\mathbb{E}^{2}$ is een afbeelding van de vorm $Rot$:
+  \[
+  Rot:\ \mathbb{E}^{2} \rightarrow \mathbb{E}^{2}:\ 
+  p \mapsto Rot(p)
+  = x_{0} + A(\overrightarrow{x_{0}p})
+  = x_{0} +
+  \begin{pmatrix}
+    \cos(\theta) & -\sin(\theta)\\
+    \sin(\theta) & \cos(\theta)
+  \end{pmatrix}
+  \overrightarrow{x_{0}p}
+  \]
+  Hierin is $x_{0}$ een element van $\mathbb{E}^{2}$ en $A$ een element van $SO(2)$ verschillend van de eenheidsmatrix.
+  We noemen $x_{0}$ het \term{centrum} van de rotatie en $\theta$ de \term{rotatiehoek}.
+\end{de}
+
+\begin{ei}
+  Een rotatie is een ori\"entatiebewarende isometrie.
+\extra{bewijs}
+\end{ei}
+
+\begin{de}
+  We definieren voor een vector $(x,y)$ van $\mathbb{E}^{2}$ de \term{poolco\"ordinaten} $(r,\theta)$ als volgt:
+  \[ (x,y) = (r\cos\theta, r\sin\theta) \]
+\end{de}
+
+\begin{st}
+  Zij $p$ een punt in $\mathbb{E}^{2}$ met poolcoordinaten $(r,v), r\in \mathbb{R}^{+}, v\in \mathbb{R}$ ten opzichte van het centrum van een $A$ een rotatie met rotatiehoek $\theta$.
+  \[
+  A = 
+  \begin{pmatrix}
+    \cos(\theta) & -\sin(\theta)\\
+    \sin(\theta) & \cos(\theta)
+  \end{pmatrix}
+  \quad\text{ en }\quad
+  \overrightarrow{x_{0}p} = 
+  \begin{pmatrix}
+    r\cos(v)\\ r\sin(v)\\
+  \end{pmatrix}
+  \]
+  \[ Rot(p) = x_{0} +
+  \begin{pmatrix}
+    r\cos(v+\theta)\\ r\sin(v+\theta)\\
+  \end{pmatrix}
+  \]
+\extra{bewijs}
+\end{st}
+
+\begin{ei}
+  Enkel het centrum van een rotatie $R$ in $\mathbb{E}^{2}$ is een vast punt van $R$.
+  \extra{bewijs}
+\end{ei}
+\section{Rotaties in $\mathbb{E}^{3}$}
+\label{sec:roties-in-e3}
+
+\begin{de}
+  \examen
+  Een \term{rotatie} van $\mathbb{E}^{3}$ is een afbeelding van de vorm $Rot$.
+  \[ Rot:\ \mathbb{E}^{3} \rightarrow \mathbb{E}^{3}:\ p \mapsto Rot(p) = x_{0} + A(\overrightarrow{x_{0}p}) \]
+  Hierin is $x_{0}$ een element van $\mathbb{E}^{3}$ en $A$ een element van $SO(3)$ verschillend van de eenheidsmatrix.
+  We noemen $x_{0}$ het \term{centrum} van de rotatie en $\theta$ de \term{rotatiehoek}.
+\end{de}
+
+
+\begin{st}
+  De punten die op zichzelf worden afgebeeld vormen een affiene deelruimte van $\mathbb{E}^{3}$ door $x_{0}$ in de richting van $Ker(A-\mathbb{I}_{3})$.
+\extra{bewijs}
+\end{st}
+
+\begin{st}
+  Een vast punt van een rotatie is een eigenvector van de rotatiematrix.
+\extra{bewijs}
+\end{st}
+
+\begin{de}
+  We noemen $L = x_{0} + Ker(A-\mathbb{I}_{3})$ de \term{as} van de rotatie.
+\end{de}
+
+\begin{ei}
+  Enkel de as van de rotatie $R$ in $\mathbb{E}^{3}$ bevat vaste punten van $R$.
+  \extra{bewijs}
+\end{ei}
+
+\section{Spiegelingen}
+\label{sec:spiegelingen}
+
+\begin{de}
+  \examen
+  Zij $S$ een affiene deelruimte van $\mathbb{E}^{n}$.
+  Voor een willekeurig punt $x\in \mathbb{E}^{n}$ defini\"eren we $T_{x}$ als de unieke deelruimte door $x$, orthogonaal complementair mat $S$.
+  Bovendien definieren we $\pi_{S}(x)$ als het snijpunt van $S$ en $T_{x}$.
+\end{de}
+ 
+\begin{de}
+  De afbeelding $\pi_{S}:\ \mathbb{E}^{n} \rightarrow S:\ x \mapsto \pi_{S}(x)$ noemen we een \term{orthogonale projectie} op $S$.
+\end{de}
+
+\begin{de}
+  De \term{spiegeling} $R_{S}$ in een affiene deelruimte $S$ van $\mathbb{E}^{n}$ is een afbeelding als volgt:
+  \[ R_{S}:\ \mathbb{E}^{n} \rightarrow \mathbb{E}^{n}:\ x \mapsto R_{S}(x) = x + 2\overrightarrow{x\pi_{S}(x)} \]
+\end{de}
+
+\begin{st}
+  \examen
+  \label{st:spiegeling-isometrie}
+  Een spiegeling is een isometrie.
+
+  \begin{proof}
+    \begin{figure}[H]
+      \centering
+      \begin{tikzpicture}[scale=1,extended line/.style={shorten >=-#1,shorten <=-#1},extended line/.default=1cm] 
+        \coordinate [label=above:$x$] (x) at (3,3);
+        \fill (x) circle [radius=1pt];
+        \coordinate [label=above:$\pi_{s}(x)$] (pix) at (3,0);
+        \fill (pix) circle [radius=1pt];
+        \coordinate [label=below:$R_{S}(x)$] (rx) at (3,-3);
+        \fill (rx) circle [radius=1pt];
+        \coordinate [label=above:$y$] (y) at (-2,2);
+        \fill (y) circle [radius=1pt];
+        \coordinate [label=above:$\pi_{s}(y)$] (piy) at (-2,0);
+        \fill (piy) circle [radius=1pt];
+        \coordinate [label=below:$R_{S}(y)$] (ry) at (-2,-2);
+        \fill (ry) circle [radius=1pt];
+        \draw [dashed] (x) -- (pix) -- (rx);
+        \draw [dashed] (y) -- (piy) -- (ry);
+        \draw [extended line=2cm] (piy) -- (pix);
+
+        \coordinate [label=above:$p$] (p) at ($ (pix)!.7!(piy) $);  
+        \fill (p) circle [radius=1pt];
+
+        \draw [dashed] (x) -- (p);
+        \draw [dashed] (y) -- (p);
+
+      \end{tikzpicture}
+      \caption{Een illustratie}
+    \end{figure}
+    We zullen bewijzen dat een spiegeling afstanden behoudt, daaruit volgt dan de stelling.\stref{st:afstand-bewaard-dan-isometrie}
+    \begin{itemize}
+    \item 
+      Zij $S$ een affiene deelruimte van $\mathbb{E}^{n}$ en $R_{S}$ de spiegeling in $S$.
+      Zij $T_{x}=x+W$ de affiene deelruimte van $\mathbb{E}^{n}$ die loodrecht staat op $S$ en door $x$ gaat.
+      Zij bovendien $\{u_{1},\dotsc,u_{k}\}$ een orthonormale basis van $W$.
+    \item Kies twee willekeurige punten $x$ en $y$ uit $\mathbb{E}^{n}$ waarvoor we de afstand zullen bekijken.
+      Kies ook een willekeurig punt $p$ van $S$.
+      $pi_{S}(x)$ kan nu als volgt geschreven worden:
+      \[ \pi_{S}(x) = x + \sum_{i=1}^{k}((p-x)\cdot u_{i})u_{i} \]
+      Merk op dat hetzelfde kan gezegd worden over $y$ (met hetzelfde punt $p$).
+    \item 
+      Bekijk nu $R_{S}(y) - R_{S}(y)$.
+      \[
+      \begin{array}{rll}
+        R_{S}(x) - R_{S}(y) &= (x + 2\overrightarrow{x\pi_{S}(x)}) - (y + 2\overrightarrow{y\pi_{S}(y)}) &\\
+                           &= (x + 2(\pi_{S}(x) - x)) - (y + 2(\pi_{S}(y) - y)) &\\
+                           &= (-x + 2\pi_{S}(x)) - (-y + 2\pi_{S}(y)) &\\
+                           &= (-x + 2(x + \sum_{i=1}^{k}((p-x)\cdot u_{i})u_{i})) - (-y + 2(y + \sum_{i=1}^{k}((p-y)\cdot u_{i})u_{i})) &\\
+                           &= (x + 2\sum_{i=1}^{k}((p-x)\cdot u_{i})u_{i}) - (y + 2\sum_{i=1}^{k}((p-y)\cdot u_{i})u_{i}) &\\
+                           &= (x-y) + 2\left(\sum_{i=1}^{k}((p-x)\cdot u_{i})u_{i} -  \sum_{i=1}^{k}((p-y)\cdot u_{i})u_{i}\right) &\\
+                           &= (x-y) + 2\left(\sum_{i=1}^{k}\left(((p-x)\cdot u_{i})u_{i} - ((p-y)\cdot u_{i})u_{i}\right)\right) &\\
+                           &= (x-y) + 2\left(\sum_{i=1}^{k}\left((((p-x)\cdot u_{i})- ((p-y)\cdot u_{i}))u_{i}\right)\right) &\\
+                           &= (x-y) + 2\left(\sum_{i=1}^{k}(((p-x)-(p-y))\cdot u_{i} )u_{i}\right) &\\
+                           &= (x-y) + 2\left(\sum_{i=1}^{k}((y-x)\cdot u_{i} )u_{i}\right) &\\
+                           &= (x-y) - 2\left(\sum_{i=1}^{k}((x-y)\cdot u_{i} )u_{i}\right) &\\
+      \end{array}
+      \]
+    \item We kunnen nu de afstand tussen $x$ en $y$ na spiegeling, vergelijken met de afstand tussen $x$ en $y$.
+      We gebruiken het kwadraat omdat dat makkelijker rekent (en toch monotoon is voor afstanden).
+      \[
+      \begin{array}{rll}
+        d(R_{S}(x),R_{S}(y))^{2} &= \left\| R_{S}(x) - R_{S}(y)\right\|^{2} & \\
+                            &= (R_{S}(x) - R_{S}(y))^{2} &\\
+                            &= \left((x-y) - 2\left(\sum_{i=1}^{k}((x-y)\cdot u_{i} )u_{i}\right)\right)^{2} &\\
+                            &= (x-y)^{2} -4(x-y)\left(\sum_{i=1}^{k}((x-y)\cdot u_{i} )u_{i}\right) + 4\left(\sum_{i=1}^{k}((x-y)\cdot u_{i} )u_{i}\right)^{2} &\\
+                            &= (x-y)^{2} -4(x-y)\left(\sum_{i=1}^{k}u_{i}((x-y)\cdot u_{i} )\right) + 4\left(\sum_{i=1}^{k}((x-y)\cdot u_{i} )u_{i}\right)^{2} &\\
+                            &= (x-y)^{2} -4\left(\sum_{i=1}^{k}((x-y) \cdot u_{i})\cdot((x-y)\cdot u_{i} )\right) + 4\left(\sum_{i=1}^{k}((x-y)\cdot u_{i} )u_{i}\right)^{2} &\\
+                            &= (x-y)^{2} -4\left(\sum_{i=1}^{k}((x-y)\cdot u_{i} )^{2}\right) + 4\left(\sum_{i=1}^{k}((x-y)\cdot u_{i} )^{2}\right) &\\
+                            &= (x-y)^{2}\\
+                            &= d(x,y)^{2}
+      \end{array}
+      \]
+      Merk op dat de voorlaatste gelijkheid enkel geld omdat de $u_{i}$ een orthonormale basis is.
+      Elke $u_{i}\cdot u_{j}$ is dus $\delta_{ij}$.
+      
+    \end{itemize}
+  \end{proof}
+\end{st}
+
+\begin{st}
+  Voor elke spiegeling $R_{S}$ geldt $R_{S} \circ R_{S} = Id$.
+\extra{bewijs}
+\end{st}
+
+\begin{st}
+  Voor elke spiegeling $R_{S}$ geldt $\forall s \in S:\ R_{S}(x) = x$.
+\extra{bewijs}
+\end{st}
+
+\begin{lem}
+  Zij $S=p+V$ een affiene deelruimte van $\mathbb{E}^{n}$ en $W$ het orthogonaal complement van $V$.
+  \[ \forall v\in V:\ (R_{S})_{*}(v) = v \]
+\extra{bewijs}
+\end{lem}
+
+\begin{lem}
+  Zij $S=p+V$ een affiene deelruimte van $\mathbb{E}^{n}$ en $W$ het orthogonaal complement van $V$.
+  \[ \forall w\in W:\ (R_{S})_{*}(w) = w \]
+\TODO{bewijs p 96}
+\end{lem}
+
+\begin{de} 
+  \examen
+  Een \term{schuifspiegeling} is de samenstelling van een spiegeling in een as $S$ en een translatie in de richting van een vector parallel met $S$.
+\end{de}
+
+\section{Structuur van isometrie\"en}
+\label{sec:struct-van-isom}
+
+\begin{de}
+  Zij $F$ een isometrie van $\mathbb{E}^{n}$, dan noemen we $x$ een \term{vast punt} van $F$ als $F(x)=x$ geldt.
+\end{de}
+
+\begin{de}
+  De verzameling vaste punten van een isometrie $F$ noteren we als $V(F)$.
+  \[ V(F) = \{ x \in \mathbb{E}^{n} \ |\ F(x) = x \} \]
+\end{de}
+
+\begin{ei}
+  \examen
+  Zij $F$ een orientatiebewarende isometrie van $\mathbb{E}^{n}$, dan heeft $V(F)$ dimensie $n\mod 2$.
+  \extra{bewijs}
+\end{ei}
+
+\begin{st}
+  Als $F$ een isometrie van $\mathbb{E}^{n}$ is en $V(F)$ niet leeg, dan is $V(F)$ een affiene deelruimte in de richting van $Ker(F_{*}-\mathbb{I}_{n})$.
+
+  \begin{proof}
+    Zij $F=t_{b} \circ A$ en beschouw dan wat er gebeurt met een vast punt van $F$:
+    \[ x\in V(F) \Leftrightarrow F(x) = x \Leftrightarrow Ax+b=x \Leftrightarrow (A-I)x+b = 0 \]
+    De verzameling van vaste punten wordt dus gegeven door de oplossingen van het lineaire stelsel $(A-I)x+b=0$.
+    Als $V(F)$ niet leeg is, dan moet dit stelsel oplosbaar zijn, en dan is de oplossingsverzameling een affiene deelruimte met richting $ker(A-I)$.
+  \end{proof}
+\end{st}
+
+\begin{st}
+  Zij $F$ een isometrie van $\mathbb{E}^{n}$.
+  Dan bestaan er juist \'e\'en isometrie $G$ en juist \'e\'en translatie $t_{b}$ van $\mathbb{E}^{n}$ als volgt:
+  \begin{itemize}
+  \item $F = t_{b} \circ G$ (dus $G_{*} = F_{*}$)
+  \item $V(G) \neq \emptyset$
+  \item $G_{*}b = b$ ($b$ ligt in de richting van $V(G)$.)
+  \item $t_{b}\circ G = G \circ t_{b}$
+  \end{itemize}
+
+  \begin{proof}
+    \begin{itemize}
+    \item 
+    Zij $A$ de matrix van $F_{*}$, merk dan eerst op dat de kern van $(A-I)$ loodrecht staat op het beeld van $(A-I)$.
+    \[ ker(A-I) \bot im(A-I) \]
+    \[
+    \begin{array}{rll}
+      \forall x\in ker(A-I), y \in im(A-I):\ & Ax = x \text{ en } y = Az-z:\ &\\
+      x\cdot y &= x \cdot (Az - z)\\
+      &= x \cdot Az - x\cdot z\\
+      &= Ax \cdot Az - x\cdot z\\
+      &= x \cdot z - x \cdot z &= 0
+    \end{array}
+    \]
+    In het bijzonder zit dus enkel de nulvector in de doorsnede van
+    $ker(A-I)$ en $Im(A-I)$.
+    \[ dim(ker(A-I)) + dim(im(A-I)) = n \]
+    \[ dim(ker(A-I) + im(A-I)) = n \]
+    \[ \mathbb{R}^{n} = ker(A-I) \oplus im(A-I)\]
+  \item Kies nu een willekeurige $p\in \mathbb{E}^{n}$.
+    We kunnen de vector $\overrightarrow{pF(p)}$ dan ontbinden als $x+y$ met $x\in ker(A-I)$ en $y\in im(A-I)$.
+    Er bestaat dus een vector $z$ als volgt:
+    \[ y = Az-z\]
+    Zij $q$ nu $p-z$ en beschouw $\overrightarrow{qF(q)}$:
+    \[
+    \begin{array}{rll}
+      \overrightarrow{qFq} &= \overrightarrow{qp} + \overrightarrow{pF(p)} + \overrightarrow{F(p)F(q)} &\\
+                           &= z + x + y + A(\overrightarrow{pq}) &\\
+                           &= z + x + (Az - z) + A(-z) &\\
+                           &= z + x + Az - z -Az &= x
+    \end{array}
+    \]
+  \item Definieren we nu $G = t_{-x} \circ F$ voor een bepaalde $x$, dan is $G$ een isometrie \waarom en is $q$ er een vast punt van.
+    Kiezen we voor $b$ $x$, dan geldt $F=t_{b} \circ G$.
+    Hieruit volgt ook dat $b$ invariant is onder $G_{*}$.
+    \[ G_{*}b = F_{*}b = Ab = b \]
+
+  \item Stel dat $G$ translatiedeel $c$ heeft, dan geldt voor elke $r\in \mathbb{E}^{n}$ het volgende:
+    \[ (t_{b}\circ G)(r) = G(r) + b = Ar + c + b = A(r+b)+c = G(r+b) = (G\circ b)(r) \]
+
+  \item De ontbinding is uniek.
+\TODO{bewijs afmaken}
+  \end{itemize}
+
+  \end{proof}
+\TODO{opnieuw bekijken, heel belangrijk!}
+\end{st}
+
+\begin{st}
+  Elke isometrie $F\in Iso(2,\mathbb{R}$ van het Euclidisch vlak is een translatie, een rotatie of een schuifspiegeling met als as een rechte.
+
+  \begin{proof}
+    We ontbinden $F$ in $t_{b}$ en $G$ waarbij $V(G) \neq \emptyset$ en $G_{*}b = b$ gelden.
+    \[F = t_{b} \circ G\]
+    Noem de matrix van $F_{*}$ $A$.
+    We onderschijden nu twee gevallen:
+    \begin{itemize}
+    \item $F$ is orientatiebewarend: $\det(A) = 1$.
+      \begin{itemize}
+      \item $A$ is de eenheidsmatrix: $F$ is een translatie.
+      \item $A$ is niet de eenheidsmatrix: $F$ is een rotatie:\\
+        De kern van $A-I$ is dan enkel de nulvector, dus $b$ is de nulvector (want $b$ ligt in de richting van $V(G)$).
+        $F$ is dan gelijk aan $G$ en daarom is ook $V(G) = V(F)$ \'e\'en enkel punt.
+      \end{itemize}
+    \item $F$ is orientatieomkerend: $\det(A) = -1$.
+      $F$ is een schuifspiegeling.
+      Merk, om dit in te zien, eerst op dat zowel $1$ als $-1$ eigenwaarden zijn van $A$ ($A$ is immers orthogonaal):
+      \[ det(A-I) = det(A-A^{T}A) = det(A)det(I-A^{T}) = -det(I-A) = -det(A-I) \Rightarrow det(A-I) = 0 \]
+      \[ det(A+I) = det(A+A^{T}A) = det(A)det(I+A^{T}) = -det(I+A) \Rightarrow det(A+I) = 0 \]
+      De eigenvectoren bij de eigenwaarden $1$ en $-1$ staan nu loodrecht op elkaar.
+      In het bijzonder is de kern van $A-I$ een eendimensionale deelruimte.
+      $V(G)$ is dan een rechte $L=x_{0}+<x>$.
+
+      Kies nu een willekeurige $x$ uit $\mathbb{E}^{2}$, dan staat $\overrightarrow{\pi_{L}(x)x}$ loodrecht op $v$.
+      Het is dus een eigenvector van $A$ met eigenwaarde $-1$.
+      Bijgevolg is $G$ de spiegeling in $L$:
+      \[ G(x) = \pi_{L}(x) + G_{*}(\overrightarrow{\pi_{L}(x)x}) = \pi_{L}(x) - \overrightarrow{\pi_{L}(x)x} = -x + 2\pi_{L}(x) = x + 2\overrightarrow{x\pi_{L}(x)} = R_{L}(x) \]
+      Omdat $b$ in de richting van $L$ wijst, is $F$ dus de samenstelling van een spiegeling in een as en een translatie in de richting van die as.
+    \end{itemize}
+  \end{proof}
+\end{st}
+
+\begin{gev}
+  \examen
+  Een isometrie is een schuifspiegeling als en slechts als ze rotatieomkerend is.
+\end{gev}
+
+\begin{de}
+  \term
+  De samenstelling van een ratatie rond een as $L$ met een translatie in de richting van $L$ een \term{schroefbeweging}.
+\end{de}
+
+\begin{de}
+  De samenstelling van een rotatie rond een as $L$ en een spiegelijk in een vlak $H$, loodrecht op $L$ een \term{draaispiegeling}.
+\end{de}
+
+\begin{st}
+  \examen
+  Elke isometrie $F\in Iso(3,\mathbb{R})$ van de driedimensionale Euclidische ruimte is een translatie, een schroefbeweging, een schuifspiegeling tegenover een vlak of een draaispiegeling.
+  \begin{proof}
+    We ontbinden $F$ in $t_{b}$ en $G$ waarbij $V(G) \neq \emptyset$ en $G_{*}b = b$ gelden.
+    \[F = t_{b} \circ G\]
+    Noem de matrix van $F_{*}$ $A$.
+    We onderschijden nu twee gevallen:
+    \begin{itemize}
+    \item $F$ is orientatiebewarend: $\det(A) = 1$.
+      \begin{itemize}
+      \item $A$ is de eenheidsmatrix: $F$ is een translatie.
+      \item $A$ is niet de eenheidsmatrix: $F$ is een schroefbeweging
+        $V(G)$ is dan immers een rechte $L$.
+        \[ \forall x \in \mathbb{E}^{3}:\ G(x) = x_{0} + A(\overrightarrow{x_{0}x}) \]
+        $G$ is dus een rotatie en $F$ een samenstelling van $G$ en $t_{b}$.
+      \end{itemize}
+
+    \item $F$ is orientatieomkerend: $\det(A) = -1$.
+      $-1$ is opnieuw een eigenwaarde van $A$:
+      \[ det(A+I) = det(A+A^{T}A) = det(A)det(I+A^{T}) = -det(I+A) \]
+      Zij $v$ een eigenvector bij $-1$ en zij $W=<v>^{\bot}$, dan is $W$ een tweedimensionale invariante deelruimte van $A$.
+      \begin{itemize}
+      \item $1$ is een eigenwaarde van $A$: $F$ is een schuifspiegelijng:\\
+        Elke eigenvector bij eigenwaarde $1$ staat loodrecht op $v$ en behoort dus tot $W$.
+        Als ook $1$ een eigenwaarde is van $A$ met eigenwaarde $w$, dan is $<v,w>$ een invariante deelruimte van $A$ en bijgevolg is een vector loodrecht hierop automatisch een eigenvector van $A$.
+        Omdat de determinant van $A$ $-1$ is moet de bijhorende eigenwaarde $1$ zijn.
+        Bijgevolg is de dimensie van de kern van $A-I$ $2$ en dus is $W$ die kern.
+        $V(G)$ is dan een vlak $H=x_{0}+W$.
+        $G$ is dan een spiegeling in $H$ en dus is $F$ een schuifspiegeling.
+      \item $1$ is geen eigenwaarde van $A$: $F$ is een draaispiegeling:\\
+        Als $1$ geen eigenwaarde is van $A$ dan heeft de kern van $A-I$ dimensie $0$.
+        $F$ is dan gelijk aan $G$ en $G$ heeft priecies \'e\'en vast punt $x_{0}$.
+        Definieer $H=x_{0}+W$ en definieer een isometrie $K$ van $\mathbb{E}^{3}$ als volgt:
+        \[ K = R_{H} \circ G \]
+        $K$ is dan orientatiebewarend \needed en $x_{0}$ is ook een vast punt van $K$.
+        Bovendien geldt het volgende::
+        \[ K_{*}v = (R_{H})_{*}Av  -(R_{H})_{*}v = v \]
+        Omdat $v$ loodrecht staat op $W$, de riching van $H$.
+        $K$ is dan een rotatie rond de as $x_{0}+<v>$.
+        $F$ isdus de samenstelling van een rotatie en een spiegeling.
+      \end{itemize}
+    \end{itemize}
+  \end{proof}
+\end{st}
+
+\question{waarom spreken we niet over schuifspiegelingingen tegenover deelruimtes van $0$, $1$ of drie dimensies? examen!}
+
+\begin{st}
+  \examen
+  Elke translatie van $\mathbb{E}^{n}$ kan geschreven worden als de samenstelling van twee spiegelingen tegenover parallelle hypervlakken van $\mathbb{E}^{n}$.
+\extra{bewijs}
+\end{st}
+
+
+
+
+
+
+
+\end{document}

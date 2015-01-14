@@ -1,0 +1,138 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+
+\chapter{Oppervlakken in $\mathbb{E}^{3}$}
+\label{cha:oppervl-e3}
+
+\section{Reguliere parametrisaties en patches}
+\label{sec:regul-param-en}
+
+\begin{de}
+  Een afbeelding $x: U \subseteq \mathbb{R}^{2} \rightarrow \mathbb{E}^{3}:\ (u,v) \mapsto (x_{1}(u,v), x_{2}(u,v), x_{3}(u,v))$ ven een open deel van $\mathbb{R}^{2}$ naar $\mathbb{E}^{3}$ die oneindig vaak differentieerbaar is, wordt \term{regulier} genoemd als het volgende geldt:
+  \[
+  \forall u,v \in U:\ 
+  rang
+  \begin{pmatrix}
+    \frac{\partial x_{1}}{\partial u}(u,v) & \frac{\partial x_{2}}{\partial u}(u,v) & \frac{\partial x_{3}}{\partial u}(u,v)\\
+    \frac{\partial x_{1}}{\partial v}(u,v) & \frac{\partial x_{2}}{\partial v}(u,v) & \frac{\partial x_{3}}{\partial v}(u,v)
+  \end{pmatrix}
+  = 2
+  \]
+  De $x$ noemen we een \term{reguliere parametrisatie}.
+\end{de}
+
+\begin{de}
+  Een \term{patch} is een injectieve reguliere parametrisatie.
+\end{de}
+
+\extra{voorbeelden}
+\section{Omwentelingsoppervlakken en regeloppervlakken}
+\label{sec:omwent-en-regel}
+
+\extra{voorbeelden}
+\section{Vectorvelden en de shape-operator}
+\label{sec:vectorvelden-en-de}
+
+\begin{de}
+   Zij $x: U \subseteq \mathbb{R}^{2} \rightarrow \mathbb{E}^{3}:\ (u,v) \mapsto x(u,v)$ een patch.
+   Een \term{vectorveld} langs $x$ is een afbeelding $Y$ als volgt:
+   \[ Y: U \rightarrow T\mathbb{E}^{3}:\ (u,v) \mapsto Y(u,v) \in T_{x(u,v)}\mathbb{E}^{3} \]
+\end{de}
+
+\begin{de}
+  Een vectorveld $Y$ is \term{rakend} als het volgende geldt:
+  \[ \forall (u,v) \in U:\ Y(u,v) \in T_{x(u,v)}x(U) \]
+\end{de}
+
+\begin{de}
+  Een vectorveld $Y$ is \term{normaal} als het volgende geldt:
+  \[ \forall (u,v) \in U:\ Y(u,v) \in T_{x(u,v)}^{\bot}x(U) \]
+\end{de}
+
+\begin{de}
+  Het \term{eenheidsnormaal vectorveld} geassocieerd aan een patch $x$ definieri\"eren we als $\xi$:
+  \[ \xi:\ U \rightarrow T\mathbb{E}^{3}:\ (u,v) \mapsto \xi(u,v) = \frac{x_{u}(u,v) \times x_{v}(u,v)}{\Vert x_{u}(u,v) \times x_{v}(u,v) \Vert} \in T_{x(u,v)}^{\bot}x(U) \]
+\end{de}
+
+\begin{de}
+  Zij $x: U \subseteq \mathbb{R}^{2} \rightarrow \mathbb{E}^{3}:\ (u,v) \mapsto x(u,v)$ een patch, $\xi$ het eenheidsnormaal vectorveld geassocieerd aan $x$ en $p=x(u_{0},v_{0})$ een punt van $x(U)$.
+  We defini\"eren de \term{shape-operator} in $p$ als de lineaire afbeelding $S_{p}$:
+  \[
+  S_{p}:\ T_{p}x(U) \rightarrow T_{p}x(U):\ 
+  \left\{
+    \begin{array}{rl}
+      S_{p}(x_{u}(u_{0},v_{0})) &= -\xi_{u}(u_{0},v_{0})\\
+      S_{p}(x_{v}(u_{0},v_{0})) &= -\xi_{v}(u_{0},v_{0})\\
+    \end{array}
+  \right.
+  \]
+\end{de}
+
+\begin{lem}
+  De shape-operator is symmetrisch.
+\TODO{bewijs p 196}
+\end{lem}
+
+\begin{de}
+  De orthonormale basis $\{e_{1},e_{2}\}$ die we bekomen door de shape-operator te diagonaliseren noemen we de \term{hoofdrichtingen} in $p$.
+  \[ Se_{1}=k_{1}e_{1} \text{ en } Se_{2}= k_{2}e_{2} \]
+  De $k_{i}$ noemen we de \term{hoofdkrommingen} in $p$.
+\end{de}
+
+\begin{de}
+  Zij  $x: U \subseteq \mathbb{R}^{2} \rightarrow \mathbb{E}^{3}:\ (u,v) \mapsto x(u,v)$ een patch, $p$ een punt van $x(U)$ en $S$ de shape-operator in $p$.
+  Voor een eenheidsvector $w\in T_{p}x(U)$ defini\"eren we de \term{normale kromming} van $x(U)$ in $p$ in de richting van $w$ als $k(w)$:
+  \[ k(w) = Sw \cdot w \]
+\end{de}
+
+\begin{lem}
+  De normale krommingen van $x(U)$ in $p$ zijn volledig bepaal door de hoofdkrommingen.
+  \TODO{meer uitwerken en bewijs p 197}
+\end{lem}
+
+\section{Meetkundige interpretiatie van de normale kromming}
+\label{sec:meetk-interpr-van}
+
+\begin{de}
+  Zij $x: U \subseteq \mathbb{R}^{2} \rightarrow \mathbb{E}^{3}:\ (u,v) \mapsto x(u,v)$ een patch, $p$ een punt van $x(U)$ en $w$ een eenheidsvector uit $T_{p}x(U)$.
+  Defini\"eer het vlak $\pi$, door $p$ met richting opgespannen door $w$ en de eenheidsnormaal $\xi(u_{0},v_{0})$ in $p$:
+  \[ \pi = p + span\{ w, \xi(u_{0},v_{0})\} \]
+  We noemen $\pi$ een \term{normaal vlak} op $x(U)$ in $p$.
+\end{de}
+
+\begin{de}
+  De doorsnede van $\pi$ en $x(U)$ noemen we de \term{normale doorsnede} geassocieerd aan $w$.
+\end{de}
+
+\begin{lem}
+  Zij $x: U \subseteq \mathbb{R}^{2} \rightarrow \mathbb{E}^{3}:\ (u,v) \mapsto x(u,v)$ een patch, $\alpha:\ I \subseteq \mathbb{R} \rightarrow \mathbb{E}^{3}$ een kromme waarvan het beeld volledig in $x(U)$ ligt.
+  Er bestaan dan differentieerbare functie $a,b: I \rightarrow \mathbb{R}$ als volgt:
+  \[ \forall t\in I:\ \alpha(t) = x(a(t),b(t))\]
+\TODO{bewijs p 199}
+\end{lem}
+
+\begin{st}
+  Zij $x: U \subseteq \mathbb{R}^{2} \rightarrow \mathbb{E}^{3}$ een patch, $p(u_{0},v_{0})\in x(U)$ een punt en $\xi(u_{0},v_{0})$ de eenheidsnormaal geassocieerd aan $x$ in $p$
+  Zij verder $w\in T_{p}x(U)$ een eenheidsvvector en $\pi$ een vlak als volgt:
+  \[ \pi = p + span\{ w, \xi(u_{0},v_{0})\} \]
+  Noem $\kappa$ de kromming van de normale doorsnede $x\cap x(U)$ in het punt $p$ en $k(w)$ de normale kromming van $w$.
+  \[ k(w) = \epsilon \kappa \]
+  Met $\epsilon = \pm 1$
+  $\epsilon$ is $1$ als de normale doorsnede in $p$ naar $\xi(u_{0},v_{0})$ toe draait en $-1$ als de normale doornede in $p$ van $\xi(u_{0},v_{0})$ weg draait.
+\TODO{bewijs p 201}
+\end{st}
+
+\section{Gausskromming en gemiddelde kromming}
+\label{sec:gausskr-en-gemidd}
+
+\begin{de}
+  Zij $x: U \subseteq \mathbb{R}^{2} \rightarrow \mathbb{E}^{3}$ een patch, $p$ een punt van $x(U)$ en $k_{1}$ en $k_{2}$ de hoofdkrommingen van $x(U)$ in $p$.
+  De \term{Gausskromming} van $x(U)$ in $p$ defini\"eren we als $K(p)$...
+  \[ K(p) = k_{1}k_{2} \]
+  ... en de \term{gemiddelde kromming} als $H(p)$.
+  \[ H(p) = \frac{k_{1}+k_{2}}{2} \]
+\end{de}
+
+
+
+\end{document}

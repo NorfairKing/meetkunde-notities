@@ -1,15 +1,15 @@
+.PHONY: assets
+
 OUTPUT_NAME = meetkunde-notities
 MAIN_NAME = main
 
-LATEX = latexmk -pdf
+LATEX = ./makepdf.sh
 
-all: assets full_text
+all: text
 
-assets: 
-	echo placeholder
 
-full_text: $(OUTPUT_NAME).pdf
+text: $(OUTPUT_NAME).pdf
 
 $(OUTPUT_NAME).pdf:
-	$(LATEX) $(MAIN_NAME).tex -jobname="$(OUTPUT_NAME)"
-
+	$(LATEX) $(MAIN_NAME).tex
+	cp $(MAIN_NAME).pdf $(OUTPUT_NAME).pdf
